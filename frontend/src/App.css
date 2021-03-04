@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
-
+body{
+  font-family: 'Poppins', sans-serif;
+}
 /* body css */
 .content {  
   display: grid;
@@ -8,14 +10,14 @@
   grid-template-areas: "a b" ;
   padding-top: 150px;
 
-  margin-left: 10%;
+  margin-left: 5%;
   margin-right: 10%;
+  height: 497px;
 }.content img {
   grid-area: a;
   border-radius: 20px;
   box-shadow: 4px 10px 16px rgba(0, 0, 0, 0.212);
 }
 p{ grid-area: b;
-overflow: scroll;
-height: 500px;
+
 }

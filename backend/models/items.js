@@ -53,6 +53,6 @@ const itemsSchema = new Schema({
         require: true
     }
 })
-const Items = mongoose.model("item",itemsSchema);
+const Items = mongoose.model("item", itemsSchema);
 
-module.exports =Items;
+module.exports = Items;

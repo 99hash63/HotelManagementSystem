@@ -32,6 +32,9 @@ app.use("/inventory",itemsRouter);
 const categoryRouter = require("./routes/category");
 app.use("/category",categoryRouter);
 
+const supplierRouter = require("./routes/supplier");
+app.use("/supplier",supplierRouter);
+
 
 
 
