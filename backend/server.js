@@ -29,6 +29,9 @@ connection.once("open", ()=>{
 const itemsRouter = require("./routes/items");
 app.use("/inventory",itemsRouter);
 
+const categoryRouter = require("./routes/category");
+app.use("/category",categoryRouter);
+
 
 
 
