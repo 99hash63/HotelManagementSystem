@@ -1,0 +1,118 @@
+.display-box hr {
+    border-bottom: 1px solid rgba(216, 216, 216, 0.698);
+}
+
+.header-box {
+    font-size: 35px;
+    color: rgb(75, 75, 75);
+    font-weight: 700;
+    margin-bottom: 20px;
+    margin-left: 25px;
+}
+
+.content-box form {
+    display: flex;
+    justify-content: center;
+    /* height: 550px; */
+    margin-top: 20px;
+    /* background: rgb(221, 100, 79); */
+    /* overflow-y: auto; */
+}
+
+.content-box form::-webkit-scrollbar {
+    display: none;
+}
+
+.custom-field {
+    position: relative;
+    font-size: 14px;
+    padding-top: 10px;
+}
+
+.custom-field input, .custom-field select, .custom-field textarea {
+    border: 1px solid rgba(0, 0, 0, 0.329);
+    /* background: #f2f2f2; */
+    padding: 12px;
+    margin: 12px;
+    border-radius: 9px;
+    /* width: 250px; */
+    outline: none;
+    font-size: 14px;
+    transition: 0.3s ease;
+}
+
+.custom-field select {
+    width: 200px;
+}
+
+.custom-field .placeholder {
+    position: absolute;
+    left: 22px;
+    padding-left: 3px;
+    padding-right: 3px;
+    background-color: white;
+    transform: translateY(-0%);
+    color: rgb(54, 54, 54);
+    transition: color 0.3s ease;
+}
+
+input:focus+.placeholder, select:focus+.placeholder, textarea:focus+.placeholder {
+    color: rgb(0, 0, 0);
+}
+
+input:focus, select:focus, textarea:focus {
+    border: 1px solid rgb(0, 0, 0);
+    outline: none;
+}
+
+#name, #model, #sku, #description, #supplier {
+    width: 300px;
+}
+
+#description {
+    max-width: 300px;
+    max-height: 150px;
+}
+
+#unit {
+    width: 100px;
+}
+
+#oprice, #sprice, #profit {
+    width: 100px;
+}
+
+#quantity, #restock {
+    width: 162px;
+}
+
+.addinventory-btn {
+    margin-top: 80px;
+    /* margin-right: 40px; */
+    float: right;
+    width: 90%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    color: #000;
+    text-transform: uppercase;
+    font-weight: 600;
+    /* margin-left: 30px;
+    margin-bottom: 30px; */
+    /* cursor: pointer; */
+    display: inline-block;
+    background-color: transparent;
+    border: 1px solid #5d5d5d;
+    border-radius: 50px;
+    -webkit-transition: all .15s ease-in-out;
+    transition: all .15s ease-in-out;
+    color: #575757;
+    outline: none;
+}
+
+.addinventory-btn:hover {
+    /* box-shadow: 0 0 3px 0 #eedf0f inset, 0 0 5px 2px #eedf0f; */
+    background-color: #F7CE68;
+    color: rgb(63, 63, 63);
+    border: 1px solid #F7CE68;
+}
