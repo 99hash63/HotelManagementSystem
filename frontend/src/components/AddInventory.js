@@ -7,7 +7,7 @@ export default function AddInventory() {
         <div className="display-box">
 
             <div className="header-box"> Add Inventory </div>
-            <hr />
+            {/* <hr /> */}
             <div className="content-box">
                 <form action="">
 

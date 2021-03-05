@@ -123,13 +123,14 @@ nav ul {
     transition: 0.3s;
     font-size: 14px;
     margin-right: 0px;
-    padding: 7px;
+    padding: 10px;
 }
 
 .book {
     /* background-color: rgb(243, 213, 42, 0.9);
     border: 1px solid rgba(236, 206, 34, 0.733); */
     background-color: #F7CE68;
+    text-transform: uppercase;
     margin-left: 15px;
     border-radius: 25px;
     color: #8a8484;
@@ -137,7 +138,7 @@ nav ul {
 
 .book:hover {
     color: rgb(0, 0, 0);
-    background-color: rgb(251, 171, 126);
+    background-color: #fac94e;
 }
 
 .b:hover {

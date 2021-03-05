@@ -5,7 +5,7 @@ export default function Footer() {
 
 
     return (
-        <footer style={{ backgroundColor: 'rgb(15, 15, 15)', color: 'aliceblue', marginTop: "168px" }}>
+        <footer style={{ backgroundColor: 'rgb(15, 15, 15)', color: 'aliceblue', marginTop: "165px" }}>
             <div className="head footerhead">
                 <div className="up_head" style={{ color: 'rgb(173, 173, 173)' }}>
                     <div className="social">

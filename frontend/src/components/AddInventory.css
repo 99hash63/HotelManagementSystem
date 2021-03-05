@@ -7,12 +7,15 @@
     color: rgb(75, 75, 75);
     font-weight: 700;
     margin-bottom: 20px;
-    margin-left: 25px;
+    margin-left: 45px;
 }
-
+.content-box{
+    border: 1px solid rgba(194, 194, 194, 0.198);
+    border-radius: 12px;
+}
 .content-box form {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     /* height: 550px; */
     margin-top: 20px;
     /* background: rgb(221, 100, 79); */
@@ -25,7 +28,7 @@
 
 .custom-field {
     position: relative;
-    font-size: 14px;
+    font-size: 13px;
     padding-top: 10px;
 }
 
@@ -34,11 +37,13 @@
     /* background: #f2f2f2; */
     padding: 12px;
     margin: 12px;
-    border-radius: 9px;
+    margin-top: 25px;
+    border-radius: 12px;
     /* width: 250px; */
     outline: none;
     font-size: 14px;
     transition: 0.3s ease;
+    font-weight: 400;
 }
 
 .custom-field select {
@@ -46,23 +51,28 @@
 }
 
 .custom-field .placeholder {
+   
+    font-weight:400;
     position: absolute;
     left: 22px;
-    padding-left: 3px;
+    padding-left: 2px;
     padding-right: 3px;
     background-color: white;
-    transform: translateY(-0%);
-    color: rgb(54, 54, 54);
+    transform: translateY(70%);
+    color: rgb(27, 27, 27);
     transition: color 0.3s ease;
 }
 
 input:focus+.placeholder, select:focus+.placeholder, textarea:focus+.placeholder {
     color: rgb(0, 0, 0);
+    font-weight:400;
+   
 }
 
 input:focus, select:focus, textarea:focus {
-    border: 1px solid rgb(0, 0, 0);
+    /* border: 1px solid rgb(0, 0, 0); */
     outline: none;
+    box-shadow: 0px 0px 10px rgba(65, 65, 65, 0.185);
 }
 
 #name, #model, #sku, #description, #supplier {
@@ -72,6 +82,8 @@ input:focus, select:focus, textarea:focus {
 #description {
     max-width: 300px;
     max-height: 150px;
+    min-width: 300px;
+    min-height: 150px;
 }
 
 #unit {
@@ -85,12 +97,11 @@ input:focus, select:focus, textarea:focus {
 #quantity, #restock {
     width: 162px;
 }
-
 .addinventory-btn {
-    margin-top: 80px;
+    margin-top: 70px;
     /* margin-right: 40px; */
     float: right;
-    width: 90%;
+    width: 100%;
     padding-top: 10px;
     padding-bottom: 10px;
     text-align: center;
