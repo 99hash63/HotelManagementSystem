@@ -6,8 +6,8 @@ export default function Sidenav() {
      
             <div className="sidenav">
 
-                <a href="/">Inventory</a> 
-                <a href="/">Add Inventory</a>
+                <a href="/inventory">Inventory</a> 
+                <a href="/addinventory">Add Inventory</a>
                 <a href="/">Re-Stock Now</a>
                 <a href="/">Suppliers</a>
                 <a href="/">Invoice</a>

@@ -1,7 +1,70 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './AddInventory.css'
+import axios from 'axios'
 
 export default function AddInventory() {
+
+
+
+    const [name, setname] = useState("");
+    const [model, setmodel] = useState("");
+    const [sku, setsku] = useState("");
+    const [category, setcategory] = useState("");
+    const [supplier, setsupplier] = useState("");
+    const [description, setdescription] = useState("");
+    const [mesurement, setunit] = useState("");
+    const [quantity, setquantity] = useState("");
+    const [restock_level, setrestock] = useState("");
+    const [original_price, setoprice] = useState("");
+    const [selling_price, setsprice] = useState("");
+    const [profit, setprofit] = useState("");
+    const [date, setdate] = useState("");
+
+    const [getCategory, setgetCategory] = useState([]);
+    const [getSupplier, setgetSupplier] = useState([]);
+
+
+
+    useEffect(() => {
+
+
+        axios.get("http://localhost:5000/category/").then((res) => {
+            if (res.data.length > 0) {
+                setgetCategory(res.data.map(category => category.name))
+            }
+        }).catch((e)=>{
+            console.log(e);
+        })
+
+        axios.get("http://localhost:5000/supplier/").then((res) => {
+            if (res.data.length > 0) {
+                setgetSupplier(res.data.map(supplier => supplier.name))
+            }
+        }).catch((e)=>{
+            console.log(e);
+        })
+
+    })
+
+    function sendData(e) {
+        e.preventDefault();
+
+        const newItem = {
+            name, model, sku, category, supplier, description, mesurement, quantity, restock_level, original_price, selling_price, profit, date
+        }
+
+        axios.post(" http://localhost:5000/inventory/add", newItem).then(() => {
+
+
+
+        }).catch((e) => {
+            alert("error");
+        })
+
+    }
+
+
+
 
     return (
         <div className="display-box">
@@ -9,111 +72,147 @@ export default function AddInventory() {
             <div className="header-box"> Add Inventory </div>
             {/* <hr /> */}
             <div className="content-box">
-                <form action="">
+                <form onSubmit={sendData}>
 
                     <div className="form1">
 
                         <label className="custom-field">
-                            <input type="text" className="form-input" id="name" />
+                            <input type="text" className="form-input" id="name" onChange={(e) => {
+                                setname(e.target.value)
+                            }} required />
                             <span className="placeholder">name</span>
                         </label>
                         <br />
 
                         <label className="custom-field">
-                            <input type="text" className="form-input" id="model" />
+                            <input type="text" className="form-input" id="model" onChange={(e) => {
+                                setmodel(e.target.value)
+                            }} />
                             <span className="placeholder">model</span>
                         </label>
                         <br />
 
                         <label className="custom-field">
-                            <input type="text" className="form-input" id="sku" />
+                            <input type="text" className="form-input" id="sku" onChange={(e) => {
+                                setsku(e.target.value)
+                            }} />
                             <span className="placeholder">SKU</span>
                         </label>
 
                         <br />
 
                         <label className="custom-field">
-                            <textarea name="description" id="description" cols="0" rows="10" maxLength="500"></textarea>
+                            <textarea name="description" id="description" cols="0" rows="10" maxLength="500" onChange={(e) => {
+                                setdescription(e.target.value)
+                            }} ></textarea>
                             <span className="placeholder">description</span>
                         </label>
                         <br />
 
                     </div>
-                    <div className="form2"> 
-                    <div className="form2-content">
-                    <label className="custom-field">
-                            <select name="category" id="category">
-                                <option value="category">Furniture</option>
+                    <div className="form2">
+                        <div className="form2-content">
 
-                            </select>
-                            <span className="placeholder">category</span>
-                        </label>
-
-
-                        <label className="custom-field">
-                            <select name="supplier" id="supplier">
-                                <option value="sup">Supplier</option>
-                            </select>
-                            <span className="placeholder">supplier</span>
-                        </label>
-                        <br />
-                        <label className="custom-field">
-                            <select name="unit" id="unit">
-                                <option value="piece">piece</option>
-                                <option value="Kg">Kg</option>
-                                <option value="grams">grams</option>
-                                <option value="liters">liters</option>
-                            </select>
-                            <span className="placeholder">unit</span>
-                        </label>
-
-                        <label className="custom-field">
-                            <input type="number" className="form-input" id="quantity" />
-                            <span className="placeholder">quantity</span>
-                        </label>
-
-
-                        <label className="custom-field">
-                            <input type="number" className="form-input" id="restock" />
-                            <span className="placeholder">restock level</span>
-                        </label>
-                        <br />
-                        <div className="price">
                             <label className="custom-field">
-                                <input type="number" className="form-input" id="oprice" />
-                                <span className="placeholder">original price</span>
+                                <select name="category" id="category" onChange={(e) => {
+                                    setcategory(e.target.value)
+                                }}  >
+                                    {
+                                        getCategory.map(function (category) {
+                                            return <option key={category} value={category}>{category}</option>
+                                        })
+                                    }
+                                </select>
+                                <span className="placeholder">category</span>
                             </label>
 
 
                             <label className="custom-field">
-                                <input type="number" className="form-input" id="sprice" />
-                                <span className="placeholder">selling price</span>
+                                <select name="supplier" id="supplier" onChange={(e) => {
+                                    setsupplier(e.target.value)
+                                }} >
+                                    {
+                                        getSupplier.map(function (supplier) {
+                                            return <option key={supplier} value={supplier}>{supplier}</option>
+                                        })
+                                    }
+
+                                </select>
+                                <span className="placeholder">supplier</span>
+                            </label>
+
+                            <br />
+                            <label className="custom-field">
+                                <select name="unit" id="unit" onChange={(e) => {
+                                    setunit(e.target.value)
+                                }} >
+                                    <option value="piece">piece</option>
+                                    <option value="Kg">Kg</option>
+                                    <option value="grams">grams</option>
+                                    <option value="liters">liters</option>
+                                </select>
+                                <span className="placeholder">unit</span>
+                            </label>
+
+                            <label className="custom-field">
+                                <input type="number" className="form-input" id="quantity" onChange={(e) => {
+                                    setquantity(e.target.value)
+                                }} />
+                                <span className="placeholder">quantity</span>
                             </label>
 
 
                             <label className="custom-field">
-                                <input type="number" className="form-input" id="profit" />
-                                <span className="placeholder">profit</span>
+                                <input type="number" className="form-input" id="restock" onChange={(e) => {
+                                    setrestock(e.target.value)
+                                }} />
+                                <span className="placeholder">restock level</span>
                             </label>
                             <br />
+                            <div className="price">
+                                <label className="custom-field">
+                                    <input type="number" className="form-input" id="oprice" onChange={(e) => {
+                                        setoprice(e.target.value)
+                                    }} />
+                                    <span className="placeholder">original price</span>
+                                </label>
 
+
+                                <label className="custom-field">
+                                    <input type="number" className="form-input" id="sprice" onChange={(e) => {
+                                        setsprice(e.target.value)
+                                    }} />
+                                    <span className="placeholder">selling price</span>
+                                </label>
+
+
+                                <label className="custom-field">
+                                    <input type="number" className="form-input" id="profit" onChange={(e) => {
+                                        setprofit(e.target.value)
+                                    }} />
+                                    <span className="placeholder">profit</span>
+                                </label>
+                                <br />
+
+                            </div>
+
+
+
+                            <label className="custom-field">
+                                <input type="date" className="form-input" id="date" onChange={(e) => {
+                                    setdate(e.target.value)
+                                }} />
+                                <span className="placeholder">date</span>
+                            </label>
+                        </div>
+                        <div className="form2-btn">
+                            <button className="addinventory-btn">Add Inventory</button>
                         </div>
 
 
 
-                        <label className="custom-field">
-                            <input type="date" className="form-input" id="date" />
-                            <span className="placeholder">date</span>
-                        </label>
                     </div>
-                    <div className="form2-btn">
-                    <button className="addinventory-btn">Add Inventory</button>
-                    </div>
-                        
 
-                       
-                    </div>
-                    
                 </form>
             </div>
 
