@@ -127,3 +127,9 @@ input:focus, select:focus, textarea:focus {
     color: rgb(63, 63, 63);
     border: 1px solid #F7CE68;
 }
+
+
+.displayInventory input::placeholder,.displayInventory textarea::placeholder,.displayInventory input[type=number]::placeholder{
+
+    color: #000;
+}

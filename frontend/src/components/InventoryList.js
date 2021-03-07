@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'
 import './InventoryList.css'
+import {Link} from 'react-router-dom'
+
 
 export default function AddInventory() {
 
@@ -25,31 +27,32 @@ export default function AddInventory() {
             <div className="header-box"> Inventory </div>
             <div className="content-box-list">
                 <table id="items">
-              
-                        <tr>
-                            <th>Name</th>
-                            <th>Model</th>
-                            <th>SKU</th>
-                            <th>Category</th>
-                            <th>Supplier</th>
-                            <th>Quantity</th>
-                            <th>date</th>
-                            
-                        </tr>
-                   
+
+                    <tr>
+                        <th>Name</th>
+                        <th>Model</th>
+                        <th>SKU</th>
+                        <th>Category</th>
+                        <th>Supplier</th>
+                        <th>Quantity</th>
+                        <th>date</th>
+                        <th></th>
+
+                    </tr>
+
                     {
                         inventory.map(function (f) {
                             return <tr>
 
-                                <td ><a href="">{f.name} </a> </td>
+                                <td >{f.name}</td>
                                 <td >{f.model} </td>
                                 <td >{f.sku} </td>
                                 <td >{f.category} </td>
                                 <td >{f.supplier} </td>
                                 <td >{f.quantity} </td>
-                                <td >{f.date} </td>
-                              
-
+                                <td >{f.date.substring(0, 10)} </td>
+                                <td > <Link to={"/displayinventory/"+f._id} >view</Link></td>
+                               
                             </tr>
 
                         })
