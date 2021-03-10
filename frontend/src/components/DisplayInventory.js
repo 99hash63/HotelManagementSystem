@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 
 const DisplayInventory = () => {
 
-    const {id} = useParams();
+    const { id } = useParams();
 
     const [name, setname] = useState("");
     const [model, setmodel] = useState("");
@@ -16,26 +16,22 @@ const DisplayInventory = () => {
     const [quantity, setquantity] = useState("");
     const [restock_level, setrestock] = useState("");
     const [original_price, setoprice] = useState("");
-    const [selling_price, setsprice] = useState("");
-    const [profit, setprofit] = useState("");
     const [date, setdate] = useState("");
 
+
+    const [getInventory, setgetInventory] = useState([]);
     const [getCategory, setgetCategory] = useState([]);
     const [getSupplier, setgetSupplier] = useState([]);
 
-    const [getInventory, setgetInventory] = useState([]);
 
-    
-  
 
     useEffect(() => {
-
 
         axios.get("http://localhost:5000/category/").then((res) => {
             if (res.data.length > 0) {
                 setgetCategory(res.data.map(category => category.name))
             }
-        }).catch((e)=>{
+        }).catch((e) => {
             console.log(e);
         })
 
@@ -43,56 +39,82 @@ const DisplayInventory = () => {
             if (res.data.length > 0) {
                 setgetSupplier(res.data.map(supplier => supplier.name))
             }
-        }).catch((e)=>{
+        }).catch((e) => {
             console.log(e);
         })
 
-        axios.get(`http://localhost:5000/inventory/get/${id}`).then(res =>{
-           console.log(res.data);
-           setgetInventory(res.data.item)
+        axios.get(`http://localhost:5000/inventory/get/${id}`).then(res => {
+            setgetInventory(res.data.item)
+            setname(res.data.item.name)
+            setmodel(res.data.item.model)
+            setsku(res.data.item.sku)
+            setdescription(res.data.item.description)
+            setcategory(res.data.item.category)
+            setsupplier(res.data.item.supplier)
+            setunit(res.data.item.mesurement)
+            setquantity(res.data.item.quantity)
+            setrestock(res.data.item.restock_level)
+            setoprice(res.data.item.original_price)
+            setdate(res.data.item.date)
 
+        }).catch((e) => {
+            console.log(e);
         })
 
-    },[])
 
-   
+    }, [])
 
-    function sendData(e) {
+    function updateData(e) {
         e.preventDefault();
 
         const newItem = {
-            name, model, sku, category, supplier, description, mesurement, quantity, restock_level, original_price, selling_price, profit, date
+            name, model, sku, category, supplier, description, mesurement, quantity, restock_level, original_price, date
         }
 
-        fetch(" http://localhost:5000/inventory/add", newItem).then(() => {
-
+        axios.put(`http://localhost:5000/inventory/update/${id}`, newItem).then(() => {
+            alert("updated");
         }).catch((e) => {
             alert("error");
         })
 
     }
+    //enable edit button funtion
+    const enable_edit = () => {
+        document.getElementById('fs').removeAttribute("disabled");
+        document.getElementById('edit_btn').remove();
+        document.getElementById('update_inventory').style.display = "block ";
+        document.getElementById('edit-title').innerHTML= "Edit Inventory"
+
+    }
+
+
+
+
 
 
     return (
         <div className="display-box">
 
-            <div className="header-box">Edit Inventory </div>
+            <div id="edit-title" className="header-box"> Inventory  <button id="edit_btn" onClick={enable_edit}>edit</button></div>
             {/* <hr /> */}
-            <div className="content-box">
-                <form onSubmit={sendData}>
+
+            {/* <div className="content-box" > */}
+            <fieldset disabled="disabled" className="content-box" id="fs">
+                <form onSubmit={updateData} id='inventory_form' >
 
                     <div className="form1 displayInventory">
 
                         <label className="custom-field">
                             <input type="text" className="form-input" id="name" defaultValue={getInventory.name} onChange={(e) => {
                                 setname(e.target.value)
+
                             }} required />
                             <span className="placeholder">name</span>
                         </label>
                         <br />
 
                         <label className="custom-field">
-                            <input type="text" className="form-input" id="model" defaultValue={getInventory.model}  onChange={(e) => {
+                            <input type="text" className="form-input" id="model" defaultValue={getInventory.model} onChange={(e) => {
                                 setmodel(e.target.value)
                             }} />
                             <span className="placeholder">model</span>
@@ -109,7 +131,7 @@ const DisplayInventory = () => {
                         <br />
 
                         <label className="custom-field">
-                            <textarea name="description"defaultValue={getInventory.description} id="description" cols="0" rows="10" maxLength="500" onChange={(e) => {
+                            <textarea name="description" defaultValue={getInventory.description} id="description" cols="0" rows="10" maxLength="500" onChange={(e) => {
                                 setdescription(e.target.value)
                             }} ></textarea>
                             <span className="placeholder">description</span>
@@ -121,16 +143,16 @@ const DisplayInventory = () => {
                         <div className="form2-content">
 
                             <label className="custom-field">
-                                <select name="category" id="category"onChange={(e) => {
+                                <select name="category" id="category" onChange={(e) => {
                                     setcategory(e.target.value)
                                 }}  >
                                     <option key={category} value={category}>{getInventory.category} </option>
                                     {
                                         getCategory.map(function (category) {
-                                            if (getInventory.category != category ) {
+                                            if (getInventory.category != category) {
                                                 return <option key={category} value={category}>{category}</option>
                                             }
-                                           
+
                                         })
                                     }
                                 </select>
@@ -142,11 +164,12 @@ const DisplayInventory = () => {
                                 <select name="supplier" id="supplier" onChange={(e) => {
                                     setsupplier(e.target.value)
                                 }} >
-                                     <option key={supplier} value={supplier}>{getInventory.supplier} </option>
+                                    <option key={supplier} value={supplier}>{getInventory.supplier} </option>
                                     {
                                         getSupplier.map(function (supplier) {
-                                            if (getInventory.supplier != supplier ){
-                                            return <option key={supplier}  value={supplier}>{supplier}</option>}
+                                            if (getInventory.supplier != supplier) {
+                                                return <option key={supplier} value={supplier}>{supplier}</option>
+                                            }
                                         })
                                     }
 
@@ -189,37 +212,23 @@ const DisplayInventory = () => {
                                     }} />
                                     <span className="placeholder">buy price(Rs)</span>
                                 </label>
-
-
                                 <label className="custom-field">
-                                    <input type="number" className="form-input" id="sprice" defaultValue={getInventory.selling_price} onChange={(e) => {
-                                        setsprice(e.target.value)
-                                    }} />
-                                    <span className="placeholder">selling price(Rs)</span>
-                                </label>
-
-
-                                <label className="custom-field">
-                                    <input type="number" className="form-input" id="profit" defaultValue={getInventory.profit} onChange={(e) => {
-                                        setprofit(e.target.value)
-                                    }} />
-                                    <span className="placeholder">profit(Rs)</span>
-                                </label>
-                                <br />
-
-                            </div>
-
-
-
-                            <label className="custom-field">
                                 <input type="date" className="form-input" id="date" value={getInventory.date && getInventory.date.substring(0, 10)} onChange={(e) => {
                                     setdate(e.target.value)
                                 }} />
                                 <span className="placeholder">date</span>
                             </label>
+
+                            </div>
+
+
+
+                        
                         </div>
                         <div className="form2-btn">
-                            <button className="addinventory-btn">Add Inventory</button>
+
+                            <button id="update_inventory" style={{ display: "none" }} className="addinventory-btn">Update Inventory</button>
+
                         </div>
 
 
@@ -227,12 +236,16 @@ const DisplayInventory = () => {
                     </div>
 
                 </form>
-            </div>
+            </fieldset>
+
+            {/* </div> */}
 
 
 
         </div>
     )
+
+
 }
 
 export default DisplayInventory;

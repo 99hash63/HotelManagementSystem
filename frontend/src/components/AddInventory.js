@@ -16,8 +16,6 @@ export default function AddInventory() {
     const [quantity, setquantity] = useState("");
     const [restock_level, setrestock] = useState("");
     const [original_price, setoprice] = useState("");
-    const [selling_price, setsprice] = useState("");
-    const [profit, setprofit] = useState("");
     const [date, setdate] = useState("");
 
     const [getCategory, setgetCategory] = useState([]);
@@ -50,7 +48,7 @@ export default function AddInventory() {
         e.preventDefault();
 
         const newItem = {
-            name, model, sku, category, supplier, description, mesurement, quantity, restock_level, original_price, selling_price, profit, date
+            name, model, sku, category, supplier, description, mesurement, quantity, restock_level, original_price, date
         }
 
         axios.post(" http://localhost:5000/inventory/add", newItem).then(() => {
@@ -87,7 +85,7 @@ export default function AddInventory() {
                         <label className="custom-field">
                             <input type="text" className="form-input" id="model" onChange={(e) => {
                                 setmodel(e.target.value)
-                            }} />
+                            }} required/>
                             <span className="placeholder">model</span>
                         </label>
                         <br />
@@ -117,6 +115,7 @@ export default function AddInventory() {
                                 <select name="category" id="category" onChange={(e) => {
                                     setcategory(e.target.value)
                                 }}  >
+                                    <option >Select</option>
                                     {
                                         getCategory.map(function (category) {
                                             return <option key={category} value={category}>{category}</option>
@@ -131,6 +130,7 @@ export default function AddInventory() {
                                 <select name="supplier" id="supplier" onChange={(e) => {
                                     setsupplier(e.target.value)
                                 }} >
+                                      <option >Select</option>
                                     {
                                         getSupplier.map(function (supplier) {
                                             return <option key={supplier} value={supplier}>{supplier}</option>
@@ -146,6 +146,7 @@ export default function AddInventory() {
                                 <select name="unit" id="unit" onChange={(e) => {
                                     setunit(e.target.value)
                                 }} >
+                                      <option >Select</option>
                                     <option value="piece">piece</option>
                                     <option value="Kg">Kg</option>
                                     <option value="grams">grams</option>
@@ -176,34 +177,18 @@ export default function AddInventory() {
                                     }} />
                                     <span className="placeholder">original price</span>
                                 </label>
-
-
                                 <label className="custom-field">
-                                    <input type="number" className="form-input" id="sprice" onChange={(e) => {
-                                        setsprice(e.target.value)
-                                    }} />
-                                    <span className="placeholder">selling price</span>
-                                </label>
-
-
-                                <label className="custom-field">
-                                    <input type="number" className="form-input" id="profit" onChange={(e) => {
-                                        setprofit(e.target.value)
-                                    }} />
-                                    <span className="placeholder">profit</span>
-                                </label>
-                                <br />
+                                <input type="date" className="form-input" id="date" onChange={(e) => {
+                                    setdate(e.target.value)
+                                }} required/>
+                                <span className="placeholder">date</span>
+                            </label>
 
                             </div>
 
 
 
-                            <label className="custom-field">
-                                <input type="date" className="form-input" id="date" onChange={(e) => {
-                                    setdate(e.target.value)
-                                }} />
-                                <span className="placeholder">date</span>
-                            </label>
+                         
                         </div>
                         <div className="form2-btn">
                             <button className="addinventory-btn">Add Inventory</button>

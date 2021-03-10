@@ -42,12 +42,6 @@ const itemsSchema = new Schema({
         type: Number,
 
     },
-    selling_price: {
-        type: Number,
-    },
-    profit: {
-        type: Number,
-    },
     date: {
         type: Date,
         require: true
