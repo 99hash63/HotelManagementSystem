@@ -1,9 +1,16 @@
 .display-box hr {
     border-bottom: 1px solid rgba(216, 216, 216, 0.698);
+   
+  
+}
+.display-box{
+   
 }
 
 .header-box {
     font-size: 35px;
+    display: flex;
+
     color: rgb(75, 75, 75);
     font-weight: 700;
     margin-bottom: 20px;
@@ -12,6 +19,13 @@
 .content-box{
     border: 1px solid rgba(194, 194, 194, 0.198);
     border-radius: 12px;
+    overflow: scroll;
+
+    max-height: 500px
+  
+}
+.content-box::-webkit-scrollbar {
+    display: none;
 }
 .content-box form {
     display: flex;

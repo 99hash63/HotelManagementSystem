@@ -17,7 +17,7 @@ router.route("/add").post((req,res)=>{
 
 })
 
-router.route("/").get((req,res)=>{
+router.route("/").get( (req,res)=>{
     Category.find().then((Category)=>{
         res.json(Category)
     }).catch((e)=>{
@@ -43,8 +43,7 @@ router.route("/update/:id").put(async (req,res)=>{
 })
 
 router.route("/delete/:id").delete(async(req,res)=>{
-    let categoryID = req.params.id;
-    await Category.findByIdAndDelete(categoryID).then(()=>{
+    await Category.findOneAndRemove({'name' : req.params.id}).then(()=>{
         res.status(200).send({status:"Deleted"});
     }).catch((e)=>{
         res.status(500).send({status:"Error"});

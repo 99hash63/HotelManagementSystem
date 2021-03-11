@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './AddInventory.css'
 import axios from 'axios'
+import AddCategory from './AddCategory';
 
 export default function AddInventory() {
 
@@ -30,20 +31,20 @@ export default function AddInventory() {
             if (res.data.length > 0) {
                 setgetCategory(res.data.map(category => category.name))
             }
-        }).catch((e)=>{
-            console.log(e);
+        }).catch((e) => {
+            // console.log(e);
         })
 
         axios.get("http://localhost:5000/supplier/").then((res) => {
             if (res.data.length > 0) {
                 setgetSupplier(res.data.map(supplier => supplier.name))
             }
-        }).catch((e)=>{
-            console.log(e);
+        }).catch((e) => {
+            // console.log(e);
         })
 
-    })
-
+    }, [sendData])
+    //sending collected data to the database
     function sendData(e) {
         e.preventDefault();
 
@@ -53,11 +54,19 @@ export default function AddInventory() {
 
         axios.post(" http://localhost:5000/inventory/add", newItem).then(() => {
 
-
+            window.location = "/inventory"
 
         }).catch((e) => {
             alert("error");
         })
+
+    }
+
+    function AddCategoryBar() {
+
+        document.getElementById('add-new-cat').style.display = "block ";
+        document.getElementById('add-new-cat-btn').remove();
+
 
     }
 
@@ -67,9 +76,17 @@ export default function AddInventory() {
     return (
         <div className="display-box">
 
-            <div className="header-box"> Add Inventory </div>
+
+            <div className="header-box"> Add Inventory
+            <button id="add-new-cat-btn" onClick={AddCategoryBar}>Add Category</button>
+                <div id="add-new-cat" style={{ display: "none" }}>  <AddCategory /></div>
+
+
+            </div>
+
             {/* <hr /> */}
             <div className="content-box">
+
                 <form onSubmit={sendData}>
 
                     <div className="form1">
@@ -85,7 +102,7 @@ export default function AddInventory() {
                         <label className="custom-field">
                             <input type="text" className="form-input" id="model" onChange={(e) => {
                                 setmodel(e.target.value)
-                            }} required/>
+                            }} required />
                             <span className="placeholder">model</span>
                         </label>
                         <br />
@@ -130,7 +147,7 @@ export default function AddInventory() {
                                 <select name="supplier" id="supplier" onChange={(e) => {
                                     setsupplier(e.target.value)
                                 }} >
-                                      <option >Select</option>
+                                    <option >Select</option>
                                     {
                                         getSupplier.map(function (supplier) {
                                             return <option key={supplier} value={supplier}>{supplier}</option>
@@ -146,7 +163,7 @@ export default function AddInventory() {
                                 <select name="unit" id="unit" onChange={(e) => {
                                     setunit(e.target.value)
                                 }} >
-                                      <option >Select</option>
+                                    <option >Select</option>
                                     <option value="piece">piece</option>
                                     <option value="Kg">Kg</option>
                                     <option value="grams">grams</option>
@@ -178,17 +195,17 @@ export default function AddInventory() {
                                     <span className="placeholder">original price</span>
                                 </label>
                                 <label className="custom-field">
-                                <input type="date" className="form-input" id="date" onChange={(e) => {
-                                    setdate(e.target.value)
-                                }} required/>
-                                <span className="placeholder">date</span>
-                            </label>
+                                    <input type="date" className="form-input" id="date" onChange={(e) => {
+                                        setdate(e.target.value)
+                                    }} required />
+                                    <span className="placeholder">date</span>
+                                </label>
 
                             </div>
 
 
 
-                         
+
                         </div>
                         <div className="form2-btn">
                             <button className="addinventory-btn">Add Inventory</button>

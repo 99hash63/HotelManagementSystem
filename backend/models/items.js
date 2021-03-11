@@ -28,7 +28,8 @@ const itemsSchema = new Schema({
     },
     mesurement: {
         type: String,
-        require: true
+        require: true,
+        
     },
     quantity: {
         type: Number,

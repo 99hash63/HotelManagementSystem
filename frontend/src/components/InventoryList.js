@@ -7,7 +7,8 @@ import {Link} from 'react-router-dom'
 export default function AddInventory() {
 
     const [inventory, setinventory] = useState([]);
-
+    
+//fetching all the inventory rows from the database
     useEffect(() => {
         axios.get("http://localhost:5000/inventory/").then((res) => {
             if (res.data.length > 0) {

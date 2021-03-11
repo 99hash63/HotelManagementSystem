@@ -18,7 +18,7 @@ const DisplayInventory = () => {
     const [original_price, setoprice] = useState("");
     const [date, setdate] = useState("");
 
-
+//storing the data that fetched from the DB
     const [getInventory, setgetInventory] = useState([]);
     const [getCategory, setgetCategory] = useState([]);
     const [getSupplier, setgetSupplier] = useState([]);
@@ -26,7 +26,7 @@ const DisplayInventory = () => {
 
 
     useEffect(() => {
-
+//fetching category data from DB
         axios.get("http://localhost:5000/category/").then((res) => {
             if (res.data.length > 0) {
                 setgetCategory(res.data.map(category => category.name))
@@ -34,7 +34,7 @@ const DisplayInventory = () => {
         }).catch((e) => {
             console.log(e);
         })
-
+//fetching supplier data from DB
         axios.get("http://localhost:5000/supplier/").then((res) => {
             if (res.data.length > 0) {
                 setgetSupplier(res.data.map(supplier => supplier.name))
@@ -42,9 +42,10 @@ const DisplayInventory = () => {
         }).catch((e) => {
             console.log(e);
         })
-
+//fetching inventory data from DB
         axios.get(`http://localhost:5000/inventory/get/${id}`).then(res => {
             setgetInventory(res.data.item)
+            //setting the data that is fetched from the database 
             setname(res.data.item.name)
             setmodel(res.data.item.model)
             setsku(res.data.item.sku)
@@ -64,6 +65,7 @@ const DisplayInventory = () => {
 
     }, [])
 
+    //updating funtion
     function updateData(e) {
         e.preventDefault();
 
@@ -72,7 +74,7 @@ const DisplayInventory = () => {
         }
 
         axios.put(`http://localhost:5000/inventory/update/${id}`, newItem).then(() => {
-            alert("updated");
+
         }).catch((e) => {
             alert("error");
         })
@@ -83,7 +85,16 @@ const DisplayInventory = () => {
         document.getElementById('fs').removeAttribute("disabled");
         document.getElementById('edit_btn').remove();
         document.getElementById('update_inventory').style.display = "block ";
-        document.getElementById('edit-title').innerHTML= "Edit Inventory"
+        document.getElementById('edit-title').innerHTML = "Edit Inventory"
+
+    }
+      //delete inventory button funtion
+    const delete_inventory = () => {
+        axios.delete(`http://localhost:5000/inventory/delete/${id}`).then(() => {
+            window.location = "/inventory"
+        }).catch((e) => {
+            alert("error");
+        })
 
     }
 
@@ -95,7 +106,10 @@ const DisplayInventory = () => {
     return (
         <div className="display-box">
 
-            <div id="edit-title" className="header-box"> Inventory  <button id="edit_btn" onClick={enable_edit}>edit</button></div>
+            <div id="edit-title" className="header-box"> Inventory
+            <button id="edit_btn" onClick={enable_edit}>Edit</button>
+                <button id="delete_btn" onClick={delete_inventory}>Delete</button>
+            </div>
             {/* <hr /> */}
 
             {/* <div className="content-box" > */}
@@ -213,17 +227,17 @@ const DisplayInventory = () => {
                                     <span className="placeholder">buy price(Rs)</span>
                                 </label>
                                 <label className="custom-field">
-                                <input type="date" className="form-input" id="date" value={getInventory.date && getInventory.date.substring(0, 10)} onChange={(e) => {
-                                    setdate(e.target.value)
-                                }} />
-                                <span className="placeholder">date</span>
-                            </label>
+                                    <input type="date" className="form-input" id="date" value={getInventory.date && getInventory.date.substring(0, 10)} onChange={(e) => {
+                                        setdate(e.target.value)
+                                    }} />
+                                    <span className="placeholder">date</span>
+                                </label>
 
                             </div>
 
 
 
-                        
+
                         </div>
                         <div className="form2-btn">
 

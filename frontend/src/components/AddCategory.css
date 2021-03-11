@@ -1,0 +1,49 @@
+.category-box {
+    padding: 2px;
+    width: 500px;
+    padding-top: 0px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.add-category {
+    padding-top: 0px;
+}
+
+.delete-category {
+    padding-top: 0px;
+}
+
+.category-box input, .category-box select {
+    border: 1px solid rgba(0, 0, 0, 0.329);
+    padding: 7px;
+    border-radius: 12px 0 0 12px;
+    outline: none;
+    font-size: 14px;
+    transition: 0.3s ease;
+    font-weight: 400;
+    width: 150px;
+}
+
+.category-box select {
+    padding: 6px;
+}
+
+.cat-btn {
+    border-top: 1px solid rgba(0, 0, 0, 0.329);
+    border-right: 1px solid rgba(0, 0, 0, 0.329);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.329);
+    border-left: 0px solid rgba(0, 0, 0, 0.329);
+    padding: 7px;
+    border-radius: 0 12px 12px 0;
+    outline: none;
+    font-size: 14px;
+    transition: 0.3s ease;
+    font-weight: 400;
+}
+.add-cat:hover {
+    background-color: #36b140;
+}
+.del-cat:hover {
+    background-color: #fb4646;
+}
