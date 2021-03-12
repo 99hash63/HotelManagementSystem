@@ -3,7 +3,8 @@ import './AddCategory.css'
 import axios from 'axios'
 
 
-const AddCategory = () => {
+const AddCategory = (props) => {
+    const categorybtn = props.AddCategoryBar;
 
     const [name, setnewcategory] = useState("");
     const [catname, setcategory] = useState("");
@@ -92,7 +93,7 @@ const AddCategory = () => {
 
             </div>
             <div className="close-category">
-                <button>Close</button>
+                <button onClick={categorybtn} >Close</button>
             </div>
 
         </div>

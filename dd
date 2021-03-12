@@ -1,0 +1,9 @@
+[33m988d331[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m add and delete category
+[33m4a4e82c[m completed edit-inventory update
+[33md852927[m created edit-inventory view
+[33m9e21a53[m created inventory list table
+[33m1790531[m tweak sidenav and form style
+[33mce47c75[m add inventory form html css only
+[33m4656ff5[m implemented supplier model and router backend and sidenav
+[33m851dd7d[m implemented category model and router backend
+[33me0c84b1[m start

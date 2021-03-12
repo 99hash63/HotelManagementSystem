@@ -10,7 +10,7 @@ export default function Sidenav() {
                 <Link to="/inventory">Inventory</Link>
                 <Link to="/addinventory">Add Inventory</Link>
                 <Link to="/">Re-Stock Now</Link>
-                <Link to="/">Suppliers</Link>
+                <Link to="/suppliers">Suppliers</Link>
                 <Link to="/">Invoice</Link>
 
 

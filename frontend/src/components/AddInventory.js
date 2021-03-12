@@ -63,11 +63,18 @@ export default function AddInventory() {
     }
 
     function AddCategoryBar() {
+        const x = document.getElementById("add-new-cat").style.display;
+        if (x == "none") {
+            document.getElementById('add-new-cat').style.display = "block";
+            document.getElementById('add-new-cat-btn').style.display = "none";
 
-        document.getElementById('add-new-cat').style.display = "block ";
-        document.getElementById('add-new-cat-btn').remove();
+        }
+        else {
+            document.getElementById('add-new-cat').style.display = "none ";
+            document.getElementById('add-new-cat-btn').style.display = "block";
 
 
+        }
     }
 
 
@@ -78,8 +85,8 @@ export default function AddInventory() {
 
 
             <div className="header-box"> Add Inventory
-            <button id="add-new-cat-btn" onClick={AddCategoryBar}>Add Category</button>
-                <div id="add-new-cat" style={{ display: "none" }}>  <AddCategory /></div>
+            <button id="add-new-cat-btn" onClick={AddCategoryBar} style={{ display: "block" }}>Add Category</button>
+                <div id="add-new-cat" style={{ display: "none" }}>  <AddCategory AddCategoryBar={AddCategoryBar} /></div>
 
 
             </div>

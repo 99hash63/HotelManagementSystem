@@ -1,0 +1,181 @@
+.header-box-sup {
+    font-size: 35px;
+    display: flex;
+
+    color: rgb(75, 75, 75);
+    font-weight: 700;
+    margin-bottom: 20px;
+    margin-left: 45px;
+}
+
+/* add supplier */
+.blur-s {
+   position: fixed;
+   margin: 0;
+   top: 0px;
+   left: 0px;
+   width: 100%;
+   height: 100%;
+   background: rgba(0, 0, 0, 0.37);
+   z-index: 30;
+   pointer-events: all;
+  
+
+}
+.add-sup-head{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-weight: 500;
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    
+}
+.add-sup-head .btn{
+   position: absolute;
+   background-color: transparent;
+   top: 20px;
+   left: 430px;
+   border: none;
+   font-size: 25px;
+   outline: none;
+    
+}
+
+.content-box-s {
+    border: 1px solid rgba(194, 194, 194, 0.198);
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 0px 30px rgba(119, 119, 119, 0.281);
+    border-radius: 12px;
+    overflow: scroll;
+    z-index: 40;
+   padding: 0 20px 20px 20px ;
+   height: 560px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%,-50%) ;
+}
+
+.content-box-s::-webkit-scrollbar {
+    display: none;
+}
+
+.content-box-s form {
+    padding-top: 10px;
+    display:block;
+    align-content: center;
+    /* margin-top: 20px; */
+}
+
+.content-box-s form::-webkit-scrollbar {
+    display: none;
+}
+
+.custom-field-s {
+    position: relative;
+    font-size: 13px;
+    
+    /* padding-top: 10px; */
+}
+
+.custom-field-s input, .custom-field-s select, .custom-field-s textarea {
+    border: 1px solid rgba(0, 0, 0, 0.26);
+    width: 400px;
+    padding: 12px;
+    padding-top: 24px;
+    margin: 8px;
+    /* margin-top: 25px; */
+    border-radius: 11px;
+    outline: none;
+    font-size: 14px;
+    transition: 0.3s ease;
+    font-weight: 400;
+}
+
+.custom-field-s .placeholder {
+    font-size: 14px;
+    font-weight: 400;
+    position: absolute;
+    left: 20px;
+    padding-left: 2px;
+    padding-right: 3px;
+    /* background-color: white; */
+    color: rgb(27, 27, 27);
+    transform: translateY(44%);
+    transition: color 0.3s ease;
+}
+.content-box-s #location-s{
+    height: 40px;
+}
+.content-box-s #description-s {
+    max-width: 400px;
+    max-height: 75px;
+    min-height: 75px;
+    min-width: 400px;
+    font-family: 'Poppins', sans-serif;
+}
+.content-box-s .add-sup-btn{
+    border: 1px solid rgba(0, 0, 0, 0.26);
+    width: 425px;
+    height: 30px;
+    right: 30px;
+    position: absolute;
+    border-radius: 20px;
+    outline: none;
+    
+}
+.content-box-s .add-sup-btn:hover{
+  background-color: rgb(110, 110, 110);
+    
+}
+
+
+
+/* supplier list */
+
+.supplier-list{
+    border: 1px solid rgba(194, 194, 194, 0.198);
+    border-radius: 12px;
+    overflow-y: scroll;
+    min-height: 490px;
+    max-height: 490px;
+
+}
+.supplier-list::-webkit-scrollbar {
+    /* display: none; */
+}
+.supplier-list form{
+    border: 1px solid rgb(155, 155, 155);
+    background-color: rgb(214, 214, 214);
+    border-radius: 15px;
+    padding-top: 5px;
+    margin: 12px;
+    display: flex;
+    justify-content:center;
+}
+.supplier-list .btnq{
+    border: 1px solid rgba(0, 0, 0, 0.26);
+    width: 205px;
+    padding: 10px;
+    /* padding-top: 24px; */
+    margin: 8px;
+    /* margin-top: 25px; */
+    border-radius: 15px;
+    outline: none;
+    font-size: 14px;
+    transition: 0.3s ease;
+    font-weight: 500;
+}
+.supplier-list  #description-s {
+    font-family: ;
+    max-width: 380px;
+    max-height: 140px;
+    min-height: 140px;
+    min-width: 380px;
+}
+.supplier-list  #name-s {
+    max-width: 380px;
+    min-width: 380px;
+}

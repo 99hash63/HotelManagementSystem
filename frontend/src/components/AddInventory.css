@@ -3,9 +3,6 @@
    
   
 }
-.display-box{
-   
-}
 
 .header-box {
     font-size: 35px;
@@ -20,8 +17,8 @@
     border: 1px solid rgba(194, 194, 194, 0.198);
     border-radius: 12px;
     overflow: scroll;
+    min-height: 490px;
 
-    max-height: 500px
   
 }
 .content-box::-webkit-scrollbar {
@@ -30,10 +27,8 @@
 .content-box form {
     display: flex;
     justify-content: space-evenly;
-    /* height: 550px; */
     margin-top: 20px;
-    /* background: rgb(221, 100, 79); */
-    /* overflow-y: auto; */
+
 }
 
 .content-box form::-webkit-scrollbar {
@@ -48,12 +43,12 @@
 
 .custom-field input, .custom-field select, .custom-field textarea {
     border: 1px solid rgba(0, 0, 0, 0.329);
-    /* background: #f2f2f2; */
+
     padding: 12px;
     margin: 12px;
     margin-top: 25px;
     border-radius: 12px;
-    /* width: 250px; */
+
     outline: none;
     font-size: 14px;
     transition: 0.3s ease;
