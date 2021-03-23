@@ -54,8 +54,9 @@ router.route("/delete/:id").delete(async(req,res)=>{
 router.route("/get/:id").get(async(req,res)=>{
     let supplierID = req.params.id;
 
-   await Suppiler.findById(supplierID).then((item)=>{
-        res.status(200).send({status:"supplier fetched", item});
+   await Suppiler.findById(supplierID).then((supplier)=>{
+        res.status(200).send({status:"supplier fetched", supplier});
+    
     }).catch((e)=>{
         res.status(500).send({status:"Error"});
     })

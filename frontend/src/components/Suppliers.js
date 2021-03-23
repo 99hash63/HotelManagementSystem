@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './Suppliers.css'
 import axios from 'axios'
 import AddSuppliers from './AddSuppliers';
+import {Link} from 'react-router-dom'
 
 const Suppliers = () => {
 
@@ -10,8 +11,6 @@ const Suppliers = () => {
     const [contact, setcontact] = useState("");
     const [email, setemail] = useState("");
     const [location, setlocation] = useState("");
-    const [supID, setsupID] = useState("");
-
 
 
     const [suppliers, setsuppliers] = useState([])
@@ -25,8 +24,7 @@ const Suppliers = () => {
             console.log(e);
         })
 
-
-    }, [])
+    }, [deleteData, updateData])
 
 
 
@@ -40,14 +38,15 @@ const Suppliers = () => {
         }
     }
 
-    function updateData(e) {
+    function updateData(sup, e) {
         e.preventDefault();
+
 
         const newSupplier = {
             name, description, contact, email, location
         }
 
-        axios.put(" http://localhost:5000/supplier/update/", newSupplier).then(() => {
+        axios.put(`http://localhost:5000/supplier/update/${sup._id}`, newSupplier).then(() => {
 
             // window.location = "/inventory"
 
@@ -57,14 +56,16 @@ const Suppliers = () => {
 
     }
 
-    function deleteData(e) {
+    function deleteData(id, e) {
+        e.preventDefault();
+        axios.delete(`http://localhost:5000/supplier/delete/${id}`).then(() => {
+            // window.location = "/inventory"
+        }).catch((e) => {
 
-        // axios.delete(`http://localhost:5000/inventory/delete/${id}`).then(() => {
-        //     window.location = "/inventory"
-        // }).catch((e) => {
-        //     alert("error");
-        // })
-        
+            alert("error");
+
+        })
+
     }
 
 
@@ -76,61 +77,40 @@ const Suppliers = () => {
 
             <div id="add-new-sup" style={{ display: "none" }}>  <AddSuppliers supPOP={addSupplierPOP} /> </div>
 
-            <div className="supplier-list">
+            <div className="supplier-list" >
+
+                <table id="items">
+
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Contact</th>
+                        <th>Email</th>
+                        <th>Location</th>
+                        <th></th>
+
+                    </tr>
+
+                    {
+                        suppliers.map(function (f) {
+                            return <tr>
+
+                                <td >{f.name}</td>
+                                <td >{f.description} </td>
+                                <td >{f.contact} </td>
+                                <td >{f.email} </td>
+                                <td >{f.location} </td>
+                                <td > <Link to={"/supplierview/" + f._id} >Edit</Link></td>
+
+                            </tr>
+
+                        })
+                    }
+
+                </table>
 
 
-                {
-                    suppliers.map(function (sup) {
-                        return <form onSubmit={updateData}>
 
-                            <div className="form1-l">
-
-                                <label className="custom-field-s">
-                                    <input defaultValue ={sup._id} type="text" className="form-input" id="name-s" onChange={(e) => {
-                                        setname(e.target.value)
-                                    }} required />
-                                    <span className="placeholder">name</span>
-                                </label>
-                                <br />
-                                <label className="custom-field-s">
-                                    <textarea defaultValue ={sup.description} name="description" className="form-input" id="description-s" cols="0" rows="10" maxLength="500" onChange={(e) => {
-                                        setdescription(e.target.value)
-                                    }} ></textarea>
-                                    <span className="placeholder">description</span>
-                                </label>
-                                <br />
-                            </div>
-                            <div className="form2">
-
-                                <label className="custom-field-s">
-                                    <input defaultValue ={sup.contact} type="text" className="form-input" id="contact-s" onChange={(e) => {
-                                        setcontact(e.target.value)
-                                    }} />
-                                    <span className="placeholder">contact</span>
-                                </label>
-                                <br />
-                                <label className="custom-field-s">
-                                    <input defaultValue ={sup.email} type="text" className="form-input" id="email-s" onChange={(e) => {
-                                        setemail(e.target.value)
-                                    }} required />
-                                    <span className="placeholder">email</span>
-                                </label>
-                                <br />
-                                <label className="custom-field-s">
-                                    <input defaultValue ={sup.location} type="text" className="form-input" id="location-s" onChange={(e) => {
-                                        setlocation(e.target.value)
-                                    }} required />
-                                    <span className="placeholder">location</span>
-                                </label>
-                                <br />
-
-                                <button onClick={updateData} className="edit-sup btnq">Edit</button>
-                                <button onClick={deleteData} className="delete-sup btnq">Delete</button>
-                            </div>
-
-                        </form>
-                    })
-                }
 
             </div>
         </div>

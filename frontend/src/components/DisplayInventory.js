@@ -163,7 +163,7 @@ const DisplayInventory = () => {
                                     <option key={category} value={category}>{getInventory.category} </option>
                                     {
                                         getCategory.map(function (category) {
-                                            if (getInventory.category != category) {
+                                            if (getInventory.category !== category) {
                                                 return <option key={category} value={category}>{category}</option>
                                             }
 

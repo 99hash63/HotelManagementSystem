@@ -31,7 +31,7 @@ const AddCategory = (props) => {
         const newCat = {
             name
         }
-        if (newCat.name.charAt(0) != " ") {
+        if (newCat.name.charAt(0) !== " ") {
             axios.post(" http://localhost:5000/category/add", newCat).then(() => {
                 setnewcategory("");
     
