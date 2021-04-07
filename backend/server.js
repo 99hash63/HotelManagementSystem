@@ -49,6 +49,13 @@ app.use("/loMember",loMemberRouter);
 
 
 
+
+
+
+//Lahiru Routes
+const travelAgentntRouter = require("./routes/Travel_Agency.js");
+app.use("/Travel_Agency", travelAgentntRouter);
+
 app.listen(PORT,()=>{
     console.log(`Server running on PORT: ${PORT}`)
 })

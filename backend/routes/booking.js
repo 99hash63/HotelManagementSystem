@@ -87,7 +87,7 @@ router.route("/delete/:id").delete(async(req,res)=>{
 
 //view all bookings request 
 router.route("/ViewBookings").get((req,res)=>{
-    Bookings.find().then((BookingRequsets)=>{
+    Booking.find().then((BookingRequsets)=>{
         res.json(BookingRequsets);
     }).catch((err)=>{
         console.log(err);
@@ -95,9 +95,12 @@ router.route("/ViewBookings").get((req,res)=>{
 })
 
 
-//View all bokkings histry
+
+
+
+//View all Up comming Bookings
 router.route("/ViewHistry").get((req,res)=>{
-    Bookings.find({state : "Pass"}).then((BookingHistry)=>{
+    Booking.find({bookingState : "not active"}).then((BookingHistry)=>{
         res.json(BookingHistry);
     }).catch((err)=>{
         console.log(err);
@@ -105,14 +108,14 @@ router.route("/ViewHistry").get((req,res)=>{
 })
 
 
-//View all Active Bookigs
-router.route("/ViewActive").get((req,res)=>{
-    Bookings.find().then((BookingHistry)=>{
-        res.json(BookingHistry);
-    }).catch((err)=>{
-        console.log(err);
-    })
-})
+// //View all Active Bookigs
+// router.route("/ViewActive").get((req,res)=>{
+//     Booking.find().then((BookingHistry)=>{
+//         res.json(BookingHistry);
+//     }).catch((err)=>{
+//         console.log(err);
+//     })
+// })
 
 
 
@@ -143,8 +146,8 @@ router.route("/update/:id").put((req,res)=>{
             bookingState
     })
 
-    console.log(pkg);
-    Bookings.findByIdAndUpdate(id,AcceptReq).then(()=>{
+
+    Booking.findByIdAndUpdate(id,AcceptReq).then(()=>{
         res.status(200).send({status:"Agent Add Success"})
     }).catch((err)=>{
         res.status(500).send({status:"Error"})
@@ -157,7 +160,7 @@ router.route("/update/:id").put((req,res)=>{
 router.route("/find/:id").get((req,res)=>{
      var id = req.params.id;
 
-    Bookings.findById(id).then((agent)=>{    
+     Booking.findById(id).then((agent)=>{    
             res.json(agent);
     }).catch((err)=>{
         console.log(err);
@@ -170,7 +173,7 @@ router.route("/delete/:id").delete((req,res)=>{
 
     var num = req.params.id;
     console.log(num);
-    Bookings.findByIdAndDelete(num).then(()=>{
+    Booking.findByIdAndDelete(num).then(()=>{
         res.status(200).send({status:"Agent Add Success"})
     }).catch((err)=>{
         res.status(500).send({status:"Error"})
