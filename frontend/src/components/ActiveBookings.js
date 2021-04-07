@@ -22,7 +22,7 @@ function ViewAllBookings() {
 
     return (
         <div>
-            <h1>Hello Active Bookings</h1>
+            {/* <h1>Hello Active Bookings</h1> */}
             <BookingList bookings={bookings.filter((booking) => booking.bookingState === "Active")} />
         </div>
 

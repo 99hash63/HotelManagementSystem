@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import './InventoryList.css'
 import BookingList from './BookingList';
 
 function ViewBookingRequsets() {
@@ -20,34 +21,36 @@ function ViewBookingRequsets() {
 
 
     return (
-        <div>
-            <h1>Hello Upcome Bookings</h1>
-            <table>
+        <div className="display-box">
+             <div className="header-box"> Upcome Bookings </div>
+                <div className="content-box-list">
+                     <table id="items">
               
-                    <tr id="items">
-                        <th>bookingId</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th> Address</th>
-                        <th>NIC</th>
-                        <th>promoCode</th>
-                        <th>travelAgent</th>
-                        <th>check In Date</th>
-                        <th>check Out Date</th>
-                        <th>No Of Adults</th>
-                        <th>No Of Children</th>
-                        <th></th>
 
-                    </tr>
+                        <tr>
+                            {/* <th>bookingId</th> */}
+                            <th> Name</th>
+                            {/* <th>Last Name</th> */}
+                            <th> Address</th>
+                            <th>NIC</th>
+                            <th>promoCode</th>
+                            <th>travelAgent</th>
+                            <th>check In Date</th>
+                            <th>check Out Date</th>
+                            <th>No Of Adults</th>
+                            <th>No Of Children</th>
+                            <th>View One</th>
+
+                        </tr>
                
 
                 {request.map(function(request){
 
                     
                           return  <tr>
-                                <td>{request.bookingId}</td>
-                                <td>{request.fName}</td>
-                                <td>{request.lName}</td>
+                                {/* <td>{request.bookingId}</td> */}
+                                <td>{request.fName} {request.lName}</td>
+                                {/* <td>{request.lName}</td> */}
                                 <td>{request.address}</td>
                                 <td>{request.NIC}</td>
                                 <td>{request.promoCode}</td>
@@ -63,8 +66,9 @@ function ViewBookingRequsets() {
                 })
             }
 
-            </table>
-            <Link to={"/bookings"}>BACK</Link>
+                    </table>
+                    <Link to={"/bookings"}>BACK</Link>
+            </div>
         </div>
 
 
