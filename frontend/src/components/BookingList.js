@@ -10,7 +10,7 @@ function BookingList(props) {
         <div className="display-box">
            <div className="header-box"> Active Bookings </div>
                 <div className="content-box-list">
-            <table>
+            <table id="items">
                 <tr>
                        {/* <tr><th>bookingId</th> */}
                         <th>First Name</th>
@@ -32,11 +32,8 @@ function BookingList(props) {
 
                     </tr>
 
-                {bookings.map((bookings)=>(
-
-                    <div key={bookings._id}>
-    
-                     <tr>
+                {bookings.map(function(bookings){
+                    return <tr>
                         {/* <td>{bookings.bookingId}</td> */}
                             <td>{bookings.fName}</td>
                             <td>{bookings.lName}</td>
@@ -55,8 +52,8 @@ function BookingList(props) {
                             <td>{bookings.roomAllocation}</td>
                             <td>{bookings.price}</td>
                         </tr>
-                    </div>
-                ))}
+                  
+                })}
             </table>
             <Link to={"/bookings"}>BACK</Link>
             </div>
