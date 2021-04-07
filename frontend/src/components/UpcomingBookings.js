@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import './InventoryList.css'
 import BookingList from './BookingList';
 
 function ViewBookingRequsets() {
@@ -22,8 +23,8 @@ function ViewBookingRequsets() {
     return (
         <div>
             <h1>Hello Upcome Bookings</h1>
-            <table>
-                <thead>
+            <table id="items">
+                {/* <thead> */}
                     <tr>
                         <th>bookingId</th>
                         <th>First Name</th>
@@ -38,29 +39,28 @@ function ViewBookingRequsets() {
                         <th>No Of Children</th>
 
                     </tr>
-                </thead>
+                {/* </thead> */}
 
                 {request.map((request) => (
-
+                     
                     <div key={request._id}>
-
-                        <tbody>
-                            <tr>
-                                <td>{request.bookingId}</td>
-                                <td>{request.fName}</td>
-                                <td>{request.lName}</td>
-                                <td>{request.address}</td>
-                                <td>{request.NIC}</td>
-                                <td>{request.promoCode}</td>
-                                <td>{request.travelAgent}</td>
-                                <td>{request.checkInDate}</td>
-                                <td>{request.checkOutDate}</td>
-                                <td>{request.noOfAdults}</td>
-                                <td>{request.noOfChildren}</td>
-                                <td><Link to={"/accept/" + request._id}> View More </Link></td>
-                                <td></td>
+                       
+                        {/* <tbody> */}
+                          return <tr>   
+                         <td>{request.bookingId}</td>
+                           <td>{request.fName}</td>
+                              <td>{request.lName}</td>
+                             <td>{request.address}</td>
+                             <td>{request.NIC}</td>
+                             <td>{request.promoCode}</td>
+                             <td>{request.travelAgent}</td>
+                             <td>{request.checkInDate}</td>
+                             <td>{request.checkOutDate}</td>
+                             <td>{request.noOfAdults}</td>
+                             <td>{request.noOfChildren}</td>
+                            <td><Link to={"/accept/" + request._id}> View More </Link></td>
                             </tr>
-                        </tbody>
+                        {/* </tbody> */}
                     </div>
                 ))}
             </table>
