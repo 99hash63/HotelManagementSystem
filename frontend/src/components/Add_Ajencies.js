@@ -68,7 +68,7 @@ function AddAgencies() {
                 }} /><br></br>
 
                 <label>Rate :</label><br />
-                <input type="text" id="Rate" name="Rate" onChange={(e) => {
+                <input type="number" id="Rate" name="Rate" onChange={(e) => {
                     setRate(e.target.value);
                 }} /><br></br>
 
