@@ -26,6 +26,7 @@ function ViewBookingRequsets() {
                 <div className="content-box-list">
                      <table id="items">
               
+
                         <tr>
                             {/* <th>bookingId</th> */}
                             <th> Name</th>
