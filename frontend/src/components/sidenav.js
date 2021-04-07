@@ -1,21 +1,21 @@
-// import React from 'react';
-// import './sidenav.css'
-// import { Link } from 'react-router-dom'
+import React from 'react';
+import './sidenav.css'
+import { Link } from 'react-router-dom'
 
-// export default function Sidenav() {
-//     return (
+export default function Sidenav() {
+    return (
      
-//             <div className="sidenav">
+            <div className="sidenav">
 
-//                 <Link to="/bookings">Bookings</Link>
-//                 <Link to="/addAgent">Add Agencies</Link>
-//                 <Link to="/viewAllAgencies">View Agencies</Link>
-//                 <Link to="/">Event Booking</Link>
-//                 <Link to="/">Room Booking</Link>
-//                 <Link to="/">Final Bill</Link>
-               
-//             </div>
+                <Link to="/inventory">Inventory</Link>
+                <Link to="/addinventory">Add Inventory</Link>
+                <Link to="/">Re-Stock Now</Link>
+                <Link to="/suppliers">Suppliers</Link>
+                <Link to="/">Invoice</Link>
+
+
+            </div>
       
 
-//     );
-// }
+    );
+}

@@ -26,8 +26,8 @@ export default function Body() {
         <Router>
 
             <div className="content">
-                {/* <Sidenav /> */}
-                <FrontOfficeSideNav/>
+                <Sidenav />
+                {/* <FrontOfficeSideNav/> */}
 
                 <div className="block">
 
