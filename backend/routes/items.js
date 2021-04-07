@@ -41,6 +41,24 @@ router.route("/update/:id").put(async (req,res)=>{
 
 })
 
+router.route("/updatestock/:id").put(async (req,res)=>{
+    let itemID = req.params.id;
+    const {total} =req.body;
+ 
+    const updateStock = {
+        $set: {
+           quantity: total,
+        },
+     };
+
+     await Items.findByIdAndUpdate(itemID,updateStock).then(()=>{
+        res.status(200).send({status:"user updated"});
+    }).catch((e)=>{
+        res.status(500).send({status:"Error"});
+    })
+
+})
+
 router.route("/delete/:id").delete(async(req,res)=>{
     let itemID = req.params.id;
     await Items.findByIdAndDelete(itemID).then(()=>{

@@ -99,6 +99,10 @@ input:focus, select:focus, textarea:focus {
     width: 100px;
 }
 
+#date {
+    width: 130px;
+}
+
 #oprice, #sprice, #profit {
     width: 100px;
 }
