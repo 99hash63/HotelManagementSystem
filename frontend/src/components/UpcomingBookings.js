@@ -24,7 +24,7 @@ function ViewBookingRequsets() {
             <h1>Hello Upcome Bookings</h1>
             <table>
               
-                    <tr>
+                    <tr id="items">
                         <th>bookingId</th>
                         <th>First Name</th>
                         <th>Last Name</th>
@@ -36,6 +36,7 @@ function ViewBookingRequsets() {
                         <th>check Out Date</th>
                         <th>No Of Adults</th>
                         <th>No Of Children</th>
+                        <th></th>
 
                     </tr>
                
