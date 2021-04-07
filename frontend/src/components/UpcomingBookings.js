@@ -23,7 +23,7 @@ function ViewBookingRequsets() {
         <div>
             <h1>Hello Upcome Bookings</h1>
             <table>
-                <thead>
+              
                     <tr>
                         <th>bookingId</th>
                         <th>First Name</th>
@@ -38,14 +38,12 @@ function ViewBookingRequsets() {
                         <th>No Of Children</th>
 
                     </tr>
-                </thead>
+               
 
-                {request.map((request) => (
+                {request.map(function(request){
 
-                    <div key={request._id}>
-
-                        <tbody>
-                            <tr>
+                    
+                          return  <tr>
                                 <td>{request.bookingId}</td>
                                 <td>{request.fName}</td>
                                 <td>{request.lName}</td>
@@ -60,9 +58,10 @@ function ViewBookingRequsets() {
                                 <td><Link to={"/accept/" + request._id}> View More </Link></td>
                                 <td></td>
                             </tr>
-                        </tbody>
-                    </div>
-                ))}
+
+                })
+            }
+
             </table>
             <Link to={"/bookings"}>BACK</Link>
         </div>
