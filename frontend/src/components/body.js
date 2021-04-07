@@ -26,12 +26,12 @@ export default function Body() {
         <Router>
 
             <div className="content">
-                <Sidenav />
-                {/* <FrontOfficeSideNav/> */}
+                {/* <Sidenav /> */}
+                <FrontOfficeSideNav/>
 
                 <div className="block">
 
-                    {/* Inventry Manager Bookings */}
+                    {/* Inventry Manager Routes */}
                     <Route path="/addinventory" exact component={AddInventory}/>
                     <Route path="/inventory" exact component={InventoryList}/>
                     <Route path="/displayinventory/:id" exact component={DisplayInventory}/>

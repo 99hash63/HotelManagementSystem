@@ -141,7 +141,7 @@ function AcceptBookingRequests() {
                     settravelAgent(e.target.value);
                 }} /><br></br>
 
-                <label>Chek In Date</label>
+                <label>Chek In Date</label><br />
                 <input type="text" defaultValue={requsetOne.checkInDate} onChange={(e) => {
                     setcheckInDate(e.target.value);
                 }} /><br></br>

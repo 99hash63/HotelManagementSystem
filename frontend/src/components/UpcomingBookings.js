@@ -21,50 +21,53 @@ function ViewBookingRequsets() {
 
 
     return (
-        <div>
-            <h1>Hello Upcome Bookings</h1>
-            <table id="items">
-                {/* <thead> */}
-                    <tr>
-                        <th>bookingId</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th> Address</th>
-                        <th>NIC</th>
-                        <th>promoCode</th>
-                        <th>travelAgent</th>
-                        <th>check In Date</th>
-                        <th>check Out Date</th>
-                        <th>No Of Adults</th>
-                        <th>No Of Children</th>
+        <div className="display-box">
+             <div className="header-box"> Upcome Bookings </div>
+                <div className="content-box-list">
+                     <table id="items">
+              
+                        <tr>
+                            {/* <th>bookingId</th> */}
+                            <th> Name</th>
+                            {/* <th>Last Name</th> */}
+                            <th> Address</th>
+                            <th>NIC</th>
+                            <th>promoCode</th>
+                            <th>travelAgent</th>
+                            <th>check In Date</th>
+                            <th>check Out Date</th>
+                            <th>No Of Adults</th>
+                            <th>No Of Children</th>
+                            <th>View One</th>
 
-                    </tr>
-                {/* </thead> */}
+                        </tr>
+               
 
-                {request.map((request) => (
-                     
-                    <div key={request._id}>
-                       
-                        {/* <tbody> */}
-                          return <tr>   
-                         <td>{request.bookingId}</td>
-                           <td>{request.fName}</td>
-                              <td>{request.lName}</td>
-                             <td>{request.address}</td>
-                             <td>{request.NIC}</td>
-                             <td>{request.promoCode}</td>
-                             <td>{request.travelAgent}</td>
-                             <td>{request.checkInDate}</td>
-                             <td>{request.checkOutDate}</td>
-                             <td>{request.noOfAdults}</td>
-                             <td>{request.noOfChildren}</td>
-                            <td><Link to={"/accept/" + request._id}> View More </Link></td>
+                {request.map(function(request){
+
+                    
+                          return  <tr>
+                                {/* <td>{request.bookingId}</td> */}
+                                <td>{request.fName} {request.lName}</td>
+                                {/* <td>{request.lName}</td> */}
+                                <td>{request.address}</td>
+                                <td>{request.NIC}</td>
+                                <td>{request.promoCode}</td>
+                                <td>{request.travelAgent}</td>
+                                <td>{request.checkInDate}</td>
+                                <td>{request.checkOutDate}</td>
+                                <td>{request.noOfAdults}</td>
+                                <td>{request.noOfChildren}</td>
+                                <td><Link to={"/accept/" + request._id}> View More </Link></td>
+                                <td></td>
                             </tr>
-                        {/* </tbody> */}
-                    </div>
-                ))}
-            </table>
-            <Link to={"/bookings"}>BACK</Link>
+
+                })
+            }
+
+                    </table>
+                    <Link to={"/bookings"}>BACK</Link>
+            </div>
         </div>
 
 
