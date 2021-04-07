@@ -24,8 +24,7 @@ connection.once("open", ()=>{
     console.log("connection success")
 })
 
-//routes
-
+//Dilshan Routes
 const itemsRouter = require("./routes/items");
 app.use("/inventory",itemsRouter);
 
@@ -35,6 +34,19 @@ app.use("/category",categoryRouter);
 const supplierRouter = require("./routes/supplier");
 app.use("/supplier",supplierRouter);
 
+
+
+
+
+
+//Thilan Routes
+const barInventoryRouter = require("./routes/barInventory");
+const barOrdersRouter = require("./routes/barOrders");
+const orderItemsRouter = require("./routes/orderItems");
+
+ app.use("/barInventory",barInventoryRouter);
+ app.use("/barOrders",barOrdersRouter);
+ app.use("/orderItems",orderItemsRouter);
 
 
 
