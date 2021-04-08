@@ -19,6 +19,7 @@ import BookingReq from './UpcomingBookings';
 import Accept from './AcceptRequset';
 import Decline from './DeleteBookingRequest';
 import ReStock from './ReStock';
+import InventoryCheckout from './InventoryCheckout';
 
 
 export default function Body() {
@@ -27,8 +28,8 @@ export default function Body() {
         <Router>
 
             <div className="content">
-                {/* <Sidenav /> */}
-                <FrontOfficeSideNav/>
+                <Sidenav />
+                {/* <FrontOfficeSideNav/> */}
 
                 <div className="block">
 
@@ -39,6 +40,7 @@ export default function Body() {
                     <Route path="/suppliers" exact component={Suppliers}/>
                     <Route path="/supplierview/:id" exact component={SuppliersView}/>
                     <Route path="/restock" exact component={ReStock}/>
+                    <Route path="/checkout" exact component={InventoryCheckout}/>
 
 
 
