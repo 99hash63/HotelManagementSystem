@@ -28,7 +28,7 @@
 }
 
 .cb {
-    border: 1px solid rgb(165, 165, 165);
+    border: 1px solid rgb(199, 199, 199);
     margin: 5px;
     border-radius: 10px;
     /* background-color: rgba(243, 243, 243, 0.527); */
@@ -172,7 +172,50 @@
     height: 300px;
     /* max-width: 440px; */
 }
+.checkoutlist::-webkit-scrollbar {
+    display: none;
+}
 
 .processcheckout {
     height: 170px;
+    background-color: rgb(246, 246, 246);
+}
+
+.upper-cb input {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+    border: 1px solid rgba(109, 109, 109, 0.609);
+    border-radius: 10px;
+    padding: 5px;
+    padding-left: 16px;
+    margin-top: 9px;
+    width: 90%;
+    height: 19px;
+    
+}
+.lower-cb{
+
+    margin-top: 9px;
+    margin: 5px;
+    height: 44%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+
+}
+.lower-cb button{
+    border: 2px solid rgb(180, 180, 180);
+    border-radius: 20px;
+    padding: 10px 13px 10px 13px ;
+    background-color: rgb(255, 255, 255);
+    font-weight: 600;
+    outline: none;
+    transition: 00.2s ease;
+}
+.lower-cb button:hover{
+    border: 2px solid rgb(238, 194, 0);
+
 }

@@ -30,15 +30,25 @@ const InventoryCheckout = () => {
           || items.supplier.toLowerCase().includes(search.toLowerCase())
       })
     )
+
   }, [search, inventory])
 
+  useEffect(() => {
+    selected.forEach(function (element) {
+      element.selectedUnits = 1;
+    });
+    
 
-  function select(e, data) {
+  },[] )
+
+
+  const select = (e, data) => {
     e.preventDefault();
     if (checkSelect(data._id) != data._id) {
       setselected(oldArray => [...oldArray, data]);
     }
   }
+
   function checkSelect(id) {
     for (let index = 0; index < selected.length; index++) {
       if (selected[index]._id == id) {
@@ -46,6 +56,29 @@ const InventoryCheckout = () => {
       }
     }
   }
+  function deleteItem(e, data) {
+    e.preventDefault();
+    const newarry = selected.filter(function (item) { return item._id !== data._id });
+    setselected(newarry);
+
+  }
+  function addSelectedUnits(e, id, value) {
+ 
+
+    const nextState = selected.map(a => a._id == id ? { ...a, selectedUnits: value } : a);
+    setselected(nextState);
+  }
+  
+  useEffect(() => {
+    let totalvalue= 0;
+    for (let index = 0; index < selected.length; index++) {
+      totalvalue += selected[index].original_price * selected[index].selectedUnits;
+     
+      document.getElementById('fofofo').innerHTML = totalvalue+" LKR";
+    }
+  },)
+
+
 
   return (
     <div className="display-box">
@@ -57,9 +90,11 @@ const InventoryCheckout = () => {
 
             return <div className="checkoutlist-box" >
               <li><span>{s.name}</span> - {s.model} </li>
-              <div className="checkoutlist-box-right" >
-                <input type="number" min="1" />
-                <i class="fas fa-minus-circle"></i>
+              <div className="checkoutlist-box-right">
+                <input type="number" min="1" defaultValue="1"
+                  onChange={e => addSelectedUnits(e, s._id, e.target.value)}
+                />
+                <i onClick={(e) => deleteItem(e, s)} className="fas fa-minus-circle"></i>
               </div>
 
             </div>
@@ -67,13 +102,16 @@ const InventoryCheckout = () => {
 
         </div>
 
-
-
-
-
-
-
         <div className="processcheckout cb">
+          <div className="upper-cb" >
+            <input type="text" placeholder="to" />
+            <input type="text" placeholder="description" />
+          </div>
+          <div className="lower-cb" >
+            <span id='total-cb'>Total : <span id="fofofo"></span></span>
+
+            <button>Checkout</button>
+          </div>
 
 
         </div>
