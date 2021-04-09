@@ -20,6 +20,9 @@ import Accept from './AcceptRequset';
 import Decline from './DeleteBookingRequest';
 import ReStock from './ReStock';
 
+import Booking from './booking';
+import CusSideNav from './cusSideNav';
+
 
 export default function Body() {
     return (
@@ -28,7 +31,9 @@ export default function Body() {
 
             <div className="content">
                 {/* <Sidenav /> */}
-                <FrontOfficeSideNav/>
+                {/* <FrontOfficeSideNav/> */}
+
+                <CusSideNav/>
 
                 <div className="block">
 
@@ -57,6 +62,11 @@ export default function Body() {
                             <Route path="/request" exact component={BookingReq} />
                             <Route path="/accept/:id" exact component={Accept} />
                             <Route path="/decline/:id" exact component={Decline} />
+
+
+
+                      {/* customer       */}
+                      <Route path="/up" exact component={Booking}/>
 
                 </div>
 
