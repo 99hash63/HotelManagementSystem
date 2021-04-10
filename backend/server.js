@@ -35,6 +35,10 @@ app.use("/category",categoryRouter);
 const supplierRouter = require("./routes/supplier");
 app.use("/supplier",supplierRouter);
 
+const InventoryCheckout = require("./routes/InventoryCheckout");
+app.use("/checkout",InventoryCheckout);
+
+
 
 // Hashen
 const BookingRouter = require("./routes/booking.js");

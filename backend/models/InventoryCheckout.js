@@ -1,0 +1,44 @@
+const mongoose = require('mongoose');
+
+const Schema = mongoose.Schema;
+
+const InventoryCheckout = new Schema({
+    name: {
+        type: String,
+        require: true
+    },
+    model: {
+        type: String,
+
+    },
+    sku: {
+        type: String,
+    },
+    category: {
+        type: String,
+
+    },
+    description: {
+        type: String,
+
+    },
+    quantity: {
+        type: Number,
+        require: true
+    },
+    unit_price: {
+        type: Number,
+
+    },
+    total_price: {
+        type: Number,
+
+    },
+    date: {
+        type: Date,
+        require: true
+    }
+})
+const Checkout = mongoose.model("checkout", InventoryCheckout);
+
+module.exports = Checkout;
