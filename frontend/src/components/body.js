@@ -19,8 +19,15 @@ import BookingReq from './UpcomingBookings';
 import Accept from './AcceptRequset';
 import Decline from './DeleteBookingRequest';
 import ReStock from './ReStock';
+<<<<<<< HEAD
 import FinalBill from './FinalBill';
 import ReleventBill from './ViewReleventBill';
+=======
+import InventoryCheckout from './InventoryCheckout';
+
+import Booking from './booking';
+import CusSideNav from './cusSideNav';
+>>>>>>> 0de25687cc17473776b9106e19bc8b8bc607204d
 
 
 export default function Body() {
@@ -29,8 +36,12 @@ export default function Body() {
         <Router>
 
             <div className="content">
+
                 {/* <Sidenav /> */}
-                <FrontOfficeSideNav/>
+                {/* <FrontOfficeSideNav/> */}
+
+                <CusSideNav/>
+
 
                 <div className="block">
 
@@ -41,6 +52,7 @@ export default function Body() {
                     <Route path="/suppliers" exact component={Suppliers}/>
                     <Route path="/supplierview/:id" exact component={SuppliersView}/>
                     <Route path="/restock" exact component={ReStock}/>
+                    <Route path="/checkout" exact component={InventoryCheckout}/>
 
 
 
@@ -60,10 +72,17 @@ export default function Body() {
                             <Route path="/accept/:id" exact component={Accept} />
                             <Route path="/decline/:id" exact component={Decline} />
 
+<<<<<<< HEAD
                         {/* Final Bill */}
                              <Route path="/FinalBill" exact component={FinalBill} />
                              <Route path="/ReleventBill/:id" exact component={ReleventBill} />
                             
+=======
+
+
+                      {/* customer       */}
+                      <Route path="/up" exact component={Booking}/>
+>>>>>>> 0de25687cc17473776b9106e19bc8b8bc607204d
 
                 </div>
 

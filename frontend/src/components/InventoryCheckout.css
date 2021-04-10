@@ -1,0 +1,221 @@
+.checkout-box {
+    /* border: 1px solid rgba(194, 194, 194, 0.198); */
+    /* border-radius: 12px; */
+    overflow-y: scroll;
+    min-height: 490px;
+    max-height: 490px;
+    /* margin: 20px; */
+    padding: 15px;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    grid-template-areas: "a b" "a b" "c b";
+}
+
+.checkout-box::-webkit-scrollbar {
+    display: none;
+}
+
+.checkoutlist {
+    grid-area: a;
+}
+
+.processcheckout {
+    grid-area: c;
+}
+
+.allinventory {
+    grid-area: b;
+}
+
+.cb {
+    border: 1px solid rgb(199, 199, 199);
+    margin: 5px;
+    border-radius: 10px;
+    /* background-color: rgba(243, 243, 243, 0.527); */
+}
+
+.search-box {
+    display: flex;
+    justify-content: center;
+}
+
+.allinventory input {
+    border: 1px solid rgba(109, 109, 109, 0.609);
+    border-radius: 10px;
+    padding: 5px;
+    padding-left: 30px;
+    padding-left: 30px;
+    margin-top: 9px;
+    margin: 20px;
+    width: 100%;
+    height: 20px;
+}
+
+.display-all-inventory {
+    /* height: auto; */
+}
+
+.itembox {
+    /* border: 1px solid rgba(34, 34, 34, 0.198); */
+    overflow-y: scroll;
+    max-height: 400px;
+}
+
+.itembox::-webkit-scrollbar {
+    display: none;
+}
+
+.round-checkout-box {
+    border: 1px solid rgb(128, 128, 128);
+    border-radius: 10px;
+    margin: 8px;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(255, 255, 255);
+    /* grid-template-columns: 2fr 1fr 1fr;
+    grid-template-areas: "a b c"; */
+}
+
+.restock-details {
+    font-size: 12px;
+}
+
+.leftstock-c {
+    text-align: center;
+}
+
+.leftstock-c #quantity {
+    font-size: 22px;
+    font-weight: 600;
+    color: rgb(53, 53, 53);
+}
+
+.leftstock-c #quantity-text {
+    font-size: 10px;
+    font-weight: 500;
+    color: rgb(116, 116, 116);
+}
+
+.add-items {
+    margin-top: 12px;
+}
+
+.add-items i {
+    /* padding-left: 1px; */
+    /* padding-top: 1px; */
+    font-size: 29px;
+    color: rgb(110, 110, 110);
+    transition: 0.2s ease;
+}
+
+.add-items button {
+    border: none;
+    outline: none;
+    background-color: white;
+    transition: 0.2s ease;
+}
+
+.add-items i:hover {
+    color: rgb(16, 173, 11);
+}
+
+.right-side {
+    display: flex;
+    justify-content: center;
+    margin-right: 30px;
+}
+
+.checkoutlist-box {
+    border: 1px solid rgba(109, 109, 109, 0.609);
+    /* min-height: 40px; */
+    border-radius: 15px;
+    padding: 10px;
+    margin: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.checkoutlist-box-right input {
+    border: 1px solid rgba(109, 109, 109, 0.609);
+    border-radius: 10px;
+    padding: 5px;
+    /* padding-left: 30px;
+    padding-left: 30px; */
+    text-align: center;
+    width: 40px;
+    margin-right: 10px;
+    /* margin-top: 9px; */
+    /* margin: 20px; */
+    /* height: 20px; */
+}
+
+.checkoutlist-box {
+    font-size: 14px;
+}
+
+.checkoutlist-box-right i {
+    color: rgb(90, 90, 90);
+    transition: 0.2s ease;
+}
+
+.checkoutlist-box-right i:hover {
+    color: rgb(255, 13, 53);
+}
+
+.checkoutlist-box span {
+    font-weight: 500;
+}
+
+.checkoutlist {
+    overflow-y: scroll;
+    height: 300px;
+    /* max-width: 440px; */
+}
+.checkoutlist::-webkit-scrollbar {
+    display: none;
+}
+
+.processcheckout {
+    height: 170px;
+    background-color: rgb(246, 246, 246);
+}
+
+.upper-cb input {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+    border: 1px solid rgba(109, 109, 109, 0.609);
+    border-radius: 10px;
+    padding: 5px;
+    padding-left: 16px;
+    margin-top: 9px;
+    width: 90%;
+    height: 19px;
+    
+}
+.lower-cb{
+
+    margin-top: 9px;
+    margin: 5px;
+    height: 44%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+
+}
+.lower-cb button{
+    border: 2px solid rgb(180, 180, 180);
+    border-radius: 20px;
+    padding: 10px 13px 10px 13px ;
+    background-color: rgb(255, 255, 255);
+    font-weight: 600;
+    outline: none;
+    transition: 00.2s ease;
+}
+.lower-cb button:hover{
+    border: 2px solid rgb(238, 194, 0);
+
+}
