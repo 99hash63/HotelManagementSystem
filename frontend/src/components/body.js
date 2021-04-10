@@ -34,10 +34,10 @@ export default function Body() {
 
             <div className="content">
 
-                {/* <Sidenav /> */}
+                <Sidenav />
                 {/* <FrontOfficeSideNav/> */}
 
-                <CusSideNav/>
+                {/* <CusSideNav/> */}
 
 
                 <div className="block">

@@ -21,17 +21,16 @@ const ReStock = () => {
 
     }, [update])
 
-    function update(e,id,quantity) {
+    function update(e, id, quantity) {
         e.preventDefault();
-        
-        const total =  parseInt(quantity) +  parseInt(newStock);
-        const newStockvalue = {total};
-console.log(total)
+
+        const total = parseInt(quantity) + parseInt(newStock);
+        const newStockvalue = { total };
         axios.put(`http://localhost:5000/inventory/updatestock/${id}`, newStockvalue).then(() => {
 
         }).catch((e) => {
             alert("error");
-        })    
+        })
     }
 
 
@@ -48,13 +47,14 @@ console.log(total)
                             <li>{s.model}</li>
                         </div>
 
-                        <div className="leftstock">Remaining : {s.quantity} <br/> ReStock Level : {s.restock_level} </div>
-                        
+                        <div className="leftstock">Remaining : {s.quantity} <br /> ReStock Level : {s.restock_level} </div>
+
                         <div className="addstock-btn">
                             <input type="number" onChange={(e) => {
-                                setnewStock(e.target.value)}} />
-                            <button onClick={(e) => update(e,s._id,s.quantity)} >Add</button>
-                            </div>
+                                setnewStock(e.target.value)
+                            }} />
+                            <button onClick={(e) => update(e, s._id, s.quantity)} >Add</button>
+                        </div>
 
                     </div>
                 })}

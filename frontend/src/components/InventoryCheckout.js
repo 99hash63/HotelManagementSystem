@@ -9,6 +9,8 @@ const InventoryCheckout = () => {
   const [search, setsearch] = useState("");
   const [filtered, setfiltered] = useState([]);
   const [selected, setselected] = useState([]);
+  const [to, setto] = useState("");
+  const [description, setdescription] = useState("");
 
   useEffect(() => {
     axios.get("http://localhost:5000/inventory/").then((res) => {
@@ -37,9 +39,9 @@ const InventoryCheckout = () => {
     selected.forEach(function (element) {
       element.selectedUnits = 1;
     });
-    
 
-  },[] )
+
+  }, [])
 
 
   const select = (e, data) => {
@@ -63,20 +65,21 @@ const InventoryCheckout = () => {
 
   }
   function addSelectedUnits(e, id, value) {
- 
+
 
     const nextState = selected.map(a => a._id == id ? { ...a, selectedUnits: value } : a);
     setselected(nextState);
   }
-  
+
   useEffect(() => {
-    let totalvalue= 0;
+    let totalvalue = 0;
     for (let index = 0; index < selected.length; index++) {
       totalvalue += selected[index].original_price * selected[index].selectedUnits;
-     
-      document.getElementById('fofofo').innerHTML = totalvalue+" LKR";
+
+      document.getElementById('fofofo').innerHTML = totalvalue + " LKR";
+      console.log(selected);
     }
-  },)
+  })
 
 
 
@@ -104,8 +107,8 @@ const InventoryCheckout = () => {
 
         <div className="processcheckout cb">
           <div className="upper-cb" >
-            <input type="text" placeholder="to" />
-            <input type="text" placeholder="description" />
+            <input type="text" placeholder="to"  onChange={e => { setto(e.target.value) }}  />
+            <input type="text" placeholder="description"  onChange={e => { setdescription(e.target.value) }} />
           </div>
           <div className="lower-cb" >
             <span id='total-cb'>Total : <span id="fofofo"></span></span>
