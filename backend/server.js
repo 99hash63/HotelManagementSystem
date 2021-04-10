@@ -41,11 +41,13 @@ const BookingRouter = require("./routes/booking.js");
 const CustomerRouter = require("./routes/customer.js");
 const loMembershipRouter = require("./routes/loMembership.js");
 const loMemberRouter = require("./routes/loMember.js");
+const roomTypeRouter = require("./routes/roomType.js");
 
 app.use("/booking",BookingRouter);
 app.use("/customer",CustomerRouter);
 app.use("/loMembership",loMembershipRouter);
 app.use("/loMember",loMemberRouter);
+app.use("/roomType",roomTypeRouter);
 
 
 
