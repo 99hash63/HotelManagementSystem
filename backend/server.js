@@ -56,6 +56,25 @@ app.use("/loMember",loMemberRouter);
 const travelAgentntRouter = require("./routes/Travel_Agency.js");
 app.use("/Travel_Agency", travelAgentntRouter);
 
+
+
+
+
+
+
+//Anu Routes
+const mealOrderRout = require("./routes/MealOrder.js");
+app.use("/Meal_Order", mealOrderRout);
+
+
 app.listen(PORT,()=>{
     console.log(`Server running on PORT: ${PORT}`)
 })
+
+
+
+
+
+
+
+
