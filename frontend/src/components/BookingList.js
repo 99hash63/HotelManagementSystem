@@ -8,7 +8,6 @@ function BookingList(props) {
     const bookings = props.bookings;
     return (
         <div className="display-box">
-           <div className="header-box"> Active Bookings </div>
                 <div className="content-box-list">
             <table id="items">
                 <tr>

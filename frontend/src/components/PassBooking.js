@@ -22,7 +22,7 @@ function ViewPassBookings() {
 
     return (
         <div>
-            <h1>Hello Pass Bookings</h1>
+            <div className="header-box"> Pass Bookings </div>
             <BookingList bookings={bookings.filter((booking) => booking.bookingState === "Pass")} />
         </div>
 

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './AddAgent.css'
 
 function AddAgencies() {
     var [contract_id, setContract_id] = useState("");
@@ -35,7 +36,8 @@ function AddAgencies() {
 
 
     return (
-        <div>
+        <div class="container">
+            <div className="header-box">Add Agent</div>
             <form>
                 <label>Contract Id :</label><br />
                 <input type="text" id="contract_id" name="contract_id" onChange={(e) => {

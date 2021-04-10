@@ -91,7 +91,7 @@ function AcceptBookingRequests() {
         const result = window.confirm("Confirm?");
         if (result == true) {
 
-            axios.put(`http://localhost:5000/booking/update/${id}`, newBooking).then((res) => {
+            axios.post(`http://localhost:5000/booking/update/${id}`, newBooking).then((res) => {
                 window.location = "/request";
                 alert("Accepted Successful!");
 

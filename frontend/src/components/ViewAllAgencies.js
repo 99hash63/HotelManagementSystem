@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import './AddAgent.css'
 
 
 
@@ -23,8 +24,7 @@ function ViewAll() {
     return (
         <div>
             <h1>All Agencies</h1>
-            <table class="center">
-                <thead>
+            <table id="items">
                     <tr>
                         <th>contract Id</th>
                         <th>Name</th>
@@ -33,15 +33,12 @@ function ViewAll() {
                         <th>Address</th>
                         <th>Passcode</th>
                         <th>Rate</th>
+                        <th></th>
                     </tr>
-                </thead>
 
-                {agent.map((agent) => (
+                {agent.map(function(agent){
 
-                    <div key={agent._id}>
-
-                        <tbody>
-                            <tr>
+                           return <tr>
                                 <td>{agent.contract_id}</td>
                                 <td>{agent.name}</td>
                                 <td>{agent.mail_Address}</td>
@@ -51,9 +48,9 @@ function ViewAll() {
                                 <td>{agent.rate}</td>
                                 <td><Link to={"/viewOne/" + agent._id}> Edit </Link></td>
                             </tr>
-                        </tbody>
-                    </div>
-                ))}
+                     
+                   
+                })}
             </table>
         </div>
 

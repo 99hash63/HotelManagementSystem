@@ -19,6 +19,8 @@ import BookingReq from './UpcomingBookings';
 import Accept from './AcceptRequset';
 import Decline from './DeleteBookingRequest';
 import ReStock from './ReStock';
+import FinalBill from './FinalBill';
+import ReleventBill from './ViewReleventBill';
 
 
 export default function Body() {
@@ -57,6 +59,11 @@ export default function Body() {
                             <Route path="/request" exact component={BookingReq} />
                             <Route path="/accept/:id" exact component={Accept} />
                             <Route path="/decline/:id" exact component={Decline} />
+
+                        {/* Final Bill */}
+                             <Route path="/FinalBill" exact component={FinalBill} />
+                             <Route path="/ReleventBill/:id" exact component={ReleventBill} />
+                            
 
                 </div>
 

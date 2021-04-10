@@ -12,7 +12,7 @@ export default function Sidenav() {
                 <Link to="/viewAllAgencies">View Agencies</Link>
                 <Link to="/">Event Booking</Link>
                 <Link to="/">Room Booking</Link>
-                <Link to="/">Final Bill</Link>
+                <Link to="/FinalBill">Final Bill</Link>
                
             </div>
       

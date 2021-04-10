@@ -119,51 +119,51 @@ router.route("/ViewHistry").get((req,res)=>{
 
 
 
-//Accept Booking Requsets
-router.route("/update/:id").put((req,res)=>{
-    var id = req.params.id;
-    const {bookingId, fName, lName, address, NIC, email, promoCode, travelAgent, checkInDate, checkOutDate, noOfAdults, noOfChildren, package, otherAccomodations, nationality, passportNo, roomAllocation, price, bookingState} = req.body;
+// //Accept Booking Requsets
+// router.route("/update/:id").put((req,res)=>{
+//     var id = req.params.id;
+//     const {bookingId, fName, lName, address, NIC, email, promoCode, travelAgent, checkInDate, checkOutDate, noOfAdults, noOfChildren, package, otherAccomodations, nationality, passportNo, roomAllocation, price, bookingState} = req.body;
 
-        const AcceptReq = ({
-            bookingId,
-            fName,
-            lName,
-            address, 
-            NIC, 
-            email,
-            promoCode,
-            travelAgent, 
-            checkInDate, 
-            checkOutDate, 
-            noOfAdults,
-            noOfChildren,
-            package, 
-            otherAccomodations, 
-            nationality, 
-            passportNo, 
-            roomAllocation,
-            price,
-            bookingState
-    })
-
-
-    Booking.findByIdAndUpdate(id,AcceptReq).then(()=>{
-        res.status(200).send({status:"Agent Add Success"})
-    }).catch((err)=>{
-        res.status(500).send({status:"Error"})
-    })
-
-})
+//         const AcceptReq = ({
+//             bookingId,
+//             fName,
+//             lName,
+//             address, 
+//             NIC, 
+//             email,
+//             promoCode,
+//             travelAgent, 
+//             checkInDate, 
+//             checkOutDate, 
+//             noOfAdults,
+//             noOfChildren,
+//             package, 
+//             otherAccomodations, 
+//             nationality, 
+//             passportNo, 
+//             roomAllocation,
+//             price,
+//             bookingState
+//     })
 
 
-//find special agencies
+//     Booking.findByIdAndUpdate(id,AcceptReq).then(()=>{
+//         res.status(200).send({status:"Agent Add Success"})
+//     }).catch((err)=>{
+//         res.status(500).send({status:"Error"})
+//     })
+
+// })
+
+
+//find special Customer
 router.route("/find/:id").get((req,res)=>{
      var id = req.params.id;
 
      Booking.findById(id).then((agent)=>{    
             res.json(agent);
     }).catch((err)=>{
-        console.log(err);
+        res.json(err);
     })
 })
 
@@ -180,5 +180,20 @@ router.route("/delete/:id").delete((req,res)=>{
     }) 
 })
 
+
+
+//find customer using 
+router.route("/findOne/:id").get((req,res)=>{
+    var mail = req.params.id;
+    console.log(mail);
+    
+    Booking.find({email : mail}).then((cust)=>{
+        res.json(cust);
+        console.log(cust);
+    }).catch((err)=>{
+        res.json(err);
+    })
+    
+}) 
 
 module.exports = router;
