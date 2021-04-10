@@ -18,6 +18,10 @@ const InventoryCheckout = new Schema({
         type: String,
 
     },
+    to: {
+        type: String,
+
+    },
     description: {
         type: String,
 
@@ -35,10 +39,10 @@ const InventoryCheckout = new Schema({
 
     },
     date: {
-        type: Date,
+        type: String,
         require: true
     }
 })
-const Checkout = mongoose.model("checkout", InventoryCheckout);
+const Checkout = mongoose.model("checkoutInventory", InventoryCheckout);
 
 module.exports = Checkout;

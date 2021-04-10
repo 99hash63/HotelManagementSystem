@@ -20,7 +20,9 @@ const InventoryCheckout = () => {
     }).catch((e) => {
       console.log(e);
     })
+
   }, [])
+
 
   useEffect(() => {
     setfiltered(
@@ -32,7 +34,6 @@ const InventoryCheckout = () => {
           || items.supplier.toLowerCase().includes(search.toLowerCase())
       })
     )
-
   }, [search, inventory])
 
   useEffect(() => {
@@ -69,6 +70,9 @@ const InventoryCheckout = () => {
 
     const nextState = selected.map(a => a._id == id ? { ...a, selectedUnits: value } : a);
     setselected(nextState);
+
+
+
   }
 
   useEffect(() => {
@@ -77,9 +81,57 @@ const InventoryCheckout = () => {
       totalvalue += selected[index].original_price * selected[index].selectedUnits;
 
       document.getElementById('fofofo').innerHTML = totalvalue + " LKR";
-      console.log(selected);
     }
   })
+
+  function checkout(e) {
+    for (let index = 0; index < selected.length; index++) {
+
+      for (let x = 0; x < inventory.length; x++) {
+
+        if (selected[index]._id == inventory[x]._id) {
+          const id = inventory[x]._id;
+
+          if (inventory[x].quantity >= selected[index].selectedUnits) {
+            const total = parseInt(inventory[x].quantity) - parseInt(selected[index].selectedUnits);
+            const newStockvalue = { total };
+            axios.put(`http://localhost:5000/inventory/updatestock/${id}`, newStockvalue).then(() => {
+
+            }).catch((e) => {
+              alert("error");
+            })
+
+            const name = inventory[x].name;
+            const model = inventory[x].model;
+            const sku = inventory[x].sku;
+            const category = inventory[x].category;
+            const quantity = inventory[x].quantity;
+            const unit_price = inventory[x].unit_price;
+            const total_price = inventory[x].total_price;
+            var today = new Date();
+            var dd = String(today.getDate()).padStart(2, '0');
+            var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+            var yyyy = today.getFullYear();
+
+            today = mm + '/' + dd + '/' + yyyy;
+            
+            const newItem = {
+              name,model,sku,category,to,description,quantity,unit_price,total_price,today
+            }
+
+            axios.post(" http://localhost:5000/checkout/add", newItem).then(() => {
+
+            }).catch((e) => {
+              alert("error");
+            })
+
+
+          }
+        }
+      }
+    }
+
+  }
 
 
 
@@ -94,7 +146,7 @@ const InventoryCheckout = () => {
             return <div className="checkoutlist-box" >
               <li><span>{s.name}</span> - {s.model} </li>
               <div className="checkoutlist-box-right">
-                <input type="number" min="1" defaultValue="1"
+                <input type="number" min="1" defaultValue="0"
                   onChange={e => addSelectedUnits(e, s._id, e.target.value)}
                 />
                 <i onClick={(e) => deleteItem(e, s)} className="fas fa-minus-circle"></i>
@@ -107,13 +159,13 @@ const InventoryCheckout = () => {
 
         <div className="processcheckout cb">
           <div className="upper-cb" >
-            <input type="text" placeholder="to"  onChange={e => { setto(e.target.value) }}  />
-            <input type="text" placeholder="description"  onChange={e => { setdescription(e.target.value) }} />
+            <input type="text" placeholder="to" onChange={e => { setto(e.target.value) }} />
+            <input type="text" placeholder="description" onChange={e => { setdescription(e.target.value) }} />
           </div>
           <div className="lower-cb" >
             <span id='total-cb'>Total : <span id="fofofo"></span></span>
 
-            <button>Checkout</button>
+            <button onClick={checkout}>Checkout</button>
           </div>
 
 
