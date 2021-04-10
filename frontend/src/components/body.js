@@ -21,6 +21,9 @@ import Decline from './DeleteBookingRequest';
 import ReStock from './ReStock';
 import InventoryCheckout from './InventoryCheckout';
 
+import Booking from './booking';
+import CusSideNav from './cusSideNav';
+
 
 export default function Body() {
     return (
@@ -28,8 +31,12 @@ export default function Body() {
         <Router>
 
             <div className="content">
-                <Sidenav />
+
+                {/* <Sidenav /> */}
                 {/* <FrontOfficeSideNav/> */}
+
+                <CusSideNav/>
+
 
                 <div className="block">
 
@@ -59,6 +66,11 @@ export default function Body() {
                             <Route path="/request" exact component={BookingReq} />
                             <Route path="/accept/:id" exact component={Accept} />
                             <Route path="/decline/:id" exact component={Decline} />
+
+
+
+                      {/* customer       */}
+                      <Route path="/up" exact component={Booking}/>
 
                 </div>
 
