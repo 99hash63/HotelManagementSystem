@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'
 import './InventoryCheckout.css'
-import { Link } from 'react-router-dom'
+import History from './checkoutHistory';
 
 const InventoryCheckout = () => {
 
@@ -105,22 +105,22 @@ const InventoryCheckout = () => {
             const model = inventory[x].model;
             const sku = inventory[x].sku;
             const category = inventory[x].category;
-            const quantity = inventory[x].quantity;
+            const quantity = selected[index].selectedUnits;
             const unit_price = inventory[x].unit_price;
             const total_price = inventory[x].total_price;
-            var today = new Date();
-            var dd = String(today.getDate()).padStart(2, '0');
-            var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-            var yyyy = today.getFullYear();
+            var date = new Date();
+            var dd = String(date.getDate()).padStart(2, '0');
+            var mm = String(date.getMonth() + 1).padStart(2, '0'); //January is 0!
+            var yyyy = date.getFullYear();
 
-            today = mm + '/' + dd + '/' + yyyy;
+            date = mm + '/' + dd + '/' + yyyy;
             
             const newItem = {
-              name,model,sku,category,to,description,quantity,unit_price,total_price,today
+              name,model,sku,category,to,description,quantity,unit_price,total_price,date
             }
 
             axios.post(" http://localhost:5000/checkout/add", newItem).then(() => {
-
+              setselected([]);
             }).catch((e) => {
               alert("error");
             })
@@ -132,12 +132,25 @@ const InventoryCheckout = () => {
     }
 
   }
+  function checkoutPOP() {
+    const x = document.getElementById("checkoutHistory-window").style.display;
+    if (x == "none") {
+        document.getElementById('checkoutHistory-window').style.display = "block";
+    }
+    else {
+        document.getElementById('checkoutHistory-window').style.display = "none ";
+    }
+}
 
 
 
   return (
     <div className="display-box">
-      <div className="header-box-sup"> Checkout</div>
+      <div className="header-box-sup"> Checkout
+      <button id="checkoutHistory-window-btn" onClick={checkoutPOP} style={{ display: "block" }}>History</button>
+      </div>
+        <div id="checkoutHistory-window" style={{ display: "none" }}>  <History POP={checkoutPOP} /> </div>
+
       <div className="checkout-box" >
         <div className="checkoutlist cb">
 

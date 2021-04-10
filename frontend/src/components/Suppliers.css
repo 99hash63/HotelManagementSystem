@@ -11,6 +11,7 @@
 /* add supplier */
 .blur-s {
    position: fixed;
+   backdrop-filter: blur(3px);
    margin: 0;
    top: 0px;
    left: 0px;

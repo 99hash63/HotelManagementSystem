@@ -40,7 +40,7 @@
     text-transform:capitalize;
 }
 
-tr:hover {
+#items tr:hover {
     background-color: rgb(149, 149, 149);
 }
 #items th {
@@ -51,7 +51,7 @@ tr:hover {
     color: white;
 }
 
-td {
+#items td {
     font-size: 15px;
     color: #808080;
     line-height: 1.4;
