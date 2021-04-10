@@ -5,18 +5,6 @@ import './ReStock.css'
 
 const ReStock = () => {
 
-    // const [name, setname] = useState("test");
-    // const [model, setmodel] = useState("test");
-    // const [sku, setsku] = useState("test");
-    // const [category, setcategory] = useState("test");
-    // const [supplier, setsupplier] = useState("test");
-    // const [description, setdescription] = useState("test");
-    // const [mesurement, setunit] = useState("test");
-    // const [quantity, setquantity] = useState(0);
-    // const [restock_level, setrestock] = useState("test");
-    // const [original_price, setoprice] = useState("test");
-    // const [date, setdate] = useState("2021-04-07T00:00:00.000+00:00");
-
     const [newStock, setnewStock] = useState(0);
     const [inventory, setinventory] = useState([]);
 
