@@ -15,9 +15,23 @@ router.route("/addMeal").post((req,res)=>{
 
 
 
-router.route("/Retrieve/:id").get((req,res)=>{
+//retrive meal order details using relevent  mail
+router.route("/Retrieve/:id").get(async(req,res)=>{
     var mail = req.params.id;
-    Order.find({ Mail_Address: mail }).then((order)=>{
+    await Order.find({ Mail_Address: mail }).then((order)=>{
+       res.json(order)
+        console.log(order)
+    }).catch((err)=>{
+        console.log(err);
+    })
+})
+
+
+
+//Retrieve all meal orders for suggest mail address 
+router.route("/Retrieve").get((req,res)=>{
+    var mail = req.params.id;
+    Order.find().then((order)=>{
         res.json(order);
         console.log(order)
     }).catch((err)=>{
