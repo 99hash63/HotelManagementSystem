@@ -50,7 +50,7 @@ const ReStock = () => {
                         <div className="leftstock">Remaining : {s.quantity} <br /> ReStock Level : {s.restock_level} </div>
 
                         <div className="addstock-btn">
-                            <input type="number" onChange={(e) => {
+                            <input min="1" type="number" onChange={(e) => {
                                 setnewStock(e.target.value)
                             }} />
                             <button onClick={(e) => update(e, s._id, s.quantity)} >Add</button>

@@ -93,7 +93,7 @@ const Suppliers = () => {
                     </thead>
                     <tbody>
                         {
-                            suppliers.map(function (f) {
+                            suppliers.slice(0).reverse().map(function (f) {
                                 return <tr>
 
                                     <td >{f.name}</td>
@@ -101,7 +101,7 @@ const Suppliers = () => {
                                     <td >{f.contact} </td>
                                     <td >{f.email} </td>
                                     <td >{f.location} </td>
-                                    <td > <Link to={"/supplierview/" + f._id} >Edit</Link></td>
+                                    <td > <Link to={"/supplierview/" + f._id} ><i class="far fa-edit"></i></Link></td>
 
                                 </tr>
 

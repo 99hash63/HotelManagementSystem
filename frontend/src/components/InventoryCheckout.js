@@ -74,9 +74,9 @@ const InventoryCheckout = () => {
 
 
   }
-
+  let totalvalue = 0;
   useEffect(() => {
-    let totalvalue = 0;
+    
     for (let index = 0; index < selected.length; index++) {
       totalvalue += selected[index].original_price * selected[index].selectedUnits;
 
@@ -121,6 +121,14 @@ const InventoryCheckout = () => {
 
             axios.post(" http://localhost:5000/checkout/add", newItem).then(() => {
               setselected([]);
+              setto("")
+              setdescription("")
+              totalvalue=0;
+              document.getElementById('fofofo').innerHTML ="" ;
+              document.getElementById('to-text').value ="" ;
+              document.getElementById('to-des').value ="" ;
+
+
             }).catch((e) => {
               alert("error");
             })
@@ -172,8 +180,8 @@ const InventoryCheckout = () => {
 
         <div className="processcheckout cb">
           <div className="upper-cb" >
-            <input type="text" placeholder="to" onChange={e => { setto(e.target.value) }} />
-            <input type="text" placeholder="description" onChange={e => { setdescription(e.target.value) }} />
+            <input id="to-text" type="text" placeholder="to" onChange={e => { setto(e.target.value) }} />
+            <input id="to-des"type="text" placeholder="description" onChange={e => { setdescription(e.target.value) }} />
           </div>
           <div className="lower-cb" >
             <span id='total-cb'>Total : <span id="fofofo"></span></span>

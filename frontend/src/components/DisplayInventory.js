@@ -18,7 +18,7 @@ const DisplayInventory = () => {
     const [original_price, setoprice] = useState("");
     const [date, setdate] = useState("");
 
-//storing the data that fetched from the DB
+    //storing the data that fetched from the DB
     const [getInventory, setgetInventory] = useState([]);
     const [getCategory, setgetCategory] = useState([]);
     const [getSupplier, setgetSupplier] = useState([]);
@@ -26,7 +26,7 @@ const DisplayInventory = () => {
 
 
     useEffect(() => {
-//fetching category data from DB
+        //fetching category data from DB
         axios.get("http://localhost:5000/category/").then((res) => {
             if (res.data.length > 0) {
                 setgetCategory(res.data.map(category => category.name))
@@ -34,7 +34,7 @@ const DisplayInventory = () => {
         }).catch((e) => {
             console.log(e);
         })
-//fetching supplier data from DB
+        //fetching supplier data from DB
         axios.get("http://localhost:5000/supplier/").then((res) => {
             if (res.data.length > 0) {
                 setgetSupplier(res.data.map(supplier => supplier.name))
@@ -42,7 +42,7 @@ const DisplayInventory = () => {
         }).catch((e) => {
             console.log(e);
         })
-//fetching inventory data from DB
+        //fetching inventory data from DB
         axios.get(`http://localhost:5000/inventory/get/${id}`).then(res => {
             setgetInventory(res.data.item)
             //setting the data that is fetched from the database 
@@ -88,7 +88,7 @@ const DisplayInventory = () => {
         document.getElementById('edit-title').innerHTML = "Edit Inventory"
 
     }
-      //delete inventory button funtion
+    //delete inventory button funtion
     const delete_inventory = () => {
         axios.delete(`http://localhost:5000/inventory/delete/${id}`).then(() => {
             window.location = "/inventory"
@@ -97,18 +97,15 @@ const DisplayInventory = () => {
         })
 
     }
-
-
-
-
-
-
     return (
         <div className="display-box">
 
             <div id="edit-title" className="header-box"> Inventory
-            <button id="edit_btn" onClick={enable_edit}>Edit</button>
-                <button id="delete_btn" onClick={delete_inventory}>Delete</button>
+            <div>
+                    <button id="edit_btn" onClick={enable_edit}>Edit</button>
+                    <button id="delete_btn" onClick={delete_inventory}>Delete</button>
+                </div>
+
             </div>
             {/* <hr /> */}
 

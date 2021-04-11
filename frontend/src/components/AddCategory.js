@@ -93,7 +93,7 @@ const AddCategory = (props) => {
 
             </div>
             <div className="close-category">
-                <button onClick={categorybtn} >Close</button>
+                <i onClick={categorybtn}  class="fas fa-times"></i>
             </div>
 
         </div>

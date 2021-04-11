@@ -44,7 +44,7 @@ export default function AddInventory() {
                     </thead>
                     <tbody>
                         {
-                            inventory.map(function (f) {
+                            inventory.slice(0).reverse().map(function (f) {
                                 return <tr>
 
                                     <td >{f.name}</td>
@@ -54,7 +54,7 @@ export default function AddInventory() {
                                     <td >{f.supplier} </td>
                                     <td >{f.quantity} </td>
                                     <td >{f.date.substring(0, 10)} </td>
-                                    <td > <Link to={"/displayinventory/" + f._id} >view</Link></td>
+                                    <td > <Link to={"/displayinventory/" + f._id} ><i class="far fa-edit"></i></Link></td>
 
                                 </tr>
 

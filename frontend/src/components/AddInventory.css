@@ -1,34 +1,51 @@
 .display-box hr {
     border-bottom: 1px solid rgba(216, 216, 216, 0.698);
-   
-  
 }
 
 .header-box {
     font-size: 35px;
     display: flex;
-
+    justify-content: space-between;
     color: rgb(75, 75, 75);
     font-weight: 700;
+    min-height: 55px;
     margin-bottom: 20px;
     margin-left: 45px;
 }
-.content-box{
+
+#add-new-cat-btn {
+    border: 1px solid rgb(124, 124, 124);
+    border-radius: 90px;
+    width: 110px;
+    height: 40px;
+    margin-top: 8px;
+    color: rgb(124, 124, 124);
+    margin-right: 20px;
+    background-color: white;
+    transition: 0.2s ease;
+    outline: none;
+}
+
+#add-new-cat-btn:hover {
+    border: 1px solid rgb(39, 39, 39);
+    color: rgb(39, 39, 39);
+}
+
+.content-box {
     border: 1px solid rgba(194, 194, 194, 0.198);
     border-radius: 12px;
     overflow: scroll;
     min-height: 490px;
-
-  
 }
+
 .content-box::-webkit-scrollbar {
     display: none;
 }
+
 .content-box form {
     display: flex;
     justify-content: space-evenly;
     margin-top: 20px;
-
 }
 
 .content-box form::-webkit-scrollbar {
@@ -43,12 +60,10 @@
 
 .custom-field input, .custom-field select, .custom-field textarea {
     border: 1px solid rgba(0, 0, 0, 0.329);
-
     padding: 12px;
     margin: 12px;
     margin-top: 25px;
     border-radius: 12px;
-
     outline: none;
     font-size: 14px;
     transition: 0.3s ease;
@@ -60,8 +75,7 @@
 }
 
 .custom-field .placeholder {
-   
-    font-weight:400;
+    font-weight: 400;
     position: absolute;
     left: 22px;
     padding-left: 2px;
@@ -72,16 +86,19 @@
     transition: color 0.3s ease;
 }
 
-input:focus+.placeholder, select:focus+.placeholder, textarea:focus+.placeholder {
+.custom-field input:focus+.placeholder, .custom-field select:focus+.placeholder, .custom-field textarea:focus+.placeholder {
     color: rgb(0, 0, 0);
-    font-weight:400;
-   
+    font-weight: 400;
 }
 
-input:focus, select:focus, textarea:focus {
+.custom-field input:focus, .custom-field select:focus, .custom-field textarea:focus {
     /* border: 1px solid rgb(0, 0, 0); */
     outline: none;
     box-shadow: 0px 0px 10px rgba(65, 65, 65, 0.185);
+}
+
+input {
+    outline: none;
 }
 
 #name, #model, #sku, #description, #supplier {
@@ -110,6 +127,7 @@ input:focus, select:focus, textarea:focus {
 #quantity, #restock {
     width: 162px;
 }
+
 .addinventory-btn {
     margin-top: 70px;
     /* margin-right: 40px; */
@@ -125,24 +143,21 @@ input:focus, select:focus, textarea:focus {
     margin-bottom: 30px; */
     /* cursor: pointer; */
     display: inline-block;
-    background-color: transparent;
-    border: 1px solid #5d5d5d;
     border-radius: 50px;
     -webkit-transition: all .15s ease-in-out;
     transition: all .15s ease-in-out;
-    color: #575757;
     outline: none;
+    background-color: rgb(46, 46, 46);
+    border: 1px solid rgb(46, 46, 46);
+    color: #e0e0e0;
 }
 
 .addinventory-btn:hover {
-    /* box-shadow: 0 0 3px 0 #eedf0f inset, 0 0 5px 2px #eedf0f; */
-    background-color: #F7CE68;
-    color: rgb(63, 63, 63);
-    border: 1px solid #F7CE68;
+    border: 1px solid rgb(0, 0, 0);
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
 }
 
-
-.displayInventory input::placeholder,.displayInventory textarea::placeholder,.displayInventory input[type=number]::placeholder{
-
+.displayInventory input::placeholder, .displayInventory textarea::placeholder, .displayInventory input[type=number]::placeholder {
     color: #000;
 }
