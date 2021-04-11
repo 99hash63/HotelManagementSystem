@@ -20,11 +20,12 @@ import Accept from './AcceptRequset';
 import Decline from './DeleteBookingRequest';
 import ReStock from './ReStock';
 import FinalBill from './FinalBill';
-import ReleventBill from './ViewReleventBill';
 import InventoryCheckout from './InventoryCheckout';
+import PaidBill from './FinalBillPopup';
 
 import Booking from './booking';
 import CusSideNav from './cusSideNav';
+import Login from './Login';
 
 
 export default function Body() {
@@ -32,15 +33,24 @@ export default function Body() {
 
         <Router>
 
+           
+
             <div className="content">
 
                 {/* <Sidenav /> */}
-                {/* <FrontOfficeSideNav/> */}
+                <FrontOfficeSideNav/>
 
-                <CusSideNav/>
-
+                {/* <CusSideNav/> */}
+                {/* <Login/>
+                <Route path="/frontOffice" exact component={FrontOfficeSideNav}/>
+                <Route path="/inventory" exact component={Sidenav}/> */}
+                
 
                 <div className="block">
+                
+               
+
+
 
                     {/* Inventry Manager Routes */}
                     <Route path="/addinventory" exact component={AddInventory}/>
@@ -71,10 +81,14 @@ export default function Body() {
 
                         {/* Final Bill */}
                              <Route path="/FinalBill" exact component={FinalBill} />
-                             <Route path="/ReleventBill/:id" exact component={ReleventBill} />
+                             <Route path="/PaidBill/:id" exact component={PaidBill} />
+                             
                             
 
 
+                      {/* end FrontOffice Manager Rout */}
+                      
+                      
                       {/* customer       */}
                       <Route path="/up" exact component={Booking}/>
 
