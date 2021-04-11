@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './AddAgent.css'
 
+
 function AddAgencies() {
     var [contract_id, setContract_id] = useState("");
     var [name, setName] = useState("");
