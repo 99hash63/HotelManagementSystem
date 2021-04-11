@@ -59,6 +59,9 @@ app.use("/roomType",roomTypeRouter);
 //Lahiru Routes
 const travelAgentntRouter = require("./routes/Travel_Agency.js");
 app.use("/Travel_Agency", travelAgentntRouter);
+const finalBill = require("./routes/Bill.js");
+app.use("/FinalBill", finalBill);
+
 
 
 
