@@ -37,10 +37,8 @@ export default function Body() {
 
             <div className="content">
 
-                <Sidenav />
-                {/* <FrontOfficeSideNav/> */}
-
-                {/* <CusSideNav/> */}
+                {/* <Sidenav /> */}
+                <FrontOfficeSideNav/>
 
                 {/* <CusSideNav/> */}
                 {/* <Login/>
