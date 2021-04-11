@@ -25,7 +25,12 @@ export default function AddInventory() {
 
     return (
         <div className="display-box">
-            <div className="header-box"> Inventory </div>
+            <div className="header-box"> Inventory
+            <div className="total-inventory-display">
+                   <span id="total-inventory-display-total">{inventory.length}</span> <br/>
+                    <span id="total-inventory-display-text">Total Inventory</span>
+                </div>
+            </div>
 
             <div className="content-box-list">
                 <table >
@@ -37,7 +42,8 @@ export default function AddInventory() {
                             <th>Category</th>
                             <th>Supplier</th>
                             <th>Quantity</th>
-                            <th>date</th>
+                            <th>Unit Price</th>
+                            <th>Date</th>
                             <th></th>
 
                         </tr>
@@ -53,6 +59,7 @@ export default function AddInventory() {
                                     <td >{f.category} </td>
                                     <td >{f.supplier} </td>
                                     <td >{f.quantity} </td>
+                                    <td >{f.original_price} </td>
                                     <td >{f.date.substring(0, 10)} </td>
                                     <td > <Link to={"/displayinventory/" + f._id} ><i class="far fa-edit"></i></Link></td>
 

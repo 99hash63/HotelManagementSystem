@@ -4,48 +4,58 @@
     font-weight: 700;
     margin-bottom: 20px;
     margin-left: 45px;
- 
 }
-.header-box{
 
+.total-inventory-display {
+    display: block;
+    line-height:20px;
+    text-align: center;
+    margin-right: 50px;
+    margin-top: 5px;
 }
-.header-box #edit_btn{
+#total-inventory-display-total{
+    font-size: 30px;
+}
+#total-inventory-display-text{
+    font-size: 13px;
+    color: #707070;
+}
+
+.header-box #edit_btn {
     border: 1px solid rgb(124, 124, 124);
     border-radius: 90px;
     width: 110px;
     height: 35px;
     margin-top: 8px;
-    color:rgb(124, 124, 124) ;
+    color: rgb(124, 124, 124);
     margin-right: 20px;
     background-color: white;
     transition: 0.2s ease;
     outline: none;
 }
-.header-box #edit_btn:hover{
+
+.header-box #edit_btn:hover {
     border: 1px solid rgb(180, 156, 20);
     color: rgb(180, 156, 20);
-
 }
-.header-box #delete_btn{
+
+.header-box #delete_btn {
     border: 1px solid rgb(124, 124, 124);
     border-radius: 90px;
     width: 110px;
     height: 35px;
     margin-top: 8px;
-    color:rgb(124, 124, 124) ;
+    color: rgb(124, 124, 124);
     margin-right: 20px;
     background-color: white;
     transition: 0.2s ease;
     outline: none;
 }
-.header-box #delete_btn:hover{
+
+.header-box #delete_btn:hover {
     border: 1px solid rgb(255, 0, 55);
     color: rgb(255, 0, 55);
-
 }
-
-
-
 
 .content-box-list {
     overflow-y: scroll;
@@ -133,22 +143,34 @@
     background-color: #e6e6e6;
 }
 
-
-
 /* white background color when it is disabled */
 
-.content-box input[type="text"]:disabled{background-color:rgb(255, 255, 255);}
-.content-box input[type="number"]:disabled{background-color:rgb(255, 255, 255);}
-.content-box input[type="date"]:disabled{background-color:rgb(255, 255, 255);}
-.content-box select:disabled{background-color:rgb(255, 255, 255);color: #000000; }
-.content-box textarea:disabled{background-color:rgb(255, 255, 255);}
+.content-box input[type="text"]:disabled {
+    background-color: rgb(255, 255, 255);
+}
 
+.content-box input[type="number"]:disabled {
+    background-color: rgb(255, 255, 255);
+}
 
-.content-box-list i{
+.content-box input[type="date"]:disabled {
+    background-color: rgb(255, 255, 255);
+}
+
+.content-box select:disabled {
+    background-color: rgb(255, 255, 255);
+    color: #000000;
+}
+
+.content-box textarea:disabled {
+    background-color: rgb(255, 255, 255);
+}
+
+.content-box-list i {
     color: #3a3a3a;
     transition: 00.2s ease;
 }
 
-.content-box-list i:hover{
+.content-box-list i:hover {
     color: #000000;
 }
