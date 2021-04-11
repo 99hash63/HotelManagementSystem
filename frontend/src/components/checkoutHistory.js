@@ -53,7 +53,7 @@ const CheckoutHistory = ({ POP }) => {
                         <tbody>
 
                             {
-                                history.map(function (f) {
+                                history.slice(0).reverse().map(function (f) {
                                     return <tr>
 
                                         <td >{f.name}</td>

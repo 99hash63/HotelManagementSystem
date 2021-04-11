@@ -140,14 +140,7 @@
 
 /* supplier list */
 
-.supplier-list{
-    border: 1px solid rgba(194, 194, 194, 0.198);
-    border-radius: 12px;
-    overflow-y: scroll;
-    min-height: 490px;
-    max-height: 490px;
 
-}
 .supplier-list::-webkit-scrollbar {
     /* display: none; */
 }
@@ -183,4 +176,95 @@
 .supplier-list  #name-s {
     max-width: 380px;
     min-width: 380px;
+}
+
+
+
+
+.supplier-list {
+    overflow-y: scroll;
+    margin-top: 10px;
+    border-radius: 12px;
+    max-height: 490px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.supplier-list::-webkit-scrollbar {
+    display: none;
+}
+
+.supplier-list table {
+    width: 100%;
+    text-align: left;
+    border-spacing: 1;
+    border-collapse: collapse;
+    background: white;
+    overflow: scroll;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    
+}
+
+.supplier-list table th {
+    position: sticky;
+  
+    top: 0;
+    background-color: #e0e0e0;
+    z-index: 1;
+}
+
+.supplier-list table * {
+    position: relative;
+}
+
+.supplier-list table td, .supplier-list table th {
+    padding-left: 8px;
+}
+
+.supplier-list table thead tr {
+    height: 50px;
+    color: #585858;
+}
+
+.supplier-list table tbody tr {
+    height: 50px;
+}
+
+.supplier-list table tbody tr:last-child {
+    border: 0;
+}
+
+.supplier-list table td, .supplier-list table th {
+    text-align: left;
+}
+
+.supplier-list table td.l, .supplier-list table th.l {
+    text-align: right;
+}
+
+.supplier-list table td.c, .supplier-list table th.c {
+    text-align: center;
+}
+
+.supplier-list table td.r, .supplier-list table th.r {
+    text-align: center;
+}
+
+.supplier-list tbody tr:nth-child(even) {
+    background-color: #f5f5f5;
+}
+
+.supplier-list tbody tr {
+    /* font-family: OpenSans-Regular; */
+    font-size: 15px;
+    color: #808080;
+    line-height: 1.2;
+    font-weight: unset;
+}
+
+.supplier-list tbody tr:hover {
+    color: #3a3a3a;
+    background-color: #e6e6e6;
 }

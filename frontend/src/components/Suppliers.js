@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './Suppliers.css'
 import axios from 'axios'
 import AddSuppliers from './AddSuppliers';
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const Suppliers = () => {
 
@@ -79,34 +79,35 @@ const Suppliers = () => {
 
             <div className="supplier-list" >
 
-                <table id="items">
+                <table >
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Contact</th>
+                            <th>Email</th>
+                            <th>Location</th>
+                            <th></th>
 
-                    <tr>
-                        <th>Name</th>
-                        <th>Description</th>
-                        <th>Contact</th>
-                        <th>Email</th>
-                        <th>Location</th>
-                        <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            suppliers.map(function (f) {
+                                return <tr>
 
-                    </tr>
+                                    <td >{f.name}</td>
+                                    <td >{f.description} </td>
+                                    <td >{f.contact} </td>
+                                    <td >{f.email} </td>
+                                    <td >{f.location} </td>
+                                    <td > <Link to={"/supplierview/" + f._id} >Edit</Link></td>
 
-                    {
-                        suppliers.map(function (f) {
-                            return <tr>
+                                </tr>
 
-                                <td >{f.name}</td>
-                                <td >{f.description} </td>
-                                <td >{f.contact} </td>
-                                <td >{f.email} </td>
-                                <td >{f.location} </td>
-                                <td > <Link to={"/supplierview/" + f._id} >Edit</Link></td>
-
-                            </tr>
-
-                        })
-                    }
-
+                            })
+                        }
+                    </tbody>
                 </table>
 
 
