@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'
 import './InventoryCheckout.css'
+import jspdf from 'jspdf'
+import "jspdf-autotable"
+
 
 const CheckoutHistory = ({ POP }) => {
 
@@ -17,18 +20,43 @@ const CheckoutHistory = ({ POP }) => {
 
 
     }, [])
+    const generatePDF = tickets => {
 
+        const doc = new jspdf();
+        const tableColumn = ["Name", "Model", "SKU", "Category", "Quantity", "To", "Description", "Date"];
+        const tableRows = [];
+
+        tickets.slice(0).reverse().map(ticket => {
+            const ticketData = [
+                ticket.name,
+                ticket.model,
+                ticket.sku,
+                ticket.category,
+                ticket.quantity,
+                ticket.to,
+                ticket.description,
+                ticket.date,
+            ];
+            tableRows.push(ticketData);
+        });
+
+
+        doc.autoTable(tableColumn, tableRows, { startY: 35 });
+        const date = Date().split(" ");
+        const dateStr = date[1] + "-" + date[2] + "-" + date[3];
+        var img = new Image().src = '/images/logo.png'
+        doc.addImage(img, 'JPEG', 160, 9, 49, 15);
+        doc.text("Sold Inventory Report", 14, 15).setFontSize(12);
+        doc.text(`Report Genarated Date - ${dateStr} `, 14, 23);
+        doc.save(`Sold_Inventory_report_${dateStr}.pdf`);
+    };
 
     return (<div>
 
         <dir className="blurc-s">
-
-
-
-
             <div className="checkouthistory-box-s">
                 <div className="checkouthistory-head">
-                    <div className="title">Checkout History </div>
+                    <div className="title">Checkout History <button id="generate-reportt-btn" onClick={() => generatePDF(history)}>Create Report</button> </div>
                     <button className="btn" onClick={POP}>&times;</button>
                 </div>
 
