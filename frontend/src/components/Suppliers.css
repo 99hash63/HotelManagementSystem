@@ -59,7 +59,7 @@
     margin-bottom: 20px;
 }
 
-.add-sup-head .btn {
+.add-sup-head .btnn {
     position: absolute;
     background-color: transparent;
     top: 20px;
@@ -70,7 +70,7 @@
     transition: 00.2s ease;
 }
 
-.add-sup-head .btn:hover {
+.add-sup-head .btnn:hover {
     color: rgb(255, 0, 55);
 }
 

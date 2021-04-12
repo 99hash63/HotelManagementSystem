@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import './Suppliers.css'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
+import { useHistory } from "react-router-dom";
 
 const SuppliersView = () => {
-
+    const history = useHistory();
     const { id } = useParams();
  
     const [name, setname] = useState("");
@@ -55,22 +56,36 @@ const SuppliersView = () => {
         })
 
     }
-
-    function deleteData(e) {
+    var timesClicked =0;
+    const deleteData = (e) => {
         e.preventDefault();
-        axios.delete(`http://localhost:5000/supplier/delete/${id}`).then(() => {
-            window.location = "/suppliers"
-        }).catch((e) => {
+        timesClicked++;
+        
+        if (timesClicked > 1) {
 
-            alert("error");
+            axios.delete(`http://localhost:5000/supplier/delete/${id}`).then(() => {
+                window.location = "/suppliers"
+            }).catch((e) => {
+    
+                alert("error");
+    
+            })
 
-        })
+        } else {
+            document.getElementById('delete-sup btnq').innerHTML = "Confirm Delete"
+            document.getElementById("delete-sup btnq").style.color = "white";
+            document.getElementById("delete-sup btnq").style.backgroundColor ="rgb(255, 0, 55)"
+            document.getElementById("delete-sup btnq").style.borderColor ="rgb(255, 0, 55)"
+        }
 
     }
 
 
+
+
     return (
         <div className="display-box">
+             <i  onClick={() => { history.goBack();}} class="fas fa-chevron-circle-left"></i>
             <div className="header-box-sup"> Suppliers
             </div>
 
@@ -120,7 +135,7 @@ const SuppliersView = () => {
                                 <br />
 
                                 <button onClick={(e) => updateData(e)} className="edit-sup btnq">Update</button>
-                                <button onClick={(e) => deleteData(e)} className="delete-sup btnq">Delete</button>
+                                <button id="delete-sup btnq" onClick={(e) => deleteData(e)} className="delete-sup btnq">Delete</button>
                             </div>
 
                         </form>

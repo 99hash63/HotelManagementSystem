@@ -19,7 +19,7 @@ const CheckoutHistory = ({ POP }) => {
         })
 
 
-    }, [])
+    }, [history])
     const generatePDF = tickets => {
 
         const doc = new jspdf();

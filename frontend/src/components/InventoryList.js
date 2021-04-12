@@ -27,7 +27,7 @@ export default function AddInventory() {
     const generatePDF = tickets => {
 
         const doc = new jspdf();
-        const tableColumn = ["Name", "Model", "SKU", "Category", "Supplier", "Description", "Mesurement","Quantity","ReStock Level","Unit Price", "Date"];
+        const tableColumn = ["Name", "Model", "SKU", "Category", "Supplier", "Description", "Mesurement", "Quantity", "ReStock Level", "Unit Price", "Date"];
         const tableRows = [];
 
         tickets.slice(0).reverse().map(ticket => {
@@ -48,7 +48,7 @@ export default function AddInventory() {
             tableRows.push(ticketData);
         });
 
-        doc.autoTable(tableColumn, tableRows,{styles:{fontSize:8 },startY: 35 } );
+        doc.autoTable(tableColumn, tableRows, { styles: { fontSize: 8 }, startY: 35 });
         const date = Date().split(" ");
         const dateStr = date[1] + "-" + date[2] + "-" + date[3];
         var img = new Image().src = '/images/logo.png'
@@ -63,10 +63,10 @@ export default function AddInventory() {
     return (
         <div className="display-box">
             <div className="header-box">
-                <div> Inventory<button id="generate-reportt-btn" onClick={() => generatePDF(inventory)}>Create Report</button></div>
-               
-            <div className="total-inventory-display">
-                   <span id="total-inventory-display-total">{inventory.length}</span> <br/>
+                <div>Inventory<button id="generate-reportt-btn" onClick={() => generatePDF(inventory)}>Create Report</button></div>
+
+                <div className="total-inventory-display">
+                    <span id="total-inventory-display-total">{inventory.length}</span> <br />
                     <span id="total-inventory-display-text">Total Inventory</span>
                 </div>
             </div>
@@ -109,8 +109,6 @@ export default function AddInventory() {
                     </tbody>
                 </table>
             </div>
-
-
         </div >
 
     )
