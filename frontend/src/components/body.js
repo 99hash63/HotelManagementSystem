@@ -25,6 +25,7 @@ import PaidBill from './FinalBillPopup';
 
 import Booking from './booking';
 import CusSideNav from './cusSideNav';
+import Main from './main';
 
 
 
@@ -37,7 +38,8 @@ export default function Body() {
 
             <div className="content">
 
-                <Sidenav />
+            <Main></Main>
+                {/* <Sidenav /> */}
                 {/* <FrontOfficeSideNav/> */}
 
                 {/* <CusSideNav/> */}
@@ -46,7 +48,7 @@ export default function Body() {
                 <Route path="/inventory" exact component={Sidenav}/> */}
                 
 
-                <div className="block">
+                {/* <div className="block"> */}
                 
                
 
@@ -92,7 +94,7 @@ export default function Body() {
                       {/* customer       */}
                       <Route path="/up" exact component={Booking}/>
 
-                </div>
+                {/* </div> */}
 
             </div>
         </Router>
