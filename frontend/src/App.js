@@ -2,12 +2,14 @@ import './App.css';
 import Body from './components/body';
 import Footer from './components/Footer';
 import Header from './components/Header';
+import CusHeader from './components/CusHeader'
 
 
 function App() {
   return (
     <div>
-      <Header />
+      <CusHeader></CusHeader> 
+      {/* <Header /> */}
       <Body />
       <Footer />
     </div>
