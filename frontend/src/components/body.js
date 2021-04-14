@@ -24,8 +24,12 @@ import InventoryCheckout from './InventoryCheckout';
 import PaidBill from './FinalBillPopup';
 
 import Booking from './booking';
+
+
 import CusSideNav from './cusSideNav';
-import Main from './main';
+import Main from './Main';
+import AddBooking from './AddBooking';
+
 
 
 
@@ -38,7 +42,9 @@ export default function Body() {
 
             <div className="content">
 
-            <Main></Main>
+                {/* <AddBooking/> */}
+                <Route path="/addbooking" exact component={AddBooking}/>
+                {/* <Main/> */}
                 {/* <Sidenav /> */}
                 {/* <FrontOfficeSideNav/> */}
 

@@ -2,7 +2,7 @@ import './App.css';
 import Body from './components/body';
 import Footer from './components/Footer';
 import Header from './components/Header';
-import CusHeader from './components/cusHeader'
+import CusHeader from './components/CusHeader'
 
 
 function App() {
