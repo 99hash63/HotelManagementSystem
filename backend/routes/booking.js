@@ -3,7 +3,8 @@ let Booking = require("../models/booking");
 
 router.route("/add").post((req,res)=>{
 
-    const {fName, lName, address, NIC, email, promoCode, travelAgent, checkInDate, checkOutDate, noOfAdults, noOfChildren, package, otherAccomodations, nationality, passportNo, roomAllocation, price, bookingState} = req.body;
+    const {fName, lName, address, NIC, email, promoCode, travelAgent, checkInDate, checkOutDate, noOfAdults, noOfChildren, otherAccomodations, nationality, passportNo, roomAllocation, price, bookingState} = req.body;
+    const package = req.body.cpackage;
 
     const newBooking = new Booking({fName,lName,address, NIC,email, promoCode, travelAgent, checkInDate, checkOutDate, noOfAdults,noOfChildren,package, otherAccomodations, nationality, passportNo, roomAllocation,price,bookingState})
     newBooking.save()
