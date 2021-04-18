@@ -10,6 +10,10 @@ const PORT = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(bodyParser.json());
+
+app.get("/test", (req, res) => {
+    res.send("It works"); 
+});
  
 const URL= process.env.MONGODB_URL;
 
