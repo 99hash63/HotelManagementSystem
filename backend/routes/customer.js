@@ -1,10 +1,42 @@
 const router = require('express').Router();
+const e = require('express');
 let Customer = require('../Models/customer');
 
 
 // Add or register customer to the system
-router.route('/add').post((req, res) => {
-    const {fname, lname, address, NIC, nationality, passportNo, email, contact, password} = req.body;
+router.route('/add').post(async(req, res) => {
+    const {fname, lname, address, NIC, nationality, passportNo, email, contact, password, passwordVerify} = req.body;
+
+    // validation
+        // All required fields are entered
+        if(!email || !password || !passwordVerify){
+            return res
+            .status(400)
+            .json({errorMessage: "Please enter all required fields!"});
+        }
+
+        // pw length is greater than 8 characters
+        if(password.length <8)
+            return res
+            .status(400)
+            .json({errorMessage: "Please enter a password of atleast 8 characters!"});
+
+        // pw and verify pw are matching
+        if(password != passwordVerify)
+            return res
+            .status(400)
+            .json({errorMessage: "Passwords did not match!"});
+
+        // existing customer
+        const existingCus = await Customer.findOne({email});
+        if(existingCus)
+            return res.status(400).json({
+                errorMessage: "An account with this email already exists!"
+            })
+
+        
+
+
     const newCustomer = new Customer({fname, lname, address, NIC, nationality, passportNo, email, contact, password});
     newCustomer.save()
         .then(()=> res.json('Customer added!'))
