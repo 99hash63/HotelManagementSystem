@@ -29,6 +29,7 @@ import Booking from './booking';
 import CusSideNav from './cusSideNav';
 import Main from './Main';
 import AddBooking from './AddBooking';
+import CusLogin from './CusLogin';
 
 
 
@@ -43,7 +44,6 @@ export default function Body() {
             <div className="content">
 
                 {/* <AddBooking/> */}
-                <Route path="/addbooking" exact component={AddBooking}/>
                 {/* <Main/> */}
                 {/* <Sidenav /> */}
                 {/* <FrontOfficeSideNav/> */}
@@ -97,8 +97,10 @@ export default function Body() {
                       {/* end FrontOffice Manager Rout */}
                       
                       
-                      {/* customer       */}
+                      {/* customer Routes       */}
                       <Route path="/up" exact component={Booking}/>
+                      <Route path="/addbooking" exact component={AddBooking}/>
+                      <Route path="/cusLogin" exact component={CusLogin}/>
 
                 {/* </div> */}
 

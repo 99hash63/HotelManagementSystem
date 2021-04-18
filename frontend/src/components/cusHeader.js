@@ -37,6 +37,7 @@ export default function Header() {
                                 <li><a className="b" href="/">Contact</a></li>
                                 <li><a className="b" href="/">About</a></li>
                                 <li><a className="book" href="/addbooking">Book Now</a></li>
+                                <li><a className="b" href="/cusLogin">Login</a></li>
 
 
                             </ul>
