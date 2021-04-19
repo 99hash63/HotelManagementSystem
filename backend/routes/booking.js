@@ -1,26 +1,36 @@
 const router = require("express").Router();
 let Booking = require("../models/booking");
+const auth = require("../middleware/auth");
+// let Customer = require("../models/customer");
 
-router.route("/add").post((req,res)=>{
+// unRegisterd user booking
+router.post("/addU", async(req,res)=>{
+    try{
+        const {fName, lName, address, NIC, email, promoCode, travelAgent, checkInDate, checkOutDate, noOfAdults, noOfChildren, otherAccomodations, nationality, passportNo, roomAllocation, price, bookingState} = req.body;
+        const package = req.body.cpackage;
 
-    const {fName, lName, address, NIC, email, promoCode, travelAgent, checkInDate, checkOutDate, noOfAdults, noOfChildren, otherAccomodations, nationality, passportNo, roomAllocation, price, bookingState} = req.body;
-    const package = req.body.cpackage;
-
-    const newBooking = new Booking({fName,lName,address, NIC,email, promoCode, travelAgent, checkInDate, checkOutDate, noOfAdults,noOfChildren,package, otherAccomodations, nationality, passportNo, roomAllocation,price,bookingState})
-    newBooking.save()
-    .then(()=>res.json("Booking Added"))
-    .catch(err=> res.status(400).json('Error: '+ err));
+        const newBooking = new Booking({fName,lName,address, NIC,email, promoCode, travelAgent, checkInDate, checkOutDate, noOfAdults,noOfChildren,package, otherAccomodations, nationality, passportNo, roomAllocation,price,bookingState})
+        await newBooking.save()
+        .then(()=>res.json("Booking Added"))
+        .catch(err=> res.status(400).json('Error: '+ err));
+    }catch (err){
+        console.error(err);
+        res.status(500).send();
+    }
 });
 
 
-
-
 //get relevant user's bookings
-router.route('/get/:email').get(async(req, res) => {
-    let email = req.params.email;
-    await Booking.find({ email: email})
-      .then(Booking => res.json(Booking))
-      .catch(err => res.status(400).json('Error: ' + err));
+router.get('/get', auth ,async(req, res) => {
+    try{
+        let email = req.customerEmail;
+        await Booking.find({ email: email})
+        .then(Booking => res.json(Booking))
+        .catch(err => res.status(400).json('Error: ' + err));
+    }catch (err){
+        console.error(err);
+        res.status(500).send();
+    }
   });
 
 
