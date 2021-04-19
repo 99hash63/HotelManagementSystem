@@ -56,7 +56,6 @@ router.route('/add').post(async(req, res) => {
             },
             process.env.JWT_SECRET
         );
-        console.log(token);
 
         // send the token in a HTTP-only cookie
         res.cookie("token", token, {
@@ -68,6 +67,52 @@ router.route('/add').post(async(req, res) => {
         console.error(err);
         res.status(500).send();
     }   
+});
+
+
+//login
+router.post("/login", async (req, res) => {
+    try{
+        const { email, password } = req.body;
+
+        //validation
+        if(!email || !password){
+            return res
+            .status(400)
+            .json({errorMessage: "Please enter all required fields!"});
+            }
+
+        const existingCus = await Customer.findOne({email});
+        if(!existingCus)
+            return res.status(400).json({
+                errorMessage: "Wrong email or password!"
+            })
+
+        const passwordCorrect = await bcrypt.compare(password, existingCus.passwordHash);
+        if(!passwordCorrect)
+            return res.status(400).json({
+                errorMessage: "Wrong email or password!"
+            })
+
+        // sign the token
+        const token = jwt.sign(
+            {
+                customer: existingCus._id,
+            },
+            process.env.JWT_SECRET
+        );
+       
+        // send the token in a HTTP-only cookie
+        res.cookie("token", token, {
+                httpOnly: true,
+            })
+            .send();    
+
+
+    } catch (err){
+        console.error(err);
+        res.status(500).send();
+    }
 });
 
 // Get all customers
