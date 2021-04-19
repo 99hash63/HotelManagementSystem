@@ -46,10 +46,10 @@ export default function Body() {
 
                 {/* <AddBooking/> */}
                 {/* <Main/> */}
-                {/* <Sidenav /> */}
+                <Sidenav />
                 {/* <FrontOfficeSideNav/> */}
 
-                <CusSideNav/>
+                {/* <CusSideNav/> */}
                 {/* <Login/>
                 <Route path="/frontOffice" exact component={FrontOfficeSideNav}/>
                 <Route path="/inventory" exact component={Sidenav}/> */}
