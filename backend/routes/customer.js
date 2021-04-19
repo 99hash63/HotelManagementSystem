@@ -136,7 +136,7 @@ router.get("/logout", (req, res) => {
 // });
 
 
-// Get relevant customer by email
+// Get relevant customer by email(cookie)
 router.get('/get', auth, async(req, res) => {
     try{
         let email = req.customerEmail;
