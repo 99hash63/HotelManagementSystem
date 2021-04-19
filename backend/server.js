@@ -74,13 +74,13 @@ app.use("/FinalBill", finalBill);
 
 
 
-
-
-
-
 //Anu Routes
 const mealOrderRout = require("./routes/MealOrder.js");
 app.use("/Meal_Order", mealOrderRout);
+
+const roomRouter = require("./routes/rooms.js");
+
+app.use("/room",roomRouter);
 
 
 app.listen(PORT,()=>{
