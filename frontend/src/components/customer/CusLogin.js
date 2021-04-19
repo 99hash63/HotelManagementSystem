@@ -3,6 +3,28 @@ import './CusLogin.css'
 import axios from 'axios'
 
 const Login = () => {
+
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    async function login(e){
+        e.preventDefault();
+
+        try{
+            const loginData = {
+               
+                email,
+                password, 
+                
+            };
+
+            await axios.post("http://localhost:5000/customer/login", loginData);
+
+        }catch(err){
+            console.error(err);
+        }
+    }
+
     return (  
 
         <div>
@@ -10,14 +32,18 @@ const Login = () => {
 
                 <h3><span>Sign in to Hotel Sobana or <a href="/cusReg">create an account</a></span></h3>
 
-                <form action="/action_page.php" method="post">
+                <form onSubmit={login}>
 
                 <div className="container">
                     <label for="uname"><b>Email</b></label>
-                    <input type="text" placeholder="Enter Email" name="email" required></input>
+                    <input type="text" placeholder="Enter Email" name="email" onChange={(e) => {
+                            setEmail(e.target.value);
+                        }} required />
 
                     <label for="psw"><b>Password</b></label>
-                    <input type="password" placeholder="Enter Password" name="psw" required></input>
+                    <input type="password" placeholder="Enter Password" name="psw" onChange={(e) => {
+                            setPassword(e.target.value);
+                        }} required />
                         
                     <button type="submit" >Login</button>
                     <label>
