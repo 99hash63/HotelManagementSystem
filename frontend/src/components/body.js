@@ -17,7 +17,7 @@ import ActiveBookings from './ActiveBookings';
 import PassBookings from './PassBooking';
 import BookingReq from './UpcomingBookings';
 import Accept from './AcceptRequset';
-import Decline from './DeleteBookingRequest';
+// import Decline from './DeleteBookingRequest';
 import ReStock from './ReStock';
 import FinalBill from './FinalBill';
 import InventoryCheckout from './InventoryCheckout';
@@ -46,8 +46,8 @@ export default function Body() {
 
                 {/* <AddBooking/> */}
                 {/* <Main/> */}
-                <Sidenav />
-                {/* <FrontOfficeSideNav/> */}
+                {/* <Sidenav /> */}
+                <FrontOfficeSideNav/>
 
                 {/* <CusSideNav/> */}
                 {/* <Login/>
@@ -55,7 +55,7 @@ export default function Body() {
                 <Route path="/inventory" exact component={Sidenav}/> */}
                 
 
-                {/* <div className="block"> */}
+                <div className="block">
                 
                
 
@@ -86,7 +86,7 @@ export default function Body() {
                             <Route path="/pass" exact component={PassBookings} />
                             <Route path="/request" exact component={BookingReq} />
                             <Route path="/accept/:id" exact component={Accept} />
-                            <Route path="/decline/:id" exact component={Decline} />
+                            {/* <Route path="/decline/:id" exact component={Decline} /> */}
 
                         {/* Final Bill */}
                              <Route path="/FinalBill" exact component={FinalBill} />
@@ -104,7 +104,7 @@ export default function Body() {
                       <Route path="/cusLogin" exact component={CusLogin}/>
                       <Route path="/cusReg" exact component={CusReg}/>
 
-                {/* </div> */}
+                </div>
 
             </div>
         </Router>
