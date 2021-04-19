@@ -8,8 +8,15 @@ function auth(req, res, next){
 
         const verified = jwt.verify(token, process.env.JWT_SECRET);
 
+        req.customerFname = verified.customerFname;
+        req.customerLname = verified.customerLname;
+        req.customerAddress = verified.customerAddress;
+        req.customerNIC = verified.customerNIC;
+        req.customerNationality = verified.customerNationality;
+        req.customerPassportNo = verified.customerPassportNo;
         req.customerEmail = verified.customerEmail;
-
+        req.customerContact = verified.customerContact;
+                
         next();
 
     }catch (err) {

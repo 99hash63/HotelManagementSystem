@@ -55,7 +55,14 @@ router.route('/add').post(async(req, res) => {
         // sign the token
         const token = jwt.sign(
             {
+                customerFname: savedCustomer.fname, 
+                customerLname: savedCustomer.lname, 
+                customerAddress: savedCustomer.address,
+                customerNIC: savedCustomer.NIC,
+                customerNationality: savedCustomer.nationality,
+                customerPassportNo: savedCustomer.passportNo,
                 customerEmail: savedCustomer.email,
+                customerContact: savedCustomer.contact, 
             },
             process.env.JWT_SECRET
         );
@@ -100,7 +107,14 @@ router.post("/login", async (req, res) => {
         // sign the token
         const token = jwt.sign(
             {
+                customerFname: existingCus.fname, 
+                customerLname: existingCus.lname, 
+                customerAddress: existingCus.address,
+                customerNIC: existingCus.NIC,
+                customerNationality: existingCus.nationality,
+                customerPassportNo: existingCus.passportNo,
                 customerEmail: existingCus.email,
+                customerContact: existingCus.contact, 
             },
             process.env.JWT_SECRET
         );
@@ -151,12 +165,6 @@ router.get('/get', auth, async(req, res) => {
 
 // Delete relevant customer email(cookie)
 router.delete('/delete', auth, async(req, res)=>{
-    // let Id = req.params.Id;
-
-    // Customer.findByIdAndDelete(Id)
-    //     .then(()=> res.json('Customer deleted!'))
-    //     .catch(err=> res.status(400).json('Error with deleting data: '+ err));
-
     try{
         let email = req.customerEmail;
         await Customer.findOneAndDelete({ email: email})

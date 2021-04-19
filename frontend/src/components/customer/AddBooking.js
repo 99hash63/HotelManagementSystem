@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './AddBooking.css'
+
 
 
 const AddBooking = () => {
@@ -21,10 +23,7 @@ const AddBooking = () => {
     const [passportNo, setPassportNo] = useState("");
     const [roomAllocation, setRoomAllocation] = useState("");
     const [price, setPrice] = useState("");
-    const [bookingState, setBookingState] = useState("");
-
-
-    
+ 
     function sendData(){
         
         const newBooking = {
@@ -45,10 +44,9 @@ const AddBooking = () => {
             passportNo, 
             roomAllocation,
             price,
-            bookingState
        }
 
-       axios.post("http://localhost:5000/booking/add", newBooking).then(()=>{
+       axios.post("http://localhost:5000/booking/addU", newBooking).then(()=>{
            alert("Booking Added")
        }).catch((err)=>{
            alert(err)
@@ -198,15 +196,6 @@ const AddBooking = () => {
                     </label>
                     <br />
 
-                    <label className="custom-field">
-                        <input type="text" className="form-input" id="bookingState" onChange={(e) => {
-                             setBookingState(e.target.value);
-                        }} />
-                        <span className="placeholder">bookingState</span>
-                    </label>
-                    <br />
-                   
-                    
                     <div className="form2-btn">
                         <button className="addinventory-btn">Create Booking</button>
                     </div> 
