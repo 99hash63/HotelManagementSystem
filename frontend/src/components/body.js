@@ -26,10 +26,11 @@ import PaidBill from './FinalBillPopup';
 import Booking from './booking';
 
 
-import CusSideNav from './cusSideNav';
-import Main from './Main';
-import AddBooking from './AddBooking';
-import CusLogin from './CusLogin';
+import CusSideNav from './customer/CusSideNav';
+import Main from './customer/Main';
+import AddBooking from './customer/AddBooking';
+import CusLogin from './customer/CusLogin';
+import CusReg from './customer/CusReg'
 
 
 
@@ -101,6 +102,7 @@ export default function Body() {
                       <Route path="/up" exact component={Booking}/>
                       <Route path="/addbooking" exact component={AddBooking}/>
                       <Route path="/cusLogin" exact component={CusLogin}/>
+                      <Route path="/cusReg" exact component={CusReg}/>
 
                 {/* </div> */}
 

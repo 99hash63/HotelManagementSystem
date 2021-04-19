@@ -1,5 +1,5 @@
 import React from 'react';
-import './sidenav.css'
+import '../sidenav.css'
 import { Link } from 'react-router-dom'
 
 export default function Sidenav() {

@@ -8,7 +8,7 @@ const Login = () => {
         <div>
                 <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
 
-                <h3><span>Sign in to Hotel Sobana or <a href="#">create an account</a></span></h3>
+                <h3><span>Sign in to Hotel Sobana or <a href="/cusReg">create an account</a></span></h3>
 
                 <form action="/action_page.php" method="post">
 
