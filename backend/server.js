@@ -73,6 +73,16 @@ app.use("/FinalBill", finalBill);
 const mealOrderRout = require("./routes/MealOrder.js");
 app.use("/Meal_Order", mealOrderRout);
 
+//Ramesh 
+const employeeRouter = require("./routes/Employees.js");
+app.use("/employee",employeeRouter);
+
+const salaryRouter = require("./routes/Salaries.js");
+app.use("/salary",salaryRouter);
+
+const vacationRouter = require("./routes/Vactionrequests.js");
+app.use("/vacation",vacationRouter);
+
 
 app.listen(PORT,()=>{
     console.log(`Server running on PORT: ${PORT}`)

@@ -27,8 +27,18 @@ import Booking from './booking';
 
 
 import CusSideNav from './cusSideNav';
-import Main from './Main';
+import Main from './main';
 import AddBooking from './AddBooking';
+
+import Addemployee from './Addemployee';
+import Allemployees from './Allemployees';
+import viewOneemployee from './viewOneemployee';
+import Deleteemployee from './Deleteemployee';
+import Salarycalculator from './Salarycalculator';
+import paidsalary from './paidsalary';
+import createvacation from './createvacation';
+import viewvacations from './viewvacationrequest';
+import emanagersidenav from './emanagersidenav'
 
 
 
@@ -58,6 +68,17 @@ export default function Body() {
                 
                
 
+                    {/*Employee Manager Routes*/}
+                    <Route path="/addemployee" exact component={Addemployee}/>
+                    <Route path="/allemployees" exact component={Allemployees}/>
+                    <Route path="/Viewoneemployee/:id" exact component={viewOneemployee}/>
+                    <Route path="/deleteemployee/:id" exact component={Deleteemployee}/>
+                    <Route path="/addsalary" exact component={Salarycalculator}/>
+                    <Route path="/paidsalary" exact component={paidsalary}/>
+                    <Route path="/createvacation" exact component={createvacation}/>
+                    <Route path="/viewvacations" exact component={viewvacations}/>
+                    <Route path="/emanagersidenav" exact component={emanagersidenav}/>
+
 
 
                     {/* Inventry Manager Routes */}
@@ -68,6 +89,7 @@ export default function Body() {
                     <Route path="/supplierview/:id" exact component={SuppliersView}/>
                     <Route path="/restock" exact component={ReStock}/>
                     <Route path="/checkout" exact component={InventoryCheckout}/>
+                    
 
 
 
