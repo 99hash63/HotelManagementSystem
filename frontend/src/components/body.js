@@ -44,7 +44,7 @@ export default function Body() {
             <div className="content">
 
                 {/* <AddBooking/> */}
-                {/* <Main/> */}
+                <Main/>
                 {/* <Sidenav /> */}
                 {/* <FrontOfficeSideNav/> */}
 

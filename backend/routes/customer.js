@@ -151,12 +151,6 @@ router.get('/get', auth, async(req, res) => {
 
 // Delete relevant customer email(cookie)
 router.delete('/delete', auth, async(req, res)=>{
-    // let Id = req.params.Id;
-
-    // Customer.findByIdAndDelete(Id)
-    //     .then(()=> res.json('Customer deleted!'))
-    //     .catch(err=> res.status(400).json('Error with deleting data: '+ err));
-
     try{
         let email = req.customerEmail;
         await Customer.findOneAndDelete({ email: email})
