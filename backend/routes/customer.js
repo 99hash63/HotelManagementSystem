@@ -2,6 +2,7 @@ const router = require('express').Router();
 const e = require('express');
 let Customer = require('../Models/customer');
 const bcrypt = require("bcryptjs");
+const jwt = require('jsonwebtoken');
 
 
 // Add or register customer to the system
@@ -41,15 +42,27 @@ router.route('/add').post(async(req, res) => {
         //hash the password
         const salt = await bcrypt.genSalt();
         const passwordHash = await bcrypt.hash(password, salt);
-        console.log(passwordHash);
 
         // save new user to the database
         const newCustomer = new Customer({fname, lname, address, NIC, nationality, passportNo, email, contact, passwordHash});
         const savedCustomer = await newCustomer.save()
-            .then(()=> res.json('Customer added!'))
-            .catch(err=> res.status(400).json('Error: '+ err));
+            // .then(()=> res.json('Customer added!'))
+            // .catch(err=> res.status(400).json('Error: '+ err));
 
-        // log the user in    
+        // sign the token
+        const token = jwt.sign(
+            {
+                customer: savedCustomer._id,
+            },
+            process.env.JWT_SECRET
+        );
+        console.log(token);
+
+        // send the token in a HTTP-only cookie
+        res.cookie("token", token, {
+                httpOnly: true,
+            })
+            .send();
 
     }catch(err){
         console.error(err);
