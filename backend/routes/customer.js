@@ -3,6 +3,8 @@ const e = require('express');
 let Customer = require('../Models/customer');
 const bcrypt = require("bcryptjs");
 const jwt = require('jsonwebtoken');
+const auth = require("../middleware/auth");
+
 
 
 // Add or register customer to the system
@@ -134,12 +136,17 @@ router.get("/logout", (req, res) => {
 // });
 
 
-// Get relevant customer by id
-router.route('/get/:Id').get((req, res) => {
-    let Id = req.params.Id;
-    Customer.findById(Id)
-      .then(Customer => res.json(Customer))
-      .catch(err => res.status(400).json('Error: ' + err));
+// Get relevant customer by email
+router.get('/get', auth, async(req, res) => {
+    try{
+        let email = req.customerEmail;
+        await Customer.find({ email: email})
+        .then(Customer => res.json(Customer))
+        .catch(err => res.status(400).json('Error: ' + err));
+    }catch (err){
+        console.error(err);
+        res.status(500).send();
+    }
   });
 
 // Delete relevant customer by id

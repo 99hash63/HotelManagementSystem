@@ -1,10 +1,26 @@
 const router = require("express").Router();
 let Booking = require("../models/booking");
 const auth = require("../middleware/auth");
-// let Customer = require("../models/customer");
+let Customer = require("../routes/customer");
 
 // unRegisterd user booking
 router.post("/addU", async(req,res)=>{
+    try{
+        const {fName, lName, address, NIC, email, promoCode, travelAgent, checkInDate, checkOutDate, noOfAdults, noOfChildren, otherAccomodations, nationality, passportNo, roomAllocation, price, bookingState} = req.body;
+        const package = req.body.cpackage;
+
+        const newBooking = new Booking({fName,lName,address, NIC,email, promoCode, travelAgent, checkInDate, checkOutDate, noOfAdults,noOfChildren,package, otherAccomodations, nationality, passportNo, roomAllocation,price,bookingState})
+        await newBooking.save()
+        .then(()=>res.json("Booking Added"))
+        .catch(err=> res.status(400).json('Error: '+ err));
+    }catch (err){
+        console.error(err);
+        res.status(500).send();
+    }
+});
+
+// Registerd user booking
+router.post("/addR", async(req,res)=>{
     try{
         const {fName, lName, address, NIC, email, promoCode, travelAgent, checkInDate, checkOutDate, noOfAdults, noOfChildren, otherAccomodations, nationality, passportNo, roomAllocation, price, bookingState} = req.body;
         const package = req.body.cpackage;
