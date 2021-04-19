@@ -37,46 +37,72 @@ function AddAgencies() {
 
 
     return (
-        <div class="container">
-            <div className="header-box">Add Agent</div>
+        <div className="display-box">
+            <div className="header-box">Add Agentcie</div>
+
+            <div className="content-box">
             <form>
-                <label>Contract Id :</label><br />
+            <div className="form1">
+            <label className="custom-field">
                 <input type="text" id="contract_id" name="contract_id" onChange={(e) => {
                     setContract_id(e.target.value);
-                }} /><br></br>
+                }} />
+                <span className="placeholder">Contract Id</span>
+                </label><br />
 
-                <label>Name:</label><br />
-                <input type="text" id="name" name="name" onChange={(e) => {
+                <label className="custom-field">
+                <input type="text" name="name" onChange={(e) => {
                     setName(e.target.value);
-                }} /><br></br>
+                }} />
+                <span className="placeholder">Name</span>
+                </label><br />
 
-                <label>Mail Address :</label><br />
+                <label label className="custom-field">
                 <input type="text" id="mail_Address" name="mail_Address" onChange={(e) => {
                     setMail_Address(e.target.value);
-                }} /><br></br>
+                }} />
+                <span className="placeholder">Mail Address </span>
+                </label><br />
 
-                <label>Contact Number :</label><br />
+                <label label className="custom-field">
                 <input type="text" id="Contact" name="Contact" onChange={(e) => {
                     setMobile(e.target.value);
-                }} /><br></br>
+                }} />
+                <span className="placeholder">Contact Number</span>
+                </label><br />
+                </div>
+                
+                <div className="form2">
+                <div className="form2-content">
 
-                <label>Address :</label><br />
+                <label label className="custom-field">
                 <input type="text" id="Address" name="Address" onChange={(e) => {
                     setAddress(e.target.value);
-                }} /><br></br>
+                }} />
+                <span className="placeholder">Address</span>
+                </label><br />
 
-                <label>Passcode :</label><br />
+                <label label className="custom-field">
                 <input type="text" id="Passcode" name="Passcode" onChange={(e) => {
                     setPasscode(e.target.value);
-                }} /><br></br>
+                }} />
+                <span className="placeholder">Passcode</span>
+                </label><br />
 
-                <label>Rate :</label><br />
+                <label label className="custom-field">
                 <input type="number" id="Rate" name="Rate" onChange={(e) => {
                     setRate(e.target.value);
-                }} /><br></br>
+                }} />
+                <span className="placeholder">Rate</span>
+                </label><br />
 
-                <input type="submit" value="Submit" onClick={sendData} />
+                {/* <div className="form2-btn"> */}
+                <input className="addinventory-btn" type="submit" value="Submit" onClick={sendData} />
+                {/* </div> */}
+                </div>
+                </div>
             </form>
+            </div>
 
         </div>
     )
