@@ -23,8 +23,15 @@ import FinalBill from './FinalBill';
 import InventoryCheckout from './InventoryCheckout';
 import PaidBill from './FinalBillPopup';
 
-import Booking from './booking';
-import CusSideNav from './cusSideNav';
+// import Booking from './booking';
+
+
+import CusSideNav from './customer/CusSideNav';
+import Main from './customer/Main';
+import AddBooking from './customer/AddBooking';
+import CusLogin from './customer/CusLogin';
+import CusReg from './customer/CusReg'
+
 
 
 
@@ -37,8 +44,10 @@ export default function Body() {
 
             <div className="content">
 
-                {/* <Sidenav /> */}
-                <FrontOfficeSideNav/>
+                {/* <AddBooking/> */}
+                {/* <Main/> */}
+                <Sidenav />
+                {/* <FrontOfficeSideNav/> */}
 
                 {/* <CusSideNav/> */}
                 {/* <Login/>
@@ -46,7 +55,7 @@ export default function Body() {
                 <Route path="/inventory" exact component={Sidenav}/> */}
                 
 
-                <div className="block">
+                {/* <div className="block"> */}
                 
                
 
@@ -89,10 +98,13 @@ export default function Body() {
                       {/* end FrontOffice Manager Rout */}
                       
                       
-                      {/* customer       */}
-                      <Route path="/up" exact component={Booking}/>
+                      {/* customer Routes       */}
+                      {/* <Route path="/up" exact component={Booking}/> */}
+                      <Route path="/addbooking" exact component={AddBooking}/>
+                      <Route path="/cusLogin" exact component={CusLogin}/>
+                      <Route path="/cusReg" exact component={CusReg}/>
 
-                </div>
+                {/* </div> */}
 
             </div>
         </Router>

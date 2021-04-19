@@ -38,7 +38,7 @@ const AddSuppliers = ({supPOP}) => {
                 <div className="content-box-s">
                     <div className="add-sup-head">
                         <div className="title">Add Supplier</div>
-                        <button className="btn" onClick={supPOP}>&times;</button>
+                        <button className="btnn" onClick={supPOP}>&times;</button>
                         </div>
 
                     <hr />

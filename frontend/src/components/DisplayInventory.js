@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
+import { useHistory } from "react-router-dom";
 
 const DisplayInventory = () => {
-
+    const history = useHistory();
     const { id } = useParams();
 
     const [name, setname] = useState("");
@@ -89,21 +90,38 @@ const DisplayInventory = () => {
 
     }
     //delete inventory button funtion
+    var timesClicked =0;
     const delete_inventory = () => {
-        axios.delete(`http://localhost:5000/inventory/delete/${id}`).then(() => {
-            window.location = "/inventory"
-        }).catch((e) => {
-            alert("error");
-        })
+        timesClicked++;
+        
+        if (timesClicked > 1) {
+            axios.delete(`http://localhost:5000/inventory/delete/${id}`).then(() => {
+                window.location = "/inventory"
+                timesClicked=0
+            }).catch((e) => {
+                alert("error");
+            })
+        } else {
+            document.getElementById('delete_btn').innerHTML = "Confirm Delete"
+            document.getElementById("delete_btn").style.color = "white";
+            document.getElementById("delete_btn").style.backgroundColor ="rgb(255, 0, 55)"
+            document.getElementById("delete_btn").style.borderColor ="rgb(255, 0, 55)"
+        }
 
     }
+
+
+
+
+
     return (
         <div className="display-box">
-
+        <i  onClick={() => { history.goBack();}} class="fas fa-chevron-circle-left"></i>
             <div id="edit-title" className="header-box"> Inventory
+            
             <div>
                     <button id="edit_btn" onClick={enable_edit}>Edit</button>
-                    <button id="delete_btn" onClick={delete_inventory}>Delete</button>
+                    <button id="delete_btn" onClick={delete_inventory} >Delete</button>
                 </div>
 
             </div>
@@ -111,6 +129,7 @@ const DisplayInventory = () => {
 
             {/* <div className="content-box" > */}
             <fieldset disabled="disabled" className="content-box" id="fs">
+         
                 <form onSubmit={updateData} id='inventory_form' >
 
                     <div className="form1 displayInventory">
@@ -175,7 +194,7 @@ const DisplayInventory = () => {
                                 <select name="supplier" id="supplier" onChange={(e) => {
                                     setsupplier(e.target.value)
                                 }} >
-                                    <option key={supplier} value={supplier}>{getInventory.supplier} </option>
+                                    <option >{supplier} </option>
                                     {
                                         getSupplier.map(function (supplier) {
                                             if (getInventory.supplier != supplier) {
@@ -202,7 +221,7 @@ const DisplayInventory = () => {
                             </label>
 
                             <label className="custom-field">
-                                <input type="number" className="form-input" id="quantity" defaultValue={getInventory.quantity} onChange={(e) => {
+                                <input type="number" className="form-input" min="1" id="quantity" defaultValue={getInventory.quantity} onChange={(e) => {
                                     setquantity(e.target.value)
                                 }} />
                                 <span className="placeholder">quantity</span>
@@ -210,7 +229,7 @@ const DisplayInventory = () => {
 
 
                             <label className="custom-field">
-                                <input type="number" className="form-input" id="restock" defaultValue={getInventory.restock_level} onChange={(e) => {
+                                <input type="number" className="form-input" min="1" id="restock" defaultValue={getInventory.restock_level} onChange={(e) => {
                                     setrestock(e.target.value)
                                 }} />
                                 <span className="placeholder">restock level</span>
@@ -218,7 +237,7 @@ const DisplayInventory = () => {
                             <br />
                             <div className="price">
                                 <label className="custom-field">
-                                    <input type="number" className="form-input" id="oprice" defaultValue={getInventory.original_price} onChange={(e) => {
+                                    <input type="number" className="form-input" min="1" id="oprice" defaultValue={getInventory.original_price} onChange={(e) => {
                                         setoprice(e.target.value)
                                     }} />
                                     <span className="placeholder">buy price(Rs)</span>
