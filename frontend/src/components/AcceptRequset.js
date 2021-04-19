@@ -2,9 +2,12 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { useParams } from "react-router";
+import { useHistory } from "react-router-dom";
+
 
 
 function AcceptBookingRequests() {
+    const history = useHistory();
     var { id } = useParams();
     console.log({ id });
     var [requsetOne, setOneAgent] = useState([]);
@@ -106,99 +109,127 @@ function AcceptBookingRequests() {
         }
     }
 
-    return (
-        <div>
-            <form>
-                {/* <label>Booking Id :</label><br />
+
+
+
+    function Delet(id) {
+       
+
+        const result = window.confirm("Do you really want to Decline?");
+        if (result == true) {
+
+            axios.delete(`http://localhost:5000/booking/delete/${id}`).then((res) => {
+                window.location = "/request";
+                alert("Decline Requset Success");
+            }).catch((err) => {
+                alert(err);
+            })
+        } else {
+            window.location = "/accept/" + id;
+        }
+    }
+
+
+return (
+    <div className="display-box">
+         <i  onClick={() => { history.goBack();}} class="fas fa-chevron-circle-left"></i>
+
+         <div id="edit-title" className="header-box"> Accept Booking Requset
+            
+            <div>
+                    <button id="edit_btn" onClick={e => Accept(requsetOne._id)}>Accept</button>
+                    <button  id="delete_btn" onClick={e => Delet(requsetOne._id)}>Delete</button>
+                </div>
+
+            </div>
+
+
+        <form id='inventory_form' >
+            {/* <label>Booking Id :</label><br />
                 <input type="text" defaultValue={requsetOne.bookingId} onChange={(e) => {
                     setBookingId(e.target.value);
                 }} /><br></br> */}
 
-                <label>First Name:</label><br />
-                <input type="text" defaultValue={requsetOne.fName} onChange={(e) => {
-                    setfName(e.target.value);
-                }} /><br></br>
+            <label>First Name:</label><br />
+            <input type="text" defaultValue={requsetOne.fName} onChange={(e) => {
+                setfName(e.target.value);
+            }} /><br></br>
 
-                <label>Last Name :</label><br />
-                <input type="text" defaultValue={requsetOne.lName} onChange={(e) => {
-                    setlName(e.target.value);
-                }} /><br></br>
+            <label>Last Name :</label><br />
+            <input type="text" defaultValue={requsetOne.lName} onChange={(e) => {
+                setlName(e.target.value);
+            }} /><br></br>
 
-                <label>Address :</label><br />
-                <input type="text" defaultValue={requsetOne.address} onChange={(e) => {
-                    setAddress(e.target.value);
-                }} /><br></br>
+            <label>Address :</label><br />
+            <input type="text" defaultValue={requsetOne.address} onChange={(e) => {
+                setAddress(e.target.value);
+            }} /><br></br>
 
-                <label>NIC number :</label><br />
-                <input type="text" defaultValue={requsetOne.NIC} onChange={(e) => {
-                    setNIC(e.target.value);
-                }} /><br></br>
+            <label>NIC number :</label><br />
+            <input type="text" defaultValue={requsetOne.NIC} onChange={(e) => {
+                setNIC(e.target.value);
+            }} /><br></br>
 
-                <label>Promot Code :</label><br />
-                <input type="text" defaultValue={requsetOne.promoCode} onChange={(e) => {
-                    setpromoCode(e.target.value);
-                }} /><br></br>
+            <label>Promot Code :</label><br />
+            <input type="text" defaultValue={requsetOne.promoCode} onChange={(e) => {
+                setpromoCode(e.target.value);
+            }} /><br></br>
 
-                <label>Travel Agent :</label><br />
-                <input type="text" defaultValue={requsetOne.travelAgent} onChange={(e) => {
-                    settravelAgent(e.target.value);
-                }} /><br></br>
+            <label>Travel Agent :</label><br />
+            <input type="text" defaultValue={requsetOne.travelAgent} onChange={(e) => {
+                settravelAgent(e.target.value);
+            }} /><br></br>
 
-                <label>Chek In Date</label><br />
-                <input type="text" defaultValue={requsetOne.checkInDate} onChange={(e) => {
-                    setcheckInDate(e.target.value);
-                }} /><br></br>
+            <label>Chek In Date</label><br />
+            <input type="text" defaultValue={requsetOne.checkInDate} onChange={(e) => {
+                setcheckInDate(e.target.value);
+            }} /><br></br>
 
-                <label>Check Out Date:</label><br />
-                <input type="text" defaultValue={requsetOne.checkOutDate} onChange={(e) => {
-                    setcheckOutDate(e.target.value);
-                }} /><br></br>
+            <label>Check Out Date:</label><br />
+            <input type="text" defaultValue={requsetOne.checkOutDate} onChange={(e) => {
+                setcheckOutDate(e.target.value);
+            }} /><br></br>
 
-                <label>Number Of Adults :</label><br />
-                <input type="text" defaultValue={requsetOne.noOfAdults} onChange={(e) => {
-                    setnoOfAdults(e.target.value);
-                }} /><br></br>
+            <label>Number Of Adults :</label><br />
+            <input type="text" defaultValue={requsetOne.noOfAdults} onChange={(e) => {
+                setnoOfAdults(e.target.value);
+            }} /><br></br>
 
-                <label>Number Of Children :</label><br />
-                <input type="text" defaultValue={requsetOne.noOfChildren} onChange={(e) => {
-                    setnoOfChildren(e.target.value);
-                }} /><br></br>
+            <label>Number Of Children :</label><br />
+            <input type="text" defaultValue={requsetOne.noOfChildren} onChange={(e) => {
+                setnoOfChildren(e.target.value);
+            }} /><br></br>
 
-                {/* <label>package :</label><br />
+            {/* <label>package :</label><br />
                 <input type="text" defaultValue={requsetOne.pkg} onChange={(e) => {
                     setpkg(e.target.value);
                 }} /><br></br> */}
 
-                <label>Other Accomodation :</label><br />
-                <input type="text" value={requsetOne.otherAccomodations} onChange={(e) => {
-                    setotherAccomodations(e.target.value);
-                }} /><br></br>
+            <label>Other Accomodation :</label><br />
+            <input type="text" value={requsetOne.otherAccomodations} onChange={(e) => {
+                setotherAccomodations(e.target.value);
+            }} /><br></br>
 
-                <label>Nationalty :</label><br />
-                <input type="text" defaultValue={requsetOne.nationality} onChange={(e) => {
-                    setnationality(e.target.value);
-                }} /><br></br>
+            <label>Nationalty :</label><br />
+            <input type="text" defaultValue={requsetOne.nationality} onChange={(e) => {
+                setnationality(e.target.value);
+            }} /><br></br>
 
-                <label>Passport Number :</label><br />
-                <input type="text" defaultValue={requsetOne.passportNo} onChange={(e) => {
-                    setPassportNo(e.target.value);
-                }} /><br></br>
+            <label>Passport Number :</label><br />
+            <input type="text" defaultValue={requsetOne.passportNo} onChange={(e) => {
+                setPassportNo(e.target.value);
+            }} /><br></br>
 
-                <label>Room Allocation :</label><br />
-                <input type="text" defaultValue={requsetOne.roomAllocation} onChange={(e) => {
-                    setRoomAllocation(e.target.value);
-                }} /><br></br>
+            <label>Room Allocation :</label><br />
+            <input type="text" defaultValue={requsetOne.roomAllocation} onChange={(e) => {
+                setRoomAllocation(e.target.value);
+            }} /><br></br>
 
 
-            </form>
+        </form>
 
-            <tr>
-                <td><Link to={"/decline/" + requsetOne._id}>Decline</Link> </td>  
-                <td><button onClick={e => Accept(requsetOne._id)}>Accept</button></td>
-                <td><Link to={"/request"}>Back</Link> </td> 
-            </tr>
-        </div>
-    )
+    </div>
+)
 }
 
 export default AcceptBookingRequests;

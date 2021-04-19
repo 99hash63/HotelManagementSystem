@@ -3,8 +3,11 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import './InventoryList.css'
 import BookingList from './BookingList';
+import { useHistory } from "react-router-dom";
+
 
 function ViewBookingRequsets() {
+    const history = useHistory();
     var [request, setRequest] = useState([]);
 
     useEffect(() => {
@@ -22,7 +25,11 @@ function ViewBookingRequsets() {
 
     return (
         <div className="display-box">
-             <div className="header-box"> Upcome Bookings </div>
+             <div className="header-box"> Upcome Bookings
+             {/* <Link id="checkoutHistory-window-btn" to={"/bookings"}>BACK</Link> */}
+             <button id="checkoutHistory-window-btn" onClick={() => { history.goBack();}} >Back</button>
+             
+              </div>
                 <div className="content-box-list">
                      <table >
               <thead>
@@ -68,7 +75,7 @@ function ViewBookingRequsets() {
             }
                     </tbody>
                     </table>
-                    <Link to={"/bookings"}>BACK</Link>
+                   
             </div>
         </div>
 
