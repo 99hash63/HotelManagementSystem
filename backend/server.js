@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const dotenv = require ('dotenv');
 const app = express();
+const cookieParser = require("cookie-parser");
 require("dotenv").config();
 
 const PORT = process.env.PORT || 5000;
@@ -14,7 +15,11 @@ app.use(bodyParser.json());
 app.get("/test", (req, res) => {
     res.send("It works"); 
 });
+
+app.use(express.json());
+app.use(cookieParser());
  
+//connect to mongoDB
 const URL= process.env.MONGODB_URL;
 
 mongoose.connect(URL,{

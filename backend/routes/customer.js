@@ -2,6 +2,9 @@ const router = require('express').Router();
 const e = require('express');
 let Customer = require('../Models/customer');
 const bcrypt = require("bcryptjs");
+const jwt = require('jsonwebtoken');
+const auth = require("../middleware/auth");
+
 
 
 // Add or register customer to the system
@@ -41,21 +44,89 @@ router.route('/add').post(async(req, res) => {
         //hash the password
         const salt = await bcrypt.genSalt();
         const passwordHash = await bcrypt.hash(password, salt);
-        console.log(passwordHash);
 
         // save new user to the database
         const newCustomer = new Customer({fname, lname, address, NIC, nationality, passportNo, email, contact, passwordHash});
         const savedCustomer = await newCustomer.save()
-            .then(()=> res.json('Customer added!'))
-            .catch(err=> res.status(400).json('Error: '+ err));
+            // .then(()=> res.json('Customer added!'))
+            // .catch(err=> res.status(400).json('Error: '+ err));
 
-        // log the user in    
+        //log in the customer instantly after registering    
+        // sign the token
+        const token = jwt.sign(
+            {
+                customerEmail: savedCustomer.email,
+            },
+            process.env.JWT_SECRET
+        );
+
+        // send the token in a HTTP-only cookie
+        res.cookie("token", token, {
+                httpOnly: true,
+            })
+            .send();
 
     }catch(err){
         console.error(err);
         res.status(500).send();
     }   
 });
+
+
+//login
+router.post("/login", async (req, res) => {
+    try{
+        const { email, password } = req.body;
+
+        //validation
+        if(!email || !password){
+            return res
+            .status(400)
+            .json({errorMessage: "Please enter all required fields!"});
+            }
+
+        const existingCus = await Customer.findOne({email});
+        if(!existingCus)
+            return res.status(400).json({
+                errorMessage: "Wrong email or password!"
+            })
+
+        const passwordCorrect = await bcrypt.compare(password, existingCus.passwordHash);
+        if(!passwordCorrect)
+            return res.status(400).json({
+                errorMessage: "Wrong email or password!"
+            })
+
+        // sign the token
+        const token = jwt.sign(
+            {
+                customerEmail: existingCus.email,
+            },
+            process.env.JWT_SECRET
+        );
+       
+        // send the token in a HTTP-only cookie
+        res.cookie("token", token, {
+                httpOnly: true,
+            })
+            .send();    
+
+
+    } catch (err){
+        console.error(err);
+        res.status(500).send();
+    }
+});
+
+
+//logout
+router.get("/logout", (req, res) => {
+    res.cookie("token", "", {
+        httpOnly: true,
+        expires: new Date(0)
+    })
+    .send();
+})
 
 // Get all customers
 // router.route('/get').get((req, res) => {
@@ -65,21 +136,36 @@ router.route('/add').post(async(req, res) => {
 // });
 
 
-// Get relevant customer by id
-router.route('/get/:Id').get((req, res) => {
-    let Id = req.params.Id;
-    Customer.findById(Id)
-      .then(Customer => res.json(Customer))
-      .catch(err => res.status(400).json('Error: ' + err));
+// Get relevant customer by email(cookie)
+router.get('/get', auth, async(req, res) => {
+    try{
+        let email = req.customerEmail;
+        await Customer.find({ email: email})
+        .then(Customer => res.json(Customer))
+        .catch(err => res.status(400).json('Error: ' + err));
+    }catch (err){
+        console.error(err);
+        res.status(500).send();
+    }
   });
 
-// Delete relevant customer by id
-router.route('/delete/:Id').delete((req, res)=>{
-    let Id = req.params.Id;
+// Delete relevant customer email(cookie)
+router.delete('/delete', auth, async(req, res)=>{
+    // let Id = req.params.Id;
 
-    Customer.findByIdAndDelete(Id)
+    // Customer.findByIdAndDelete(Id)
+    //     .then(()=> res.json('Customer deleted!'))
+    //     .catch(err=> res.status(400).json('Error with deleting data: '+ err));
+
+    try{
+        let email = req.customerEmail;
+        await Customer.findOneAndDelete({ email: email})
         .then(()=> res.json('Customer deleted!'))
         .catch(err=> res.status(400).json('Error with deleting data: '+ err));
+    }catch (err){
+        console.error(err);
+        res.status(500).send();
+      } 
 });
 
 // Update relevant customer by id
