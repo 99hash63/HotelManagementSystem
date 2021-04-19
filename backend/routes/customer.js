@@ -49,10 +49,11 @@ router.route('/add').post(async(req, res) => {
             // .then(()=> res.json('Customer added!'))
             // .catch(err=> res.status(400).json('Error: '+ err));
 
+        //log in the customer instantly after registering    
         // sign the token
         const token = jwt.sign(
             {
-                customer: savedCustomer._id,
+                customerEmail: savedCustomer.email,
             },
             process.env.JWT_SECRET
         );
@@ -97,7 +98,7 @@ router.post("/login", async (req, res) => {
         // sign the token
         const token = jwt.sign(
             {
-                customer: existingCus._id,
+                customerEmail: existingCus.email,
             },
             process.env.JWT_SECRET
         );
