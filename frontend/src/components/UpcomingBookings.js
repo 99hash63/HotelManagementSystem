@@ -26,7 +26,6 @@ function ViewBookingRequsets() {
     return (
         <div className="display-box">
              <div className="header-box"> Upcome Bookings
-             {/* <Link id="checkoutHistory-window-btn" to={"/bookings"}>BACK</Link> */}
              <button id="checkoutHistory-window-btn" onClick={() => { history.goBack();}} >Back</button>
              
               </div>

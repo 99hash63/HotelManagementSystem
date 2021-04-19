@@ -55,7 +55,6 @@ function BookingList(props) {
                     })}
                     </tbody>
                 </table>
-                <Link to={"/bookings"}>BACK</Link>
             </div>
         </div>
     )

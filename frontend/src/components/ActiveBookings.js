@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import BookingList from './BookingList';
+import { useHistory } from "react-router-dom";
 
 
 function ViewAllBookings() {
+    const history = useHistory();
     var [bookings, setRequest] = useState([]);
 
     useEffect(() => {
@@ -22,7 +24,10 @@ function ViewAllBookings() {
 
     return (
         <div>
-            <div className="header-box"> Active Bookings </div>
+            <div className="header-box"> Active Bookings
+            <button id="checkoutHistory-window-btn" onClick={() => { history.goBack(); }} >Back</button>
+
+            </div>
             <BookingList bookings={bookings.filter((booking) => booking.bookingState === "Active")} />
         </div>
 
