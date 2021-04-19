@@ -19,7 +19,7 @@ const Login = () => {
                     <label for="psw"><b>Password</b></label>
                     <input type="password" placeholder="Enter Password" name="psw" required></input>
                         
-                    <button type="submit" className="addinventory-btn">Login</button>
+                    <button type="submit" >Login</button>
                     <label>
                     <input type="checkbox" checked="checked" name="remember"></input>Remember me
                     </label>
