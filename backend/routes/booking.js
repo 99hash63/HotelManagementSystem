@@ -100,7 +100,7 @@ router.route("/ViewBookings").get((req,res)=>{
 
 //View all Up comming Bookings
 router.route("/ViewHistry").get((req,res)=>{
-    Booking.find({bookingState : "not active"}).then((BookingHistry)=>{
+    Booking.find({bookingState : "Not Active"}).then((BookingHistry)=>{
         res.json(BookingHistry);
     }).catch((err)=>{
         console.log(err);
@@ -187,7 +187,7 @@ router.route("/findOne/:id").get((req,res)=>{
     var mail = req.params.id;
     console.log(mail);
     
-    Booking.find({email : mail}).then((cust)=>{
+    Booking.find({email : mail, bookingState : "Active"}).then((cust)=>{
         res.json(cust);
         console.log(cust);
     }).catch((err)=>{

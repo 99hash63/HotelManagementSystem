@@ -22,9 +22,11 @@ function ViewAll() {
     })
 
     return (
-        <div>
-            <h1>All Agencies</h1>
-            <table id="items">
+        <div className="display-box">
+            <div className="header-box"> All Agencies </div>
+            <div className="content-box-list">
+            <table>
+            <thead>
                     <tr>
                         <th>contract Id</th>
                         <th>Name</th>
@@ -35,6 +37,9 @@ function ViewAll() {
                         <th>Rate</th>
                         <th></th>
                     </tr>
+                    </thead>
+
+                    <tbody>
 
                 {agent.map(function(agent){
 
@@ -46,12 +51,14 @@ function ViewAll() {
                                 <td>{agent.address}</td>
                                 <td>{agent.passcode}</td>
                                 <td>{agent.rate}</td>
-                                <td><Link to={"/viewOne/" + agent._id}> Edit </Link></td>
+                                <td><Link to={"/viewOne/" + agent._id}> <i class="far fa-edit"></i> </Link></td>
                             </tr>
                      
                    
                 })}
+                </tbody>
             </table>
+            </div>
         </div>
 
     )
