@@ -38,6 +38,7 @@ import CusPastBookings from './customer/CusPastBookings';
 import CusMyaccount from './customer/CusMyaccount';
 import CusUpdateAccount from './customer/CusUpdateAccount'
 import DisplayUpcoming from './customer/DisplayUpcoming'
+import AddRegBooking from './customer/AddRegBooking'
 
 
 
@@ -125,6 +126,8 @@ export default function Body() {
                       <Route path="/cusLogout" exact component={cusLogout}/>
                       <Route path="/displayUpcoming/:id" exact component={DisplayUpcoming}/>
                       <Route path="/cusUpdateAccount" exact component={CusUpdateAccount}/>
+                      <Route path="/addRegBooking" exact component={AddRegBooking}/>
+                      
                       
 
                 {/* </div> */}
