@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import AddInventory from './AddInventory';
 import InventoryList from './InventoryList';
 import './Header.css'
@@ -31,11 +31,17 @@ import Main from './customer/Main';
 import AddBooking from './customer/AddBooking';
 import CusLogin from './customer/CusLogin';
 import CusReg from './customer/CusReg'
+import AuthContext from '../context/AuthContext';
+import cusLogout from './customer/CusLogout';
 
 
 
 
 export default function Body() {
+
+    const {loggedIn} = useContext(AuthContext);
+    console.log(loggedIn);
+
     return (
 
         <Router>
@@ -44,12 +50,17 @@ export default function Body() {
 
             <div className="content">
 
+                {
+                    loggedIn === true && <CusSideNav/>
+                }
+                
+
+
                 {/* <AddBooking/> */}
                 {/* <Main/> */}
                 {/* <Sidenav /> */}
                 {/* <FrontOfficeSideNav/> */}
-
-                {/* <CusSideNav/> */}
+                
                 {/* <Login/>
                 <Route path="/frontOffice" exact component={FrontOfficeSideNav}/>
                 <Route path="/inventory" exact component={Sidenav}/> */}
@@ -103,6 +114,7 @@ export default function Body() {
                       <Route path="/addbooking" exact component={AddBooking}/>
                       <Route path="/cusLogin" exact component={CusLogin}/>
                       <Route path="/cusReg" exact component={CusReg}/>
+                      <Route path="/cusLogout" exact component={cusLogout}/>
 
                 {/* </div> */}
 

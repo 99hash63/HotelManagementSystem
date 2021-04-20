@@ -1,5 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios'
+import { useHistory } from 'react-router';
+import AuthCentext from '../../context/AuthContext'
+
 
 const Register = () => {
 
@@ -13,6 +16,10 @@ const Register = () => {
     const [contact, setContact] = useState("");
     const [password, setPassword] = useState("");
     const [passwordVerify, setPasswordVerify] = useState("");
+
+    const { getLoggedIn } = useContext(AuthCentext);
+    const history = useHistory ();
+
 
     async function register(e){
         e.preventDefault();
@@ -32,6 +39,8 @@ const Register = () => {
             };
 
             await axios.post("http://localhost:5000/customer/add", registerData);
+            await getLoggedIn();
+            history.push("/");
 
         }catch(err){
             console.error(err);
