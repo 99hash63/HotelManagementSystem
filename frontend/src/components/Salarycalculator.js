@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import '../components/Addemployees.css'; 
+import "../components/AddInventory.css"
 
 function AddSalary() {
     var [email, setEmail] = useState("");
@@ -52,10 +52,12 @@ function AddSalary() {
     return (
         <div className="form1">
             <form >
+                <div className="header-box">Add Paid Salary</div>
+
                 <label className="custom-field">
-                <input type="text" id="email" name="email" className="form-input" onChange={(e) => {
+                <input type="text" id="email" name="email" className="form-input" required onChange={(e) => {
                     setEmail(e.target.value);
-                }}required />
+                }} />
                  <span className="placeholder" >Email</span>
                 </label><br></br>
 
@@ -99,10 +101,13 @@ function AddSalary() {
                 <input type="date" id="paiddate" name="paiddate" className="form-input" onChange={(e) => {
                     setPaidDate(e.target.value);
                 }}required /><span className="placeholder" >Paid Date</span>
-                </label><br></br>
+                </label><br/>
 
-                <input type="submit" name="clickbtn" value="Calculate Total Salary" className="addinventory-btn" onClick={calsalary}/>
+               
+
+                <div className="form2-btn">
                 <input type="submit" value="Paid" className="addinventory-btn" onClick={sendData} />
+                </div>
             </form>
 
         </div>

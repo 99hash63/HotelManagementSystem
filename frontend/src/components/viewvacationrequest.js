@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-
+import jspdf from 'jspdf'
+import "jspdf-autotable"
 
 
 
@@ -22,7 +23,45 @@ function ViewAll() {
 
     })
 
+        //Genarate Paid Vacation request report
+        const generatePDF = tickets => {
+
+            const doc = new jspdf();
+            const tableColumn = ["Email", "Propose", "From", "To"];
+            const tableRows = [];
+    
+            tickets.slice(0).reverse().map(ticket => {
+                const ticketData = [
+                    ticket.eemail,
+                    ticket.propose,
+                    ticket.vfrom,
+                    ticket.vto,
+                  
+                ];
+                tableRows.push(ticketData);
+            });
+    
+            doc.autoTable(tableColumn, tableRows, { styles: { fontSize: 8 }, startY: 35 });
+            const date = Date().split(" ");
+            const dateStr = date[1] + "-" + date[2] + "-" + date[3];
+            var img = new Image().src = '/images/logo.png'
+            doc.addImage(img, 'JPEG', 160, 9, 49, 15);
+            doc.text("Vacation Request Report", 14, 15).setFontSize(12);
+            doc.text(`Report Genarated Date - ${dateStr} `, 14, 23);
+            doc.save(`VacatioRequest_report_${dateStr}.pdf`);
+        };
+
     return (
+        <div className="display-box">
+        <div className="header-box">
+            <div>Vacation Requests<button id="generate-reportt-btn" onClick={() => generatePDF(vacation)}>Create Report</button></div>
+
+            <div className="total-vacation-display">
+                <span id="total-vacation-display-total">{vacation.length}</span> <br />
+                <span id="total-vacation-display-text">Total Vacation Requests</span>
+            </div>
+        </div>
+
         <div>
             <h1>Vacation Requests</h1>
             <div className="content-box-list">
@@ -63,6 +102,7 @@ function ViewAll() {
             </div>
         </div>
 
+    </div>
     )
 }
 

@@ -24,7 +24,7 @@ function ViewAll() {
     })
 
     return (
-        <div>
+        <div className="display-box">
             <h1>All Employees</h1>
             <div className="content-box-list">
             <table class="center">

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import '../components/Addemployees.css'; 
-import EMSnavbar from '../components/emanagersidenav';
+//import EMSnavbar from '../components/emanagersidenav';
 //import '../components/navigation1'
 //import Navgation1 from '../components/navigation1';
 
@@ -51,7 +51,7 @@ function AddEmployees() {
             alert("Employee Added To Database Successfuly");
         }).catch((err) => {
             alert(err.msg);
-            alert("Employee not Added To Database ");
+            //alert("Employee not Added To Database ");
         })
     }
 

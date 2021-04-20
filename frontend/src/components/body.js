@@ -38,9 +38,10 @@ import Salarycalculator from './Salarycalculator';
 import paidsalary from './paidsalary';
 import createvacation from './createvacation';
 import viewvacations from './viewvacationrequest';
-import emanagersidenav from './emanagersidenav'
+import Emanagersidenav from './emanagersidenav'
 import rejectvacation from './rejectvacation'
-
+import viewonesalary from './viewonesalary'
+import minical from './Minisalarycalculator'
 
 
 
@@ -56,7 +57,7 @@ export default function Body() {
                 {/* <AddBooking/> */}
                 <Route path="/addbooking" exact component={AddBooking}/>
                 {/* <Main/> */}
-                {/* <Sidenav /> */}
+                {/* <Sidenav />8? }
                 {/* <FrontOfficeSideNav/> */}
 
                 {/* <CusSideNav/> */}
@@ -70,6 +71,7 @@ export default function Body() {
                
 
                     {/*Employee Manager Routes*/}
+                    { <Emanagersidenav /> }
                     <Route path="/addemployee" exact component={Addemployee}/>
                     <Route path="/allemployees" exact component={Allemployees}/>
                     <Route path="/Viewoneemployee/:id" exact component={viewOneemployee}/>
@@ -78,8 +80,9 @@ export default function Body() {
                     <Route path="/paidsalary" exact component={paidsalary}/>
                     <Route path="/createvacation" exact component={createvacation}/>
                     <Route path="/viewvacations" exact component={viewvacations}/>
-                    <Route path="/emanagersidenav" exact component={emanagersidenav}/>
                     <Route path="/rejectvacation/:id" exact component={rejectvacation}/>
+                    <Route path="/Viewonepayment/:id" exact component={viewonesalary}/>
+                    <Route path="/minical" exact component={minical}/>
 
 
 

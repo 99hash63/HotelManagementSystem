@@ -35,6 +35,7 @@ router.route("/addsalary").post((req,res)=>{
 
     }).catch((err)=>{
         //If error occurs this fuction execute
+        //res.json("Error")
         console.log(err);
     });
 
@@ -49,7 +50,7 @@ router.route("/addsalary").post((req,res)=>{
         })
     })
 
-    //Update employee details
+    //Update paid salary details
     router.route("/update/:id").put(async(req,res)=>{
         let salaryID = req.params.id;  //get unique user id from data base
 
@@ -78,7 +79,7 @@ router.route("/addsalary").post((req,res)=>{
 
     })
 
-    //Delete employee details from database
+    //Delete paid salary details from database
     router.route("/delete/:id").delete(async(req,res)=>{
         
         let salaryID = req.params.id;
