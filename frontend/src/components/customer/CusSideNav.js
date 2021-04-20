@@ -13,7 +13,7 @@ export default function Sidenav() {
                 <Link to="/">My Account</Link>
                 <Link to="/">Loyalty Memberships</Link>
                 <Link to="/">My Loyalty</Link>
-                <Link to="/">Log Out</Link>
+                <Link to="/cusLogout">Log Out</Link>
             </div>
       
 
