@@ -17,7 +17,7 @@ export default function PBookings() {
     }, []);
 
     return (
-        <div className="display-box">
+        <div className="display-box" style={{background: "#ffffff",borderRadius: "20px"}}>
             <div className="header-box">
                 {/* <div>Inventory<button id="generate-reportt-btn" onClick={() => generatePDF(inventory)}>Create Report</button></div> */}
 
@@ -64,7 +64,7 @@ export default function PBookings() {
                                     <td >{f.roomAllocation} </td>
                                     <td >{f.price} </td>
                                     <td >{f.bookingState} </td>
-                                    <td > <Link to={"/displayinventory/" + f._id} ><i class="far fa-edit"></i></Link></td>
+                                    <td > <Link to={"/displayPast/" + f._id} ><i class="far fa-edit"></i></Link></td>
 
                                 </tr>
 

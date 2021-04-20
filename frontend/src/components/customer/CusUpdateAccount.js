@@ -122,7 +122,7 @@ const UpdateAccount = () => {
     }
 
     return ( 
-        <div>
+        <div style={{background: "#ffffff",borderRadius: "20px"}}>
             <ul>
                 {renderAccount()}
             </ul>
