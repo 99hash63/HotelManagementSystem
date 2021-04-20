@@ -45,6 +45,8 @@ export default function AddInventory() {
                         inventory.map(function (f) {
                             return <tr>
 
+
+
                                 <td >{f.name}</td>
                                 <td >{f.model} </td>
                                 <td >{f.sku} </td>
