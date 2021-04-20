@@ -47,4 +47,18 @@ router.route("/addvacation").post((req,res)=>{
         })
     })
 
+      //Reject Vacation request from database
+      router.route("/reject/:id").delete(async(req,res)=>{
+        
+        let vacationID = req.params.id;
+
+        await Vacation.findByIdAndDelete(vacationID).then(()=>{
+            res.status(200).send({status: "Vacation Request Rejected"});
+        }).catch((e)=>{
+            console.log(e);
+               res.status(500).send({status:"Error in rejecting vacation requests"})
+        })
+
+    })
+
     module.exports= router;

@@ -39,6 +39,7 @@ import paidsalary from './paidsalary';
 import createvacation from './createvacation';
 import viewvacations from './viewvacationrequest';
 import emanagersidenav from './emanagersidenav'
+import rejectvacation from './rejectvacation'
 
 
 
@@ -78,6 +79,7 @@ export default function Body() {
                     <Route path="/createvacation" exact component={createvacation}/>
                     <Route path="/viewvacations" exact component={viewvacations}/>
                     <Route path="/emanagersidenav" exact component={emanagersidenav}/>
+                    <Route path="/rejectvacation/:id" exact component={rejectvacation}/>
 
 
 

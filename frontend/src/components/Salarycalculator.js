@@ -91,18 +91,18 @@ function AddSalary() {
                 <label className="custom-field">
                 <input type="number" id="totsalary" name="totsalary" className="form-input" onChange={(e) => {
                    setTotalsalary(e.target.value);
-                }} />
+                }}required />
                 <span className="placeholder" >Total Salary</span>
                 </label><br></br>
 
                 <label className="custom-field">
                 <input type="date" id="paiddate" name="paiddate" className="form-input" onChange={(e) => {
                     setPaidDate(e.target.value);
-                }} /><span className="placeholder" >Paid Date</span>
+                }}required /><span className="placeholder" >Paid Date</span>
                 </label><br></br>
 
-                <input type="button" name="clickbtn" value="Calculate Total Salary" className="addinventory-btn" onClick={calsalary}/>
-                <input type="button" value="Paid" className="addinventory-btn" onClick={sendData} />
+                <input type="submit" name="clickbtn" value="Calculate Total Salary" className="addinventory-btn" onClick={calsalary}/>
+                <input type="submit" value="Paid" className="addinventory-btn" onClick={sendData} />
             </form>
 
         </div>

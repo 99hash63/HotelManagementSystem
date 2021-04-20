@@ -54,7 +54,7 @@ function ViewAll() {
                                 
 
                                 <td><Link to={"/#/"+vacation._id}> Approve </Link></td>
-                                <td><Link to={"/#/"+vacation._id}> Reject </Link></td>
+                                <td><Link to={"/rejectvacation/"+vacation._id}> Reject </Link></td>
                             </tr>
                         </tbody>
                     </div>
