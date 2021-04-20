@@ -65,7 +65,7 @@ export default function UpBookings() {
                                     <td >{f.roomAllocation} </td>
                                     <td >{f.price} </td>
                                     <td >{f.bookingState} </td>
-                                    <td > <Link to={"/displayinventory/" + f._id} ><i class="far fa-edit"></i></Link></td>
+                                    <td > <Link to={"/displayUpcoming/" + f._id} ><i class="far fa-edit"></i></Link></td>
 
                                 </tr>
 
