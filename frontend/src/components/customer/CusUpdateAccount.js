@@ -3,6 +3,7 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 import jspdf from 'jspdf'
 import "jspdf-autotable"
+import './CusUpdateAccount.css'
 
 const UpdateAccount = () => {
     const [myAccount, setMyAccount] = useState([]);
@@ -29,7 +30,7 @@ const UpdateAccount = () => {
         axios.post(`http://localhost:5000/customer/update`, updateAccount).then(() => {
             window.location = "/cusMyaccount"
         }).catch((e) => {
-            alert(e);
+            alert("Cannot Update User");
         })
 
     }
@@ -81,11 +82,6 @@ const UpdateAccount = () => {
             return (
                 <div>
 
-                    <div>
-                        <button id="edit_btn" onClick={UpAccount}>Update</button>
-                        <button id="delete_btn" onClick={delete_account} >Delete</button>
-                    </div>
-
                     <li>First Name <input type="text" defaultValue={myAccount.fname} onChange={(e) => {
                                 setFname(e.target.value)
                                 }} required /></li>
@@ -116,13 +112,18 @@ const UpdateAccount = () => {
                     <li>PasswordVerify <input type="text" onChange={(e) => {
                                 setPasswordVerify(e.target.value)
                                 }} required /></li>
+
+                    <div>
+                        <button id="edit_btn" onClick={UpAccount}>Update</button>
+                        <button id="delete_btn" onClick={delete_account} >Delete</button>
+                    </div>            
                 </div>
             )   
         })
     }
 
     return ( 
-        <div style={{background: "#ffffff",borderRadius: "20px"}}>
+        <div  style={{background: "#ffffff",borderRadius: "20px"}} className="updateAcc">
             <ul>
                 {renderAccount()}
             </ul>

@@ -23,7 +23,7 @@ export default function PBookings() {
 
                 <div className="total-inventory-display">
                     <span id="total-inventory-display-total">{upBookings.length}</span> <br />
-                    <span id="total-inventory-display-text">Total Bookings</span>
+                    <span id="total-inventory-display-text">Past Bookings</span>
                 </div>
             </div>
 

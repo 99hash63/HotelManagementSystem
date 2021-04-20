@@ -56,7 +56,7 @@ const MyAccount = () => {
     }
 
     return ( 
-        <div style={{background: "#ffffff",borderRadius: "20px"}}>
+        <div style={{background: "#ffffff",borderRadius: "20px"}} className = "myAcc">
             <ul>
                 {renderAccount()}
                 <a href="cusUpdateAccount"><button>EDIT</button></a>

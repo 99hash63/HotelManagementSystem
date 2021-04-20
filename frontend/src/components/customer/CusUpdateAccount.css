@@ -1,0 +1,87 @@
+.updateAcc input[type=text],.updateAcc  input[type=password] {
+    width: 400px;
+    padding: 8px 14px;
+    margin: 5px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  
+  .updateAcc button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 10px;
+    margin: 4px 0;
+    border: none;
+    cursor: pointer;
+    width: 500px;
+  }
+  
+  .updateAcc button:hover {
+    opacity: 0.8;
+  }
+  
+  .updateAcc .cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+  }
+  
+  .updateAcc .container {
+    padding: 16px;
+  }
+  
+  .updateAcc span.psw {
+    float: right;
+    padding-top: 16px;
+  }
+  
+  /* Change styles for span and cancel button on extra small screens */
+  @media screen and (max-width: 300px) {
+      .updateAcc  span.psw {
+       display: block;
+       float: none;
+    }
+    .updateAcc  .cancelbtn {
+       width: 100%;
+    }
+  }
+  .updateAcc{
+      position: absolute;
+      margin-left: 280px;
+      border-radius: 10px;
+      /* top: 50%;
+      left: 50%; */
+      /* transform: translate(-50%, -50%); */
+      /* background: rgb(248, 248, 248); */
+      width: 585px;
+      height: 600px;
+  }
+  #signinCUS{
+      margin-left: 15px;
+  }
+
+  .myAcc button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 10px;
+    margin: 4px 0;
+    border: none;
+    cursor: pointer;
+    width: 500px;
+  }
+
+  .myAcc button:hover {
+    opacity: 0.8;
+  }
+
+  /* Change styles for span and cancel button on extra small screens */
+  @media screen and (max-width: 300px) {
+    .myAcc  span.psw {
+     display: block;
+     float: none;
+  }
+  .myAcc  .cancelbtn {
+     width: 100%;
+  }
+}

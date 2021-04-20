@@ -75,7 +75,7 @@ const AddRegBooking = () => {
                     <br />
 
                     <label className="custom-field">
-                        <input type="text" className="form-input" id="nanoOfAdultsme" onChange={(e) => {
+                        <input type="number" className="form-input" id="nanoOfAdultsme" onChange={(e) => {
                              setNoOfAdults(e.target.value);
                         }} required />
                         <span className="placeholder">noOfAdults</span>
@@ -83,7 +83,7 @@ const AddRegBooking = () => {
                     <br />
 
                     <label className="custom-field">
-                        <input type="text" className="form-input" id="noOfChildren" onChange={(e) => {
+                        <input type="number" className="form-input" id="noOfChildren" onChange={(e) => {
                              setNoOfChildren(e.target.value);
                         }} required />
                         <span className="placeholder">noOfChildren</span>
@@ -115,16 +115,17 @@ const AddRegBooking = () => {
                     <br />
 
                     <label className="custom-field">
-                        <input type="text" className="form-input" id="price" onChange={(e) => {
+                        <input type="number" className="form-input" id="price" onChange={(e) => {
                              setPrice(e.target.value);
                         }} required />
                         <span className="placeholder">price</span>
                     </label>
-                    <br />
-
+                
                     <div className="form2-btn">
                         <button className="addinventory-btn">Create Booking</button>
                     </div> 
+                    <br/>
+                    
                 </div>
             </form>
         </div>
