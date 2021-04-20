@@ -49,6 +49,7 @@ const MyAccount = () => {
                     <h2>PassportNo  : {myAccount.passportNo}</h2>
                     <h2>Email       : {myAccount.email}</h2>
                     <h2>Contact     : {myAccount.contact}</h2>
+                    
                 </div>
             )   
         })

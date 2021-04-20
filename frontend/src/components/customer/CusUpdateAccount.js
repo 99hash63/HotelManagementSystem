@@ -6,57 +6,54 @@ import "jspdf-autotable"
 
 const UpdateAccount = () => {
     const [myAccount, setMyAccount] = useState([]);
-    // const [fname, setFname] = useState("");
-    // const [lname, setLname] = useState("");
-    // const [address, setAddress] = useState("");
-    // const [NIC, setNIC] = useState("");
-    // const [nationality, setNationality] = useState("");
-    // const [passportNo, setPassportNo] = useState("");
-    // const [email, setEmail] = useState("");
-    // const [contact, setContact] = useState("");
-    // const [password, setPassword] = useState("");
-    // const [passwordVerify, setPasswordVerify] = useState("");
+    const [fname, setFname] = useState("");
+    const [lname, setLname] = useState("");
+    const [address, setAddress] = useState("");
+    const [NIC, setNIC] = useState("");
+    const [nationality, setNationality] = useState("");
+    const [passportNo, setPassportNo] = useState("");
+    const [email, setEmail] = useState("");
+    const [contact, setContact] = useState("");
+    const [password, setPassword] = useState("");
+    const [passwordVerify, setPasswordVerify] = useState("");
 
 
+    //updating funtion
+    function UpAccount(e) {
+        e.preventDefault();
 
-        //updating funtion
-        // function updateData(e) {
-        //     e.preventDefault();
-    
-        //     const newAccount = {
-        //         promoCode, travelAgent, checkInDate, checkOutDate, noOfAdults, noOfChildren, cpackage, otherAccomodations, roomAllocation, price
-        //     }
-    
-        //     axios.put(`http://localhost:5000/customer/update/${id}`, newAccount).then(() => {
-    
-        //     }).catch((e) => {
-        //         alert("error");
-        //     })
-    
-        // }
+        const updateAccount = {
+            fname, lname, address, NIC, nationality, passportNo, email, contact, password, passwordVerify
+        }
 
-        //delete inventory button funtion
-        // var timesClicked =0;
-        // const delete_inventory = () => {
-        //     timesClicked++;
-            
-        //     if (timesClicked > 1) {
-        //         axios.delete(`http://localhost:5000/customer/update/${id}`).then(() => {
-        //             window.location = "/inventory"
-        //             timesClicked=0
-        //         }).catch((e) => {
-        //             alert("error");
-        //         })
-        //     } else {
-        //         document.getElementById('delete_btn').innerHTML = "Confirm Delete"
-        //         document.getElementById("delete_btn").style.color = "white";
-        //         document.getElementById("delete_btn").style.backgroundColor ="rgb(255, 0, 55)"
-        //         document.getElementById("delete_btn").style.borderColor ="rgb(255, 0, 55)"
-        //     }
-    
-        // }
+        axios.post(`http://localhost:5000/customer/update`, updateAccount).then(() => {
+            window.location = "/cusMyaccount"
+        }).catch((e) => {
+            alert(e);
+        })
 
+    }
 
+    //delete account button funtion
+    var timesClicked =0;
+    const delete_account = () => {
+        timesClicked++;
+        
+        if (timesClicked > 1) {
+            axios.delete(`http://localhost:5000/customer/delete`).then(() => {
+                window.location = "/"
+                timesClicked=0
+            }).catch((e) => {
+                alert("error");
+            })
+        } else {
+            document.getElementById('delete_btn').innerHTML = "Confirm Delete"
+            document.getElementById("delete_btn").style.color = "white";
+            document.getElementById("delete_btn").style.backgroundColor ="rgb(255, 0, 55)"
+            document.getElementById("delete_btn").style.borderColor ="rgb(255, 0, 55)"
+        }
+
+    }
 
 
     async function getMyAccount(){
@@ -83,14 +80,42 @@ const UpdateAccount = () => {
         return myAccount.map((myAccount) => {
             return (
                 <div>
-                    <li>First Name <input type="text" value={myAccount.fname}/></li>
-                    <li>Last Name <input type="text" value={myAccount.lname}/></li>
-                    <li>Address <input type="text" value={myAccount.address}/></li>
-                    <li>NIC <input type="text" value={myAccount.NIC}/></li>
-                    <li>Nationality <input type="text" value={myAccount.nationality}/></li>
-                    <li>PassportNo <input type="text" value={myAccount.passportNo}/></li>
-                    <li>Email <input type="text" value={myAccount.email}/></li>
-                    <li>Contact <input type="text" value={myAccount.contact}/></li>
+
+                    <div>
+                        <button id="edit_btn" onClick={UpAccount}>Update</button>
+                        <button id="delete_btn" onClick={delete_account} >Delete</button>
+                    </div>
+
+                    <li>First Name <input type="text" defaultValue={myAccount.fname} onChange={(e) => {
+                                setFname(e.target.value)
+                                }} required /></li>
+                    <li>Last Name <input type="text" defaultValue={myAccount.lname} onChange={(e) => {
+                                setLname(e.target.value)
+                                }} required /></li>
+                    <li>Address <input type="text" defaultValue={myAccount.address} onChange={(e) => {
+                                setAddress(e.target.value)
+                                }} required /></li>
+                    <li>NIC <input type="text" defaultValue={myAccount.NIC} onChange={(e) => {
+                                setNIC(e.target.value)
+                                }} required /></li>
+                    <li>Nationality <input type="text" defaultValue={myAccount.nationality} onChange={(e) => {
+                                setNationality(e.target.value)
+                                }} required /></li>
+                    <li>PassportNo <input type="text" defaultValue={myAccount.passportNo} onChange={(e) => {
+                                setPassportNo(e.target.value)
+                                }} required /></li>
+                    <li>Email <input type="text" defaultValue={myAccount.email} onChange={(e) => {
+                                setEmail(e.target.value)
+                                }} required /></li>
+                    <li>Contact <input type="text" defaultValue={myAccount.contact} onChange={(e) => {
+                                setContact(e.target.value)
+                                }} required /></li>
+                    <li>Password <input type="text" onChange={(e) => {
+                                setPassword(e.target.value)
+                                }} required /></li>
+                    <li>PasswordVerify <input type="text" onChange={(e) => {
+                                setPasswordVerify(e.target.value)
+                                }} required /></li>
                 </div>
             )   
         })

@@ -191,16 +191,69 @@ router.delete('/delete', auth, async(req, res)=>{
 });
 
 // Update relevant customer by id
-router.route("/update/:id").post((req, res) =>{        
+router.post("/update", auth, async(req, res) =>{  
     
-    const {fname, lname, address, NIC, nationality, passportNo, email, contact, password} = req.body;
-    const updateCustomer = {fname, lname, address, NIC, nationality, passportNo, email, contact, password};
-    
-    let id = req.params.id;
+    try{
+        const email = req.customerEmail;
 
-    const update =  Customer.findByIdAndUpdate(id , updateCustomer)
-        .then(()=> res.json('Customer updated!'))
-        .catch(err=> res.status(400).json('Error with updating data: '+ err));
+        const {fname, lname, address, NIC, nationality, passportNo, contact, password, passwordVerify} = req.body;
+
+
+        // validations
+        // validation - All required fields are entered
+        if(!email || !password || !passwordVerify){
+            return res
+            .status(400)
+            .json({errorMessage: "Please enter all required fields!"});
+            }
+
+        // validation - pw length is greater than 8 characters
+        if(password.length <8){
+            return res
+            .status(400)
+            .json({errorMessage: "Please enter a password of atleast 8 characters!"});
+            }
+
+        // validation - pw and verify pw are matching
+        if(password != passwordVerify){
+            return res
+            .status(400)
+            .json({errorMessage: "Passwords did not match!"});
+            }
+
+        //hash the password
+        const salt = await bcrypt.genSalt();
+        const passwordHash = await bcrypt.hash(password, salt);
+
+        const updateCustomer = {fname, lname, address, NIC, nationality, passportNo, email, contact, passwordHash};
+
+        await Customer.findOneAndUpdate({ email: email}, updateCustomer)
+        //log in the customer instantly after updating    
+        // sign the token
+        const token = jwt.sign(
+            {
+                customerFname: updateCustomer.fname, 
+                customerLname: updateCustomer.lname, 
+                customerAddress: updateCustomer.address,
+                customerNIC: updateCustomer.NIC,
+                customerNationality: updateCustomer.nationality,
+                customerPassportNo: updateCustomer.passportNo,
+                customerEmail: updateCustomer.email,
+                customerContact: updateCustomer.contact, 
+            },
+            process.env.JWT_SECRET
+        );
+
+        // send the token in a HTTP-only cookie
+        res.cookie("token", token, {
+                httpOnly: true,
+            })
+            .send();
+
+    }catch(err){
+        console.error(err);
+        res.status(500).send();
+    }   
 });
 
 module.exports = router;

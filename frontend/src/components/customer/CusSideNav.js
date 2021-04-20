@@ -7,7 +7,7 @@ export default function Sidenav() {
      
             <div className="sidenav">
                 
-                <Link to="/addbooking">Add New Booking</Link>
+                <Link to="/addRegBooking">Add New Booking</Link>
                 <Link to="/cusUpBookings">Upcoming Bookings</Link>
                 <Link to="/cusPastBookings">Booking History</Link>
                 <Link to="/cusMyaccount">My Account</Link>
