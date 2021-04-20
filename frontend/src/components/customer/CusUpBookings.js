@@ -9,7 +9,7 @@ export default function UpBookings() {
     const [upBookings, setUpBookings] = useState([]);
 
     async function getUpBookings(){
-        const UpBookingRes = await axios.get("http://localhost:5000/booking/get");
+        const UpBookingRes = await axios.get("http://localhost:5000/booking/getUp");
         setUpBookings(UpBookingRes.data);
     }
 
@@ -56,8 +56,8 @@ export default function UpBookings() {
                                     <td >{f._id}</td>
                                     <td >{f.promoCode} </td>
                                     <td >{f.travelAgent} </td>
-                                    <td >{f.checkInDate.substring(0, 10)} </td>
-                                    <td >{f.checkOutDate.substring(0, 10)} </td>
+                                    <td >{f.checkInDate} </td>
+                                    <td >{f.checkOutDate} </td>
                                     <td >{f.noOfAdults} </td>
                                     <td >{f.noOfChildren} </td>
                                     <td >{f.package} </td>

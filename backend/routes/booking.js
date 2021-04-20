@@ -58,13 +58,14 @@ router.post("/addR", auth, async(req,res)=>{
 });
 
 
-//get relevant user's bookings
-router.get('/get', auth ,async(req, res) => {
+//get relevant user's upcoming bookings
+router.get('/getUp', auth ,async(req, res) => {
     try{
         
         let email = req.customerEmail;
 
-        await Booking.find({ email: email})
+        //get data from currently logged email and booking state = Active or Not Active
+        await Booking.find({email: email, $or:[{bookingState: "Active"},{bookingState:"Not Active"}]})
         .then(Booking => res.json(Booking))
         .catch(err => res.status(400).json('Error: ' + err));
     }catch (err){
@@ -72,6 +73,23 @@ router.get('/get', auth ,async(req, res) => {
         res.status(500).send();
     }
   });
+
+//get relevant user's past bookings
+router.get('/getPast', auth ,async(req, res) => {
+    try{
+        
+        let email = req.customerEmail;
+
+        //get data from currently logged email and booking state = Past
+        await Booking.find({email: email, bookingState: "Past"})
+        .then(Booking => res.json(Booking))
+        .catch(err => res.status(400).json('Error: ' + err));
+    }catch (err){
+        console.error(err);
+        res.status(500).send();
+    }
+  });
+  
 
 //update specific booking
 router.route("/update/:id").post(async(req, res) =>{        
