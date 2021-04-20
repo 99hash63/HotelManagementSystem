@@ -38,8 +38,8 @@ const AddRegBooking = () => {
     }
 
     return ( 
-        <div>
-            <form onSubmit={sendData}>
+        <div style={{background: "#ffffff",borderRadius: "20px"}}>
+            <form onSubmit={sendData} >
                 <div className="form1">
 
                     <label className="custom-field">
@@ -59,7 +59,7 @@ const AddRegBooking = () => {
                     <br />
 
                     <label className="custom-field">
-                        <input type="text" className="form-input" id="checkInDate" onChange={(e) => {
+                        <input type="date" className="form-input" id="checkInDate" onChange={(e) => {
                              setCheckInDate(e.target.value);
                         }} required />
                         <span className="placeholder">checkInDate</span>
@@ -67,7 +67,7 @@ const AddRegBooking = () => {
                     <br />
 
                     <label className="custom-field">
-                        <input type="text" className="form-input" id="checkOutDate" onChange={(e) => {
+                        <input type="date" className="form-input" id="checkOutDate" onChange={(e) => {
                              setCheckOutDate(e.target.value);
                         }} />
                         <span className="placeholder">checkOutDate</span>

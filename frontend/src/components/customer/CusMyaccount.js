@@ -40,7 +40,7 @@ const MyAccount = () => {
     function renderAccount(){
         return myAccount.map((myAccount) => {
             return (
-                <div>
+                <div >
                     <h2>First Name  : {myAccount.fname}</h2>
                     <h2>Last Name   : {myAccount.lname}</h2>
                     <h2>Address     : {myAccount.address}</h2>
@@ -56,7 +56,7 @@ const MyAccount = () => {
     }
 
     return ( 
-        <div>
+        <div style={{background: "#ffffff",borderRadius: "20px"}}>
             <ul>
                 {renderAccount()}
                 <a href="cusUpdateAccount"><button>EDIT</button></a>

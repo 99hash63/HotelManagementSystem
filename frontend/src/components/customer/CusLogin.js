@@ -34,12 +34,13 @@ const Login = () => {
 
     return (  
 
-        <div>
+        <div style={{gridArea:"b"}} className="customerREGLOG" >
                 <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
 
-                <h3><span>Sign in to Hotel Sobana or <a href="/cusReg">create an account</a></span></h3>
+                
 
                 <form onSubmit={login}>
+                <h3><span id="signinCUS">Sign in to Hotel Sobana or <a href="/cusReg">create an account</a></span></h3>
 
                 <div className="container">
                     <label for="uname"><b>Email</b></label>

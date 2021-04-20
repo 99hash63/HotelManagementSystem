@@ -18,7 +18,7 @@ export default function UpBookings() {
     }, []);
 
     return (
-        <div className="display-box">
+        <div className="display-box" style={{background: "#ffffff",borderRadius: "20px"}}>
             <div className="header-box">
                 {/* <div>Inventory<button id="generate-reportt-btn" onClick={() => generatePDF(inventory)}>Create Report</button></div> */}
 
