@@ -44,7 +44,6 @@ export default function Body() {
 
             <div className="content">
 
-                {/* <AddBooking/> */}
                 {/* <Main/> */}
                 <Sidenav />
                 {/* <FrontOfficeSideNav/> */}
@@ -54,12 +53,8 @@ export default function Body() {
                 <Route path="/frontOffice" exact component={FrontOfficeSideNav}/>
                 <Route path="/inventory" exact component={Sidenav}/> */}
                 
-
-                {/* <div className="block"> */}
+                <div className="block">
                 
-               
-
-
 
                     {/* Inventry Manager Routes */}
                     <Route path="/addinventory" exact component={AddInventory}/>
@@ -104,7 +99,7 @@ export default function Body() {
                       <Route path="/cusLogin" exact component={CusLogin}/>
                       <Route path="/cusReg" exact component={CusReg}/>
 
-                {/* </div> */}
+                </div>
 
             </div>
         </Router>

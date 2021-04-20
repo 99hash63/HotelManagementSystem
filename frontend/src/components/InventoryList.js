@@ -23,7 +23,7 @@ export default function AddInventory() {
 
     }, [])
 
-
+    //funtion for genarating PDF
     const generatePDF = tickets => {
 
         const doc = new jspdf();
