@@ -19,6 +19,7 @@ import BookingReq from './UpcomingBookings';
 import Accept from './AcceptRequset';
 import Decline from './DeleteBookingRequest';
 import ReStock from './ReStock';
+import HallNav from './HallManagerSideNav';
 
 
 export default function Body() {
@@ -28,8 +29,8 @@ export default function Body() {
 
             <div className="content">
                 {/* <Sidenav /> */}
-                <FrontOfficeSideNav/>
-
+                {/* <FrontOfficeSideNav/> */}
+                <HallNav></HallNav>
                 <div className="block">
 
                     {/* Inventry Manager Routes */}
@@ -57,6 +58,13 @@ export default function Body() {
                             <Route path="/request" exact component={BookingReq} />
                             <Route path="/accept/:id" exact component={Accept} />
                             <Route path="/decline/:id" exact component={Decline} />
+
+
+
+
+                        {/* Reception Hall Manager Routes */}
+                            <Route path="/" exact component={AddInventory}/>
+                        
 
                 </div>
 
