@@ -33,6 +33,9 @@ import CusLogin from './customer/CusLogin';
 import CusReg from './customer/CusReg'
 import AuthContext from '../context/AuthContext';
 import cusLogout from './customer/CusLogout';
+import CusUpBookings from './customer/CusUpBookings';
+import CusPastBookings from './customer/CusPastBookings';
+import CusMyaccount from './customer/CusMyaccount';
 
 
 
@@ -112,6 +115,9 @@ export default function Body() {
                       {/* customer Routes       */}
                       {/* <Route path="/up" exact component={Booking}/> */}
                       <Route path="/addbooking" exact component={AddBooking}/>
+                      <Route path="/cusUpBookings" exact component={CusUpBookings}/>
+                      <Route path="/cusPastBookings" exact component={CusPastBookings}/>
+                      <Route path="/cusMyaccount" exact component={CusMyaccount}/>
                       <Route path="/cusLogin" exact component={CusLogin}/>
                       <Route path="/cusReg" exact component={CusReg}/>
                       <Route path="/cusLogout" exact component={cusLogout}/>

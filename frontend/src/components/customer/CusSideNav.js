@@ -7,10 +7,10 @@ export default function Sidenav() {
      
             <div className="sidenav">
                 
-                <Link to="/">Add New Booking</Link>
-                <Link to="/">Upcoming Bookings</Link>
-                <Link to="/">Booking History</Link>
-                <Link to="/">My Account</Link>
+                <Link to="/addbooking">Add New Booking</Link>
+                <Link to="/cusUpBookings">Upcoming Bookings</Link>
+                <Link to="/cusPastBookings">Booking History</Link>
+                <Link to="/cusMyaccount">My Account</Link>
                 <Link to="/">Loyalty Memberships</Link>
                 <Link to="/">My Loyalty</Link>
                 <Link to="/cusLogout">Log Out</Link>
