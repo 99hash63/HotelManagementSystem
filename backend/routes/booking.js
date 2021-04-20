@@ -58,13 +58,14 @@ router.post("/addR", auth, async(req,res)=>{
 });
 
 
-//get relevant user's bookings
-router.get('/get', auth ,async(req, res) => {
+//get relevant user's upcoming bookings
+router.get('/getUp', auth ,async(req, res) => {
     try{
         
         let email = req.customerEmail;
 
-        await Booking.find({ email: email})
+        //get data from currently logged email and booking state = Active or Not Active
+        await Booking.find({email: email, $or:[{bookingState: "Active"},{bookingState:"Not Active"}]})
         .then(Booking => res.json(Booking))
         .catch(err => res.status(400).json('Error: ' + err));
     }catch (err){
@@ -73,18 +74,45 @@ router.get('/get', auth ,async(req, res) => {
     }
   });
 
+//get relevant user's past bookings
+router.get('/getPast', auth ,async(req, res) => {
+    try{
+        
+        let email = req.customerEmail;
+
+        //get data from currently logged email and booking state = Past
+        await Booking.find({email: email, bookingState: "Past"})
+        .then(Booking => res.json(Booking))
+        .catch(err => res.status(400).json('Error: ' + err));
+    }catch (err){
+        console.error(err);
+        res.status(500).send();
+    }
+  });
+  
+ //get booking by id
+router.get('/get/:id', auth ,async(req, res) => {
+    try{
+        
+        let id = req.params.id;
+
+        await Booking.findById(id)
+        .then(Booking => res.json(Booking))
+        .catch(err => res.status(400).json('Error: ' + err));
+    }catch (err){
+        console.error(err);
+        res.status(500).send();
+    }
+  });
+   
+
 //update specific booking
 router.route("/update/:id").post(async(req, res) =>{        
     
-    const {bookingId, fName, lName, address, NIC, email, promoCode, travelAgent, checkInDate, checkOutDate, noOfAdults, noOfChildren, package, otherAccomodations, nationality, passportNo, roomAllocation, price, bookingState} = req.body;
+    const {promoCode, travelAgent, checkInDate, checkOutDate, noOfAdults, noOfChildren, otherAccomodations, roomAllocation, price} = req.body;
+    const package = req.body.cpackage;
 
     const updateBooking = {
-         bookingId,
-         fName,
-         lName,
-         address, 
-         NIC, 
-         email,
          promoCode,
          travelAgent, 
          checkInDate, 
@@ -93,11 +121,8 @@ router.route("/update/:id").post(async(req, res) =>{
          noOfChildren,
          package, 
          otherAccomodations, 
-         nationality, 
-         passportNo, 
          roomAllocation,
          price,
-         bookingState
     }
     let id = req.params.id;
     const update = await Booking.findByIdAndUpdate(id , updateBooking).then(()=>{ 
