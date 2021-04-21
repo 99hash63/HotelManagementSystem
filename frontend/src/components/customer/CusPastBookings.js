@@ -55,8 +55,8 @@ export default function PBookings() {
                                     <td >{f._id}</td>
                                     <td >{f.promoCode} </td>
                                     <td >{f.travelAgent} </td>
-                                    <td >{f.checkInDate} </td>
-                                    <td >{f.checkOutDate} </td>
+                                    <td >{f.checkInDate.substring(0, 10)} </td>
+                                    <td >{f.checkOutDate.substring(0, 10)} </td>
                                     <td >{f.noOfAdults} </td>
                                     <td >{f.noOfChildren} </td>
                                     <td >{f.package} </td>

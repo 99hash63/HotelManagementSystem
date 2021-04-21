@@ -41,14 +41,14 @@ const MyAccount = () => {
         return myAccount.map((myAccount) => {
             return (
                 <div >
-                    <h2>First Name  : {myAccount.fname}</h2>
-                    <h2>Last Name   : {myAccount.lname}</h2>
-                    <h2>Address     : {myAccount.address}</h2>
-                    <h2>NIC         : {myAccount.NIC}</h2>
-                    <h2>Nationality : {myAccount.nationality}</h2>
-                    <h2>PassportNo  : {myAccount.passportNo}</h2>
-                    <h2>Email       : {myAccount.email}</h2>
-                    <h2>Contact     : {myAccount.contact}</h2>
+                    <h3>First Name  : {myAccount.fname}</h3>
+                    <h3>Last Name   : {myAccount.lname}</h3>
+                    <h3>Address     : {myAccount.address}</h3>
+                    <h3>NIC         : {myAccount.NIC}</h3>
+                    <h3>Nationality : {myAccount.nationality}</h3>
+                    <h3>PassportNo  : {myAccount.passportNo}</h3>
+                    <h3>Email       : {myAccount.email}</h3>
+                    <h3>Contact     : {myAccount.contact}</h3>
                     
                 </div>
             )   

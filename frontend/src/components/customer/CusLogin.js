@@ -28,7 +28,7 @@ const Login = () => {
             history.push("/");
 
         }catch(err){
-            console.error(err);
+            alert("Incorrect email or password");
         }
     }
 

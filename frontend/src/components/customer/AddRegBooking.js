@@ -12,8 +12,14 @@ const AddRegBooking = () => {
     const [noOfChildren, setNoOfChildren] = useState("");
     const [cpackage, setPackage] = useState("");
     const [otherAccomodations, setOtherAccomodations] = useState("");
-    const [roomAllocation, setRoomAllocation] = useState("");
-    const [price, setPrice] = useState("");
+    // const [roomAllocation, setRoomAllocation] = useState("");
+    // const [price, setPrice] = useState("");
+
+    //incomplete calculations for room allocations
+    const roomAllocation = "null";
+
+    //incomplete calculations booking price
+    const price = 0;
  
     function sendData(){
         
@@ -33,7 +39,7 @@ const AddRegBooking = () => {
        axios.post("http://localhost:5000/booking/addR", newBooking).then(()=>{
            alert("Booking Added")
        }).catch((err)=>{
-           alert(err)
+           alert("Error with adding Booking")
        })
     }
 
@@ -90,11 +96,24 @@ const AddRegBooking = () => {
                     </label>
                     <br />
 
-                    <label className="custom-field">
+                    {/* <label className="custom-field">
                         <input type="text" className="form-input" id="cpackage" onChange={(e) => {
                              setPackage(e.target.value);
                         }} />
                         <span className="placeholder">package</span>
+                    </label> */}
+
+                    <label className="custom-field">
+                                <select name="cpackage" id="cpackage" onChange={(e) => {
+                                    setPackage(e.target.value)
+                                }} >
+                                    <option value="Full Board">Full Board</option>
+                                    <option value="Half Board">Half Board</option>
+                                    <option value="Bed And Breakfast">Bed And Breakfast</option>
+                                    <option value="Bed And Tea">Bed And Tea</option>
+                                    
+                                </select>
+                            <span className="placeholder">package</span>
                     </label>
                     <br />
 
@@ -106,7 +125,7 @@ const AddRegBooking = () => {
                     </label>
                     <br />
 
-                    <label className="custom-field">
+                    {/* <label className="custom-field">
                         <input type="text" className="form-input" id="roomAllocation" onChange={(e) => {
                              setRoomAllocation(e.target.value);
                         }} required />
@@ -119,7 +138,7 @@ const AddRegBooking = () => {
                              setPrice(e.target.value);
                         }} required />
                         <span className="placeholder">price</span>
-                    </label>
+                    </label> */}
                 
                     <div className="form2-btn">
                         <button className="addinventory-btn">Create Booking</button>

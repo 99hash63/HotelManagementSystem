@@ -43,7 +43,7 @@ const Register = () => {
             history.push("/");
 
         } catch (err) {
-            console.error(err);
+            alert("Error with register");
         }
     }
 
@@ -82,7 +82,7 @@ const Register = () => {
                     {/* <label for="passportNo"><b>PassportNo</b></label> */}
                     <input type="text" placeholder="Enter PassportNo" name="passportNo" id="passportNo" onChange={(e) => {
                         setPassportNo(e.target.value);
-                    }} required />
+                    }}  />
 
                     {/* <label for="email"><b>Email</b></label> */}
                     <input type="text" placeholder="Enter Email" name="email" id="email" onChange={(e) => {

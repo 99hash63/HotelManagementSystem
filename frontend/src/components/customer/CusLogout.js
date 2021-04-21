@@ -7,8 +7,9 @@ import "./CusUpdateAccount.css"
 
 const Cuslogout = () => {
     const { getLoggedIn } = useContext(AuthContext);
-
     const history = useHistory();
+
+
 
     async function logout(){
         await axios.get("http://localhost:5000/customer/logout");
@@ -20,7 +21,7 @@ const Cuslogout = () => {
        <div style={{background: "#ffffff",borderRadius: "20px"}} className = "myAcc">
            <h1 style={{marginLeft: "170px", marginTop: "50px"}}>Are you sure?</h1>
            <button style={{marginLeft: "50px"}} onClick={logout}>Log Out</button><br></br>
-           <button style={{marginLeft: "50px"}} className="cancelbtn" onClick = "parent.location='http://localhost:3000/cusUpBookings'">Cancel</button>
+           <button style={{marginLeft: "50px"}} className="cancelbtn" onClick={() => { history.goBack();}}>Cancel</button>
        </div>
      );
 }

@@ -17,7 +17,8 @@ const UpdateAccount = () => {
     const [contact, setContact] = useState("");
     const [password, setPassword] = useState("");
     const [passwordVerify, setPasswordVerify] = useState("");
-
+    
+    
 
     //updating funtion
     function UpAccount(e) {
@@ -42,7 +43,7 @@ const UpdateAccount = () => {
         
         if (timesClicked > 1) {
             axios.delete(`http://localhost:5000/customer/delete`).then(() => {
-                window.location = "/"
+                window.location = "/cusLogout"
                 timesClicked=0
             }).catch((e) => {
                 alert("error");
