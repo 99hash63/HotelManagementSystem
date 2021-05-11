@@ -3,9 +3,10 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import jspdf from 'jspdf'
 import "jspdf-autotable"
+import "../components/InventoryList.css"
 
 
-
+//Get all data from database
 function ViewAll() {
     var [vacation, setVacation] = useState([]);
 
@@ -52,7 +53,7 @@ function ViewAll() {
         };
 
     return (
-        <div className="display-box">
+    <div className="display-box">
         <div className="header-box">
             <div>Vacation Requests<button id="generate-reportt-btn" onClick={() => generatePDF(vacation)}>Create Report</button></div>
 
@@ -63,9 +64,9 @@ function ViewAll() {
         </div>
 
         <div>
-            <h1>Vacation Requests</h1>
+            
             <div className="content-box-list">
-            <table class="center">
+            <table >
                 <thead>
                     <tr>
                         <th>Request ID</th>

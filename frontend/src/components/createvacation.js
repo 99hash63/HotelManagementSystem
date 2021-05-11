@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import '../components/Addemployees.css'
 
 //import '../components/navigation1'
 //import Navgation1 from '../components/navigation1';
@@ -24,7 +25,7 @@ function Addvacation() {
         }
 
         axios.post("http://localhost:5000/vacation/addvacation", newVacation).then(() => {
-            window.location = "/view"
+            window.location = "/#"
             alert("Vacation Request Created");
         }).catch((err) => {
             alert(err.msg);
