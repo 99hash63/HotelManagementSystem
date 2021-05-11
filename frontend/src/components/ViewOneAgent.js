@@ -2,6 +2,8 @@ import { useParams } from "react-router";
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import './AddAgent.css'
+// import './Suppliers.css'
 
 
 function ViewOne() {
@@ -62,9 +64,10 @@ function ViewOne() {
 
 
     return (
-        <div>
-            <h1>View One</h1>
-            <form  >
+        <div className="display-box">
+            <div className="header-box-sup"> Update Agent</div>
+            <div  >
+            <form>
                 <label>Contract Id :</label><br />
                 <input type="text" defaultValue={agentOne.contract_id} onChange={(e) => {
                     setContract_id(e.target.value)
@@ -102,10 +105,11 @@ function ViewOne() {
 
 
                 <button onClick={e => updat(agentOne._id)}>Update</button><br></br>
-                <Link to={"/deleteAgent/" + agentOne._id}> Delete </Link><br></br>
+                <Link class="link" to={"/deleteAgent/" + agentOne._id}> Delete </Link><br></br>
                 <Link to={"/viewAllAgencies"}>Back</Link><br></br>
 
             </form>
+            </div>
 
         </div>
     )

@@ -7,11 +7,11 @@ export default function Sidenav() {
      
             <div className="sidenav">
 
-                <Link to="/AddHall">Reception Halls</Link>
-                <Link to="/">Book Hall</Link>
-                <Link to="/viewAllAgencies">Booked Halls</Link>
-                <Link to="/">Add Hall</Link>
-                <Link to="/">Update Hall</Link>
+                <Link to="/viewhall">Reception Halls</Link>
+                <Link to="/addhall">Add Hall</Link>
+                <Link to="/bookedHallView">Booked Halls</Link>
+                <Link to="/bookhall">Book Hall</Link>
+                
                
             </div>
       

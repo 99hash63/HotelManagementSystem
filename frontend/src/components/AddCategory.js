@@ -31,16 +31,16 @@ const AddCategory = (props) => {
         const newCat = {
             name
         }
-        if (newCat.name.charAt(0) !== " ") {
+        if (name.trim().length > 0) {
             axios.post(" http://localhost:5000/category/add", newCat).then(() => {
                 setnewcategory("");
-    
+
             }).catch((e) => {
                 alert("error");
             })
         }
 
-    
+
 
 
     }
@@ -65,9 +65,8 @@ const AddCategory = (props) => {
                     onChange={(e) => {
                         setnewcategory(e.target.value)
                     }}
-                />
-                <button className="cat-btn add-cat"
-                    onClick={sendCategory}>Add</button>
+                 />
+                <button className="cat-btn add-cat" onClick={sendCategory}>Add</button>
 
             </div>
 
@@ -93,7 +92,7 @@ const AddCategory = (props) => {
 
             </div>
             <div className="close-category">
-                <button onClick={categorybtn} >Close</button>
+                <i onClick={categorybtn} class="fas fa-times"></i>
             </div>
 
         </div>

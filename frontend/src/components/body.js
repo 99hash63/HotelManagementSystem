@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import AddInventory from './AddInventory';
 import InventoryList from './InventoryList';
 import './Header.css'
@@ -20,18 +20,66 @@ import Accept from './AcceptRequset';
 import Decline from './DeleteBookingRequest';
 import ReStock from './ReStock';
 import HallNav from './HallManagerSideNav';
+import FinalBill from './FinalBill';
+import InventoryCheckout from './InventoryCheckout';
+import PaidBill from './FinalBillPopup';
+
+// import Booking from './booking';
+
+
+import CusSideNav from './customer/CusSideNav';
+import Main from './customer/Main';
+import AddBooking from './customer/AddBooking';
+import CusLogin from './customer/CusLogin';
+import CusReg from './customer/CusReg'
+import AuthContext from '../context/AuthContext';
+import cusLogout from './customer/CusLogout';
+import HallList from './ReceptionHallList';
+import AddHall from './AddHall';
+import EditHall from './EditHall';
+import BookHall from './BookHall';
+import BookedHallView from './ViewBookedHall';
+import EditBookHall from './EditBookedHalls';
+
+
 
 
 export default function Body() {
+
+    const {loggedIn} = useContext(AuthContext);
+    console.log(loggedIn);
+
     return (
 
         <Router>
 
+           
+
             <div className="content">
+
+                {
+                    loggedIn === true && <CusSideNav/>
+                }
+                
+
+
+                {/* <AddBooking/> */}
+                {/* <Main/> */}
                 {/* <Sidenav /> */}
                 {/* <FrontOfficeSideNav/> */}
                 <HallNav></HallNav>
                 <div className="block">
+                
+                {/* <Login/>
+                <Route path="/frontOffice" exact component={FrontOfficeSideNav}/>
+                <Route path="/inventory" exact component={Sidenav}/> */}
+                
+
+                {/* <div className="block"> */}
+                
+               
+
+
 
                     {/* Inventry Manager Routes */}
                     <Route path="/addinventory" exact component={AddInventory}/>
@@ -40,6 +88,7 @@ export default function Body() {
                     <Route path="/suppliers" exact component={Suppliers}/>
                     <Route path="/supplierview/:id" exact component={SuppliersView}/>
                     <Route path="/restock" exact component={ReStock}/>
+                    <Route path="/checkout" exact component={InventoryCheckout}/>
 
 
 
@@ -63,10 +112,34 @@ export default function Body() {
 
 
                         {/* Reception Hall Manager Routes */}
-                            <Route path="/" exact component={AddInventory}/>
+                            <Route path="/viewhall" exact component={HallList}/>
+                            <Route path="/addhall" exact component={AddHall}/>
+                            <Route path="/bookhall" exact component={BookHall}/>
+                            <Route path="/edithall/:id" exact component={EditHall}/>
+                            <Route path="/bookedHallView" exact component={BookedHallView}/>
+                            <Route path="/editBookedHall/:id" exact component={EditBookHall}/>
                         
 
+
                 </div>
+                        {/* Final Bill */}
+                             <Route path="/FinalBill" exact component={FinalBill} />
+                             <Route path="/PaidBill/:id" exact component={PaidBill} />
+                             
+                            
+
+
+                      {/* end FrontOffice Manager Rout */}
+                      
+                      
+                      {/* customer Routes       */}
+                      {/* <Route path="/up" exact component={Booking}/> */}
+                      <Route path="/addbooking" exact component={AddBooking}/>
+                      <Route path="/cusLogin" exact component={CusLogin}/>
+                      <Route path="/cusReg" exact component={CusReg}/>
+                      <Route path="/cusLogout" exact component={cusLogout}/>
+
+                {/* </div> */}
 
             </div>
         </Router>

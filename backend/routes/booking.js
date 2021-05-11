@@ -1,28 +1,79 @@
 const router = require("express").Router();
 let Booking = require("../models/booking");
+const auth = require("../middleware/auth");
 
-router.route("/add").post((req,res)=>{
+//CUSTOMER
 
-    const {fName, lName, address, NIC, email, promoCode, travelAgent, checkInDate, checkOutDate, noOfAdults, noOfChildren, package, otherAccomodations, nationality, passportNo, roomAllocation, price, bookingState} = req.body;
+// add unreg user booking
+router.post("/addU", async(req,res)=>{
+    try{
+        const {fName, lName, address, NIC, email, promoCode, travelAgent, checkInDate, checkOutDate, noOfAdults, noOfChildren, otherAccomodations, nationality, passportNo, roomAllocation, price} = req.body;
+        const package = req.body.cpackage;
+        const bookingState = "Not Active";
 
-    const newBooking = new Booking({fName,lName,address, NIC,email, promoCode, travelAgent, checkInDate, checkOutDate, noOfAdults,noOfChildren,package, otherAccomodations, nationality, passportNo, roomAllocation,price,bookingState})
-    newBooking.save()
-    .then(()=>res.json("Booking Added"))
-    .catch(err=> res.status(400).json('Error: '+ err));
+        const newBooking = new Booking({fName,lName,address, NIC,email, promoCode, travelAgent, checkInDate, checkOutDate, noOfAdults,noOfChildren,package, otherAccomodations, nationality, passportNo, roomAllocation,price,bookingState})
+        await newBooking.save()
+        .then(()=>res.json("Booking Added"))
+        .catch(err=> res.status(400).json('Error: '+ err));
+    }catch (err){
+        console.error(err);
+        res.status(500).send();
+    }
 });
 
 
+// add reg user booking
+router.post("/addR", auth, async(req,res)=>{
+    try{
+        const fName = req.customerFname;
+        const lName = req.customerLname;
+        const address = req.customerAddress;
+        const NIC = req.customerNIC;
+        const nationality = req.customerNationality;
+        const passportNo = req.customerPassportNo;
+        const email = req.customerEmail;
+        const contact = req.customerContact;
+
+        // console.log(fname);
+        // console.log(lname);
+        // console.log(address);
+        // console.log(NIC);
+        // console.log(nationality);
+        // console.log(passportNo);
+        // console.log(email);
+        // console.log(contact);
+
+        const {promoCode, travelAgent, checkInDate, checkOutDate, noOfAdults, noOfChildren, otherAccomodations, roomAllocation, price} = req.body;
+        const package = req.body.cpackage;
+        const bookingState = "Not Active";
+
+        const newBooking = new Booking({fName,lName,address, NIC,email, promoCode, travelAgent, checkInDate, checkOutDate, noOfAdults,noOfChildren,package, otherAccomodations, nationality, passportNo, roomAllocation,price,bookingState})
+        await newBooking.save()
+        .then(()=>res.json("Booking Added"))
+        .catch(err=> res.status(400).json('Error: '+ err));
+    }catch (err){
+        console.error(err);
+        res.status(500).send();
+    }
+});
 
 
 //get relevant user's bookings
-router.route('/get/:email').get(async(req, res) => {
-    let email = req.params.email;
-    await Booking.find({ email: email})
-      .then(Booking => res.json(Booking))
-      .catch(err => res.status(400).json('Error: ' + err));
+router.get('/get', auth ,async(req, res) => {
+    try{
+        
+        let email = req.customerEmail;
+
+        await Booking.find({ email: email})
+        .then(Booking => res.json(Booking))
+        .catch(err => res.status(400).json('Error: ' + err));
+    }catch (err){
+        console.error(err);
+        res.status(500).send();
+    }
   });
 
-
+//update specific booking
 router.route("/update/:id").post(async(req, res) =>{        
     
     const {bookingId, fName, lName, address, NIC, email, promoCode, travelAgent, checkInDate, checkOutDate, noOfAdults, noOfChildren, package, otherAccomodations, nationality, passportNo, roomAllocation, price, bookingState} = req.body;
@@ -57,7 +108,7 @@ router.route("/update/:id").post(async(req, res) =>{
     })
 })
 
-
+//delete specific booking
 router.route("/delete/:id").delete(async(req,res)=>{
     let Id = req.params.id;
 
@@ -100,7 +151,7 @@ router.route("/ViewBookings").get((req,res)=>{
 
 //View all Up comming Bookings
 router.route("/ViewHistry").get((req,res)=>{
-    Booking.find({bookingState : "not active"}).then((BookingHistry)=>{
+    Booking.find({bookingState : "Not Active"}).then((BookingHistry)=>{
         res.json(BookingHistry);
     }).catch((err)=>{
         console.log(err);
@@ -119,51 +170,51 @@ router.route("/ViewHistry").get((req,res)=>{
 
 
 
-//Accept Booking Requsets
-router.route("/update/:id").put((req,res)=>{
-    var id = req.params.id;
-    const {bookingId, fName, lName, address, NIC, email, promoCode, travelAgent, checkInDate, checkOutDate, noOfAdults, noOfChildren, package, otherAccomodations, nationality, passportNo, roomAllocation, price, bookingState} = req.body;
+// //Accept Booking Requsets
+// router.route("/update/:id").put((req,res)=>{
+//     var id = req.params.id;
+//     const {bookingId, fName, lName, address, NIC, email, promoCode, travelAgent, checkInDate, checkOutDate, noOfAdults, noOfChildren, package, otherAccomodations, nationality, passportNo, roomAllocation, price, bookingState} = req.body;
 
-        const AcceptReq = ({
-            bookingId,
-            fName,
-            lName,
-            address, 
-            NIC, 
-            email,
-            promoCode,
-            travelAgent, 
-            checkInDate, 
-            checkOutDate, 
-            noOfAdults,
-            noOfChildren,
-            package, 
-            otherAccomodations, 
-            nationality, 
-            passportNo, 
-            roomAllocation,
-            price,
-            bookingState
-    })
-
-
-    Booking.findByIdAndUpdate(id,AcceptReq).then(()=>{
-        res.status(200).send({status:"Agent Add Success"})
-    }).catch((err)=>{
-        res.status(500).send({status:"Error"})
-    })
-
-})
+//         const AcceptReq = ({
+//             bookingId,
+//             fName,
+//             lName,
+//             address, 
+//             NIC, 
+//             email,
+//             promoCode,
+//             travelAgent, 
+//             checkInDate, 
+//             checkOutDate, 
+//             noOfAdults,
+//             noOfChildren,
+//             package, 
+//             otherAccomodations, 
+//             nationality, 
+//             passportNo, 
+//             roomAllocation,
+//             price,
+//             bookingState
+//     })
 
 
-//find special agencies
+//     Booking.findByIdAndUpdate(id,AcceptReq).then(()=>{
+//         res.status(200).send({status:"Agent Add Success"})
+//     }).catch((err)=>{
+//         res.status(500).send({status:"Error"})
+//     })
+
+// })
+
+
+//find special Customer
 router.route("/find/:id").get((req,res)=>{
      var id = req.params.id;
 
      Booking.findById(id).then((agent)=>{    
             res.json(agent);
     }).catch((err)=>{
-        console.log(err);
+        res.json(err);
     })
 })
 
@@ -180,5 +231,20 @@ router.route("/delete/:id").delete((req,res)=>{
     }) 
 })
 
+
+
+//find customer using 
+router.route("/findOne/:id").get((req,res)=>{
+    var mail = req.params.id;
+    console.log(mail);
+    
+    Booking.find({email : mail, bookingState : "Active"}).then((cust)=>{
+        res.json(cust);
+        console.log(cust);
+    }).catch((err)=>{
+        res.json(err);
+    })
+    
+}) 
 
 module.exports = router;

@@ -14,13 +14,14 @@ function AcceptBookingRequests() {
     var [lName, setlName] = useState("");
     var [address, setAddress] = useState("");
     var [NIC, setNIC] = useState("");
+    var [email, setMail] = useState("");
     var [promoCode, setpromoCode] = useState("");
     var [travelAgent, settravelAgent] = useState("");
     var [checkInDate, setcheckInDate] = useState("");
     var [checkOutDate, setcheckOutDate] = useState("");
     var [noOfAdults, setnoOfAdults] = useState("");
     var [noOfChildren, setnoOfChildren] = useState("");
-    var [pkg, setpkg] = useState("");
+    // var [package, setpkg] = useState("");
     var [otherAccomodations, setotherAccomodations] = useState("");
     var [nationality, setnationality] = useState("");
     var [passportNo, setPassportNo] = useState("");
@@ -40,13 +41,14 @@ function AcceptBookingRequests() {
             setlName(res.data.lName);
             setAddress(res.data.address);
             setNIC(res.data.NIC);
+            setMail(res.data.email);
             setpromoCode(res.data.promoCode);
             settravelAgent(res.data.travelAgent);
             setcheckInDate(res.data.checkInDate);
             setcheckOutDate(res.data.checkOutDate);
             setnoOfAdults(res.data.noOfAdults);
             setnoOfChildren(res.data.noOfChildren);
-            setpkg(res.data.package);
+            // setpkg(res.data.package);
             setotherAccomodations(res.data.otherAccomodations);
             setnationality(res.data.nationality);
             setPassportNo(res.data.passportNo);
@@ -68,13 +70,14 @@ function AcceptBookingRequests() {
             lName,
             address,
             NIC,
+            email,
             promoCode,
             travelAgent,
             checkInDate,
             checkOutDate,
             noOfAdults,
             noOfChildren,
-            pkg,
+            // package,
             otherAccomodations,
             nationality,
             passportNo,
@@ -91,7 +94,7 @@ function AcceptBookingRequests() {
         const result = window.confirm("Confirm?");
         if (result == true) {
 
-            axios.put(`http://localhost:5000/booking/update/${id}`, newBooking).then((res) => {
+            axios.post(`http://localhost:5000/booking/update/${id}`, newBooking).then((res) => {
                 window.location = "/request";
                 alert("Accepted Successful!");
 
@@ -161,10 +164,10 @@ function AcceptBookingRequests() {
                     setnoOfChildren(e.target.value);
                 }} /><br></br>
 
-                <label>package :</label><br />
+                {/* <label>package :</label><br />
                 <input type="text" defaultValue={requsetOne.pkg} onChange={(e) => {
                     setpkg(e.target.value);
-                }} /><br></br>
+                }} /><br></br> */}
 
                 <label>Other Accomodation :</label><br />
                 <input type="text" value={requsetOne.otherAccomodations} onChange={(e) => {

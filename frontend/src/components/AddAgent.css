@@ -1,0 +1,80 @@
+/* input[type=text], input[type=number] {
+    width: 50%;
+    padding: 15px;
+    margin: 5px 0 22px 160px;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+  }
+
+  #id{
+    width: 100%;
+    padding: 150px;
+    margin: 5px 0 22px 160px;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+
+  }
+
+  .container {
+    padding: 16px;
+  }
+
+  label{
+      margin-left: 160px;
+  }
+
+
+  input[type=submit]  {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 160px;
+    border: none;
+    cursor: pointer;
+    width: 53%;
+    opacity: 0.9;
+  }
+
+
+  Link{
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+  }
+
+
+  button{
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 160px;
+    border: none;
+    cursor: pointer;
+    width: 53%;
+    opacity: 0.9;
+  
+    
+  }
+
+
+
+
+  .link{
+    margin-top: 80px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 160px;
+    border: none;
+    cursor: pointer;
+    width: 53%;
+    opacity: 0.9;
+
+  } */

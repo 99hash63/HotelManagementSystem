@@ -6,11 +6,10 @@ let Hall = require ("../models/Hall");
 ////------------ADD----------------
 
 
-http://localhost:8070/halls/add
 
 router.route("/add").post((req,res) => {
 
-    const id = Number(req.body.id);
+    const id = req.body.id;
     const name = req.body.name;
     const type = req.body.type;
     const maxSeats = req.body.maxSeats;
@@ -44,7 +43,6 @@ router.route("/add").post((req,res) => {
 //--------------Display-------------
 
 
-http://localhost:8070/hall/
 
 router.route("/").get((req,res) => {
 
@@ -59,16 +57,20 @@ router.route("/").get((req,res) => {
 
 //--------------Update------------
 
-http://localhost:8070/hall/update/
 
  router.route("/update/:id").put(async(req,res) => {
      let userId = req.params.id;
-     const {id,name,type} = req.body;
+     const id = req.body.hallid;
+     const name = req.body.name;
+     const type = req.body.type;
+     const maxSeats = req.body.maxSeats;
+     const maxTables = req.body.maxTables;
+     const features = req.body.features;
+     const state = req.body.state;
+     const price = req.body.price;
 
      const updateHall = {
-         id,
-         name,
-         type
+        id, name, type, maxSeats, maxTables, features, state, price
      }
 
      const update = await Hall.findByIdAndUpdate(userId,updateHall)
@@ -83,7 +85,6 @@ http://localhost:8070/hall/update/
 
 //-----------------Delete-------------------
 
-htttp://localhost:8070/hall/delete/id001
 
 router.route("/delete/:id").delete(async(req,res) =>{
     let userId = req.params.id;
@@ -100,7 +101,6 @@ router.route("/delete/:id").delete(async(req,res) =>{
 
 //-----------------get data ----------------------
 
-htttp://localhost:8070/hall/get
 
 router.route("/get/:id").get(async (req,res) =>{
     let userId = req.params.id;

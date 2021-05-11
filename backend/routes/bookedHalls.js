@@ -6,8 +6,6 @@ let BookedHalls = require ("../models/BookedHalls");
 ////------------ADD----------------
 
 
-http://localhost:8070/bookedHalls/add
-
 router.route("/add").post((req,res) => {
 
     const id = Number(req.body.id);
@@ -40,7 +38,7 @@ router.route("/add").post((req,res) => {
 //--------------Display-------------
 
 
-http://localhost:8070/bookedHalls/
+
 
 router.route("/view").get((req,res) => {
 
@@ -53,7 +51,7 @@ router.route("/view").get((req,res) => {
 
 //--------------Update------------
 
-http://localhost:8070/bookedHalls/update/
+
 
  router.route("/update/:id").put(async(req,res) => {
      let userId = req.params.id;
@@ -77,7 +75,6 @@ http://localhost:8070/bookedHalls/update/
 
 //-----------------Delete-------------------
 
-htttp://localhost:8070/bookedHalls/delete/
 
 router.route("/delete/:id").delete(async(req,res) =>{
     let userId = req.params.id;
@@ -94,7 +91,7 @@ router.route("/delete/:id").delete(async(req,res) =>{
 
 //-----------------get data ----------------------
 
-htttp://localhost:8070/bookedHalls/get/
+
 
 router.route("/get/:id").get(async (req,res) =>{
     let userId = req.params.id;
