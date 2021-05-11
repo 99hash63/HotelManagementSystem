@@ -34,13 +34,23 @@ import CusLogin from './customer/CusLogin';
 import CusReg from './customer/CusReg'
 import AuthContext from '../context/AuthContext';
 import cusLogout from './customer/CusLogout';
+import CusUpBookings from './customer/CusUpBookings';
+import CusPastBookings from './customer/CusPastBookings';
+import CusMyaccount from './customer/CusMyaccount';
+import CusUpdateAccount from './customer/CusUpdateAccount'
+import DisplayUpcoming from './customer/DisplayUpcoming'
+import AddRegBooking from './customer/AddRegBooking'
+
+
+
+//import reception hall
+
+import BookHall from './BookHall'
 import HallList from './ReceptionHallList';
 import AddHall from './AddHall';
-import EditHall from './EditHall';
-import BookHall from './BookHall';
+import EditHall from './EditHall'
 import BookedHallView from './ViewBookedHall';
 import EditBookHall from './EditBookedHalls';
-
 
 
 
@@ -135,9 +145,17 @@ export default function Body() {
                       {/* customer Routes       */}
                       {/* <Route path="/up" exact component={Booking}/> */}
                       <Route path="/addbooking" exact component={AddBooking}/>
+                      <Route path="/cusUpBookings" exact component={CusUpBookings}/>
+                      <Route path="/cusPastBookings" exact component={CusPastBookings}/>
+                      <Route path="/cusMyaccount" exact component={CusMyaccount}/>
                       <Route path="/cusLogin" exact component={CusLogin}/>
                       <Route path="/cusReg" exact component={CusReg}/>
                       <Route path="/cusLogout" exact component={cusLogout}/>
+                      <Route path="/displayUpcoming/:id" exact component={DisplayUpcoming}/>
+                      <Route path="/cusUpdateAccount" exact component={CusUpdateAccount}/>
+                      <Route path="/addRegBooking" exact component={AddRegBooking}/>
+                      
+                      
 
                 {/* </div> */}
 
