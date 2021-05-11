@@ -3,7 +3,7 @@ import axios from 'axios'
 import { useParams } from 'react-router-dom'
 import { useHistory } from "react-router-dom";
 
-const DisplayUpcoming = () => {
+const DisplayPast = () => {
     const history = useHistory();
     const { id } = useParams();
 
@@ -55,7 +55,7 @@ const DisplayUpcoming = () => {
         }
 
         axios.post(`http://localhost:5000/booking/update/${id}`, updateBooking).then(() => {
-            window.location = "/cusUpBookings"
+            window.location = "/cusPastBookings"
         }).catch((e) => {
             alert(e);
         })
@@ -76,7 +76,7 @@ const DisplayUpcoming = () => {
         
         if (timesClicked > 1) {
             axios.delete(`http://localhost:5000/booking/delete/${id}`).then(() => {
-                window.location = "/cusUpBookings"
+                window.location = "/cusPastBookings"
                 timesClicked=0
             }).catch((e) => {
                 alert("error");
@@ -95,7 +95,7 @@ const DisplayUpcoming = () => {
         
         <div className="display-box" style={{background: "#ffffff",borderRadius: "20px"}}>
         <i  onClick={() => { history.goBack();}} class="fas fa-chevron-circle-left"></i>
-            <div id="edit-title" className="header-box"> Upcoming Bookings
+            <div id="edit-title" className="header-box"> Past Bookings
             
             <div>
                     <button id="edit_btn" onClick={enable_edit}>Edit</button>
@@ -222,4 +222,4 @@ const DisplayUpcoming = () => {
 
 }
 
-export default DisplayUpcoming;
+export default DisplayPast;

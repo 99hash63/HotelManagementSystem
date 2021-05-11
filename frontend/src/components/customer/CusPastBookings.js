@@ -17,13 +17,13 @@ export default function PBookings() {
     }, []);
 
     return (
-        <div className="display-box">
+        <div className="display-box" style={{background: "#ffffff",borderRadius: "20px"}}>
             <div className="header-box">
                 {/* <div>Inventory<button id="generate-reportt-btn" onClick={() => generatePDF(inventory)}>Create Report</button></div> */}
 
                 <div className="total-inventory-display">
                     <span id="total-inventory-display-total">{upBookings.length}</span> <br />
-                    <span id="total-inventory-display-text">Total Bookings</span>
+                    <span id="total-inventory-display-text">Past Bookings</span>
                 </div>
             </div>
 
@@ -55,8 +55,8 @@ export default function PBookings() {
                                     <td >{f._id}</td>
                                     <td >{f.promoCode} </td>
                                     <td >{f.travelAgent} </td>
-                                    <td >{f.checkInDate} </td>
-                                    <td >{f.checkOutDate} </td>
+                                    <td >{f.checkInDate.substring(0, 10)} </td>
+                                    <td >{f.checkOutDate.substring(0, 10)} </td>
                                     <td >{f.noOfAdults} </td>
                                     <td >{f.noOfChildren} </td>
                                     <td >{f.package} </td>
@@ -64,7 +64,7 @@ export default function PBookings() {
                                     <td >{f.roomAllocation} </td>
                                     <td >{f.price} </td>
                                     <td >{f.bookingState} </td>
-                                    <td > <Link to={"/displayinventory/" + f._id} ><i class="far fa-edit"></i></Link></td>
+                                    <td > <Link to={"/displayPast/" + f._id} ><i class="far fa-edit"></i></Link></td>
 
                                 </tr>
 
