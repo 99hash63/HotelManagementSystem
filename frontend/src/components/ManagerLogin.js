@@ -16,15 +16,37 @@ const ManagerLogin = () => {
     
         <div className="ManagerLoginBox">
             <div className="ManagerLoginBox-a ManagerLoginBoxBTN">
-            <i class="fas fa-warehouse"></i>
+            <i className="fas fa-warehouse"></i><br />
+            <span  id="manager-text">Inventory Manager</span>
             </div>
-            <div className="ManagerLoginBox-b ManagerLoginBoxBTN"></div>
-            <div className="ManagerLoginBox-c ManagerLoginBoxBTN"></div>
-            <div className="ManagerLoginBox-d ManagerLoginBoxBTN"></div>
-            <div className="ManagerLoginBox-e ManagerLoginBoxBTN"></div>
-            <div className="ManagerLoginBox-f ManagerLoginBoxBTN"></div>
-            <div className="ManagerLoginBox-g ManagerLoginBoxBTN"></div>
-            <div className="ManagerLoginBox-h ManagerLoginBoxBTN"></div>
+            <div className="ManagerLoginBox-b ManagerLoginBoxBTN">
+            <i className="fas fa-warehouse"></i><br />
+            <span  id="manager-text">Inventory Manager</span>
+            </div>
+            <div className="ManagerLoginBox-c ManagerLoginBoxBTN">
+            <i className="fas fa-warehouse"></i><br />
+            <span  id="manager-text">Inventory Manager</span>
+            </div>
+            <div className="ManagerLoginBox-d ManagerLoginBoxBTN">
+            <i className="fas fa-warehouse"></i><br />
+            <span  id="manager-text">Inventory Manager</span>
+            </div>
+            <div className="ManagerLoginBox-e ManagerLoginBoxBTN">
+            <i className="fas fa-warehouse"></i><br />
+            <span  id="manager-text">Inventory Manager</span>
+            </div>
+            <div className="ManagerLoginBox-f ManagerLoginBoxBTN">
+            <i className="fas fa-warehouse"></i><br />
+            <span  id="manager-text">Inventory Manager</span>
+            </div>
+            <div className="ManagerLoginBox-g ManagerLoginBoxBTN">
+            <i className="fas fa-warehouse"></i><br />
+            <span  id="manager-text">Inventory Manager</span>
+            </div>
+            <div className="ManagerLoginBox-h ManagerLoginBoxBTN">
+            <i className="fas fa-warehouse"></i><br />
+            <span  id="manager-text">Inventory Manager</span>
+            </div>
         </div>
 
 
