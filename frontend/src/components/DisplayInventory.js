@@ -76,6 +76,11 @@ const DisplayInventory = () => {
 
         axios.put(`http://localhost:5000/inventory/update/${id}`, newItem).then(() => {
 
+            document.getElementById('update_successful').style.display = "block ";
+            setTimeout(() => {
+                    document.getElementById('update_successful').style.display = "none ";
+            }, 5000);
+
         }).catch((e) => {
             alert("error");
         })
@@ -258,10 +263,18 @@ const DisplayInventory = () => {
                         <div className="form2-btn">
 
                             <button id="update_inventory" style={{ display: "none" }} className="addinventory-btn">Update Inventory</button>
+                        
 
                         </div>
-
-
+                        <span id="update_successful" style={{ 
+                                display: "none" ,
+                                fontSize:"13px",
+                                fontWeight:"600",
+                                // marginLeft:"215px",
+                                marginTop:"120px",
+                                position:"absolute",
+                                color:"green"
+                                }} >Update successful</span>
 
                     </div>
 

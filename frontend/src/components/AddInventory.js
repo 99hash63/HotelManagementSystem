@@ -5,8 +5,6 @@ import AddCategory from './AddCategory';
 
 export default function AddInventory() {
 
-
-
     const [name, setname] = useState("");
     const [model, setmodel] = useState("");
     const [sku, setsku] = useState("");
@@ -25,8 +23,7 @@ export default function AddInventory() {
 
 
     useEffect(() => {
-
-
+ 
         axios.get("http://localhost:5000/category/").then((res) => {
             if (res.data.length > 0) {
                 setgetCategory(res.data.map(category => category.name))
@@ -48,8 +45,10 @@ export default function AddInventory() {
     function sendData(e) {
         e.preventDefault();
 
+        let inventoryID = category.toUpperCase() + Date.now();
+        
         const newItem = {
-            name, model, sku, category, supplier, description, mesurement, quantity, restock_level, original_price, date
+            inventoryID, name, model, sku, category, supplier, description, mesurement, quantity, restock_level, original_price, date
         }
 
         axios.post(" http://localhost:5000/inventory/add", newItem).then(() => {

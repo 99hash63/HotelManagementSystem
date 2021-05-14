@@ -26,6 +26,7 @@ export default function Header() {
                         <a href="/"><img src="/images/logo.png" alt="" /></a>
                     </div>
                     <div className="navigation">
+                        <h3 style={{color:"gray"}} >INVENTORY MANAGEMENT</h3>
                         <nav>
                             <ul>
                                 {/* <li><a className="b" href="/">Home</a></li>

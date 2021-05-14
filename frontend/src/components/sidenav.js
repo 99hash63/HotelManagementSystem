@@ -46,7 +46,8 @@ export default function Sidenav() {
 
             <div className="icon-button">
                 {/* displaying the inventory amount should be restocked as a notification in the restocknow button */}
-                <span id="icon-button__badge" className="icon-button__badge " style={{ display: 'none', textAlign: 'center', paddingTop: '5px' }} >{resock.length}</span>
+                <span id="icon-button__badge" className="icon-button__badge " 
+                style={{ display: 'none', textAlign: 'center', paddingTop: '5px' }} >{resock.length}</span>
                 <Link to="/restock">Re-Stock Now</Link>
             </div>
 
