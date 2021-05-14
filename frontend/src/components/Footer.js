@@ -1,10 +1,12 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './Header.css'
 
 export default function Footer() {
 
-
     return (
+
+       
+
         <footer style={{ backgroundColor: 'rgb(15, 15, 15)', color: 'aliceblue', marginTop: "165px" }}>
             <div className="head footerhead">
                 <div className="up_head" style={{ color: 'rgb(173, 173, 173)' }}>
@@ -25,6 +27,7 @@ export default function Footer() {
                         <nav>
                             <ul>
 
+                                {/* <li><button onClick={()=>setActive("employee")} style={{ backgroundColor: 'rgb(15, 15, 15)', color: 'rgb(173, 173, 173)'}} href="/">Employee</button></li> */}
                                 <li><a style={{ color: 'rgb(173, 173, 173)' }} href="/">Contact</a></li>
                                 <li><a style={{ color: 'rgb(173, 173, 173)' }} href="/">About</a></li>
 
