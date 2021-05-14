@@ -37,14 +37,15 @@
     transition: 500ms ease;
 
     padding: 10px;
-    padding-top: 70px;
+    padding-top: 50px;
     display: block;
     text-align: center;
     
 }
 
-.ManagerLoginBox .fas{
-    font-size: 55px;
+.ManagerLoginBox .fas img{
+    font-size: 45px;
+    width: 89px;
     margin-bottom: 18px;
     color: #444444;
 }
@@ -77,14 +78,15 @@
         transition: 500ms ease;
     
         padding: 10px;
-        padding-top: 40px;
+        padding-top: 30px;
         display: block;
         text-align: center;
         
     }
     
-    .ManagerLoginBox .fas{
+    .ManagerLoginBox .fas img{
         font-size: 45px;
+        width: 50px;
         margin-bottom: 18px;
         color: #444444;
     }
