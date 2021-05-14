@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
 import { useHistory } from "react-router-dom";
+import { Link } from 'react-router-dom'
 import './ManagerLogin.css'
 
 const ManagerLogin = () => {
@@ -15,12 +16,13 @@ const ManagerLogin = () => {
         </div>
     
         <div className="ManagerLoginBox">
-            <div className="ManagerLoginBox-a ManagerLoginBoxBTN">
+            <a href="/inventory-manager" className="ManagerLoginBox-a ManagerLoginBoxBTN">
+            
             <i className="fas"><img src="https://img.icons8.com/color/144/000000/front-desk.png"/></i><br />
             <span  id="manager-text">Front Office Manager</span>
-            </div>
+            </a>
             <div className="ManagerLoginBox-b ManagerLoginBoxBTN">
-            <i className="fas"><img src="https://img.icons8.com/color/144/000000/warehouse.png"/></i><br />
+            <i className="fas"><img src="https://img.icons8.com/color/144/000000/new-product--v1.png"/></i><br />
             <span  id="manager-text">Inventory Manager</span>
             </div>
             <div className="ManagerLoginBox-c ManagerLoginBoxBTN">

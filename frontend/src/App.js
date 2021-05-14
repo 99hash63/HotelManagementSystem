@@ -11,8 +11,8 @@ function App() {
     <div>
       {/* <CusHeader></CusHeader>  */}
       {/* <Header /> */}
-      <ManagerLogin/>
-      {/* <Body /> */}
+      {/* <ManagerLogin/> */}
+      <Body />
       {/* <Footer /> */}
     </div>
 
