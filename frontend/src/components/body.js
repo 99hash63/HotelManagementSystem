@@ -24,13 +24,7 @@ import InventoryCheckout from './InventoryCheckout';
 import PaidBill from './FinalBillPopup';
 
 
-
-
-
-
 export default function Body() {
-
-
 
     return (
 
@@ -40,6 +34,7 @@ export default function Body() {
 
                 {/* <AddBooking/> */}
                 {/* <Main/> */}
+                
                 <Sidenav />
                 {/* <FrontOfficeSideNav/> */}
                 
