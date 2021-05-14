@@ -8,14 +8,22 @@ const Register = () => {
 
     const [fname, setFname] = useState("");
     const [lname, setLname] = useState("");
-    const [address, setAddress] = useState("");
-    const [NIC, setNIC] = useState("");
-    const [nationality, setNationality] = useState("");
-    const [passportNo, setPassportNo] = useState("");
+    // const [address, setAddress] = useState("");
+    // const [NIC, setNIC] = useState("");
+    // const [nationality, setNationality] = useState("");
+    // const [passportNo, setPassportNo] = useState("");
     const [email, setEmail] = useState("");
     const [contact, setContact] = useState("");
     const [password, setPassword] = useState("");
     const [passwordVerify, setPasswordVerify] = useState("");
+
+    //temporary null values
+    const address = "null";
+    const NIC = "null";
+    const nationality = "null";
+    const passportNo = "null";
+    
+
 
     const { getLoggedIn } = useContext(AuthCentext);
     const history = useHistory();
@@ -56,64 +64,68 @@ const Register = () => {
                     <p>Please fill in this form to create an account.</p>
                     <hr></hr>
                     {/* <label for="fname"><b>First Name</b></label> */}
-                    <input type="text" placeholder="Enter First Name" name="fname" id="fname" onChange={(e) => {
+                    <input type="text" placeholder="First Name" name="fname" id="fname" onChange={(e) => {
                         setFname(e.target.value);
                     }} required />
 
                     {/* <label for="lname"><b>Last Name</b></label> */}
-                    <input type="text" placeholder="Enter Last Name" name="lname" id="lname" onChange={(e) => {
+                    <input type="text" placeholder="Last Name" name="lname" id="lname" onChange={(e) => {
                         setLname(e.target.value);
                     }} required />
 
-                    {/* <label for="address"><b>Address</b></label> */}
+                    {/* <label for="address"><b>Address</b></label>
                     <input type="text" placeholder="Enter Address" name="address" id="address" onChange={(e) => {
                         setAddress(e.target.value);
-                    }} required />
+                    }} required /> */}
 
                     {/* <label for="NIC"><b>NIC</b></label> */}
-                    <input type="text" placeholder="Enter NIC" name="NIC" id="NIC" onChange={(e) => {
+                    {/* <input type="text" placeholder="Enter NIC" name="NIC" id="NIC" onChange={(e) => {
                         setNIC(e.target.value);
-                    }} required />
+                    }} required /> */}
 
                     {/* <label for="nationality"><b>Nationality</b></label> */}
-                    <input type="text" placeholder="Enter Nationality" name="nationality" id="nationality" onChange={(e) => {
+                    {/* <input type="text" placeholder="Enter Nationality" name="nationality" id="nationality" onChange={(e) => {
                         setNationality(e.target.value);
-                    }} required />
+                    }} required /> */}
                     {/* <label for="passportNo"><b>PassportNo</b></label> */}
-                    <input type="text" placeholder="Enter PassportNo" name="passportNo" id="passportNo" onChange={(e) => {
+                    {/* <input type="text" placeholder="Enter PassportNo" name="passportNo" id="passportNo" onChange={(e) => {
                         setPassportNo(e.target.value);
-                    }}  />
+                    }}  /> */}
 
                     {/* <label for="email"><b>Email</b></label> */}
-                    <input type="text" placeholder="Enter Email" name="email" id="email" onChange={(e) => {
+                    <input type="text" placeholder="Email Adress" name="email" id="email" onChange={(e) => {
                         setEmail(e.target.value);
                     }} required />
 
                     {/* <label for="contact"><b>Contact</b></label> */}
-                    <input type="text" placeholder="Enter Contact" name="contact" id="contact" onChange={(e) => {
+                    <input type="text" placeholder="Contact Number" name="contact" id="contact" onChange={(e) => {
                         setContact(e.target.value);
                     }} required />
 
                     {/* <label for="password"><b>Password</b></label> */}
-                    <input type="password" placeholder="Enter Password" name="password" id="password" onChange={(e) => {
+                    <input type="password" placeholder="Create Password" name="password" id="password" onChange={(e) => {
                         setPassword(e.target.value);
                     }} required />
 
                     {/* <label for="passwordVerifyt"><b>Verify Password</b></label> */}
-                    <input type="password" placeholder="Repeat Password" name="passwordVerify" id="passwordVerify" onChange={(e) => {
+                    <input type="password" placeholder="Confirm Password" name="passwordVerify" id="passwordVerify" onChange={(e) => {
                         setPasswordVerify(e.target.value);
+                        
+                        
                     }} required />
+                  
+
                     <hr></hr>
                     {/* <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p> */}
+
+                    
 
                     <button type="submit" className="registerbtn">Register</button>
                     <p>Already have an account? <a href="/cusLogin">Sign in</a>.</p>
                 </div>
 
-
-              
-
             </form>
+           
 
         </div>
     );
