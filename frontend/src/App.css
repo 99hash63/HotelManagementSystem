@@ -14,10 +14,12 @@ body {
   grid-template-columns: 1fr 5fr;
   grid-template-areas: "a b";
   padding-top: 150px;
+
   margin-left: 4%;
   margin-right: 4%;
   min-height: 600px;
 }
+
 
 .content img {
   grid-area: a;

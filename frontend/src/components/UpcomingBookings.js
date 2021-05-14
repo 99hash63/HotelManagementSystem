@@ -24,8 +24,8 @@ function ViewBookingRequsets() {
         <div className="display-box">
              <div className="header-box"> Upcome Bookings </div>
                 <div className="content-box-list">
-                     <table id="items">
-              
+                     <table >
+              <thead>
 
                         <tr>
                             {/* <th>bookingId</th> */}
@@ -35,37 +35,38 @@ function ViewBookingRequsets() {
                             <th>NIC</th>
                             <th>promoCode</th>
                             <th>travelAgent</th>
-                            <th>check In Date</th>
-                            <th>check Out Date</th>
-                            <th>No Of Adults</th>
-                            <th>No Of Children</th>
-                            <th>View One</th>
+                            <th>In Date</th>
+                            <th>Out Date</th>
+                            <th>Adults</th>
+                            <th>Children</th>
+                            <th></th>
 
                         </tr>
+                        </thead>
+
+                        <tbody>
                
 
-                {request.map(function(request){
+                {request.slice(0).reverse().map(function(request){
 
                     
                           return  <tr>
-                                {/* <td>{request.bookingId}</td> */}
                                 <td>{request.fName} {request.lName}</td>
-                                {/* <td>{request.lName}</td> */}
                                 <td>{request.address}</td>
                                 <td>{request.NIC}</td>
                                 <td>{request.promoCode}</td>
                                 <td>{request.travelAgent}</td>
-                                <td>{request.checkInDate}</td>
-                                <td>{request.checkOutDate}</td>
+                                <td>{request.checkInDate.substring(0, 10)}</td>
+                                <td>{request.checkOutDate.substring(0, 10)}</td>
                                 <td>{request.noOfAdults}</td>
                                 <td>{request.noOfChildren}</td>
-                                <td><Link to={"/accept/" + request._id}> View More </Link></td>
-                                <td></td>
+                                <td><Link to={"/accept/" + request._id}><i class="far fa-edit"></i></Link></td>
+                                
                             </tr>
 
                 })
             }
-
+                    </tbody>
                     </table>
                     <Link to={"/bookings"}>BACK</Link>
             </div>

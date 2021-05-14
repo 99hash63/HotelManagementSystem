@@ -2,13 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 
-const AddBooking = () => {
+const AddRegBooking = () => {
 
-    const [fName, setFname] = useState("");
-    const [lName, setLname] = useState("");
-    const [address, setAddress] = useState("");
-    const [NIC, setNIC] = useState("");
-    const [email, setEmail] = useState("");
     const [promoCode, setPromoCode] = useState("");
     const [travelAgent, setTravelAgent] = useState("");
     const [checkInDate, setCheckInDate] = useState("");
@@ -17,8 +12,6 @@ const AddBooking = () => {
     const [noOfChildren, setNoOfChildren] = useState("");
     const [cpackage, setPackage] = useState("");
     const [otherAccomodations, setOtherAccomodations] = useState("");
-    const [nationality, setNationality] = useState("");
-    const [passportNo, setPassportNo] = useState("");
     // const [roomAllocation, setRoomAllocation] = useState("");
     // const [price, setPrice] = useState("");
 
@@ -27,15 +20,10 @@ const AddBooking = () => {
 
     //incomplete calculations booking price
     const price = 0;
-
+ 
     function sendData(){
         
         const newBooking = {
-            fName,
-            lName,
-            address, 
-            NIC, 
-            email,
             promoCode,
             travelAgent, 
             checkInDate, 
@@ -44,65 +32,21 @@ const AddBooking = () => {
             noOfChildren,
             cpackage,
             otherAccomodations, 
-            nationality, 
-            passportNo, 
             roomAllocation,
             price,
        }
 
-       axios.post("http://localhost:5000/booking/addU", newBooking).then(()=>{
+       axios.post("http://localhost:5000/booking/addR", newBooking).then(()=>{
            alert("Booking Added")
        }).catch((err)=>{
-           alert("Error with adding booking")
+           alert("Error with adding Booking")
        })
     }
 
     return ( 
-
-        <div>
-    
-            <form onSubmit={sendData}>
+        <div style={{background: "#ffffff",borderRadius: "20px"}}>
+            <form onSubmit={sendData} >
                 <div className="form1">
-
-                    <label className="custom-field">
-                        <input type="text" className="form-input" id="fName" onChange={(e) => {
-                            setFname(e.target.value);
-                        }} required />
-                        <span className="placeholder">First Name</span>
-                    </label>
-                    <br />
-
-                    <label className="custom-field">
-                        <input type="text" className="form-input" id="lName" onChange={(e) => {
-                             setLname(e.target.value);
-                        }} required />
-                        <span className="placeholder">Last Name</span>
-                    </label>
-                    <br />
-
-                    <label className="custom-field">
-                        <input type="text" className="form-input" id="address" onChange={(e) => {
-                             setAddress(e.target.value);
-                        }} />
-                        <span className="placeholder">Address</span>
-                    </label>
-                    <br />
-
-                    <label className="custom-field">
-                        <input type="text" className="form-input" id="NIC" onChange={(e) => {
-                             setNIC(e.target.value);
-                        }} required />
-                        <span className="placeholder">NIC</span>
-                    </label>
-                    <br />
-
-                    <label className="custom-field">
-                        <input type="text" className="form-input" id="email" onChange={(e) => {
-                             setEmail(e.target.value);
-                        }} required />
-                        <span className="placeholder">email</span>
-                    </label>
-                    <br />
 
                     <label className="custom-field">
                         <input type="text" className="form-input" id="promoCode" onChange={(e) => {
@@ -171,7 +115,6 @@ const AddBooking = () => {
                                 </select>
                             <span className="placeholder">package</span>
                     </label>
-
                     <br />
 
                     <label className="custom-field">
@@ -179,22 +122,6 @@ const AddBooking = () => {
                              setOtherAccomodations(e.target.value);
                         }} required />
                         <span className="placeholder">otherAccomodations</span>
-                    </label>
-                    <br />
-
-                    <label className="custom-field">
-                        <input type="text" className="form-input" id="nationality" onChange={(e) => {
-                             setNationality(e.target.value);
-                        }} required />
-                        <span className="placeholder">nationality</span>
-                    </label>
-                    <br />
-
-                    <label className="custom-field">
-                        <input type="text" className="form-input" id="passportNo" onChange={(e) => {
-                             setPassportNo(e.target.value);
-                        }} />
-                        <span className="placeholder">passportNo</span>
                     </label>
                     <br />
 
@@ -207,24 +134,20 @@ const AddBooking = () => {
                     <br />
 
                     <label className="custom-field">
-                        <input type="text" className="form-input" id="price" onChange={(e) => {
+                        <input type="number" className="form-input" id="price" onChange={(e) => {
                              setPrice(e.target.value);
                         }} required />
                         <span className="placeholder">price</span>
-                    </label>
-                    <br /> */}
-
+                    </label> */}
+                
                     <div className="form2-btn">
                         <button className="addinventory-btn">Create Booking</button>
                     </div> 
-
-
-
+                    <br/>
+                    
                 </div>
-
             </form>
         </div>
      );
 }
- 
-export default AddBooking;
+export default AddRegBooking;

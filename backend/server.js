@@ -9,7 +9,10 @@ require("dotenv").config();
 
 const PORT = process.env.PORT || 5000;
 
-app.use(cors());
+app.use(cors({
+    origin: ["http://localhost:3000"],
+    credentials: true,
+}));
 app.use(bodyParser.json());
 
 app.get("/test", (req, res) => {
@@ -74,13 +77,13 @@ app.use("/FinalBill", finalBill);
 
 
 
-
-
-
-
 //Anu Routes
 const mealOrderRout = require("./routes/MealOrder.js");
 app.use("/Meal_Order", mealOrderRout);
+
+const roomRouter = require("./routes/rooms.js");
+
+app.use("/room",roomRouter);
 
 
 app.listen(PORT,()=>{

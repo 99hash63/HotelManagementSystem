@@ -2,10 +2,10 @@ const mongoose = require ('mongoose');
 
 const Schema = mongoose.Schema;
 const roomSchema = new Schema({
-    roomNo:{ type: String  }, 
+    roomNo:{ type: Number  }, 
     type:{ type: String }, 
-    buildingNo:{ type: String, required: true },
-    floorNum:{ type: String, required: true, unique: true },
+    buildingNo:{ type: Number, required: true },
+    floorNum:{ type: Number, required: true, unique: true },
     specialDetails:{ type: String, required: true },
 });
 

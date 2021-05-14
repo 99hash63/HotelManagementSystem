@@ -1,8 +1,6 @@
 import React from 'react';
 import './CusHeader.css'
 
-
-
 export default function Header() {
 
     return (
@@ -29,7 +27,7 @@ export default function Header() {
                         <h3 style={{color:"gray"}} >INVENTORY MANAGEMENT</h3>
                         <nav>
                             <ul>
-                                {/* <li><a className="b" href="/">Home</a></li>
+                                <li><a className="b" href="/">Home</a></li>
                                 <li><a className="b" href="/">Room & Rates</a></li>
                                 <li><a className="b" href="/">Wedding</a></li>
                                 <li><a className="b" href="/">Restaurant</a></li>
@@ -38,7 +36,7 @@ export default function Header() {
                                 <li><a className="b" href="/">Contact</a></li>
                                 <li><a className="b" href="/">About</a></li>
                                 <li><a className="book" href="/addbooking">Book Now</a></li>
-                                <li><a className="b" href="/cusLogin">Login</a></li> */}
+                                <li><a className="b" href="/cusLogin">Login</a></li>
 
 
                             </ul>
