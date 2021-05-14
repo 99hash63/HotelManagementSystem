@@ -45,6 +45,7 @@ export default function AddInventory() {
     function sendData(e) {
         e.preventDefault();
 
+        //createing an unique ID
         let inventoryID = category.toUpperCase() + Date.now();
         
         const newItem = {

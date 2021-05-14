@@ -204,7 +204,7 @@ const InventoryCheckout = () => {
 
 
             <div className="itembox">
-              {filtered.map(function (s) {
+              {filtered.slice(0).reverse().map(function (s) {
                 return <div className="round-checkout-box">
 
                   <div className="restock-details">

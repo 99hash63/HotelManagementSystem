@@ -25,27 +25,20 @@ import PaidBill from './FinalBillPopup';
 
 // import Booking from './booking';
 
-
 import CusSideNav from './customer/CusSideNav';
 import Main from './customer/Main';
 import AddBooking from './customer/AddBooking';
 import CusLogin from './customer/CusLogin';
 import CusReg from './customer/CusReg'
 
-
-
-
 export default function Body() {
     return (
 
         <Router>
-
-           
-
             <div className="content">
 
                 {/* <Main/> */}
-                <Sidenav />
+                {/* <Sidenav /> */}
                 {/* <FrontOfficeSideNav/> */}
 
                 {/* <CusSideNav/> */}
@@ -87,8 +80,6 @@ export default function Body() {
                              <Route path="/FinalBill" exact component={FinalBill} />
                              <Route path="/PaidBill/:id" exact component={PaidBill} />
                              
-                            
-
 
                       {/* end FrontOffice Manager Rout */}
                       
