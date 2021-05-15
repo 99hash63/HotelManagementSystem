@@ -4,10 +4,10 @@ const Items = require('../models/items');
 
 router.route("/add").post((req,res)=>{
 
-    const {name,model,sku,category,supplier,description,mesurement,quantity,restock_level,original_price,selling_price,profit,date} =req.body;
+    const {inventoryID,name,model,sku,category,supplier,description,mesurement,quantity,restock_level,original_price,selling_price,profit,date} =req.body;
 
     const newItem = new Items({
-        name,model,sku,category,supplier,description,mesurement,quantity,restock_level,original_price,selling_price,profit,date
+        inventoryID,name,model,sku,category,supplier,description,mesurement,quantity,restock_level,original_price,selling_price,profit,date
     })
     newItem.save().then(()=>{
         res.status(200).json("added");

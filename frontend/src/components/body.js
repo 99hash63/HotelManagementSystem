@@ -4,7 +4,7 @@ import InventoryList from './InventoryList';
 import './Header.css'
 import Sidenav from './sidenav';
 import FrontOfficeSideNav from './FronOfficeSideNav';
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import DisplayInventory from './DisplayInventory';
 import Suppliers from './Suppliers';
 import SuppliersView from './SupplierView';
@@ -24,13 +24,7 @@ import InventoryCheckout from './InventoryCheckout';
 import PaidBill from './FinalBillPopup';
 
 
-
-
-
-
 export default function Body() {
-
-
 
     return (
 
@@ -40,19 +34,16 @@ export default function Body() {
 
                 {/* <AddBooking/> */}
                 {/* <Main/> */}
+                
                 {/* <Sidenav /> */}
-                <FrontOfficeSideNav/>
+                {/* <FrontOfficeSideNav/> */}
                 
                 {/* <Login/>
                 <Route path="/frontOffice" exact component={FrontOfficeSideNav}/>
                 <Route path="/inventory" exact component={Sidenav}/> */}
                 
-
-                {/* <div className="block"> */}
+                <div className="block">
                 
-               
-
-
 
                     {/* Inventry Manager Routes */}
                     <Route path="/addinventory" exact component={AddInventory}/>
@@ -92,7 +83,7 @@ export default function Body() {
             
                 </div>
 
-            {/* </div> */}
+            </div>
         </Router>
     );
 }
