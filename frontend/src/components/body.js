@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import AddInventory from './AddInventory';
 import InventoryList from './InventoryList';
 import './Header.css'
@@ -22,25 +22,22 @@ import ReStock from './ReStock';
 import FinalBill from './FinalBill';
 import InventoryCheckout from './InventoryCheckout';
 import PaidBill from './FinalBillPopup';
-
-// import Booking from './booking';
-
-
-import CusSideNav from './customer/CusSideNav';
-import Main from './customer/Main';
-import AddBooking from './customer/AddBooking';
-import CusLogin from './customer/CusLogin';
+import AddBooking from './customer/AddBooking'
+import CusLogin from './customer/CusLogin'
 import CusReg from './customer/CusReg'
 
 
 
 
+
+
 export default function Body() {
+
+
+
     return (
 
         <Router>
-
-           
 
             <div className="content">
 
@@ -50,6 +47,7 @@ export default function Body() {
                 <FrontOfficeSideNav/>
 
                 {/* <CusSideNav/> */}
+                
                 {/* <Login/>
                 <Route path="/frontOffice" exact component={FrontOfficeSideNav}/>
                 <Route path="/inventory" exact component={Sidenav}/> */}
@@ -104,9 +102,11 @@ export default function Body() {
                       <Route path="/cusLogin" exact component={CusLogin}/>
                       <Route path="/cusReg" exact component={CusReg}/>
 
+            
+                </div>
                 </div>
 
-            </div>
+            {/* </div> */}
         </Router>
     );
 }
