@@ -3,7 +3,7 @@ import axios from 'axios';
 import './sidenav.css'
 import { Link } from 'react-router-dom'
 
-export default function Sidenav() {
+export default function FrontOfficeSideNav() {
     var [request, setRequest] = useState([]);
 
     useEffect(() => {
@@ -39,13 +39,13 @@ export default function Sidenav() {
 
             <div className="icon-button">
                 <span id="icon-button__badge" className="icon-button__badge " style={{ display: 'none', textAlign: 'center', paddingTop: '5px' }} >{request.length}</span>
-                <Link to="/bookings">Bookings</Link>
+                <Link to="/front-office-manager">Bookings</Link>
             </div>
-            <Link to="/addAgent">Add Agencies</Link>
-            <Link to="/viewAllAgencies">View Agencies</Link>
+            <Link to="/front-office-manager/addAgent">Add Agencies</Link>
+            <Link to="/front-office-manager/viewAllAgencies">View Agencies</Link>
             <Link to="/">Event Booking</Link>
             <Link to="/">Room Booking</Link>
-            <Link to="/FinalBill">Final Bill</Link>
+            <Link to="/front-office-manager/FinalBill">Final Bill</Link>
 
         </div>
 

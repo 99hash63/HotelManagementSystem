@@ -1,8 +1,6 @@
 import React from 'react';
 import './CusHeader.css'
 
-
-
 export default function Header() {
 
     return (
@@ -12,10 +10,10 @@ export default function Header() {
             <div className="head" id="glass">
                 <div className="up_head">
                     <div className="social">
-                        <a href="/"><i className="fab fa-twitter"></i></a>
+                        {/* <a href="/"><i className="fab fa-twitter"></i></a>
                         <a href="/"><i className="fab fa-youtube"></i></a>
                         <a href="/"><i className="fab fa-instagram"></i></a>
-                        <a href="/"><i className="fab fa-facebook-f"></i></a>
+                        <a href="/"><i className="fab fa-facebook-f"></i></a> */}
                     </div>
                     <div className="contact"><i className="fas fa-phone-alt"></i>+94 77 456 7169 &nbsp;&nbsp;</div>
                     <div className="contact"><i className="fas fa-envelope"></i>info@sobana.com</div>

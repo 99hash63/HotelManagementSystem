@@ -1,0 +1,216 @@
+.ManagerLoginBoxPAGE {
+    display: flex;
+    justify-content: center;
+
+}
+.ManagerLoginBoxPAGE-title {
+    display: flex;
+    margin-top: 90px;
+}
+
+#manager-login-text {
+    margin-top: 10px;
+    font-weight: 600;
+    color: #444444;
+    font-size: 18px;
+}
+
+.ManagerLoginBox {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "a b";
+    padding: 0 20px 20px 20px;
+    height: 560px;
+    position: fixed;
+    width: 80%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.ManagerLoginBoxBTN {
+    text-decoration: none;
+    outline: none;
+    border-radius: 20px;
+    background: #e8e8e8;
+    box-shadow: 9px 9px 18px #d1d1d1, -9px -9px 18px #ffffff;
+    margin: 20px;
+    min-width: 200px;
+    transition: 500ms ease;
+
+    padding: 10px;
+    padding-top: 50px;
+    display: block;
+    text-align: center;
+    
+}
+
+.ManagerLoginBox .fas img{
+    font-size: 45px;
+    width: 89px;
+    margin-bottom: 18px;
+    color: #444444;
+}
+#manager-text{
+    font-size: 18px;
+    font-weight: 500;
+    color: #444444;
+} 
+
+@media only screen and (max-width: 1366px) {
+    .ManagerLoginBox {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: "a b";
+        padding: 0 20px 20px 20px;
+        height: 400px;
+        position: fixed;
+        width: 80%;
+        top: 60%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .ManagerLoginBoxBTN {
+        border-radius: 20px;
+        background: #e8e8e8;
+        box-shadow: 9px 9px 18px #d1d1d1, -9px -9px 18px #ffffff;
+        margin: 20px;
+        min-width: 200px;
+        transition: 500ms ease;
+    
+        padding: 10px;
+        padding-top: 30px;
+        display: block;
+        text-align: center;
+        
+    }
+    
+    .ManagerLoginBox .fas img{
+        font-size: 45px;
+        width: 50px;
+        margin-bottom: 18px;
+        color: #444444;
+    }
+    #manager-text{
+        color: #444444;
+        font-size: 15px;
+        font-weight: 500;
+
+    }
+}
+
+ 
+
+.ManagerLoginBox-a {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.ManagerLoginBox-b {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.ManagerLoginBox-c {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+.ManagerLoginBox-d {
+    grid-column: 4;
+    grid-row: 1;
+}
+
+.ManagerLoginBox-e {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.ManagerLoginBox-f {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.ManagerLoginBox-g {
+    grid-column: 3;
+    grid-row: 2;
+}
+
+.ManagerLoginBox-f {
+    grid-column: 4;
+    grid-row: 2;
+}
+
+.ManagerLoginBox-a:hover {
+    box-shadow: 17px 17px 34px #d1d1d1, -17px -17px 34px #ffffff;
+}
+
+.ManagerLoginBox-a:active {
+    background: linear-gradient(145deg, #d1d1d1, #f8f8f8);
+    box-shadow: 9px 9px 18px #d1d1d1, -9px -9px 18px #ffffff;
+}
+
+.ManagerLoginBox-b:hover {
+    box-shadow: 17px 17px 34px #d1d1d1, -17px -17px 34px #ffffff;
+}
+
+.ManagerLoginBox-b:active {
+    background: linear-gradient(145deg, #d1d1d1, #f8f8f8);
+    box-shadow: 9px 9px 18px #d1d1d1, -9px -9px 18px #ffffff;
+}
+
+
+.ManagerLoginBox-c:hover {
+    box-shadow: 17px 17px 34px #d1d1d1, -17px -17px 34px #ffffff;
+}
+
+.ManagerLoginBox-c:active {
+    background: linear-gradient(145deg, #d1d1d1, #f8f8f8);
+    box-shadow: 9px 9px 18px #d1d1d1, -9px -9px 18px #ffffff;
+}
+
+.ManagerLoginBox-d:hover {
+    box-shadow: 17px 17px 34px #d1d1d1, -17px -17px 34px #ffffff;
+}
+
+.ManagerLoginBox-d:active {
+    background: linear-gradient(145deg, #d1d1d1, #f8f8f8);
+    box-shadow: 9px 9px 18px #d1d1d1, -9px -9px 18px #ffffff;
+}
+
+.ManagerLoginBox-e:hover {
+    box-shadow: 17px 17px 34px #d1d1d1, -17px -17px 34px #ffffff;
+}
+
+.ManagerLoginBox-e:active {
+    background: linear-gradient(145deg, #d1d1d1, #f8f8f8);
+    box-shadow: 9px 9px 18px #d1d1d1, -9px -9px 18px #ffffff;
+}
+
+.ManagerLoginBox-f:hover {
+    box-shadow: 17px 17px 34px #d1d1d1, -17px -17px 34px #ffffff;
+}
+
+.ManagerLoginBox-f:active {
+    background: linear-gradient(145deg, #d1d1d1, #f8f8f8);
+    box-shadow: 9px 9px 18px #d1d1d1, -9px -9px 18px #ffffff;
+}
+
+.ManagerLoginBox-g:hover {
+    box-shadow: 17px 17px 34px #d1d1d1, -17px -17px 34px #ffffff;
+}
+
+.ManagerLoginBox-g:active {
+    background: linear-gradient(145deg, #d1d1d1, #f8f8f8);
+    box-shadow: 9px 9px 18px #d1d1d1, -9px -9px 18px #ffffff;
+}
+
+.ManagerLoginBox-h:hover {
+    box-shadow: 17px 17px 34px #d1d1d1, -17px -17px 34px #ffffff;
+}
+
+.ManagerLoginBox-h:active {
+    background: linear-gradient(145deg, #d1d1d1, #f8f8f8);
+    box-shadow: 9px 9px 18px #d1d1d1, -9px -9px 18px #ffffff;
+}
