@@ -27,7 +27,6 @@ function App() {
   return (
     <div>
 
-     
         <Router>
           <Switch>
          
@@ -43,7 +42,6 @@ function App() {
 
             <Redirect to="/404" />
          
-
           </Switch>
         </Router>
  

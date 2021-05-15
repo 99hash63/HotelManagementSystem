@@ -28,6 +28,9 @@ export default function Body() {
 
 
         <Router>
+              <head>
+                <title>Hotel Sobana</title>
+            </head>
                 <CusHeader />
 
                 <div className="content">

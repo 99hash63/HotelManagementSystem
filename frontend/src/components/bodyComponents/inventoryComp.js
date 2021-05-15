@@ -17,6 +17,9 @@ export default function inventoryComp() {
     return (
 
         <Router>
+            <head>
+                <title>Inventory Management</title>
+            </head>
             <Header />
 
             <div className="content">

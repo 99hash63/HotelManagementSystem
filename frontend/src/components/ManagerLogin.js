@@ -7,6 +7,10 @@ import './Header.css'
 
 const ManagerLogin = () => {
     return (<div>
+        
+            <head>
+                <title>Manager Login</title>
+            </head>
 
         <div className="ManagerLoginBoxPAGE" id="ManagerLoginBoxPAGE">
 

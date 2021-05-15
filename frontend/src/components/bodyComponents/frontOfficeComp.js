@@ -17,12 +17,14 @@ import PaidBill from '../FinalBillPopup';
 import Footer from '../Footer';
 import Header from '../Header';
 
-
 export default function frontOfficeComp() {
 
     return (
 
         <Router>
+              <head>
+                <title>Front Office Management</title>
+            </head>
 
             <Header />
             <div className="content">
@@ -33,7 +35,6 @@ export default function frontOfficeComp() {
 
                 <div className="block">
 
-
                     {/* Agencies Routes */}
                     <Route path="/front-office-manager/addAgent" exact component={AddAgent} />
                     <Route path="/front-office-manager/viewAllAgencies" exact component={ViewAgent} />
@@ -41,7 +42,7 @@ export default function frontOfficeComp() {
                     <Route path="/front-office-manager/deleteAgent/:id" exact component={Delet} />
 
                     {/* Bookings Routes */}
-                    <Route path="/front-office-manager/front-office-manager" exact component={Bookings} />
+                    <Route path="/front-office-manager" exact component={Bookings} />
                     <Route path="/front-office-manager/active" exact component={ActiveBookings} />
                     <Route path="/front-office-manager/pass" exact component={PassBookings} />
                     <Route path="/front-office-manager/request" exact component={BookingReq} />
