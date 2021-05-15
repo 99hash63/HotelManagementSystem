@@ -203,13 +203,13 @@ box-shadow: inset 0 -1px 0 #ddd;
   
   display: inline-block;
   position: absolute;
-  z-index: 5 !important;
+  z-index: 10 !important;
   background: rgba(0, 0, 0, 0.5)!important;
   color: var(--mainWhite);
   text-align: center;
   text-transform: capitalize;
   letter-spacing: var(--mainSpacing);
-  top: 10%;
+  top: 400px;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -391,6 +391,8 @@ box-shadow: inset 0 -1px 0 #ddd;
 
 .single-room {
   padding: 5rem 0 0 0;
+  position: relative;
+  top: 0px;
 }
 .single-room-images {
   width: 80vw;

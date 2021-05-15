@@ -4,6 +4,7 @@ import Banner from '../components/customer/subComponents/Banner';
 import { Link } from 'react-router-dom';
 import { RoomContext } from '../context';
 import StyledHero from '../components/customer/subComponents/StyledHero';
+// import Hero from '../components/customer/subComponents/Hero'
 
 export default class SingleRoom extends Component {
     constructor (props){
@@ -40,6 +41,12 @@ export default class SingleRoom extends Component {
                     <Link to="/rooms" className="btn btn-primary">Back To Rooms</Link>
             </Banner>
             </StyledHero>
+
+
+        {/* <Hero hero="roomsHero">
+        </Hero> */}
+
+
             <section className="single-room container">
                <div className="row">
                     {defaultBcg.map((item,index) => {
