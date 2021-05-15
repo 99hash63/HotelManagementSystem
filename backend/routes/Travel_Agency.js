@@ -70,7 +70,7 @@ router.route("/update/:id").put(async(req,res)=>{
  
 
     Travel_Agent.findByIdAndUpdate(id,updateAgent).then(()=>{
-        res.status(200).send({status:"Agent Add Success"})
+        res.status(200).send({status:"Sucess"})
     }).catch((err)=>{
         res.status(500).send({status:"Error"})
     })

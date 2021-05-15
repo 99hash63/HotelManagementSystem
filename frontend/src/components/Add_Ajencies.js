@@ -30,7 +30,7 @@ function AddAgencies() {
         axios.post("http://localhost:5000/Travel_Agency/add", newAgencies).then(() => {
             window.location = "/view"
             alert("Agencies Added Successfuly");
-        }).catch(() => {
+        }).catch((err) => {
             alert("Contract Id Was Duplicated!!");
         })
     }
@@ -44,28 +44,28 @@ function AddAgencies() {
             <form>
             <div className="form1">
             <label className="custom-field">
-                <input type="text" id="contract_id" name="contract_id" onChange={(e) => {
+                <input type="text" required id="contract_id" name="contract_id" onChange={(e) => {
                     setContract_id(e.target.value);
                 }} />
                 <span className="placeholder">Contract Id</span>
                 </label><br />
 
                 <label className="custom-field">
-                <input type="text" name="name" onChange={(e) => {
+                <input type="text" required name="name" onChange={(e) => {
                     setName(e.target.value);
                 }} />
                 <span className="placeholder">Name</span>
                 </label><br />
 
                 <label label className="custom-field">
-                <input type="text" id="mail_Address" name="mail_Address" onChange={(e) => {
+                <input type="text" required id="mail_Address" name="mail_Address" onChange={(e) => {
                     setMail_Address(e.target.value);
                 }} />
                 <span className="placeholder">Mail Address </span>
                 </label><br />
 
                 <label label className="custom-field">
-                <input type="text" id="Contact" name="Contact" onChange={(e) => {
+                <input type="text" required id="Contact" name="Contact" onChange={(e) => {
                     setMobile(e.target.value);
                 }} />
                 <span className="placeholder">Contact Number</span>
@@ -76,21 +76,21 @@ function AddAgencies() {
                 <div className="form2-content">
 
                 <label label className="custom-field">
-                <input type="text" id="Address" name="Address" onChange={(e) => {
+                <input type="text" required id="Address" name="Address" onChange={(e) => {
                     setAddress(e.target.value);
                 }} />
                 <span className="placeholder">Address</span>
                 </label><br />
 
                 <label label className="custom-field">
-                <input type="text" id="Passcode" name="Passcode" onChange={(e) => {
+                <input type="text" required id="Passcode" name="Passcode" onChange={(e) => {
                     setPasscode(e.target.value);
                 }} />
                 <span className="placeholder">Passcode</span>
                 </label><br />
 
                 <label label className="custom-field">
-                <input type="number" id="Rate" name="Rate" onChange={(e) => {
+                <input type="number" required id="Rate" name="Rate" onChange={(e) => {
                     setRate(e.target.value);
                 }} />
                 <span className="placeholder">Rate</span>

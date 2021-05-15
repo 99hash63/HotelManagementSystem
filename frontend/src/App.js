@@ -8,8 +8,8 @@ import CusHeader from './components/customer/CusHeader'
 function App() {
   return (
     <div>
-      <CusHeader></CusHeader> 
-      {/* <Header /> */}
+      {/* <CusHeader></CusHeader>  */}
+      <Header />
       <Body />
       <Footer />
     </div>

@@ -30,7 +30,7 @@ function Delet() {
 
 
     return (
-        <div>
+        <div> 
 
         </div>
     )

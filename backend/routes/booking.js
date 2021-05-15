@@ -219,7 +219,7 @@ router.route("/find/:id").get((req,res)=>{
 })
 
 
-//Delete Requestd
+//Delete Booking Requestd
 router.route("/delete/:id").delete((req,res)=>{
 
     var num = req.params.id;
@@ -233,12 +233,12 @@ router.route("/delete/:id").delete((req,res)=>{
 
 
 
-//find customer using 
+//find active customer  
 router.route("/findOne/:id").get((req,res)=>{
-    var mail = req.params.id;
+    var nic = req.params.id;
     console.log(mail);
     
-    Booking.find({email : mail, bookingState : "Active"}).then((cust)=>{
+    Booking.find({NIC : nic, bookingState : "Active"}).then((cust)=>{
         res.json(cust);
         console.log(cust);
     }).catch((err)=>{
@@ -246,5 +246,23 @@ router.route("/findOne/:id").get((req,res)=>{
     })
     
 }) 
+
+
+
+
+//Update active customer into Pass Customer
+router.route("/PassCus/:id").put((req,res)=>{
+    var nic = req.params.id;
+    var myquery = {NIC : nic};
+    var newQuery = {$set: {bookingState:"Past"}};
+
+    Booking.updateOne(myquery,newQuery).then(()=>{
+        res.status(200).send({status:"Pass Customer"})
+        console.log("Okkkk")
+    }).catch((err)=>{
+        res.status(500).send({status:"Error"})
+        console.log(err);
+    })
+})
 
 module.exports = router;

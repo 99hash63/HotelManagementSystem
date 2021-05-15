@@ -72,12 +72,24 @@ function Popup(){
         
                 }
         
-                axios.post("http://localhost:5000/FinalBill/AddBill", newBill).then(() => {
-                    window.location = "/FinalBill"
-                    alert("Final Bill Create Successfuly");
-                }).catch((err) => {
-                    alert(err);
-                })
+                
+                    axios.post("http://localhost:5000/FinalBill/AddBill", newBill).then(() => {
+                        window.location = "/FinalBill"
+                        alert("Final Bill Create Successfuly");
+                    }).catch((err) => {
+                        alert(err);
+                    })
+
+                    axios.put(`http://localhost:5000/booking/PassCus/${id}`).then(()=>{
+
+                    }).catch((err)=>{
+                        alert(err);
+                    })
+                
+                   
+
+              
+               
 
         }else{
             window.location="/FinalBill";
@@ -101,7 +113,7 @@ function Popup(){
             setPrice(res.data[0].price);
             setName(res.data[0].fName);
             setNic(res.data[0].NIC);
-            setMail(res.data[0].mail);
+            setMail(res.data[0].email);
             var x = document.getElementById("myDIV");
                 if (x.style.display === "none") {
                     x.style.display = "block";               

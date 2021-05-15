@@ -105,7 +105,7 @@ function AcceptBookingRequests() {
                 alert("Have Erro!");
             })
         } else {
-            window.location = "/request";
+            window.location = "/accept/" + id;
         }
     }
 
@@ -118,7 +118,7 @@ function AcceptBookingRequests() {
         const result = window.confirm("Do you really want to Decline?");
         if (result == true) {
 
-            axios.delete(`http://localhost:5000/booking/delete/${id}`).then((res) => {
+            axios.delete(`http://localhost:5000/booking/delete/${id}`).then(() => {
                 window.location = "/request";
                 alert("Decline Requset Success");
             }).catch((err) => {
@@ -151,47 +151,47 @@ return (
                 }} /><br></br> */}
 
             <label>First Name:</label><br />
-            <input type="text" defaultValue={requsetOne.fName} onChange={(e) => {
+            <input type="text" readOnly defaultValue={requsetOne.fName} onChange={(e) => {
                 setfName(e.target.value);
             }} /><br></br>
 
             <label>Last Name :</label><br />
-            <input type="text" defaultValue={requsetOne.lName} onChange={(e) => {
+            <input type="text" readOnly defaultValue={requsetOne.lName} onChange={(e) => {
                 setlName(e.target.value);
             }} /><br></br>
 
             <label>Address :</label><br />
-            <input type="text" defaultValue={requsetOne.address} onChange={(e) => {
+            <input type="text" readOnly defaultValue={requsetOne.address} onChange={(e) => {
                 setAddress(e.target.value);
             }} /><br></br>
 
             <label>NIC number :</label><br />
-            <input type="text" defaultValue={requsetOne.NIC} onChange={(e) => {
+            <input type="text" readOnly defaultValue={requsetOne.NIC} onChange={(e) => {
                 setNIC(e.target.value);
             }} /><br></br>
 
             <label>Promot Code :</label><br />
-            <input type="text" defaultValue={requsetOne.promoCode} onChange={(e) => {
+            <input type="text" readOnly defaultValue={requsetOne.promoCode} onChange={(e) => {
                 setpromoCode(e.target.value);
             }} /><br></br>
 
             <label>Travel Agent :</label><br />
-            <input type="text" defaultValue={requsetOne.travelAgent} onChange={(e) => {
+            <input type="text" readOnly defaultValue={requsetOne.travelAgent} onChange={(e) => {
                 settravelAgent(e.target.value);
             }} /><br></br>
 
             <label>Chek In Date</label><br />
-            <input type="text" defaultValue={requsetOne.checkInDate} onChange={(e) => {
+            <input type="text" readOnly defaultValue={requsetOne.checkInDate} onChange={(e) => {
                 setcheckInDate(e.target.value);
             }} /><br></br>
 
             <label>Check Out Date:</label><br />
-            <input type="text" defaultValue={requsetOne.checkOutDate} onChange={(e) => {
+            <input type="text" readOnly defaultValue={requsetOne.checkOutDate} onChange={(e) => {
                 setcheckOutDate(e.target.value);
             }} /><br></br>
 
             <label>Number Of Adults :</label><br />
-            <input type="text" defaultValue={requsetOne.noOfAdults} onChange={(e) => {
+            <input type="text" readOnly defaultValue={requsetOne.noOfAdults} onChange={(e) => {
                 setnoOfAdults(e.target.value);
             }} /><br></br>
 

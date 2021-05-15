@@ -29,7 +29,7 @@ function ViewPassBookings() {
 
 
             </div>
-            <BookingList bookings={bookings.filter((booking) => booking.bookingState === "Pass")} />
+            <BookingList bookings={bookings.filter((booking) => booking.bookingState === "Past")} />
         </div>
 
     )
