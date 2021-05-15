@@ -35,7 +35,7 @@ export default function Body() {
                 {/* <AddBooking/> */}
                 {/* <Main/> */}
                 
-                <Sidenav />
+                {/* <Sidenav /> */}
                 {/* <FrontOfficeSideNav/> */}
                 
                 {/* <Login/>

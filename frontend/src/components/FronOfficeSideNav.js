@@ -3,7 +3,7 @@ import axios from 'axios';
 import './sidenav.css'
 import { Link } from 'react-router-dom'
 
-export default function Sidenav() {
+export default function FrontOfficeSideNav() {
     var [request, setRequest] = useState([]);
 
     useEffect(() => {

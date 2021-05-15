@@ -1,8 +1,8 @@
 .ManagerLoginBoxPAGE {
     display: flex;
     justify-content: center;
-}
 
+}
 .ManagerLoginBoxPAGE-title {
     display: flex;
     margin-top: 90px;
@@ -29,6 +29,8 @@
     transform: translate(-50%, -50%);
 }
 .ManagerLoginBoxBTN {
+    text-decoration: none;
+    outline: none;
     border-radius: 20px;
     background: #e8e8e8;
     box-shadow: 9px 9px 18px #d1d1d1, -9px -9px 18px #ffffff;
