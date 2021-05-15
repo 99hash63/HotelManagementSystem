@@ -23,45 +23,46 @@ import CusHeader from './CusHeader'
 export default function Body() {
 
     const { loggedIn } = useContext(AuthContext);
-    console.log(loggedIn);
-
 
     return (
 
 
         <Router>
-            <CusHeader />
-         
-            <div className="content">
+           
 
-                {
-                    loggedIn === true && <CusSideNav />
-                }
+                <CusHeader />
 
+                <div className="content">
 
-                {/* <AddBooking/> */}
-                {/* <Main/> */}
+                    {
+                        loggedIn === true && <CusSideNav />
+                    }
 
 
-                {/* customer Routes       */}
-                {/* <Route path="/up" exact component={Booking}/> */}
-                <Route path="/addbooking" exact component={AddBooking} />
-                <Route path="/cusUpBookings" exact component={CusUpBookings} />
-                <Route path="/cusPastBookings" exact component={CusPastBookings} />
-                <Route path="/cusMyaccount" exact component={CusMyaccount} />
-                <Route path="/cusLogin" exact component={CusLogin} />
-                <Route path="/cusReg" exact component={CusReg} />
-                <Route path="/cusLogout" exact component={cusLogout} />
-                <Route path="/displayUpcoming/:id" exact component={DisplayUpcoming} />
-                <Route path="/cusUpdateAccount" exact component={CusUpdateAccount} />
-                <Route path="/addRegBooking" exact component={AddRegBooking} />
-                <Route path="/displayPast/:id" exact component={DisplayPast} />
-                <Route path="/myLoyalty" exact component={MyLoyalty} />
+                    {/* <AddBooking/> */}
+                    {/* <Main/> */}
 
 
-            </div>
-            <Footer />
+                    {/* customer Routes       */}
+                    {/* <Route path="/up" exact component={Booking}/> */}
+                    <Route path="/addbooking" exact component={AddBooking} />
+                    <Route path="/cusUpBookings" exact component={CusUpBookings} />
+                    <Route path="/cusPastBookings" exact component={CusPastBookings} />
+                    <Route path="/cusMyaccount" exact component={CusMyaccount} />
+                    <Route path="/cusLogin" exact component={CusLogin} />
+                    <Route path="/cusReg" exact component={CusReg} />
+                    <Route path="/cusLogout" exact component={cusLogout} />
+                    <Route path="/displayUpcoming/:id" exact component={DisplayUpcoming} />
+                    <Route path="/cusUpdateAccount" exact component={CusUpdateAccount} />
+                    <Route path="/addRegBooking" exact component={AddRegBooking} />
+                    <Route path="/displayPast/:id" exact component={DisplayPast} />
+                    <Route path="/myLoyalty" exact component={MyLoyalty} />
+
+
+                </div>
+                <Footer />
+          
         </Router>
-        
+
     );
 }
