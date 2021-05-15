@@ -26,7 +26,7 @@ function ViewAllBookings() {
 
     function generatePDF(tickets){
         const doc = new jspdf();
-        const tableColumn = ["Name", "Address", "NIC Number", "promoCode", "In Date", "Out Date", "travelAgent", "Adults", "Children", "Other Accomodations", "nationality", "Passport No", "Room Allocation", "Price"];
+        const tableColumn = ["Name", "Address", "NIC Number", "promoCode", "In Date", "Passport No", "Room Allocation", "Price"];
         const tableRows = [];
 
         tickets.slice(0).reverse().map(ticket => {
@@ -36,12 +36,6 @@ function ViewAllBookings() {
                 ticket.NIC,
                 ticket.promoCode,
                 ticket.checkInDate.substring(0, 10),
-                ticket.checkOutDate.substring(0, 10),
-                ticket.travelAgent,
-                ticket.noOfAdults,
-                ticket.noOfChildren,
-                ticket.package,
-                ticket.nationality,
                 ticket.passportNo,
                 ticket.roomAllocation,
                 ticket.price
@@ -62,13 +56,15 @@ function ViewAllBookings() {
 
     return (
         <div>
-            <div className="header-box"> Active Bookings
-            <button id="checkoutHistory-window-btn" style={{left:30}} onClick={() => { generatePDF(bookings)}} >Report</button>
-            <button id="checkoutHistory-window-btn"  onClick={() => { history.goBack(); }} >Back</button>
-           
+            <div id="edit-title" className="header-box"> Active Bookings
+            
+            <div>
+                     <button  id="delete_btn"   onClick={e => generatePDF(bookings)}>REPORT</button>
+                    <button id="edit_btn"  onClick={() => { history.goBack();}}>BACK</button>
+                  
+                </div>
+
             </div>
-    
-           
 
           
             <BookingList bookings={bookings.filter((booking) => booking.bookingState === "Active")} />

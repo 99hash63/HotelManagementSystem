@@ -1,10 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from "react-router";
+import jspdf from 'jspdf'
+import "jspdf-autotable"
+import { useHistory } from "react-router-dom";
+import './FinalBills.css'
+
 
 
 function ViewFinalBill(){
     var [fBill, setBill] = useState([]);
+    const [search, setsearch] = useState("");
+    const [filtered, setfiltered] = useState([]);
+    const history = useHistory();
+
 
     useEffect(() => {
             axios.get("http://localhost:5000/FinalBill/ViewBills").then((res) => {
@@ -17,12 +26,64 @@ function ViewFinalBill(){
     },[])
 
 
+    useEffect(() => { //search funtion
+        setfiltered(
+          //filtering the inventory array to only contain objects that match with the seach term and save in the FILTERED useState 
+          fBill.filter(items => {
+            return items.CusName.toLowerCase().includes(search.toLowerCase())
+              || items.NIC.toLowerCase().includes(search.toLowerCase())
+          })
+        )
+      }, [search, fBill])
+
+
+
+    function generatePDF(tickets){
+        const doc = new jspdf();
+        const tableColumn = ["First Name", "NIC Number", "Mail Address", "Allocationa Amount", "Meal Order Cost", "BarOrder Cost", "Additional Amount", "Adults", "Children", "Final Amount"];
+        const tableRows = [];
+
+        tickets.slice(0).reverse().map(ticket => {
+            const ticketData = [
+                ticket.CusName,
+                ticket.NIC,
+                ticket.Mail,
+                ticket.Allocationa_Amount,
+                ticket.Meal_Order_Cost,
+                ticket.BarOrder_Cost,
+                ticket.Additional_Bill,
+                ticket.Final_Cost,
+            ];
+            tableRows.push(ticketData);
+        });
+
+        doc.autoTable(tableColumn, tableRows, { styles: { fontSize: 8 }, startY: 35 });
+        const date = Date().split(" ");
+        const dateStr = date[1] + "-" + date[2] + "-" + date[3];
+        var img = new Image().src = '/images/logo.png'
+        doc.addImage(img, 'JPEG', 160, 9, 49, 15);
+        doc.text("Final-Bill-Report", 14, 15).setFontSize(12);
+        doc.text(`Report Genarated Date - ${dateStr} `, 14, 23);
+        doc.save(`Final-Bill-Report_${dateStr}.pdf`);
+    }
+
+
 
     return(
         <div className="display-box">
-             <div className="header-box"> All Final Bills </div>
+          
+            <div id="edit-title" className="header-box"> View Final Bills
+            
+            <div>
+                     <button  id="delete_btn"   onClick={e => generatePDF(fBill)}>REPORT</button>
+                    <button id="edit_btn"  onClick={() => { history.goBack();}}>BACK</button>
+                  
+                </div>
+
+            </div>
              <div className="content-box-list">
-                 <table >
+             <input type="text" style={{marginTop:10, marginLeft:300,borderRadius:5,width:500, height:30,borderBlockColor:"blue",}} placeholder="Enter Customer Name or NIC number Here" onChange={e => { setsearch(e.target.value) }}/><br></br>
+                 <table style={{marginTop:10}} >
                     <thead>
                     <tr>
                         <th>First Name</th>
@@ -36,7 +97,7 @@ function ViewFinalBill(){
                     </tr>
                     </thead>
                     <tbody>
-                        {fBill.map(function(bill){
+                        {filtered.slice(0).reverse().map(function(bill){
                             return <tr>
                                 <td>{bill.CusName}</td>
                                 <td>{bill.NIC}</td>

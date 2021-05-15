@@ -20,7 +20,7 @@ function Popup(){
 
     const [Additional_Bill, setAdditional] = useState(0);
     const [BarOrder_Cost, setBarBill] = useState(100);
-    const [Meal_Order_Cost, setFoodBill] = useState(0);
+    const [Meal_Order_Cost, setFoodBill] = useState(3300);
     const [Allocationa_Amount, setPrice] = useState(0);
 
 
@@ -74,17 +74,20 @@ function Popup(){
         
                 
                     axios.post("http://localhost:5000/FinalBill/AddBill", newBill).then(() => {
-                        window.location = "/front-office-manager/FinalBill"
+                        axios.put(`http://localhost:5000/booking/PassCus/${id}`).then(()=>{
+                            window.location = "/front-office-manager/FinalBill"
                         alert("Final Bill Create Successfuly");
+                        })
+                        
                     }).catch((err) => {
                         alert(err);
                     })
 
-                    axios.put(`http://localhost:5000/booking/PassCus/${id}`).then(()=>{
+                    // axios.put(`http://localhost:5000/booking/PassCus/${id}`).then(()=>{
 
-                    }).catch((err)=>{
-                        alert(err);
-                    })
+                    // }).catch((err)=>{
+                    //     alert(err);
+                    // })
                 
                    
 
