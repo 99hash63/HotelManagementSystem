@@ -100,7 +100,7 @@ export default function AddInventory() {
                                     <td >{f.quantity} </td>
                                     <td >{f.original_price} </td>
                                     <td >{f.date.substring(0, 10)} </td>
-                                    <td > <Link to={"/displayinventory/" + f._id} ><i class="far fa-edit"></i></Link></td>
+                                    <td > <Link to={"/inventory-manager/displayinventory/" + f._id} ><i class="far fa-edit"></i></Link></td>
 
                                 </tr>
 

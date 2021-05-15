@@ -35,22 +35,22 @@ export default function frontOfficeComp() {
 
 
                     {/* Agencies Routes */}
-                    <Route path="/addAgent" exact component={AddAgent} />
-                    <Route path="/viewAllAgencies" exact component={ViewAgent} />
-                    <Route path="/viewOne/:id" exact component={ViewOne} />
-                    <Route path="/deleteAgent/:id" exact component={Delet} />
+                    <Route path="/front-office-manager/addAgent" exact component={AddAgent} />
+                    <Route path="/front-office-manager/viewAllAgencies" exact component={ViewAgent} />
+                    <Route path="/front-office-manager/viewOne/:id" exact component={ViewOne} />
+                    <Route path="/front-office-manager/deleteAgent/:id" exact component={Delet} />
 
                     {/* Bookings Routes */}
-                    <Route path="/front-office-manager" exact component={Bookings} />
-                    <Route path="/active" exact component={ActiveBookings} />
-                    <Route path="/pass" exact component={PassBookings} />
-                    <Route path="/request" exact component={BookingReq} />
-                    <Route path="/accept/:id" exact component={Accept} />
-                    <Route path="/decline/:id" exact component={Decline} />
+                    <Route path="/front-office-manager/front-office-manager" exact component={Bookings} />
+                    <Route path="/front-office-manager/active" exact component={ActiveBookings} />
+                    <Route path="/front-office-manager/pass" exact component={PassBookings} />
+                    <Route path="/front-office-manager/request" exact component={BookingReq} />
+                    <Route path="/front-office-manager/accept/:id" exact component={Accept} />
+                    <Route path="/front-office-manager/decline/:id" exact component={Decline} />
 
                     {/* Final Bill */}
-                    <Route path="/FinalBill" exact component={FinalBill} />
-                    <Route path="/PaidBill/:id" exact component={PaidBill} />
+                    <Route path="/front-office-manager/FinalBill" exact component={FinalBill} />
+                    <Route path="/front-office-manager/PaidBill/:id" exact component={PaidBill} />
 
 
                 </div>

@@ -28,8 +28,6 @@ export default function Body() {
 
 
         <Router>
-           
-
                 <CusHeader />
 
                 <div className="content">

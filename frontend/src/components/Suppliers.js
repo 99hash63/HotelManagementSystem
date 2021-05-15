@@ -100,7 +100,7 @@ const Suppliers = () => {
                                     <td >{f.contact} </td>
                                     <td >{f.email} </td>
                                     <td >{f.location} </td>
-                                    <td > <Link to={"/supplierview/" + f._id} ><i class="far fa-edit"></i></Link></td>
+                                    <td > <Link to={"/inventory-manager/supplierview/" + f._id} ><i class="far fa-edit"></i></Link></td>
 
                                 </tr>
 

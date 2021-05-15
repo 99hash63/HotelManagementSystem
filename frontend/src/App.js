@@ -10,6 +10,15 @@ import Page404 from './components/404';
 import { AuthContextProvider } from './context/AuthContext';
 
 
+import DisplayInventory from './components/DisplayInventory';
+import Suppliers from './components/Suppliers';
+import SuppliersView from './components/SupplierView';
+import ReStock from './components/ReStock';
+import InventoryCheckout from './components/InventoryCheckout';
+import AddInventory from './components/AddInventory';
+import InventoryList from './components/InventoryList';
+
+
 axios.defaults.withCredentials = true;
 
 function App() {
@@ -18,19 +27,26 @@ function App() {
   return (
     <div>
 
-      <AuthContextProvider>
+     
         <Router>
           <Switch>
-
-            <Route exact path="/" component={CusBody} />
+         
             <Route exact path="/managerLogin" component={ManagerLogin} />
-            <Route exact path="/front-office-manager" component={frontOfficeComp} />
-            <Route exact path="/inventory-manager" component={inventoryComp} />
+            <Route  path="/front-office-manager" component={frontOfficeComp} />
+            <Route  path="/inventory-manager" component={inventoryComp} />
             <Route exact path="/404" component={Page404} />
+
+          
+            <AuthContextProvider >
+            <Route exact path="/" component={CusBody} />
+            </AuthContextProvider>
+
             <Redirect to="/404" />
+         
+
           </Switch>
         </Router>
-      </AuthContextProvider>
+ 
 
 
 

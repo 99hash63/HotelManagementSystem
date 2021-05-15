@@ -77,9 +77,7 @@ const DisplayInventory = () => {
         axios.put(`http://localhost:5000/inventory/update/${id}`, newItem).then(() => {
 
             document.getElementById('update_successful').style.display = "block ";
-            setTimeout(() => {
-                    document.getElementById('update_successful').style.display = "none ";
-            }, 5000);
+          
 
         }).catch((e) => {
             alert("error");
