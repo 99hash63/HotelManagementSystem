@@ -27,14 +27,14 @@ function App() {
         {active === "employee" && <Body />}
       
         {/* <Footer /> */}
-        <button onClick={()=>setActive("employee")} style={ 
+        {/* <button onClick={()=>setActive("employee")} style={ 
             {  position: "absolute", 
                marginLeft: "1216px", 
                marginTop: "221px",
                backgroundColor: 'rgb(15, 15, 15)',
                color: 'rgb(173, 173, 173)'
             }
-            }>Employee</button>
+            }>Employee</button> */}
       </AuthContextProvider>
     </div>
 

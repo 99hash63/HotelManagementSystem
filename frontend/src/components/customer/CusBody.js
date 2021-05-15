@@ -44,15 +44,15 @@ export default function Body() {
 
     return (
 
-        <Router>
+        // <Router>
 
             <div >
 
 
-
+{/* 
                 {
                     loggedIn === true && <CusSideNav/>
-                }
+                } */}
                 
 
                 {/* <AddBooking/> */}
@@ -101,6 +101,6 @@ export default function Body() {
 
             
                 </div>
-        </Router>
+        // </Router>
     );
 }
