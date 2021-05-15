@@ -1,3 +1,4 @@
+import './CusBody.css'
 import React, { useContext } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
@@ -28,7 +29,9 @@ export default function Body() {
 
         <Router>
 
-            <div className="content">
+            <div className="cusContent">
+
+
 
                 {
                     loggedIn === true && <CusSideNav/>
@@ -36,11 +39,12 @@ export default function Body() {
                 
 
                 {/* <AddBooking/> */}
-                {/* <Main/> */}
               
                       
                       {/* customer Routes       */}
                       {/* <Route path="/up" exact component={Booking}/> */}
+                      <Route exact path="/" component={Main}/>
+                      <Route exact path="/CusSideNav" component={CusSideNav}/>
                       <Route path="/addbooking" exact component={AddBooking}/>
                       <Route path="/cusUpBookings" exact component={CusUpBookings}/>
                       <Route path="/cusPastBookings" exact component={CusPastBookings}/>

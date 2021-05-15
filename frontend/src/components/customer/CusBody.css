@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;900&display=swap');
+
+
+/* body css */
+
+.cusContent {
+  display: grid;
+  /* grid-template-columns: 1fr 5fr;
+  grid-template-areas: "a b"; */
+  padding-top: 150px;
+
+  margin-left: 4%;
+  margin-right: 4%;
+  min-height: 600px;
+}

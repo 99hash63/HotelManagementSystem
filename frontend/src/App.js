@@ -34,7 +34,7 @@ function App() {
                backgroundColor: 'rgb(15, 15, 15)',
                color: 'rgb(173, 173, 173)'
             }
-            }>Click employee</button>
+            }>Employee</button>
       </AuthContextProvider>
     </div>
 
