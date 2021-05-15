@@ -16,7 +16,7 @@ import FinalBill from '../FinalBill';
 import PaidBill from '../FinalBillPopup';
 import Footer from '../Footer';
 import Header from '../Header';
-
+import ViewBills from '../ViewFinalBills'
 export default function frontOfficeComp() {
 
     return (
@@ -52,6 +52,7 @@ export default function frontOfficeComp() {
                     {/* Final Bill */}
                     <Route path="/front-office-manager/FinalBill" exact component={FinalBill} />
                     <Route path="/front-office-manager/PaidBill/:id" exact component={PaidBill} />
+                    <Route path="/front-office-manager/ViewFinalBill" exact component={ViewBills} />
 
 
                 </div>

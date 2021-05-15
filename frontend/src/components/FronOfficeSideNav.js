@@ -45,7 +45,8 @@ export default function FrontOfficeSideNav() {
             <Link to="/front-office-manager/viewAllAgencies">View Agencies</Link>
             <Link to="/">Event Booking</Link>
             <Link to="/">Room Booking</Link>
-            <Link to="/front-office-manager/FinalBill">Final Bill</Link>
+            <Link to="/front-office-manager/FinalBill">Generate Final Bill</Link>
+            <Link to="/front-office-manager/ViewFinalBill">View Final Bills</Link>
 
         </div>
 
