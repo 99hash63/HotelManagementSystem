@@ -38,7 +38,7 @@ function App() {
 
           
             <AuthContextProvider >
-            <Route exact path="/" component={CusBody} />
+            <Route path="/" component={CusBody} />
             </AuthContextProvider>
 
             <Redirect to="/404" />
