@@ -1,6 +1,5 @@
 import './CusBody.css'
 import React, { useContext } from 'react';
-// import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 // import Booking from './booking';
 import CusSideNav from './CusSideNav';
@@ -18,9 +17,9 @@ import DisplayUpcoming from './DisplayUpcoming';
 import AddRegBooking from './AddRegBooking';
 import DisplayPast from './DisplayPast';
 import MyLoyalty from './MyLoyalty';
-import { BrowserRouter as Router, Route, Switch, Link, Redirect } from 'react-router-dom'
-import Footer from '../Footer';
-import CusHeader from './CusHeader'
+// import { BrowserRouter as Router, Route, Switch, Link, Redirect } from 'react-router-dom'
+
+
 
 //new imports
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
