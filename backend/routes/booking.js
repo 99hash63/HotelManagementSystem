@@ -272,7 +272,20 @@ router.route("/findOne/:id").get((req,res)=>{
     
 }) 
 
+//update upcoming costomer into active customer
+router.route("/ActiveCus/:id").put((req,res)=>{
+    var nic = req.params.id;
+    var myquery = {NIC : nic};
+    var newQuery = {$set: {bookingState:"Active"}};
 
+    Booking.updateOne(myquery,newQuery).then(()=>{
+        res.status(200).send({status:"Active Customer"})
+        console.log("Okkkk")
+    }).catch((err)=>{
+        res.status(500).send({status:"Error"})
+        console.log(err);
+    })
+})
 
 
 //Update active customer into Pass Customer

@@ -39,22 +39,12 @@ export default function Body() {
                 {/* <Main/> */}
                 
                 {/* <Sidenav /> */}
-<<<<<<< HEAD
-                <FrontOfficeSideNav/>
-
-                {/* <CusSideNav/> */}
-=======
                 {/* <FrontOfficeSideNav/> */}
->>>>>>> ManagerLogin
                 
                 {/* <Login/>
                 <Route path="/frontOffice" exact component={FrontOfficeSideNav}/>
                 <Route path="/inventory" exact component={Sidenav}/> */}
                 
-<<<<<<< HEAD
-
-=======
->>>>>>> ManagerLogin
                 <div className="block">
                 
 
@@ -105,7 +95,7 @@ export default function Body() {
                 </div>
                 </div>
 
-            </div>
+            
         </Router>
     );
 }

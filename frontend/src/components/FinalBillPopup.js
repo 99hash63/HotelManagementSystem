@@ -74,7 +74,7 @@ function Popup(){
         
                 
                     axios.post("http://localhost:5000/FinalBill/AddBill", newBill).then(() => {
-                        window.location = "/FinalBill"
+                        window.location = "/front-office-manager/FinalBill"
                         alert("Final Bill Create Successfuly");
                     }).catch((err) => {
                         alert(err);
@@ -92,7 +92,7 @@ function Popup(){
                
 
         }else{
-            window.location="/FinalBill";
+            window.location="/front-office-manager/FinalBill";
             console.log(Mail);
         }
        
@@ -106,8 +106,8 @@ function Popup(){
         axios.get(`http://localhost:5000/booking/findOne/${id}`).then((res) => {
 
         if(res.data.length === 0){
-            window.location = "/FinalBill"
-            alert("Inavlid Mail Address")
+            window.location = "/front-office-manager/FinalBill"
+            alert("Inavlid NIC Number")
         }else{
             setBookinDetails(res.data[0]);
             setPrice(res.data[0].price);
@@ -179,12 +179,14 @@ function Popup(){
                 <dir className="blur-s">
                     <div className="content-box-sfb">
                         <div className="add-sup-head">
-                        <div className="title">Final Bill</div>
-                            <Link className="btn" to={"/FinalBill"} >&times;</Link>
+                        <div className="title">Final Bill</div><br/>
+                       
+                            <Link className="btn" to={"/front-office-manager/FinalBill"} >&times;</Link>
                         </div>
+                        <p>__________________________________________</p>
                         <div className="finalbill-content">
                             <table setBarOrder="1">
-                                <tr><th>Full Name </th>   :   <td>  {CusName} {detail.lName}</td></tr>
+                                <tr><th>Full Name </th>   :   <td>  {CusName}</td></tr>
                                 <tr><th>NIC</th>   :   <td>  {NIC}</td> </tr>
                                 <tr><th>Allocation Cost</th>   :   <td>  {Allocationa_Amount}</td> </tr>
                                 <tr><th>Meal Order Cost</th>   :   <td>  {Meal_Order_Cost}</td> </tr>

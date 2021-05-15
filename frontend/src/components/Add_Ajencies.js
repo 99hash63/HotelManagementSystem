@@ -28,7 +28,7 @@ function AddAgencies() {
         }
 
         axios.post("http://localhost:5000/Travel_Agency/add", newAgencies).then(() => {
-            window.location = "/view"
+            window.location = "/front-office-manager/viewAllAgencies"
             alert("Agencies Added Successfuly");
         }).catch((err) => {
             alert("Contract Id Was Duplicated!!");

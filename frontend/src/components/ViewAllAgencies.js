@@ -51,7 +51,7 @@ function ViewAll() {
                                 <td>{agent.address}</td>
                                 <td>{agent.passcode}</td>
                                 <td>{agent.rate}</td>
-                                <td><Link to={"/viewOne/" + agent._id}> <i class="far fa-edit"></i> </Link></td>
+                                <td><Link to={"/front-office-manager/viewOne/" + agent._id}> <i class="far fa-edit"></i> </Link></td>
                             </tr>
                      
                    

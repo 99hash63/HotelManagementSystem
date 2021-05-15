@@ -66,24 +66,6 @@ function ViewOne() {
     }
 
 
-    function Delet(id) {
-
-        const result = window.confirm("Do you really want to Delete?");
-        if (result == true) {
-
-            axios.delete(`http://localhost:5000/Travel_Agency/delete/${id}`).then(() => {
-                // console.log(res);
-                window.location = "/view"
-                alert("Delete Success");
-                // window.location = "/viewAllAgencies";
-            }).catch(() => {
-                alert("Have Erro!");
-            })
-        } else {
-            window.location = "/viewOne/" + id;
-        }
-    }
-
 
     return (
         // <div className="display-box">
@@ -228,7 +210,7 @@ function ViewOne() {
                             }
 
                             } >Update</button>
-                            <Link class="link" to={"/deleteAgent/" + agentOne._id}
+                            <Link class="link" to={"/front-office-manager/deleteAgent/" + agentOne._id}
                                 style={{
 
                                     border: "1px solid rgb(124, 124, 124)",

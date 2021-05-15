@@ -17,7 +17,7 @@ function ViewBills() {
                    <div class="wrap">
                         <div class="search">
                             <input type="text" class="searchTerm" placeholder="Enter Customer Mail Here" onChange={(e) => { setMail(e.target.value); }} />
-                            <Link to={"/PaidBill/" + mail} class="searchButton">   <i class="fa fa-search"></i>   </Link><br></br>
+                            <Link to={"/front-office-manager/PaidBill/" + mail} class="searchButton">   <i class="fa fa-search"></i>   </Link><br></br>
                             {/* <button class="searchButton" onClick={Accept}> <i class="fa fa-search"></i> </button> */}
                         </div>
                

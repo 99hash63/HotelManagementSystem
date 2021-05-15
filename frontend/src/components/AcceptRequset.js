@@ -66,7 +66,6 @@ function AcceptBookingRequests() {
 
     function Accept(id) {
 
-
         const newBooking = {
             bookingId,
             fName,
@@ -97,15 +96,15 @@ function AcceptBookingRequests() {
         const result = window.confirm("Confirm?");
         if (result == true) {
 
-            axios.post(`http://localhost:5000/booking/update/${id}`, newBooking).then((res) => {
-                window.location = "/request";
+            axios.put(`http://localhost:5000/booking/ActiveCus/${id}`).then((res) => {
+                window.location = "/front-office-manager/request";
                 alert("Accepted Successful!");
 
             }).catch(() => {
                 alert("Have Erro!");
             })
         } else {
-            window.location = "/accept/" + id;
+            window.location = "/front-office-manager/accept/" + id;
         }
     }
 
@@ -119,13 +118,13 @@ function AcceptBookingRequests() {
         if (result == true) {
 
             axios.delete(`http://localhost:5000/booking/delete/${id}`).then(() => {
-                window.location = "/request";
+                window.location = "/front-office-manager/request";
                 alert("Decline Requset Success");
             }).catch((err) => {
                 alert(err);
             })
         } else {
-            window.location = "/accept/" + id;
+            window.location = "/front-office-manager/accept/" + id;
         }
     }
 
@@ -137,7 +136,7 @@ return (
          <div id="edit-title" className="header-box"> Accept Booking Requset
             
             <div>
-                    <button id="edit_btn" onClick={e => Accept(requsetOne._id)}>Accept</button>
+                    <button id="edit_btn" onClick={e => Accept(requsetOne.NIC)}>Accept</button>
                     <button  id="delete_btn" onClick={e => Delet(requsetOne._id)}>Delete</button>
                 </div>
 

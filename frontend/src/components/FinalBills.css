@@ -38,7 +38,7 @@
   border-radius: 12px;
   z-index: 40;
   padding: 0 20px 20px 20px;
-  height: 560px;
+  height: 660px;
   width: 500px;
   position: fixed;
   top: 50%;
@@ -50,7 +50,7 @@
   margin-left: 100px;
   margin-right: 100px;
   text-align: center;
-  margin-top: 80px;
+  margin-top: 70px;
   
 }
 .finalbill-content input{
@@ -80,7 +80,7 @@ transform: translate(15%, 0%);
   border-radius: 10px;
   padding: 5px;
   width: 90px;
-  margin-top: 100px;
+  margin-top: 110px;
   text-decoration: none;
   color: rgb(37, 37, 37);
  
@@ -132,8 +132,8 @@ font-size: 35px;
 .wrap{
   width: 30%;
   position: absolute;
-  top: 20%;
-  left: 39%;
+  top: 40%;
+  left: 37%;
   transform: translate(-50%, -50%);
 }
 
@@ -169,15 +169,15 @@ font-size: 35px;
 #btn1{
   background-color: #ffffff;
   border: none;
-  padding: 0px 0px;
+
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
    margin-top: 20px;
   cursor: pointer;
-  height: 45px;
-  width: 200px;
+  height: 55px;
+  width: 300px;
   color:blue;
 
 }

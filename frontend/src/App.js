@@ -26,32 +26,6 @@ function App() {
 
   return (
     <div>
-<<<<<<< HEAD
-      {/* <CusHeader></CusHeader>  */}
-      <Header />
-      <Body />
-      <Footer />
-     
-      <AuthContextProvider>
-        {active === "customer" && <CusHeader/>}
-        {active === "customer" && <CusBody/>}
-        {/* {active === "customer" &&  <LoginButtonHeader/>} */}
-        {active === "employee" && <Header />}
-        {active === "employee" && <Body />}
-      
-        <Footer />
-        <button onClick={()=>setActive("employee")} style={ 
-            {  position: "absolute", 
-               marginLeft: "1216px", 
-               marginTop: "221px",
-               backgroundColor: 'rgb(15, 15, 15)',
-               color: 'rgb(173, 173, 173)'
-            }
-            }>Click employee</button>
-      </AuthContextProvider>
-    </div>
-=======
->>>>>>> ManagerLogin
 
         <Router>
           <Switch>

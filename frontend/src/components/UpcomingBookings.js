@@ -66,7 +66,7 @@ function ViewBookingRequsets() {
                                 <td>{request.checkOutDate.substring(0, 10)}</td>
                                 <td>{request.noOfAdults}</td>
                                 <td>{request.noOfChildren}</td>
-                                <td><Link to={"/accept/" + request._id}><i class="far fa-edit"></i></Link></td>
+                                <td><Link to={"/front-office-manager/accept/" + request._id}><i class="far fa-edit"></i></Link></td>
                                 
                             </tr>
 
