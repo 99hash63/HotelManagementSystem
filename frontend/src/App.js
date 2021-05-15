@@ -20,13 +20,13 @@ function App() {
     <div>
      
       <AuthContextProvider>
-        {active === "customer" && <CusHeader/>}
+        {/* {active === "customer" && <CusHeader/>} */}
         {active === "customer" && <CusBody/>}
         {/* {active === "customer" &&  <LoginButtonHeader/>} */}
         {active === "employee" && <Header />}
         {active === "employee" && <Body />}
       
-        <Footer />
+        {/* <Footer /> */}
         <button onClick={()=>setActive("employee")} style={ 
             {  position: "absolute", 
                marginLeft: "1216px", 
