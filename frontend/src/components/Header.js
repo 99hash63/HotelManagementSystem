@@ -36,7 +36,7 @@ export default function Header() {
                                 <li><a className="b" href="/">Ayurvedha</a></li>
                                 <li><a className="b" href="/">Contact</a></li>
                                 <li><a className="b" href="/">About</a></li>*/}
-                                <li><Link  to="/managerLogin" className="book">Manager Login</Link></li> 
+                                <li><a  href="/managerLogin" className="book">Manager Login</a></li> 
 
 
                             </ul>
