@@ -261,7 +261,7 @@ router.route("/delete/:id").delete((req,res)=>{
 //find active customer  
 router.route("/findOne/:id").get((req,res)=>{
     var nic = req.params.id;
-    console.log(mail);
+    console.log(nic);
     
     Booking.find({NIC : nic, bookingState : "Active"}).then((cust)=>{
         res.json(cust);
