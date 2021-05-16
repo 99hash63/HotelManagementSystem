@@ -25,9 +25,11 @@ function ViewAll() {
 
     return (
         <div className="display-box">
-            <h1>All Employees</h1>
+           <div className="header-box"> All Employees 
+            
+            </div>
             <div className="content-box-list">
-            <table class="center">
+            <table>
                 <thead>
                     <tr>
                         <th>Employee ID</th>
@@ -38,18 +40,20 @@ function ViewAll() {
                         <th>Nic No</th>
                         <th>Address</th>
                         <th>Mobile No</th>
+                        <th>Bank</th>
+                        <th>Branch</th>
                         <th>Bank Account No</th>
                         <th>Email</th>
                         <th>Password</th>
                     </tr>
                 </thead>
+                <tbody>
+                {employee.map(function(employee){
 
-                {employee.map((employee) => (
+                  
 
-                    <div key={employee._id}>
-
-                        <tbody>
-                            <tr>
+                       
+                            return<tr>
                                 <td>{employee._id}</td>
                                 <td>{employee.fname}</td>
                                 <td>{employee.lname}</td>
@@ -58,15 +62,18 @@ function ViewAll() {
                                 <td>{employee.nic}</td>
                                 <td>{employee.address}</td>
                                 <td>{employee.mobileno}</td>
+                                <td>{employee.bank}</td>
+                                <td>{employee.bankbranch}</td>
                                 <td>{employee.bankaccountno}</td>
                                 <td>{employee.email}</td>
                                 <td>{employee.password}</td>
 
                                 <td><Link to={"/Viewoneemployee/"+employee._id}> <i class="far fa-edit"></i> </Link></td>
                             </tr>
-                        </tbody>
-                    </div>
-                ))}
+                       
+                    
+                })}
+                 </tbody>
             </table>
             </div>
         </div>

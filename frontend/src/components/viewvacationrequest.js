@@ -74,17 +74,19 @@ function ViewAll() {
                         <th>Propose</th>
                         <th>From</th>
                         <th>To</th>
+                        <th>Aprove</th>
+                        <th>Reject</th>
                         
 
                     </tr>
                 </thead>
+                <tbody>
+                {vacation.map(function(vacation){
 
-                {vacation.map((vacation) => (
+                    
 
-                    <div key={vacation._id}>
-
-                        <tbody>
-                            <tr>
+                       
+                            return<tr>
                                 <td>{vacation._id}</td>
                                 <td>{vacation.eemail}</td>
                                 <td>{vacation.propose}</td>
@@ -96,9 +98,10 @@ function ViewAll() {
                                 <td><Link to={"/#/"+vacation._id}> Approve </Link></td>
                                 <td><Link to={"/rejectvacation/"+vacation._id}> Reject </Link></td>
                             </tr>
-                        </tbody>
-                    </div>
-                ))}
+                        
+                   
+                })}
+                </tbody>
             </table>
             </div>
         </div>

@@ -2,8 +2,8 @@
 const router = require('express').Router();
 
 let Employee = require('../models/Employee');
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
+//const bcrypt = require('bcryptjs');
+//const jwt = require('jsonwebtoken');
 //const keys = require('../config/keys');
 
 
@@ -20,9 +20,13 @@ router.route("/addemployee").post((req,res)=>{
     const nic = req.body.nic;
     const address = req.body.address;
     const mobileno = req.body.mobileno;
+    const bank = req.body.bank;
+    const bankbranch = req.body.bankbranch;
     const bankaccountno = req.body.bankaccountno;
     const email = req.body.email;
     const password = req.body.password;
+
+ 
 
     const newEmployee =  new Employee({ 
         fname,
@@ -32,6 +36,8 @@ router.route("/addemployee").post((req,res)=>{
         nic,
         address,
         mobileno,
+        bank,
+        bankbranch,
         bankaccountno,
         email,
         password,
@@ -63,7 +69,7 @@ router.route("/addemployee").post((req,res)=>{
     router.route("/update/:id").put(async(req,res)=>{
         let employeeID = req.params.id;  //get unique user id from data base
 
-        const {fname,lname,eType,dob,nic,address,mobileno,bankaccountno,email,password} = req.body;  // get update details from frontend
+        const {fname,lname,eType,dob,nic,address,mobileno,bank,bankbranch,bankaccountno,email,password} = req.body;  // get update details from frontend
 
         const updateEmployee = {
             fname,
@@ -73,6 +79,8 @@ router.route("/addemployee").post((req,res)=>{
             nic,
             address,
             mobileno,
+            bank,
+            bankbranch,
             bankaccountno,
             email,
             password
@@ -119,50 +127,89 @@ router.route("/addemployee").post((req,res)=>{
 
     })
 
+//login
+router.post("/Emplogin", async (req, res) => {
+    try{
+        const { email, password } = req.body;
 
-
-    
-    
-    
-    //User Validated
-  /*  router.route("/login").post((req,res)=>{
-        const email = req.body.email;
-        const password = req.body.password;
-        
-
-        //Find user by email
-        Employee.findOne({email}).then(employee =>{
-            //Check for user
-            if(!employee){
-
-                return res.status(404).json({email:'User not found'});
+        //validation
+        if(!email || !password){
+            return res
+            .status(400)
+            .json({errorMessage: "Please enter all required fields!"});
             }
 
-            //Check password
-            bcrypt.compare(password, employee.password).then(isMatch => {
-                if (isMatch) {
-                  // User Matched
-                  const payload = { fname: employee.fname, lname: employee.lname, eType: employee.eType, dob: employee.dob,nic: employee.nic, address: employee.address, email: employee.email, password: employee.password }; // Create JWT Payload
-          
-                  // Sign Token
-                  jwt.sign(
-                    payload,
-                    keys.secret,
-                    { expiresIn: 3600 },
-                    (err, token) => {
-                      res.json({
-                        success: true,
-                        token: 'Bearer ' + token
-                      });
-                    }
-                  );
-                } else {
-                  errors.password = 'Password incorrect';
-                  return res.status(400).json(errors);
-                }
-              });
-            });
-          });*/
+        const existingEmployee = await Employee.findOne({email});
+        if(!existingEmployee)
+            return res.status(400).json({
+                errorMessage: "Wrong email or password!"
+            })
+
+        const passwordCorrect = await compare(password, existingEmployee.password);
+        if(!passwordCorrect)
+            return res.status(400).json({
+                errorMessage: "Wrong email or password!"
+            })
+
+        // sign the token
+        const token = jwt.sign(
+            {
+                EmployeeFname: existingEmployee.fname, 
+                EmployeeLname: existingEmployee.lname, 
+                EmployeeEtype: existingEmployee.eType,
+                Employeedob: existingEmployee.dob,
+                Employeenic: existingEmployee.nic,
+                Employeeaddress: existingEmployee.address,
+                Employeemobile: existingEmployee.mobileno,
+                Employeebank: existingEmployee.bank, 
+                Employeebankbranch: existingEmployee.bankbranch,
+                Employeebankaccountno: existingEmployee.bankaccountno,
+                Employeeemail: existingEmployee.email,
+                
+            },
+            process.env.JWT_SECRET
+        );
+       
+        // send the token in a HTTP-only cookie
+        res.cookie("token", token, {
+                httpOnly: true,
+            })
+            .send();    
+
+
+    } catch (err){
+        console.error(err);
+        res.status(500).send();
+    }
+});
+
+
+//logout
+router.get("/Emplogout", (req, res) => {
+    res.cookie("token", "", {
+        httpOnly: true,
+        expires: new Date(0)
+    })
+    .send();
+})
+
+//check wether the user is loggedIn
+router.get("/EmploggedIn", (req, res) => {
+    try{
+        const token = req.cookies.token;
+        if(!token) return res.json(false);
+
+        jwt.verify(token, process.env.JWT_SECRET);
+
+        res.send(true);
+    }catch(err){
+        res.json(false);
+    }
+})
+
+    
+    
+  
 
 
     module.exports= router;

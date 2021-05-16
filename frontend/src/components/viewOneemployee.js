@@ -15,6 +15,10 @@ function ViewOne() {
     const [dob, setDOB] = useState("");
     const [nic, setNIC] = useState("");
     const [address, setAddress] = useState("");
+    const [mobileno, setMobileno] = useState("");
+    const [bank, setBank] = useState("");
+    const [bankbranch, setBankbranch] = useState("");
+    const [bankaccountno, setBankaccountno] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
@@ -30,6 +34,10 @@ function ViewOne() {
             setDOB(res.data.dob);
             setNIC(res.data.nic);
             setAddress(res.data.address);
+            setMobileno(res.data.mobileno);
+            setBank(res.data.bank);
+            setBankbranch(res.data.bankbranch);
+            setBankaccountno(res.data.bankaccountno);
             setEmail(res.data.email);
             setPassword(res.data.password);
             // console.log("sucess");
@@ -54,6 +62,10 @@ function ViewOne() {
             dob,
             nic,
             address,
+            mobileno,
+            bank,
+            bankbranch,
+            bankaccountno,
             email,
             password
 
@@ -114,6 +126,34 @@ function ViewOne() {
                     setAddress(e.target.value);
                 }}required />
                 <span className="placeholder">Address</span>
+                </label><br></br>
+
+                <label className="custom-field">
+                <input type="text" className="form-input" defaultValue={employeeOne.mobileno} onChange={(e) => {
+                    setMobileno(e.target.value);
+                }}required />
+                <span className="placeholder">Mobile No</span>
+                </label><br></br>
+
+                <label className="custom-field">
+                <input type="text" className="form-input" defaultValue={employeeOne.bank} onChange={(e) => {
+                    setBank(e.target.value);
+                }}required />
+                <span className="placeholder">Bank</span>
+                </label><br></br>
+
+                <label className="custom-field">
+                <input type="text" className="form-input" defaultValue={employeeOne.bankbranch} onChange={(e) => {
+                    setBankbranch(e.target.value);
+                }}required />
+                <span className="placeholder">Branch</span>
+                </label><br></br>
+
+                <label className="custom-field">
+                <input type="text" className="form-input" defaultValue={employeeOne.bankaccountno} onChange={(e) => {
+                    setBankaccountno(e.target.value);
+                }}required />
+                <span className="placeholder">Account No</span>
                 </label><br></br>
 
                 <label className="custom-field">

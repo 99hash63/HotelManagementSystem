@@ -36,6 +36,17 @@ const employeeschema = new Schema({
         required: true
     
     },
+    bank: {
+        type: String,
+        required: true
+    
+    },
+
+    bankbranch: {
+        type: String,
+        required: true
+    
+    },
     bankaccountno: {
         type: String,
         required: true

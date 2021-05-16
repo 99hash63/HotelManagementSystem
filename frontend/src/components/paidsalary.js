@@ -86,13 +86,12 @@ function ViewAll() {
 
                     </tr>
                 </thead>
+                <tbody>
+                {salary.map(function(salary){
 
-                {salary.map((salary) => (
 
-                    <div key={salary._id}>
-
-                        <tbody>
-                            <tr>
+                       
+                           return <tr>
                                 <td>{salary._id}</td>
                                 <td>{salary.email}</td>
                                 <td>{salary.accountNo}</td>
@@ -105,9 +104,10 @@ function ViewAll() {
 
                                 <td><Link to={"/Viewonepayment/"+salary._id}> <i class="far fa-edit"></i> </Link></td>
                             </tr>
-                        </tbody>
-                    </div>
-                ))}
+                        
+                    
+                })}
+                </tbody>
             </table>
             </div>
         </div>

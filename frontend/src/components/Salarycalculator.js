@@ -38,15 +38,26 @@ function AddSalary() {
     }
     
     //calculate total salary function
-    function calsalary(){
-        var data1 = parseInt(document.getElementById("bsalary").value);
-        var data2 = parseInt(document.getElementById("otrate").value);
-        var data3 = parseInt(document.getElementById("othours").value);
-        var total = data1 + (data2 * data3);
+   // function calsalary(){
+       // var data1 = parseInt(document.getElementById("bsalary").value);
+       // var data2 = parseInt(document.getElementById("otrate").value);
+       // var data3 = parseInt(document.getElementById("othours").value);
+       // var total = data1 + (data2 * data3);
 
   
 
-        document.getElementById("totsalary").innerHTML = total;
+       // document.getElementById("totsalary").innerHTML = total;
+       // }
+
+        function sum() {
+            var txtFirstNo = document.getElementById('bsalary').value;
+            var txtSecondNo = document.getElementById('otrate').value;
+            var txtthirdNo = document.getElementById('othours').value;
+            
+            var result = parseInt(txtFirstNo) + parseInt(txtSecondNo) * parseInt(txtthirdNo);
+            if (!isNaN(result)) {
+                document.getElementById('totsalary').value = result;
+            }
         }
 
     return (
@@ -69,7 +80,7 @@ function AddSalary() {
                 </label><br></br>
 
                 <label className="custom-field">
-                <input type="number" id="bsalary" name="bsalary" className="form-input" onChange={(e) => {
+                <input type="number" id="bsalary" name="bsalary" className="form-input" onkeyup="sum()" onChange={(e) => {
                    setBasics(e.target.value);
                 }}required />
                 <span className="placeholder" >Basic Salary</span>
@@ -77,14 +88,14 @@ function AddSalary() {
                 <br></br>
 
                 <label className="custom-field">
-                <input type="number" id="otrate" name="otrate" className="form-input" onChange={(e) => {
+                <input type="number" id="otrate" name="otrate" className="form-input" onkeyup="sum()" onChange={(e) => {
                     setOtrate(e.target.value);
                 }}required />
                 <span className="placeholder" >Ot Rate</span>
                 </label><br></br>
 
                 <label className="custom-field">
-                <input type="number" id="othours" name="othours" className="form-input" onChange={(e) => {
+                <input type="number" id="othours" name="othours" className="form-input" onkeyup="sum()" onChange={(e) => {
                     setOthours(e.target.value);
                 }}required />
                 <span className="placeholder" >Ot Hours</span>
