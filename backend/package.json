@@ -10,22 +10,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-<<<<<<< HEAD
-    "bcrypt": "^5.0.1",
-    "body-parser": "^1.19.0",
-=======
     "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.5",
->>>>>>> af5d08b8e1e062f40f5d24f18275ddf63ad0bf5b
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
-<<<<<<< HEAD
-    "mongoose": "^5.12.9",
-=======
     "mongoose": "^5.11.18",
->>>>>>> af5d08b8e1e062f40f5d24f18275ddf63ad0bf5b
     "nodemon": "^2.0.7"
   }
 }

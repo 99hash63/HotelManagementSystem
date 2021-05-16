@@ -81,7 +81,15 @@ app.use("/FinalBill", finalBill);
 const mealOrderRout = require("./routes/MealOrder.js");
 app.use("/Meal_Order", mealOrderRout);
 
-<<<<<<< HEAD
+const roomRouter = require("./routes/rooms.js");
+
+app.use("/room",roomRouter);
+
+
+
+
+
+
 //Ramesh 
 const employeeRouter = require("./routes/Employees.js");
 app.use("/employee",employeeRouter);
@@ -91,11 +99,7 @@ app.use("/salary",salaryRouter);
 
 const vacationRouter = require("./routes/Vactionrequests.js");
 app.use("/vacation",vacationRouter);
-=======
-const roomRouter = require("./routes/rooms.js");
 
-app.use("/room",roomRouter);
->>>>>>> af5d08b8e1e062f40f5d24f18275ddf63ad0bf5b
 
 
 app.listen(PORT,()=>{

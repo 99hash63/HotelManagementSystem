@@ -16,6 +16,7 @@ const Suppliers = () => {
     const [suppliers, setsuppliers] = useState([])
 
     useEffect(() => {
+        //fetiching all supplier data from the database
         axios.get("http://localhost:5000/supplier/").then((res) => {
             if (res.data.length > 0) {
                 setsuppliers(res.data);
@@ -28,7 +29,7 @@ const Suppliers = () => {
 
 
 
-    function addSupplierPOP() {
+    function addSupplierPOP() { //to display and hiding ADD SUPPLIER component
         const x = document.getElementById("add-new-sup").style.display;
         if (x == "none") {
             document.getElementById('add-new-sup').style.display = "block";
@@ -38,10 +39,8 @@ const Suppliers = () => {
         }
     }
 
-    function updateData(sup, e) {
+    function updateData(sup, e) { //update supplier
         e.preventDefault();
-
-
         const newSupplier = {
             name, description, contact, email, location
         }
@@ -56,7 +55,7 @@ const Suppliers = () => {
 
     }
 
-    function deleteData(id, e) {
+    function deleteData(id, e) { //delete supplier
         e.preventDefault();
         axios.delete(`http://localhost:5000/supplier/delete/${id}`).then(() => {
             // window.location = "/inventory"
@@ -101,7 +100,7 @@ const Suppliers = () => {
                                     <td >{f.contact} </td>
                                     <td >{f.email} </td>
                                     <td >{f.location} </td>
-                                    <td > <Link to={"/supplierview/" + f._id} ><i class="far fa-edit"></i></Link></td>
+                                    <td > <Link to={"/inventory-manager/supplierview/" + f._id} ><i class="far fa-edit"></i></Link></td>
 
                                 </tr>
 

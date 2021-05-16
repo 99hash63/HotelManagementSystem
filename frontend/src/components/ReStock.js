@@ -10,6 +10,7 @@ const ReStock = () => {
 
 
     useEffect(() => {
+        //fecting all inventory data from the DB
         axios.get("http://localhost:5000/inventory/").then((res) => {
             if (res.data.length > 0) {
                 setinventory(res.data);
@@ -23,14 +24,17 @@ const ReStock = () => {
 
     function update(e, id, quantity) {
         e.preventDefault();
-
+        //adding the new stock quantity for the existing quantity
         const total = parseInt(quantity) + parseInt(newStock);
         const newStockvalue = { total };
-        axios.put(`http://localhost:5000/inventory/updatestock/${id}`, newStockvalue).then(() => {
+        if (newStock>0) {
+            axios.put(`http://localhost:5000/inventory/updatestock/${id}`, newStockvalue).then(() => {
 
         }).catch((e) => {
             alert("error");
         })
+        }
+        
     }
 
 
@@ -39,25 +43,25 @@ const ReStock = () => {
             <div className="header-box-sup">ReStock Now
             </div>
             <div className="supplier-list" >
-
+                {/* filtering inventory array to only contain object that is stock quantity in less than/ equal to resock level */}
                 {inventory.filter(stock => stock.quantity <= stock.restock_level).map(function (s) {
-                    return <div className="restock-box">
-                        <div className="restock-details">
-                            <li>{s.name}</li>
-                            <li>{s.model}</li>
-                        </div>
-
-                        <div className="leftstock">Remaining : {s.quantity} <br /> ReStock Level : {s.restock_level} </div>
-
-                        <div className="addstock-btn">
-                            <input min="1" type="number" onChange={(e) => {
-                                setnewStock(e.target.value)
-                            }} />
-                            <button onClick={(e) => update(e, s._id, s.quantity)} >Add</button>
-                        </div>
-
+                return <div className="restock-box">
+                    <div className="restock-details">
+                        <li>{s.name}</li>
+                        <li>{s.model}</li>
                     </div>
-                })}
+
+                    <div className="leftstock">Remaining : {s.quantity} <br /> ReStock Level : {s.restock_level} </div>
+
+                    <div className="addstock-btn">
+                        <input min="1" type="number" onChange={(e) => {
+                            setnewStock(e.target.value)
+                        }} />
+                        <button onClick={(e) => update(e, s._id, s.quantity)} >Add</button>
+                    </div>
+
+                </div>
+            })}
 
 
 
