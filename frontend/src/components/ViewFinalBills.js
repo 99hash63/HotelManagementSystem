@@ -5,6 +5,7 @@ import jspdf from 'jspdf'
 import "jspdf-autotable"
 import { useHistory } from "react-router-dom";
 import './FinalBills.css'
+import { Link } from 'react-router-dom';
 
 
 
@@ -82,7 +83,10 @@ function ViewFinalBill(){
 
             </div>
              <div className="content-box-list">
-             <input type="text" style={{marginTop:10, marginLeft:300,borderRadius:5,width:500, height:30,borderBlockColor:"blue",}} placeholder="Enter Customer Name or NIC number Here" onChange={e => { setsearch(e.target.value) }}/><br></br>
+             <div class="search">
+            <input type="text" class="searchTerm" placeholder="Enter Customer Mail Here"  style={{width:"500px", marginLeft:220}} placeholder="Enter Customer Name or NIC number Here" onChange={e => { setsearch(e.target.value) }}/><br></br>
+              <Link to={"/front-office-manager/ViewFinalBill"} class="searchButton">   <i class="fa fa-search"></i>   </Link><br></br>
+               </div>
                  <table style={{marginTop:10}} >
                     <thead>
                     <tr>

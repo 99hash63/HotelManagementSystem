@@ -272,6 +272,8 @@ router.route("/findOne/:id").get((req,res)=>{
     
 }) 
 
+
+
 //update upcoming costomer into active customer
 router.route("/ActiveCus/:id").put((req,res)=>{
     var nic = req.params.id;

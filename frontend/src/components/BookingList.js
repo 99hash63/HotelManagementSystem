@@ -5,11 +5,31 @@ import axios from 'axios';
 
 function BookingList(props) {
 
+    const [search, setsearch] = useState("");
+    const [filtered, setfiltered] = useState([]);
     const bookings = props.bookings;
+
+
+    useEffect(() => { //search funtion
+        setfiltered(
+          //filtering the inventory array to only contain objects that match with the seach term and save in the FILTERED useState 
+          bookings.filter(items => {
+            return items.fName.toLowerCase().includes(search.toLowerCase())
+              || items.NIC.toLowerCase().includes(search.toLowerCase())||
+              items.lName.toLowerCase().includes(search.toLowerCase())
+          })
+        )
+      }, [search, bookings])
+
+
     return (
         <div className="display-box">
             <div className="content-box-list">
-                <table >
+            <div class="search">
+            <input type="text" class="searchTerm" placeholder="Enter Customer Mail Here"  style={{width:"500px", marginLeft:240}} placeholder="Enter Customer Name or NIC number Here" onChange={e => { setsearch(e.target.value) }}/><br></br>
+              <Link to={"/front-office-manager"} class="searchButton">   <i class="fa fa-search"></i>   </Link><br></br>
+               </div>
+                <table style={{marginTop:10}} >
                 <thead>
                     <tr>
                         <th>Name</th>
@@ -32,7 +52,7 @@ function BookingList(props) {
                     </thead>
                     <tbody>
 
-                    {bookings.map(function (bookings) {
+                    {filtered.slice(0).reverse().map(function (bookings) {
                         return <tr>
                             {/* <td>{bookings.bookingId}</td> */}
                             <td>{bookings.fName} {bookings.lName}</td>

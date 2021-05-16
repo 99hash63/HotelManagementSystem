@@ -5,6 +5,7 @@ import BookingList from './BookingList';
 import { useHistory } from "react-router-dom";
 import jspdf from 'jspdf'
 import "jspdf-autotable"
+import './FinalBills.css'
 
 
 function ViewAllBookings() {

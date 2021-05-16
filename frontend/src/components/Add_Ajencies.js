@@ -38,7 +38,7 @@ function AddAgencies() {
 
     return (
         <div className="display-box">
-            <div className="header-box">Add Agentcie</div>
+            <div className="header-box">Add agency</div>
 
             <div className="content-box">
             <form>
@@ -46,7 +46,7 @@ function AddAgencies() {
             <label className="custom-field">
                 <input type="text" required id="contract_id" name="contract_id" onChange={(e) => {
                     setContract_id(e.target.value);
-                }} />
+                }} required/>
                 <span className="placeholder">Contract Id</span>
                 </label><br />
 
