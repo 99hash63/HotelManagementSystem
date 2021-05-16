@@ -8,20 +8,19 @@ function BookingList(props) {
     const bookings = props.bookings;
     return (
         <div className="display-box">
-                <div className="content-box-list">
-            <table id="items">
-                <tr>
-                       {/* <tr><th>bookingId</th> */}
-                        <th>First Name</th>
-                        <th>Last Name</th>
+            <div className="content-box-list">
+                <table >
+                <thead>
+                    <tr>
+                        <th>Name</th>
                         <th> Address</th>
                         <th>NIC</th>
                         <th>promoCode</th>
                         <th>travelAgent</th>
-                        <th>check In Date</th>
-                        <th>check Out Date</th>
-                        <th>No Of Adults</th>
-                        <th>No Of Children</th>
+                        <th>In Date</th>
+                        <th>Out Date</th>
+                        <th>Adults</th>
+                        <th>Children</th>
                         <th>Packege</th>
                         <th>Other Accomodations</th>
                         <th>nationality</th>
@@ -30,18 +29,19 @@ function BookingList(props) {
                         <th>Price</th>
 
                     </tr>
+                    </thead>
+                    <tbody>
 
-                {bookings.map(function(bookings){
-                    return <tr>
-                        {/* <td>{bookings.bookingId}</td> */}
-                            <td>{bookings.fName}</td>
-                            <td>{bookings.lName}</td>
+                    {bookings.map(function (bookings) {
+                        return <tr>
+                            {/* <td>{bookings.bookingId}</td> */}
+                            <td>{bookings.fName} {bookings.lName}</td>
                             <td>{bookings.address}</td>
                             <td>{bookings.NIC}</td>
                             <td>{bookings.promoCode}</td>
                             <td>{bookings.travelAgent}</td>
-                            <td>{bookings.checkInDate}</td>
-                            <td>{bookings.checkOutDate}</td>
+                            <td>{bookings.checkInDate.substring(0, 10)}</td>
+                            <td>{bookings.checkOutDate.substring(0, 10)}</td>
                             <td>{bookings.noOfAdults}</td>
                             <td>{bookings.noOfChildren}</td>
                             <td>{bookings.package}</td>
@@ -51,10 +51,11 @@ function BookingList(props) {
                             <td>{bookings.roomAllocation}</td>
                             <td>{bookings.price}</td>
                         </tr>
-                  
-                })}
-            </table>
-            <Link to={"/bookings"}>BACK</Link>
+
+                    })}
+                    </tbody>
+                </table>
+                <Link to={"/bookings"}>BACK</Link>
             </div>
         </div>
     )

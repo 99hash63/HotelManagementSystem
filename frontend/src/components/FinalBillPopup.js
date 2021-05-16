@@ -54,27 +54,36 @@ function Popup(){
 
     //Save Those details into final bills
     function saveFinalBill(e,mail){
-        console.log(mail);
-        e.preventDefault();
-    
-            const newBill = {
-                CusName,
-                NIC,
-                Allocationa_Amount,
-                Mail,
-                Meal_Order_Cost,
-                BarOrder_Cost,
-                Additional_Bill,
-                Final_Cost
-    
-            }
-    
-            axios.post("http://localhost:5000/FinalBill/AddBill", newBill).then(() => {
-                window.location = "/FinalBill"
-                alert("Final Bill Create Successfuly");
-            }).catch((err) => {
-                alert(err);
-            })
+
+        const result = window.confirm("Confirm Payment?");
+        if(result == true){
+            console.log(mail);
+            e.preventDefault();
+        
+                const newBill = {
+                    CusName,
+                    NIC,
+                    Allocationa_Amount,
+                    Mail,
+                    Meal_Order_Cost,
+                    BarOrder_Cost,
+                    Additional_Bill,
+                    Final_Cost
+        
+                }
+        
+                axios.post("http://localhost:5000/FinalBill/AddBill", newBill).then(() => {
+                    window.location = "/FinalBill"
+                    alert("Final Bill Create Successfuly");
+                }).catch((err) => {
+                    alert(err);
+                })
+
+        }else{
+            window.location="/FinalBill";
+            console.log(Mail);
+        }
+       
 
     }
 

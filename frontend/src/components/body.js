@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import AddInventory from './AddInventory';
 import InventoryList from './InventoryList';
 import './Header.css'
 import Sidenav from './sidenav';
 import FrontOfficeSideNav from './FronOfficeSideNav';
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import DisplayInventory from './DisplayInventory';
 import Suppliers from './Suppliers';
 import SuppliersView from './SupplierView';
@@ -17,18 +17,17 @@ import ActiveBookings from './ActiveBookings';
 import PassBookings from './PassBooking';
 import BookingReq from './UpcomingBookings';
 import Accept from './AcceptRequset';
-import Decline from './DeleteBookingRequest';
+// import Decline from './DeleteBookingRequest';
 import ReStock from './ReStock';
 import FinalBill from './FinalBill';
 import InventoryCheckout from './InventoryCheckout';
 import PaidBill from './FinalBillPopup';
+import AddBooking from './customer/AddBooking'
+import CusLogin from './customer/CusLogin'
+import CusReg from './customer/CusReg'
 
-import Booking from './booking';
 
 
-import CusSideNav from './cusSideNav';
-import Main from './main';
-import AddBooking from './AddBooking';
 
 
 import Addemployee from './Addemployee';
@@ -47,21 +46,20 @@ import minical from './Minisalarycalculator'
 
 
 export default function Body() {
+
+
+
     return (
 
         <Router>
 
-           
-
             <div className="content">
 
                 {/* <AddBooking/> */}
-                <Route path="/addbooking" exact component={AddBooking}/>
                 {/* <Main/> */}
-                {/* <Sidenav />8? }
-                {/* <FrontOfficeSideNav/> */}
-
-                {/* <CusSideNav/> */}
+                {/* <Sidenav /> */}
+                <FrontOfficeSideNav/>
+                
                 {/* <Login/>
                 <Route path="/frontOffice" exact component={FrontOfficeSideNav}/>
                 <Route path="/inventory" exact component={Sidenav}/> */}
@@ -123,14 +121,10 @@ export default function Body() {
 
 
                       {/* end FrontOffice Manager Rout */}
-                      
-                      
-                      {/* customer       */}
-                      <Route path="/up" exact component={Booking}/>
+            
+                </div>
 
-                {/* </div> */}
-
-            </div>
+            {/* </div> */}
         </Router>
     );
 }

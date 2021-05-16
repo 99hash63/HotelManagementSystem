@@ -4,13 +4,25 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const dotenv = require ('dotenv');
 const app = express();
+const cookieParser = require("cookie-parser");
 require("dotenv").config();
 
 const PORT = process.env.PORT || 5000;
 
-app.use(cors());
+app.use(cors({
+    origin: ["http://localhost:3000"],
+    credentials: true,
+}));
 app.use(bodyParser.json());
+
+app.get("/test", (req, res) => {
+    res.send("It works"); 
+});
+
+app.use(express.json());
+app.use(cookieParser());
  
+//connect to mongoDB
 const URL= process.env.MONGODB_URL;
 
 mongoose.connect(URL,{
@@ -65,14 +77,11 @@ app.use("/FinalBill", finalBill);
 
 
 
-
-
-
-
 //Anu Routes
 const mealOrderRout = require("./routes/MealOrder.js");
 app.use("/Meal_Order", mealOrderRout);
 
+<<<<<<< HEAD
 //Ramesh 
 const employeeRouter = require("./routes/Employees.js");
 app.use("/employee",employeeRouter);
@@ -82,6 +91,11 @@ app.use("/salary",salaryRouter);
 
 const vacationRouter = require("./routes/Vactionrequests.js");
 app.use("/vacation",vacationRouter);
+=======
+const roomRouter = require("./routes/rooms.js");
+
+app.use("/room",roomRouter);
+>>>>>>> af5d08b8e1e062f40f5d24f18275ddf63ad0bf5b
 
 
 app.listen(PORT,()=>{
