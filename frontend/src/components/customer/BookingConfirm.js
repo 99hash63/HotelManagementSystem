@@ -22,7 +22,7 @@ const BookingConfirm = (props) => {
             <li>Children: {props.noOfChildren}</li><br/>
             <li>Package: {props.cpackage}</li><br/>
             <li>Room Type: {props.roomAllocation}</li><br/>
-            <li>No Of Rooms: {props.noOfAdults}</li><br/>
+            <li>No Of Rooms: {props.otherAccomodations}</li><br/>
             <li>Total Price: {props.price}</li><br/>
             
         </ul>

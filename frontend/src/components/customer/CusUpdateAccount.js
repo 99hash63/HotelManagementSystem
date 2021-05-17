@@ -31,7 +31,7 @@ const UpdateAccount = () => {
         }
 
         axios.post(`http://localhost:5000/customer/update`, updateAccount).then(() => {
-            window.location = "/cusMyaccount"
+            window.location = "/CusSideNav/cusMyaccount"
         }).catch((e) => {
             alert("Cannot Update User");
         })
@@ -45,7 +45,7 @@ const UpdateAccount = () => {
         
         if (timesClicked > 1) {
             axios.delete(`http://localhost:5000/customer/delete`).then(() => {
-                window.location = "/cusLogout"
+                window.location = "/CusSideNav/cusLogout"
                 timesClicked=0
             }).catch((e) => {
                 alert("error");

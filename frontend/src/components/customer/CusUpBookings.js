@@ -43,7 +43,7 @@ export default function UpBookings() {
                             <th>Adults</th>
                             <th>Children</th>
                             <th>Package</th>
-                            <th>Other</th>
+                            {/* <th>Other</th> */}
                             <th>Rooms</th>
                             <th>Price</th>
                             <th>State</th>
@@ -64,7 +64,7 @@ export default function UpBookings() {
                                     <td >{f.noOfAdults} </td>
                                     <td >{f.noOfChildren} </td>
                                     <td >{f.package} </td>
-                                    <td >{f.otherAccomodations} </td>
+                                    {/* <td >{f.otherAccomodations} </td> */}
                                     <td >{f.roomAllocation} </td>
                                     <td >{f.price} </td>
                                     <td >{f.bookingState} </td>

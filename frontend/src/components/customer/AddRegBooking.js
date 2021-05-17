@@ -18,13 +18,143 @@ const AddRegBooking = ({setTestVal}) => {
     const [otherAccomodations, setOtherAccomodations] = useState("");
     const [roomAllocation, setRoomAllocation] = useState("");
     const [price, setPrice] = useState("");
+    var fin = 0;
 
+
+    // othe room type details for calculations
+    // const [capacity, setCapacity] = useState("");
+    // const [fullBoardPrice, setFullBoardPrice] = useState("");
+    // const [halfBoardPrice, setHalfBoardPrice] = useState("");
+    // const [bedAndBreakfastPrice, setBedAndBreakfastPrice] = useState("");
+    
+    
+    const [getRoooms, setgetRooms] = useState([]);
     //incomplete calculations for room allocations
     // const roomAllocation = "null";
 
     //incomplete calculations booking price
     // const price = 0;
+
+
+    //getting room types from the database
+    useEffect(() => {
  
+        axios.get("http://localhost:5000/roomType/get").then((res) => {
+            if (res.data.length > 0) {
+                setgetRooms(res.data.map(roomAllocation => roomAllocation.typeName))
+
+                // setgetRooms(res.data.map(capacity => capacity.capacity))
+                // setgetRooms(res.data.map(fullBoardPrice => fullBoardPrice.FullBoardPrice))
+                // setgetRooms(res.data.map(halfBoardPrice => halfBoardPrice.HalfBoardPrice))
+                // setgetRooms(res.data.map(bedAndBreakfastPrice => bedAndBreakfastPrice.BedAndBreakfastPrice))
+
+            }
+        }).catch((e) => {
+            // console.log(e);
+        })
+
+    }, [getRoooms])
+
+
+    //all room type details
+    // const [allRooms, setAllRooms] = useState([]);
+
+    // async function getAllRooms(){
+    //     const roomRes = await axios.get("http://localhost:5000/roomType/get");
+    //     setAllRooms(roomRes.data);
+        
+    // }
+
+    // useEffect(() => {
+    //     getAllRooms();
+    // }, []);
+
+
+    function calPrice(){
+
+        var rooms = noOfAdults ;
+        setOtherAccomodations(rooms);
+        if(roomAllocation === "Single Standard"){
+            switch (cpackage) {
+                case "Full Board":
+                     fin=1500 * rooms; setPrice(fin); 
+                  break;
+                case "Half Board":
+                     fin=1000 * rooms; setPrice(fin); 
+                  break;
+                case "Bed And Breakfast":
+                     fin=750 * rooms; setPrice(fin); 
+                  break;
+              }
+            
+        }
+        else if(roomAllocation === "Single Duluxe"){
+            switch (cpackage) {
+                case "Full Board":
+                     fin=2000 * rooms; setPrice(fin); 
+                  break;
+                case "Half Board":
+                     fin=1500 * rooms; setPrice(fin); 
+                  break;
+                case "Bed And Breakfast":
+                     fin=1250 * rooms; setPrice(fin); 
+                  break;
+              }
+        }
+        else if(roomAllocation === "Double Standard"){
+            switch (cpackage) {
+                case "Full Board":
+                     fin=2500 * rooms; setPrice(fin); 
+                  break;
+                case "Half Board":
+                     fin=2000 * rooms; setPrice(fin); 
+                  break;
+                case "Bed And Breakfast":
+                     fin=1750 * rooms; setPrice(fin); 
+                  break;
+              }
+        }
+        else if(roomAllocation === "Double Duluxe"){
+            switch (cpackage) {
+                case "Full Board":
+                     fin=3000 * rooms; setPrice(fin); 
+                  break;
+                case "Half Board":
+                     fin=2500 * rooms; setPrice(fin); 
+                  break;
+                case "Bed And Breakfast":
+                     fin=2250 * rooms; setPrice(fin); 
+                  break;
+              }
+        }
+        else if(roomAllocation === "Superior Standard"){
+            switch (cpackage) {
+                case "Full Board":
+                     fin=4000 * rooms; setPrice(fin); 
+                  break;
+                case "Half Board":
+                     fin=3500 * rooms; setPrice(fin); 
+                  break;
+                case "Bed And Breakfast":
+                     fin=3250 * rooms; setPrice(fin); 
+                  break;
+              }
+        }
+        else if(roomAllocation === "Superior Duluxe"){
+            switch (cpackage) {
+                case "Full Board":
+                     fin=5000 * rooms; setPrice(fin); 
+                  break;
+                case "Half Board":
+                     fin=4500 * rooms; setPrice(fin); 
+                  break;
+                case "Bed And Breakfast":
+                     fin=4250 * rooms; setPrice(fin); 
+                  break;
+              }
+        }
+    }
+
     function sendData(){
         
         const newBooking = {
@@ -154,11 +284,6 @@ const AddRegBooking = ({setTestVal}) => {
                         }} required />
                     </div>
 
-
-                                    
-                   
-
-
                     </div>
                 </div>
 
@@ -178,8 +303,6 @@ const AddRegBooking = ({setTestVal}) => {
                              setCheckOutDate(e.target.value);
                         }} required />
                     </div>
-                
-
 
                     </div>
                 </div>
@@ -192,21 +315,19 @@ const AddRegBooking = ({setTestVal}) => {
                     <div className="col-md-6 col-12 mx-auto my-2">
                         <input type="number" className="form-control-lg" id="nanoOfAdultsme" placeholder="Adults" onChange={(e) => {
                              setNoOfAdults(e.target.value);
+                             calPrice();
                         }} required />
                     </div>
 
                     <div className="col-md-6 col-12 mx-auto my-2">
                         <input type="number" className="form-control-lg" id="noOfChildren" placeholder="Children" onChange={(e) => {
                              setNoOfChildren(e.target.value);
+                             calPrice();
                         }} required />
                     </div>
 
-
-
                     </div>
                 </div>
-
-
 
                 <div className="form-group mb-5">
                     <div className="row">
@@ -215,17 +336,18 @@ const AddRegBooking = ({setTestVal}) => {
                     <div className="col-md-6 col-12 mx-auto my-2">
                     <select className="form-control-lg" name="cpackage" id="cpackage" onChange={(e) => {
                                     setPackage(e.target.value)
+                                    calPrice();
                                 }} >
+                                    <option >Select Package</option>
                                     <option value="Full Board">Full Board</option>
                                     <option value="Half Board">Half Board</option>
                                     <option value="Bed And Breakfast">Bed And Breakfast</option>
-                                    <option value="Bed And Tea">Bed And Tea</option>
                                     
                     </select>
                     </div>
 
                     <div className="col-md-6 col-12 mx-auto my-2">
-                    <select className="form-control-lg" name="roomType" id="roomType" onChange={(e) => {
+                    {/* <select className="form-control-lg" name="roomType" id="roomType" onChange={(e) => {
                                     setRoomAllocation(e.target.value); var fin=1000 * noOfAdults; setPrice(fin);
                                 }} >
                                     <option value="Single Standard">Single Standard</option>
@@ -235,10 +357,22 @@ const AddRegBooking = ({setTestVal}) => {
                                     <option value="Double Standard">Superior Standard</option>
                                     <option value="Double Duluxe">Superior Duluxe</option>
                                     
+                    </select> */}
+
+                    <select className="form-control-lg" name="roomType" id="roomType" onChange={(e) => { 
+                            setRoomAllocation(e.target.value); 
+                            calPrice();
+                    }}  >
+                             <option >Select Room Type</option>
+                            {
+                                getRoooms.map(function (roomAllocation) {
+                                return <option key={roomAllocation} value={roomAllocation}>{roomAllocation}</option>
+                                })
+                            }
                     </select>
+
                     </div>
 
-    
 
                     </div>
                 </div>
@@ -258,35 +392,28 @@ const AddRegBooking = ({setTestVal}) => {
 </div> 
 
 
-<BookingConfirm package={promoCode}
+                <BookingConfirm package={promoCode}
 
-promoCode = {promoCode}
-travelAgent = {travelAgent}
-checkInDate = {checkInDate}
-checkOutDate = {checkOutDate}
-noOfAdults = {noOfAdults}
-noOfChildren = {noOfChildren}
-cpackage = {cpackage}
-otherAccomodations = {otherAccomodations}
-roomAllocation ={roomAllocation}
-price = {price}
- 
+                promoCode = {promoCode}
+                travelAgent = {travelAgent}
+                checkInDate = {checkInDate}
+                checkOutDate = {checkOutDate}
+                noOfAdults = {noOfAdults}
+                noOfChildren = {noOfChildren}
+                cpackage = {cpackage}
+                otherAccomodations = {otherAccomodations}
+                roomAllocation ={roomAllocation}
+                price = {price}
+                
 
 
-/>
+                />
 
-</div>
+                </div>
 
-     
 
      )
-     
-     
-     
-    
-     
-     
-     
+
      ;
 }
 export default AddRegBooking;
