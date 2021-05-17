@@ -2,7 +2,17 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 
+// import Hero from '../components/customer/subComponents/Hero';
+import Banner from './subComponents/Banner';
+import Hero from './subComponents/Hero';
+import { Link } from 'react-router-dom';
+
+
+
+
 const AddBooking = () => {
+
+    
 
     const [fName, setFname] = useState("");
     const [lName, setLname] = useState("");
@@ -60,8 +70,19 @@ const AddBooking = () => {
 
     return ( 
 
+
+        
+
         <div>
-    
+
+        {/* <Hero hero="defaultHero">
+            </Hero>
+                 <Banner title="Luxurious Rooms" subtitle="deluxe rooms starting at 300$">
+                <Link to="/rooms" className="btn btn-primary">
+                      Our Rooms
+                </Link>
+        </Banner>
+     */}
             <form onSubmit={sendData} style={{display: "block", textAlign: "center"}}>
                 <div className="">
 

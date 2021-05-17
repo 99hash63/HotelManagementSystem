@@ -1,5 +1,6 @@
 import './CusBody.css'
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
+import { Redirect } from 'react-router'
 
 // import Booking from './booking';
 import CusSideNav from './CusSideNav';
@@ -17,6 +18,8 @@ import DisplayUpcoming from './DisplayUpcoming';
 import AddRegBooking from './AddRegBooking';
 import DisplayPast from './DisplayPast';
 import MyLoyalty from './MyLoyalty';
+import MyDetails from './MyDetails';
+import BookingConfirm from './BookingConfirm'
 // import { BrowserRouter as Router, Route, Switch, Link, Redirect } from 'react-router-dom'
 
 
@@ -41,18 +44,15 @@ import {RoomProvider} from '../../context';
 export default function Body() {
 
     const { loggedIn } = useContext(AuthContext);
+    // const [testVal, setTestVal] = useState('hi');
 
     return (
 
         // <Router>
-
             <div >
-
-
-{/* 
                 {
-                    loggedIn === true && <CusSideNav/>
-                } */}
+                    loggedIn === true && <MyDetails/>
+                }
                 
 
                 {/* <AddBooking/> */}
@@ -60,26 +60,6 @@ export default function Body() {
                       
                       {/* customer Routes       */}
                       {/* <Route path="/up" exact component={Booking}/> */}
-
-
-                      {/* <Route exact path="/" component={Main}/>
-                      <Route exact path="/CusSideNav" component={CusSideNav}/>
-                      <Route path="/addbooking" exact component={AddBooking}/>
-                      <Route path="/cusUpBookings" exact component={CusUpBookings}/>
-                      <Route path="/cusPastBookings" exact component={CusPastBookings}/>
-                      <Route path="/cusMyaccount" exact component={CusMyaccount}/>
-                      <Route path="/cusLogin" exact component={CusLogin}/>
-                      <Route path="/cusReg" exact component={CusReg}/>
-                      <Route path="/cusLogout" exact component={cusLogout}/>
-                      <Route path="/displayUpcoming/:id" exact component={DisplayUpcoming}/>
-                      <Route path="/cusUpdateAccount" exact component={CusUpdateAccount}/>
-                      <Route path="/addRegBooking" exact component={AddRegBooking}/>
-                      <Route path="/displayPast/:id" exact component={DisplayPast}/>
-                      <Route path="/myLoyalty" exact component={MyLoyalty}/>
-                       */}
-
-
-
 
                 <RoomProvider>
                     <BrowserRouter>
@@ -91,8 +71,27 @@ export default function Body() {
                         <Route exact path="/rooms/" component={Rooms}/>
                         <Route exact path="/rooms/:slug" component={SingleRoom} />
                         <Route exact path="/booknow/:slug" component={Booknow} />
-                        <Route component={Error}/>
+
+
+                        {/* <Route exact path="/" component={Main}/> */}
+                  
+                        <Route path="/addbooking"  exact component={AddBooking}/>
+                        <Route  path="/cusLogin"  component={CusLogin}/>
+                        <Route path="/cusReg" exact component={CusReg}/>
+
+                        {/* <Route component={Error}/> */}
                         </Switch>
+                        <Route   path="/CusSideNav"  component={CusSideNav}/>
+                        <Route  path="/CusSideNav/cusUpBookings" exact component={CusUpBookings}/>
+                        <Route  path="/CusSideNav/cusPastBookings" component={CusPastBookings}/>
+                        <Route  path="/CusSideNav/cusMyaccount" component={CusMyaccount}/>
+                        <Route  path="/CusSideNav/cusLogout" component={cusLogout}/>
+                        <Route  path="/CusSideNav/displayUpcoming/:id" component={DisplayUpcoming}/>
+                        <Route  path="/CusSideNav/cusUpdateAccount" component={CusUpdateAccount}/>
+                        <Route  path="/CusSideNav/addRegBooking" component={AddRegBooking}/>
+                        <Route  path="/CusSideNav/displayPast/:id" component={DisplayPast}/>
+                        <Route  path="/CusSideNav/myLoyalty" component={MyLoyalty}/>
+                        {/* <Route  path="/CusSideNav/addRegBooking/confirm" component={BookingConfirm}/> */}
                         <Footer/>
                     </BrowserRouter>
                 </RoomProvider>

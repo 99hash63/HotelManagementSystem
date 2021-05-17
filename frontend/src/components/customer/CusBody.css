@@ -174,14 +174,14 @@ box-shadow: inset 0 -1px 0 #ddd;
 .defaultHero,
 .roomsHero {
   min-height: calc(100vh - 0px);
-  background: url("../../images/defaultBcg.jpg") center/cover no-repeat;
+  background: url("../../images/main.jpg") center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
 }
 .roomsHero {
-  background-image: url("../../images/room-2.jpg");
+  background-image: url("../../images/roomsBack.jpg");
   min-height: calc(100vh - 0px);
 }
 .singleRoom {
@@ -529,5 +529,12 @@ box-shadow: inset 0 -1px 0 #ddd;
 .connect{
   font-size: 44px!important;
   padding: 5px 8px;
+}
+
+.myDetails{
+  position: absolute;
+  z-index: 20 !important;
+  top: 10px;
+  left: 10px;
 }
 /* end of about us */

@@ -1,0 +1,46 @@
+
+.myAccount{
+    position: absolute;
+    border-radius: 10px;
+    top: 60px;
+    /* height: 600px; */
+    left: 700px;
+    transform: translate(-50%, -50%);
+    background: rgb(248, 248, 248);
+    width: 1000px;
+    height: 100%;
+    z-index: 22 !important;
+}
+
+.myAccount button {
+    background-color: #b1c6e2;
+    color: rgb(17, 0, 255);
+    padding: 8px 10px;
+    margin: 15px 0;
+    border: none;
+    cursor: pointer;
+    width: 300px;
+  }
+
+  .myAccountUpdate{
+    position: absolute;
+    border-radius: 10px;
+    top: 320px;
+    /* height: 600px; */
+    left: 850px;
+    transform: translate(-50%, -50%);
+    background: rgb(248, 248, 248);
+    width: 1000px;
+    height: 100%;
+    z-index: 22 !important;
+}
+
+.myAccountUpdate button {
+    background-color: #b1c6e2;
+    color: rgb(17, 0, 255);
+    padding: 8px 10px;
+    margin: 15px 0;
+    border: none;
+    cursor: pointer;
+    width: 300px;
+  }

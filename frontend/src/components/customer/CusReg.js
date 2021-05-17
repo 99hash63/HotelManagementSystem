@@ -18,10 +18,10 @@ const Register = () => {
     const [passwordVerify, setPasswordVerify] = useState("");
 
     //temporary null values
-    const address = "null";
-    const NIC = "null";
-    const nationality = "null";
-    const passportNo = "null";
+    const address = "null2";
+    const NIC = "null2";
+    const nationality = "null2";
+    const passportNo = "null2";
     
 
 

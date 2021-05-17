@@ -1,19 +1,20 @@
 import React from 'react';
 // import '../sidenav.css'
 import { Link } from 'react-router-dom'
+import './CusSideNav.css'
 
 export default function Sidenav() {
     return (
      
-            <div className="sidenav">
+            <div className="cussidenav">
                 
-                <Link to="/addRegBooking">Add New Booking</Link>
-                <Link to="/cusUpBookings">Upcoming Bookings</Link>
-                <Link to="/cusPastBookings">Booking History</Link>
-                <Link to="/cusMyaccount">My Account</Link>
+                <Link to="/CusSideNav/addRegBooking">Add New Booking</Link>
+                <Link to="/CusSideNav/cusUpBookings">Upcoming Bookings</Link>
+                <Link to="/CusSideNav/cusPastBookings">Booking History</Link>
+                <Link to="/CusSideNav/cusMyaccount">My Account</Link>
                 {/* <Link to="/">Loyalty Memberships</Link> */}
-                <Link to="/myLoyalty">My Loyalty</Link>
-                <Link to="/cusLogout">Log Out</Link>
+                <Link to="/CusSideNav/myLoyalty">My Loyalty</Link>
+                <Link to="/CusSideNav/cusLogout">Log Out</Link>
             </div>
       
 

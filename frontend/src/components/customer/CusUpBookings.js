@@ -3,6 +3,8 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 import jspdf from 'jspdf'
 import "jspdf-autotable"
+import './CusSideComponents.css'
+
 
 
 export default function UpBookings() {
@@ -18,7 +20,8 @@ export default function UpBookings() {
     }, []);
 
     return (
-        <div className="display-box" style={{background: "#ffffff",borderRadius: "20px"}}>
+        <div className="cusSideComp" >
+        {/* <div className="display-box" style={{background: "#ffffff",borderRadius: "20px"}}> */}
             <div className="header-box">
                 {/* <div>Inventory<button id="generate-reportt-btn" onClick={() => generatePDF(inventory)}>Create Report</button></div> */}
 
@@ -65,7 +68,7 @@ export default function UpBookings() {
                                     <td >{f.roomAllocation} </td>
                                     <td >{f.price} </td>
                                     <td >{f.bookingState} </td>
-                                    <td > <Link to={"/displayUpcoming/" + f._id} ><i class="far fa-edit"></i></Link></td>
+                                    <td > <Link to={"/CusSideNav/displayUpcoming/" + f._id} ><i class="far fa-edit"></i></Link></td>
 
                                 </tr>
 
