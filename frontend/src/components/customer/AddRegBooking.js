@@ -25,6 +25,10 @@ const AddRegBooking = ({setTestVal}) => {
     const [price, setPrice] = useState("");
     var fin = 0;
 
+    const [inDateErr, setInDateErr] = useState({});
+    const [outDateErr, setOutDateErr] = useState({});
+    const [daysErr, setDaysErr] = useState({});
+
 
     // othe room type details for calculations
     // const [capacity, setCapacity] = useState("");
@@ -160,32 +164,67 @@ const AddRegBooking = ({setTestVal}) => {
         }
     }
 
-    function calculateDaysLeft(checkInDate, checkOutDate) {
-        if (!moment.isMoment(checkInDate)) checkInDate = moment(checkInDate);
-        if (!moment.isMoment(checkOutDate)) checkOutDate = moment(checkOutDate);
-        alert (checkOutDate.diff(checkInDate));
+    //calculating date gap for checkIn and Checkout dates
+    // function calculateDaysLeft(checkInDate, checkOutDate) {
+    //     if (!moment.isMoment(checkInDate)) checkInDate = moment(checkInDate);
+    //     if (!moment.isMoment(checkOutDate)) checkOutDate = moment(checkOutDate);
+    //     alert (checkOutDate.diff(checkInDate));
+    // }
+
+    //validations for date fields
+    const formValidation = () =>{
+        const inDateErr = {}
+        const outDateErr = {}
+        const daysErr = {}
+       
+        let isValid = true;
+        
+
+        if(!moment.isMoment(checkInDate)){
+            inDateErr.invalidCheckIn = "Invalid CheckIn Date"
+            isValid = false;
+        }
+
+        if(!moment.isMoment(checkOutDate)){
+            outDateErr.invalidCheckout = "Invalid Checkout Date"
+            isValid = false;
+        }
+
+        // if(checkOutDate.diff(checkInDate)){
+            
+        // }
+
+        setInDateErr(inDateErr);
+        setOutDateErr(outDateErr);
+        return isValid;
+
     }
 
-    function sendData(){
-        
-        const newBooking = {
-            promoCode,
-            travelAgent, 
-            checkInDate, 
-            checkOutDate, 
-            noOfAdults,
-            noOfChildren,
-            cpackage,
-            otherAccomodations, 
-            roomAllocation,
-            price,
-       }
 
-       axios.post("http://localhost:5000/booking/addR", newBooking).then(()=>{
-           alert("Booking Added")
-       }).catch((err)=>{
-           alert("Error with adding Booking")
-       })
+    function sendData(){
+
+        const isValid = formValidation();
+        
+       
+            const newBooking = {
+                promoCode,
+                travelAgent, 
+                checkInDate, 
+                checkOutDate, 
+                noOfAdults,
+                noOfChildren,
+                cpackage,
+                otherAccomodations, 
+                roomAllocation,
+                price,
+            }
+
+            axios.post("http://localhost:5000/booking/addR", newBooking).then(()=>{
+                alert("Booking Added")
+            }).catch((err)=>{
+                alert("Error with adding Booking")
+            })
+         
     }
 
 
@@ -226,12 +265,18 @@ const AddRegBooking = ({setTestVal}) => {
                                             <input type="date" className="form-control-lg" id="checkInDate" placeholder="checkInDate" onChange={(e) => {
                                                 setCheckInDate(e.target.value);
                                             }} required />
+                                            {/* {Object.keys(inDateErr).map((key)=>{
+                                                return <div style={{color: "red"}}>{inDateErr[key]}</div>
+                                            })} */}
                                         </div>
                         
                                         <div className="col-md-6 col-12 mx-auto my-2">
                                             <input type="date" className="form-control-lg" id="checkOutDate" placeholder="checkOutDate" onChange={(e) => {
                                                 setCheckOutDate(e.target.value);
                                             }} required />
+                                            {/* {Object.keys(outDateErr).map((key)=>{
+                                                return <div style={{color: "red"}}>{outDateErr[key]}</div>
+                                            })} */}
                                         </div>
                                     </div>
                                 </div>
@@ -321,129 +366,3 @@ export default AddRegBooking;
 
 
 
-
-
-   // <div className="cusSideComp" >
-            
-        //                 <form onSubmit={sendData} >
-        //         <div>
-
-        //             {/* <label >
-        //                 <input type="text" className="form-input" id="promoCode" onChange={(e) => {
-        //                      setPromoCode(e.target.value);
-        //                 }} required/>
-        //                 <span className="placeholder">promoCode</span>
-        //             </label> */}
-                    
-        //             {/* <label >
-        //                 <input type="text" className="form-input" id="travelAgent" onChange={(e) => {
-        //                      setTravelAgent(e.target.value);
-        //                 }} required />
-        //                 <span className="placeholder">travelAgent</span>
-        //             </label>
-        //             <br /> */}
-
-        //             {/* <label >
-        //                 <input type="date" className="form-input" id="checkInDate" onChange={(e) => {
-        //                      setCheckInDate(e.target.value);
-        //                 }} required />
-        //                 <span className="placeholder">checkInDate</span>
-        //             </label>
-        //             <br /> */}
-
-        //             {/* <label >
-        //                 <input type="date" className="form-input" id="checkOutDate" onChange={(e) => {
-        //                      setCheckOutDate(e.target.value);
-        //                 }} />
-        //                 <span className="placeholder">checkOutDate</span>
-        //             </label>
-        //             <br /> */}
-
-        //             {/* <label >
-        //                 <input type="number" className="form-input" id="nanoOfAdultsme" onChange={(e) => {
-        //                      setNoOfAdults(e.target.value);
-        //                 }} required />
-        //                 <span className="placeholder">noOfAdults</span>
-        //             </label>
-        //             <br /> */}
-
-        //             {/* <label >
-        //                 <input type="number" className="form-input" id="noOfChildren" onChange={(e) => {
-        //                      setNoOfChildren(e.target.value);
-        //                 }} required />
-        //                 <span className="placeholder">noOfChildren</span>
-        //             </label>
-        //             <br /> */}
-        //              {/* <label >
-        //                         <select name="cpackage" id="cpackage" onChange={(e) => {
-        //                             setPackage(e.target.value)
-        //                         }} >
-        //                             <option value="Full Board">Full Board</option>
-        //                             <option value="Half Board">Half Board</option>
-        //                             <option value="Bed And Breakfast">Bed And Breakfast</option>
-        //                             <option value="Bed And Tea">Bed And Tea</option>
-                                    
-        //                         </select>
-        //                     <span className="placeholder">package</span>
-        //             </label>
-        //             <br /> */}
-
-
-
-                   
-        //             <div >
-        //                 <button >Create Booking</button>
-        //             </div> 
-        //             <br/>
-                    
-        //         </div>
-        //     </form>
-        // </div>
-           {/* <select className="form-control-lg" name="roomType" id="roomType" onChange={(e) => {
-                                    setRoomAllocation(e.target.value); var fin=1000 * noOfAdults; setPrice(fin);
-                                }} >
-                                    <option value="Single Standard">Single Standard</option>
-                                    <option value="Single Duluxe">Single Duluxe</option>
-                                    <option value="Double Standard">Double Standard</option>
-                                    <option value="Double Duluxe">Double Duluxe</option>
-                                    <option value="Double Standard">Superior Standard</option>
-                                    <option value="Double Duluxe">Superior Duluxe</option>
-                                    
-                    </select> */}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- {/* <label className="custom-field">
-                        <input type="text" className="form-input" id="otherAccomodations" onChange={(e) => {
-                             setOtherAccomodations(e.target.value);
-                        }} required />
-                        <span className="placeholder">otherAccomodations</span>
-                    </label>
-                    <br /> */}
-
-                    {/* <label className="custom-field">
-                        <input type="text" className="form-input" id="roomAllocation" onChange={(e) => {
-                             setRoomAllocation(e.target.value);
-                        }} required />
-                        <span className="placeholder">roomAllocation</span>
-                    </label>
-                    <br />
-
-                    <label className="custom-field">
-                        <input type="number" className="form-input" id="price" onChange={(e) => {
-                             setPrice(e.target.value);
-                        }} required />
-                        <span className="placeholder">price</span>
-                    </label> */}
-                
