@@ -2,12 +2,12 @@
 .myAccount{
     position: absolute;
     border-radius: 10px;
-    top: 60px;
+    top: 300px;
     /* height: 600px; */
-    left: 700px;
+    left: 575px;
     transform: translate(-50%, -50%);
-    background: rgb(248, 248, 248);
-    width: 1000px;
+    /* background: rgb(248, 248, 248); */
+    width: 1150px;
     height: 100%;
     z-index: 22 !important;
 }
@@ -25,13 +25,14 @@
   .myAccountUpdate{
     position: absolute;
     border-radius: 10px;
-    top: 320px;
+   bottom: 420px;
     /* height: 600px; */
-    left: 850px;
+    left: 980px;
     transform: translate(-50%, -50%);
-    background: rgb(248, 248, 248);
-    width: 1000px;
-    height: 100%;
+    /* background: rgb(248, 248, 248); */
+    background: rgb(255, 255, 255);
+    width: 1150px;
+    height: 600px;
     z-index: 22 !important;
 }
 

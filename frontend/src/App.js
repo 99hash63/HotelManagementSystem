@@ -11,6 +11,7 @@ import roomComp from './components/bodyComponents/roomComp'
 import employeeManager from './components/bodyComponents/employeeManagerComp';
 import Page404 from './components/404';
 import { AuthContextProvider } from './context/AuthContext';
+import loadCus from './loadCustomer'
 
 
 import DisplayInventory from './components/DisplayInventory';
@@ -40,13 +41,9 @@ function App() {
             <Route  path="/bar-manager" component={barComp} />
             <Route  path="/room-manager" component={roomComp} />
             <Route  path="/hall-manager" component={hallComp} />
-
             <Route exact path="/404" component={Page404} />
 
-            <AuthContextProvider >
-            <Route path="/" component={CusBody} />
-            </AuthContextProvider>
-
+            <Route exact path="/" component={loadCus} />
             <Redirect to="/404" />
          
           </Switch>

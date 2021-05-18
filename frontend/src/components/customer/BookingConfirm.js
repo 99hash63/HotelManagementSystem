@@ -13,7 +13,7 @@ const BookingConfirm = (props) => {
         doc.addFont('Symbol', 'normal')
 
         doc.text(260, 40, 'Hotel Sobana', {fontSize: 16 })
-        doc.text(60, 80, 'Room reservation bill invoice')
+        doc.text(60, 80, 'Room Reservation Bill Invoice - (Booking Not Confirmed)')
 
         doc.text(60, 120, 'Promo Code: '+dataSet.promoCode)
         doc.text(60, 150, 'Travel Agent: '+dataSet.travelAgent)
@@ -56,7 +56,7 @@ const BookingConfirm = (props) => {
                 <li>No Of Rooms: {props.otherAccomodations}</li><br/>
                 <li>Total Price: {props.price}</li><br/> 
             </ul>
-            <button style={{left: "50%"}} onClick={() => generatePDF(props)}>Generate Bill</button>
+            <button className="BookConbutton" style={{marginLeft: "120px"}} onClick={() => generatePDF(props)}><span>Generate Bill</span></button>
         </div>
         
      );

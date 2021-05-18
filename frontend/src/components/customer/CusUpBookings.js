@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 import jspdf from 'jspdf'
 import "jspdf-autotable"
 import './CusSideComponents.css'
+import Hero from './subComponents/Hero'
+import PageBottom from './PageBottom';
 
 
 
@@ -20,6 +22,12 @@ export default function UpBookings() {
     }, []);
 
     return (
+        <div>
+        <div>
+             <Hero hero="behindHero">
+        </Hero>
+
+        
         <div className="cusSideComp" >
         {/* <div className="display-box" style={{background: "#ffffff",borderRadius: "20px"}}> */}
             <div className="header-box">
@@ -78,5 +86,9 @@ export default function UpBookings() {
                 </table>
             </div>
         </div >
+        </div>
+
+<PageBottom/>
+</div>
     )
 }

@@ -6,7 +6,7 @@ const MyDeatails = () => {
         <div className="myDetails">  
             {/* <Link to="/CusSideNav" className="btn btn-primary">MY DETAILS</Link> */}
            
-            <button  className="btn btn-block btn-outline-primary" onClick={event =>  window.location.href='/CusSideNav'}>MY DETAILS</button>
+            <button  className="btn btn-block btn-outline-primary" onClick={event =>  window.location.href='/CusSideNav/cusUpBookings'}>MY DETAILS</button>
 
         </div>
      );
