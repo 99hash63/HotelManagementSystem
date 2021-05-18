@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import defaultBcg from '../../../images/room-3.jpeg';
+import defaultBcg from '../../../images/single duluxe.jpg';
 
 const StyledHero = styled.header`
  min-height: 100vh;

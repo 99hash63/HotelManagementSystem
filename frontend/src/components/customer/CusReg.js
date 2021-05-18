@@ -20,10 +20,10 @@ const Register = () => {
     const [passwordVerify, setPasswordVerify] = useState("");
 
     //temporary null values
-    const address = "null2";
-    const NIC = "null2";
-    const nationality = "null2";
-    const passportNo = "null2";
+    const address = "Colombo";
+    const NIC = "3309563v";
+    const nationality = "Srilankan";
+    const passportNo = "770097N";
     
 
 
@@ -53,7 +53,7 @@ const Register = () => {
             history.push("/");
 
         } catch (err) {
-            alert("Error with register");
+            alert("Email Address already exists!");
         }
     }
 

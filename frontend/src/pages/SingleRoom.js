@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import defaultBcg from '../images/room-3.jpeg';
+import defaultBcg from '../images/single duluxe.jpg';
 import Banner from '../components/customer/subComponents/Banner';
 import { Link } from 'react-router-dom';
 import { RoomContext } from '../context';
@@ -86,7 +86,7 @@ export default class SingleRoom extends Component {
                 <div className="p-4 clearfix">
                     <div className="row">
                        <div className="col-md-3 col-12 ml-auto">
-                          <Link to={`/booknow/${this.state.slug}`} className="btn btn-outline-primary btn-block btn-lg float-right ">Book Now</Link>
+                          <Link to={`/booknow/${this.state.slug}`} className="btn btn-outline-primary btn-block btn-lg float-right ">Check Prices</Link>
                        </div>
                     </div>
                 </div>
