@@ -8,6 +8,7 @@ import frontOfficeComp from './components/bodyComponents/frontOfficeComp'
 import inventoryComp from './components/bodyComponents/inventoryComp'
 import Page404 from './components/404';
 import { AuthContextProvider } from './context/AuthContext';
+import loadCus from './loadCustomer'
 
 
 import DisplayInventory from './components/DisplayInventory';
@@ -34,10 +35,8 @@ function App() {
             <Route  path="/inventory-manager" component={inventoryComp} />
             <Route exact path="/404" component={Page404} />
 
-          
-            <AuthContextProvider >
-            <Route path="/" component={CusBody} />
-            </AuthContextProvider>
+            <Route path="/" component={loadCus} />
+            
 
             <Redirect to="/404" />
          
