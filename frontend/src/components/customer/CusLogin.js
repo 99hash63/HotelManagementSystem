@@ -79,7 +79,7 @@ const Login = () => {
                 </div>
 
                 <div className="container" style={{backgroundColor : "#f1f1f1"}}>
-                    <button type="button" className="cancelbtn">Cancel</button>
+                    <button type="button" className="cancelbtn" onClick={event =>  window.location.href='/'}>Cancel</button>
                     {/* <span className="reg">Dont have an account? <a href="#">Sign up</a></span> */}
                 </div>
                 </form>
