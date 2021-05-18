@@ -4,6 +4,7 @@ import InventoryList from './InventoryList';
 import './Header.css'
 import Sidenav from './sidenav';
 import FrontOfficeSideNav from './FronOfficeSideNav';
+import RoomSidebar from './RoomSidebar';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import DisplayInventory from './DisplayInventory';
 import Suppliers from './Suppliers';
@@ -31,6 +32,13 @@ import Main from './customer/Main';
 import AddBooking from './customer/AddBooking';
 import CusLogin from './customer/CusLogin';
 import CusReg from './customer/CusReg'
+import AddRoom from './AddRoom';
+//import ViewRoom from './ViewRooms';
+import RoomType from './RoomType';
+import RoomTypeView from './RoomTypeView';
+import UpdateAndDeleteRoom from './UpdateAndDeleteRoom';
+
+import ViewRoom from './ViewRooms';
 
 
 
@@ -48,14 +56,16 @@ export default function Body() {
                 {/* <Main/> */}
                 {/* <Sidenav /> */}
                 {/* <FrontOfficeSideNav/> */}
+                <RoomSidebar/>
+                
 
-                <CusSideNav/>
+                {/* <CusSideNav/> */}
                 {/* <Login/>
                 <Route path="/frontOffice" exact component={FrontOfficeSideNav}/>
                 <Route path="/inventory" exact component={Sidenav}/> */}
                 
 
-                {/* <div className="block"> */}
+                <div className="block">
                 
                
 
@@ -104,7 +114,22 @@ export default function Body() {
                       <Route path="/cusLogin" exact component={CusLogin}/>
                       <Route path="/cusReg" exact component={CusReg}/>
 
-                {/* </div> */}
+
+
+                      {/* Room Management */}
+                      <Route path="/rooms" exact component={ViewRoom}/>
+                      <Route path="/addroom" exact component={AddRoom}/>
+                      <Route path="/roomType" exact component={RoomType}/>
+                      
+                    <Route path="/roomTypeview/:id" exact component={RoomTypeView}/>
+                    <Route path="/roomUD/:id" exact component={UpdateAndDeleteRoom}/>
+                      
+                      {/* <Route path="/updateroom" exact component={AddRoom}/>
+                      <Route path="/deleteroom" exact component={AddRoom}/> */}
+
+
+
+                </div>
 
             </div>
         </Router>

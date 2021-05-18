@@ -78,9 +78,14 @@ app.use("/FinalBill", finalBill);
 const mealOrderRout = require("./routes/MealOrder.js");
 app.use("/Meal_Order", mealOrderRout);
 
-const roomRouter = require("./routes/rooms.js");
 
+
+//Ishara routes
+const roomRouter = require("./routes/rooms.js");
 app.use("/room",roomRouter);
+
+const roomType = require("./routes/roomType.js");
+app.use("/roomType",roomType);
 
 
 app.listen(PORT,()=>{
