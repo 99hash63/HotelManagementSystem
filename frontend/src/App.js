@@ -6,6 +6,7 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Switch, Link, Redirect } from 'react-router-dom'
 import frontOfficeComp from './components/bodyComponents/frontOfficeComp'
 import inventoryComp from './components/bodyComponents/inventoryComp'
+import barComp from './components/bodyComponents/barComp'
 import employeeManager from './components/bodyComponents/employeeManagerComp';
 import Page404 from './components/404';
 import { AuthContextProvider } from './context/AuthContext';
@@ -34,6 +35,7 @@ function App() {
             <Route  path="/emp-manager" component={employeeManager} />
             <Route  path="/front-office-manager" component={frontOfficeComp} />
             <Route  path="/inventory-manager" component={inventoryComp} />
+            <Route  path="/bar-manager" component={barComp} />
             <Route exact path="/404" component={Page404} />
 
             <AuthContextProvider >

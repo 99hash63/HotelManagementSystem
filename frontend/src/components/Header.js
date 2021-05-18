@@ -33,6 +33,7 @@ export default function Header() {
                                 <li><a className="b" href="/">Room & Rates</a></li>
                                 <li><a className="b" href="/">Wedding</a></li>
                                 <li><a className="b" href="/">Restaurant</a></li>
+                                <li><a className="b" href="/">Bar</a></li>
                                 <li><a className="b" href="/">Gallery</a></li>
                                 <li><a className="b" href="/">Ayurvedha</a></li>
                                 <li><a className="b" href="/">Contact</a></li>

@@ -76,20 +76,6 @@ app.use("/FinalBill", finalBill);
 
 
 
-
-//Anu Routes
-const mealOrderRout = require("./routes/MealOrder.js");
-app.use("/Meal_Order", mealOrderRout);
-
-const roomRouter = require("./routes/rooms.js");
-
-app.use("/room",roomRouter);
-
-
-
-
-
-
 //Ramesh 
 const employeeRouter = require("./routes/Employees.js");
 app.use("/employee",employeeRouter);
@@ -100,6 +86,24 @@ app.use("/salary",salaryRouter);
 const vacationRouter = require("./routes/Vactionrequests.js");
 app.use("/vacation",vacationRouter);
 
+
+//Thilan Routes
+const barInventoryRouter = require("./routes/barInventory");
+const barOrdersRouter = require("./routes/barOrders");
+const orderItemsRouter = require("./routes/orderItems");
+
+ app.use("/barInventory",barInventoryRouter);
+ app.use("/barOrders",barOrdersRouter);
+ app.use("/orderItems",orderItemsRouter);
+
+
+//Anu Routes
+const mealOrderRout = require("./routes/MealOrder.js");
+app.use("/Meal_Order", mealOrderRout);
+
+const roomRouter = require("./routes/rooms.js");
+
+app.use("/room",roomRouter);
 
 
 app.listen(PORT,()=>{
