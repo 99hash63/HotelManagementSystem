@@ -7,6 +7,8 @@ import { Router } from 'react-router';
 import { noConflict } from 'jquery';
 import Hero from './subComponents/Hero'
 import PageBottom from './PageBottom';
+import DatePicker from 'react-datepicker'
+import 'react-datepicker/dist/react-datepicker.css'
 
 
 
@@ -28,6 +30,7 @@ const AddRegBooking = ({setTestVal}) => {
     const [inDateErr, setInDateErr] = useState({});
     const [outDateErr, setOutDateErr] = useState({});
     const [daysErr, setDaysErr] = useState({});
+
 
 
     // othe room type details for calculations
@@ -171,21 +174,25 @@ const AddRegBooking = ({setTestVal}) => {
     //     alert (checkOutDate.diff(checkInDate));
     // }
 
+
+
+
     //validations for date fields
     const formValidation = () =>{
         const inDateErr = {}
         const outDateErr = {}
         const daysErr = {}
+        var today = new Date();
        
         let isValid = true;
         
 
-        if(!moment.isMoment(checkInDate)){
+        if(checkInDate < today){
             inDateErr.invalidCheckIn = "Invalid CheckIn Date"
             isValid = false;
         }
 
-        if(!moment.isMoment(checkOutDate)){
+        if(checkOutDate < today){
             outDateErr.invalidCheckout = "Invalid Checkout Date"
             isValid = false;
         }
@@ -205,7 +212,7 @@ const AddRegBooking = ({setTestVal}) => {
 
         const isValid = formValidation();
         
-       
+        if(isValid == true){
             const newBooking = {
                 promoCode,
                 travelAgent, 
@@ -224,7 +231,7 @@ const AddRegBooking = ({setTestVal}) => {
             }).catch((err)=>{
                 alert("Error with adding Booking")
             })
-         
+        }
     }
 
 
@@ -241,7 +248,7 @@ const AddRegBooking = ({setTestVal}) => {
                                 <h1 className="text-center bg-dark text-white display-4 d-inline-block">Registered Booking</h1>
 
                                 <form onSubmit={sendData} >
-
+        
                                 <div className="form-group my-5">
                                     <div className="row">
                                         <div className="col-md-6 col-12 mx-auto my-2">
@@ -265,18 +272,18 @@ const AddRegBooking = ({setTestVal}) => {
                                             <input type="date" className="form-control-lg" id="checkInDate" placeholder="checkInDate" onChange={(e) => {
                                                 setCheckInDate(e.target.value);
                                             }} required />
-                                            {/* {Object.keys(inDateErr).map((key)=>{
+                                            {Object.keys(inDateErr).map((key)=>{
                                                 return <div style={{color: "red"}}>{inDateErr[key]}</div>
-                                            })} */}
+                                            })}
                                         </div>
                         
                                         <div className="col-md-6 col-12 mx-auto my-2">
                                             <input type="date" className="form-control-lg" id="checkOutDate" placeholder="checkOutDate" onChange={(e) => {
                                                 setCheckOutDate(e.target.value);
                                             }} required />
-                                            {/* {Object.keys(outDateErr).map((key)=>{
+                                            {Object.keys(outDateErr).map((key)=>{
                                                 return <div style={{color: "red"}}>{outDateErr[key]}</div>
-                                            })} */}
+                                            })}
                                         </div>
                                     </div>
                                 </div>
