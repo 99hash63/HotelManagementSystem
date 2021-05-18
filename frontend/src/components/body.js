@@ -38,24 +38,42 @@ export default function Body() {
                 {/* <AddBooking/> */}
                 {/* <Main/> */}
                 
-                {/* <Sidenav /> */}
-                {/* <FrontOfficeSideNav/> */}
+//                 {/* <Sidenav /> */}
+//                 {/* <FrontOfficeSideNav/> */}
                 
-                {/* <Login/>
-                <Route path="/frontOffice" exact component={FrontOfficeSideNav}/>
-                <Route path="/inventory" exact component={Sidenav}/> */}
+//                 {/* <Login/>
+//                 <Route path="/frontOffice" exact component={FrontOfficeSideNav}/>
+//                 <Route path="/inventory" exact component={Sidenav}/> */}
                 
-                <div className="block">
+//                 <div className="block">
                 
+               
 
-                    {/* Inventry Manager Routes */}
-                    <Route path="/addinventory" exact component={AddInventory}/>
-                    <Route path="/inventory" exact component={InventoryList}/>
-                    <Route path="/displayinventory/:id" exact component={DisplayInventory}/>
-                    <Route path="/suppliers" exact component={Suppliers}/>
-                    <Route path="/supplierview/:id" exact component={SuppliersView}/>
-                    <Route path="/restock" exact component={ReStock}/>
-                    <Route path="/checkout" exact component={InventoryCheckout}/>
+//                     {/*Employee Manager Routes*/}
+//                     { <Emanagersidenav /> }
+//                     <Route path="/addemployee" exact component={Addemployee}/>
+//                     <Route path="/allemployees" exact component={Allemployees}/>
+//                     <Route path="/Viewoneemployee/:id" exact component={viewOneemployee}/>
+//                     <Route path="/deleteemployee/:id" exact component={Deleteemployee}/>
+//                     <Route path="/addsalary" exact component={Salarycalculator}/>
+//                     <Route path="/paidsalary" exact component={paidsalary}/>
+//                     <Route path="/createvacation" exact component={createvacation}/>
+//                     <Route path="/viewvacations" exact component={viewvacations}/>
+//                     <Route path="/rejectvacation/:id" exact component={rejectvacation}/>
+//                     <Route path="/Viewonepayment/:id" exact component={viewonesalary}/>
+//                     <Route path="/minical" exact component={minical}/>
+
+
+
+//                     {/* Inventry Manager Routes */}
+//                     <Route path="/addinventory" exact component={AddInventory}/>
+//                     <Route path="/inventory" exact component={InventoryList}/>
+//                     <Route path="/displayinventory/:id" exact component={DisplayInventory}/>
+//                     <Route path="/suppliers" exact component={Suppliers}/>
+//                     <Route path="/supplierview/:id" exact component={SuppliersView}/>
+//                     <Route path="/restock" exact component={ReStock}/>
+//                     <Route path="/checkout" exact component={InventoryCheckout}/>
+                    
 
 
 
