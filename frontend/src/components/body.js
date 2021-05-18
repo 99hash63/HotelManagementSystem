@@ -22,6 +22,7 @@ import BookingReq from './UpcomingBookings';
 import Accept from './AcceptRequset';
 import Decline from './DeleteBookingRequest';
 import ReStock from './ReStock';
+import HallNav from './HallManagerSideNav';
 import FinalBill from './FinalBill';
 import InventoryCheckout from './InventoryCheckout';
 import PaidBill from './FinalBillPopup';
@@ -43,6 +44,16 @@ import UpdateAndDeleteRoom from './UpdateAndDeleteRoom';
 
 import ViewRoom from './ViewRooms';
 
+
+
+//import reception hall componenets
+
+import BookHall from './BookHall'
+import HallList from './ReceptionHallList';
+import AddHall from './AddHall';
+import EditHall from './EditHall'
+import BookedHallView from './ViewBookedHall';
+import EditBookHall from './EditBookedHalls';
 
 
 
@@ -70,7 +81,8 @@ export default function Body() {
                 {/* <Main/> */}
                 {/* <Sidenav /> */}
                 {/* <FrontOfficeSideNav/> */}
-                <RoomSidebar/>
+                <HallNav/>
+                <div className="block">
                 
 
                 {/* <CusSideNav/> */}
@@ -112,6 +124,20 @@ export default function Body() {
                             <Route path="/accept/:id" exact component={Accept} />
                             <Route path="/decline/:id" exact component={Decline} />
 
+
+
+
+                        {/* Reception Hall Manager Routes */}
+                            <Route path="/viewhall" exact component={HallList}/>
+                            <Route path="/addhall" exact component={AddHall}/>
+                            <Route path="/bookhall" exact component={BookHall}/>
+                            <Route path="/edithall/:id" exact component={EditHall}/>
+                            <Route path="/bookedHallView" exact component={BookedHallView}/>
+                            <Route path="/editBookedHall/:id" exact component={EditBookHall}/>
+                        
+
+
+                </div>
                         {/* Final Bill */}
                              <Route path="/FinalBill" exact component={FinalBill} />
                              <Route path="/PaidBill/:id" exact component={PaidBill} />

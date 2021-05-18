@@ -111,6 +111,18 @@ const roomType = require("./routes/roomType.js");
 app.use("/roomType",roomType);
 
 
+
+//Pamoda Routes
+const bookedHalls = require("./routes/bookedHalls.js");
+app.use("/bookedhalls", bookedHalls);
+
+const halls = require("./routes/halls.js");
+app.use("/halls", halls);
+
+
+
+
+
 app.listen(PORT,()=>{
     console.log(`Server running on PORT: ${PORT}`)
 })

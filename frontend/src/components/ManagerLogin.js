@@ -48,7 +48,7 @@ const ManagerLogin = () => {
                 <i className="fas"><img src="https://img.icons8.com/color/144/000000/bar.png" /></i><br />
                 <span id="manager-text">Bar Manager</span>
             </Link>
-            <Link className="ManagerLoginBox-h ManagerLoginBoxBTN">
+            <Link to="/hall-manager" className="ManagerLoginBox-h ManagerLoginBoxBTN">
                 <i className="fas"><img src="https://img.icons8.com/color/144/000000/corridor.png" /></i><br />
                 <span id="manager-text">Reception Hall Manager</span>
             </Link>

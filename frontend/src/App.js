@@ -20,6 +20,7 @@ import ReStock from './components/ReStock';
 import InventoryCheckout from './components/InventoryCheckout';
 import AddInventory from './components/AddInventory';
 import InventoryList from './components/InventoryList';
+import hallComp from './components/bodyComponents/hallComp';
 
 
 axios.defaults.withCredentials = true;
@@ -38,6 +39,8 @@ function App() {
             <Route  path="/inventory-manager" component={inventoryComp} />
             <Route  path="/bar-manager" component={barComp} />
             <Route  path="/room-manager" component={roomComp} />
+            <Route  path="/hall-manager" component={hallComp} />
+
             <Route exact path="/404" component={Page404} />
 
             <AuthContextProvider >
