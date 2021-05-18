@@ -39,7 +39,7 @@ header {
     padding-left: 70px;
     padding-right: 70px;
     display: block;
-    max-width: 1250px;
+    /* max-width: 1250px; */
     min-width: 1000px;
     margin: auto;
 }
@@ -86,11 +86,11 @@ hr {
     transition: 0.3s;
 }
 
-.contact i {
+.contactM i {
     margin-right: 5px;
 }
 
-.contact:hover {
+.contactM:hover {
     color: rgb(206, 175, 0);
 }
 
@@ -164,4 +164,3 @@ nav ul {
 .fa-twitter:hover {
     color: #1DA1F2;
 }
-

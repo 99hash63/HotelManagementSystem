@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
 import { useHistory } from "react-router-dom";
+import './CusSideComponents.css'
+
 
 const DisplayUpcoming = () => {
     const history = useHistory();
@@ -37,7 +39,7 @@ const DisplayUpcoming = () => {
             setPackage(res.data.package)
             setOtherAccomodations(res.data.otherAccomodations)
             setRoomAllocation(res.data.roomAllocation)
-            setPrice(res.data.price)
+            setPrice("0")
 
         }).catch((e) => {
             console.log(e);
@@ -55,7 +57,7 @@ const DisplayUpcoming = () => {
         }
 
         axios.post(`http://localhost:5000/booking/update/${id}`, updateBooking).then(() => {
-            window.location = "/cusUpBookings"
+            window.location = "/CusSideNav/cusUpBookings"
         }).catch((e) => {
             alert(e);
         })
@@ -76,7 +78,7 @@ const DisplayUpcoming = () => {
         
         if (timesClicked > 1) {
             axios.delete(`http://localhost:5000/booking/delete/${id}`).then(() => {
-                window.location = "/cusUpBookings"
+                window.location = "/CusSideNav/cusUpBookings"
                 timesClicked=0
             }).catch((e) => {
                 alert("error");
@@ -93,13 +95,14 @@ const DisplayUpcoming = () => {
 
     return (
         
-        <div className="display-box" style={{background: "#ffffff",borderRadius: "20px"}}>
-        <i  onClick={() => { history.goBack();}} class="fas fa-chevron-circle-left"></i>
+        <div className="cusSideComp" >
+                    <i  onClick={() => { history.goBack();}} class="fas fa-chevron-circle-left"></i>
             <div id="edit-title" className="header-box"> Upcoming Bookings
             
             <div>
-                    <button id="edit_btn" onClick={enable_edit}>Edit</button>
-                    <button id="delete_btn" onClick={delete_inventory} >Delete</button>
+               <br/>
+                    <button className="btn btn-block btn-outline-primary" id="edit_btn" onClick={enable_edit}>Edit</button>
+                    <button className="btn btn-block btn-outline-primary"id="delete_btn" onClick={delete_inventory} >Delete</button>
             </div>
 
             </div>
@@ -188,19 +191,19 @@ const DisplayUpcoming = () => {
 
                                 <label className="custom-field">
                                     <input type="text" className="form-input" id="roomAllocation" defaultValue={getUpcoming.roomAllocation} onChange={(e) => {
-                                        setRoomAllocation(e.target.value)
+                                        setRoomAllocation(e.target.value); setPrice("null")
                                     }} />
                                     <span className="placeholder">roomAllocation</span>
                                 </label>
 
                                 <br />
 
-                                <label className="custom-field">
+                                {/* <label className="custom-field">
                                     <input type="text" className="form-input" id="price" defaultValue={getUpcoming.price} onChange={(e) => {
                                         setPrice(e.target.value)
                                     }} />
                                     <span className="placeholder">price</span>
-                                </label>
+                                </label> */}
 
                                 <br />                                                        
                             </div> 

@@ -17,8 +17,8 @@ export default function Header() {
                         <a href="/"><i className="fab fa-instagram"></i></a>
                         <a href="/"><i className="fab fa-facebook-f"></i></a> */}
                     </div>
-                    <div className="contact"><i className="fas fa-phone-alt"></i>+94 77 456 7169 &nbsp;&nbsp;</div>
-                    <div className="contact"><i className="fas fa-envelope"></i>info@sobana.com</div>
+                    <div className="contactM"><i className="fas fa-phone-alt"></i>+94 77 456 7169 &nbsp;&nbsp;</div>
+                    <div className="contactM"><i className="fas fa-envelope"></i>info@sobana.com</div>
                 </div>
                 <hr />
                 <div className="down_head">

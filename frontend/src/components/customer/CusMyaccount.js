@@ -3,6 +3,8 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 import jspdf from 'jspdf'
 import "jspdf-autotable"
+import './CusMyaccount.css'
+
 
 const MyAccount = () => {
     const [myAccount, setMyAccount] = useState([]);
@@ -43,10 +45,10 @@ const MyAccount = () => {
                 <div >
                     <h3>First Name  : {myAccount.fname}</h3>
                     <h3>Last Name   : {myAccount.lname}</h3>
-                    <h3>Address     : {myAccount.address}</h3>
+                    {/* <h3>Address     : {myAccount.address}</h3>
                     <h3>NIC         : {myAccount.NIC}</h3>
                     <h3>Nationality : {myAccount.nationality}</h3>
-                    <h3>PassportNo  : {myAccount.passportNo}</h3>
+                    <h3>PassportNo  : {myAccount.passportNo}</h3> */}
                     <h3>Email       : {myAccount.email}</h3>
                     <h3>Contact     : {myAccount.contact}</h3>
                     
@@ -56,14 +58,21 @@ const MyAccount = () => {
     }
 
     return ( 
-        <div style={{background: "#ffffff",borderRadius: "20px"}} className = "myAcc">
-            <ul>
+        <div className="myAccount" >       
+        <div className="container contact">
+        <div className="row">
+        <div className="col-md-8 col-12 mx-auto">
+            <div className="card shadow-lg border-0 p-4">
+             <ul>
                 {renderAccount()}
-                <a href="cusUpdateAccount"><button>EDIT</button></a>
+                <a href="cusUpdateAccount"><button className="btn btn-block btn-outline-primary">EDIT</button></a>
                 
             </ul>
-        
         </div>
+        </div>
+        </div>
+        </div>
+         </div>
      );
      
 }
