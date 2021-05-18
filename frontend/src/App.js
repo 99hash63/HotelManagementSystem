@@ -12,15 +12,6 @@ import employeeManager from './components/bodyComponents/employeeManagerComp';
 import Page404 from './components/404';
 import { AuthContextProvider } from './context/AuthContext';
 import loadCus from './loadCustomer'
-
-
-import DisplayInventory from './components/DisplayInventory';
-import Suppliers from './components/Suppliers';
-import SuppliersView from './components/SupplierView';
-import ReStock from './components/ReStock';
-import InventoryCheckout from './components/InventoryCheckout';
-import AddInventory from './components/AddInventory';
-import InventoryList from './components/InventoryList';
 import hallComp from './components/bodyComponents/hallComp';
 
 

@@ -20,16 +20,12 @@ export default function AddRoom(){
         buildingNo,
         floorNum,
         specialDetails
-
-         
-
      }
+
      axios.post("http://localhost:5000/room/add",newRoom).then(()=>{
-         alert("Room Added")
+
          window.location = "/room-manager"
          
-
-
      }).catch((err)=>{
          alert(err)
      })
