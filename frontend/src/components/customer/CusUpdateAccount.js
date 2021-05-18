@@ -5,6 +5,8 @@ import jspdf from 'jspdf'
 import "jspdf-autotable"
 import './CusUpdateAccount.css'
 import './CusSideComponents.css'
+import Hero from './subComponents/Hero'
+import PageBottom from './PageBottom';
 
 
 const UpdateAccount = () => {
@@ -83,25 +85,90 @@ const UpdateAccount = () => {
     function renderAccount(){
         return myAccount.map((myAccount) => {
             return (
-              
+                <div className="myAccountUpdate" >       
+                        <div className="container contact">
+                            <div className="row">
+                                <div className="col-md-8 col-12 mx-auto">
+                                    <div className="card shadow-lg border-0 p-4">
+                                        <div className="row">
+                                            <div className="col-md-6 col-12 mx-auto my-2">         
+                                                <li>First Name <input type="text" className="form-control-lg" defaultValue={myAccount.fname} onChange={(e) => {
+                                                    setFname(e.target.value)
+                                                    }} required /></li>
+                                            </div>
+                                            <div className="col-md-6 col-12 mx-auto my-2">
+                                                <li>Last Name <input type="text" className="form-control-lg" defaultValue={myAccount.lname} onChange={(e) => {
+                                                    setLname(e.target.value)
 
-<div className="myAccountUpdate" >       
-        <div className="container contact">
-        <div className="row">
-        <div className="col-md-8 col-12 mx-auto">
-            <div className="card shadow-lg border-0 p-4">
-                    <li>First Name <input type="text" defaultValue={myAccount.fname} onChange={(e) => {
-                                setFname(e.target.value)
-                                }} required /></li>
-                    <li>Last Name <input type="text" defaultValue={myAccount.lname} onChange={(e) => {
-                                setLname(e.target.value)
+                                                    setAddress("null")
+                                                    setNIC("null")
+                                                    setNationality("null")
+                                                    setPassportNo("null")
+                                                    }} required /></li>
+                                            </div>          
+                                        </div>
+                                        
+                                
 
-                                setAddress("null")
-                                setNIC("null")
-                                setNationality("null")
-                                setPassportNo("null")
-                                }} required /></li>
-                    {/* <li>Address <input type="text" defaultValue={myAccount.address} onChange={(e) => {
+                                        <div className="row">      
+                                            <div className="col-md-6 col-12 mx-auto my-2">
+                                                <li>Email <input type="text" className="form-control-lg" defaultValue={myAccount.email} onChange={(e) => {
+                                                    setEmail(e.target.value)
+                                                    }} required /></li>
+                                            </div>                                
+                                            <div className="col-md-6 col-12 mx-auto my-2">
+                                                <li>Contact <input type="text" className="form-control-lg" defaultValue={myAccount.contact} onChange={(e) => {
+                                                    setContact(e.target.value)
+                                                    }} required /></li>
+                                            </div>                                
+                                        </div>
+
+                                        <div className="row">
+                                            <div className="col-md-6 col-12 mx-auto my-2">                          
+                                                <li>Password <input type="password" className="form-control-lg" onChange={(e) => {
+                                                    setPassword(e.target.value)
+                                                    }} required /></li>
+                                            </div>                                
+                                            <div className="col-md-6 col-12 mx-auto my-2">                              
+                                                <li>PasswordVerify <input type="password" className="form-control-lg" onChange={(e) => {
+                                                    setPasswordVerify(e.target.value)
+                                                    }} required /></li>
+                                            </div>
+                                        </div>
+
+                                        <div>
+                                            <button className="btn btn-block btn-outline-primary" id="edit_btn" onClick={UpAccount}>Update</button>
+                                            <button className="btn btn-block btn-outline-primary" id="delete_btn" onClick={delete_account} >Delete</button>
+                                        </div>            
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            )   
+        })
+    }
+
+    return ( 
+        <div>
+            <Hero hero="behindHero"></Hero>
+
+            <div  className="updateAcc">
+                <ul>
+                    {renderAccount()}
+                </ul>
+            </div>
+
+        </div>
+    );
+     
+}
+ 
+export default UpdateAccount; 
+
+
+
+  {/* <li>Address <input type="text" defaultValue={myAccount.address} onChange={(e) => {
                                 setAddress(e.target.value)
                                 }} required /></li>
                     <li>NIC <input type="text" defaultValue={myAccount.NIC} onChange={(e) => {
@@ -113,43 +180,3 @@ const UpdateAccount = () => {
                     <li>PassportNo <input type="text" defaultValue={myAccount.passportNo} onChange={(e) => {
                                 setPassportNo(e.target.value)
                                 }} required /></li> */}
-
-                                
-                    <li>Email <input type="text" defaultValue={myAccount.email} onChange={(e) => {
-                                setEmail(e.target.value)
-                                }} required /></li>
-                    <li>Contact <input type="text" defaultValue={myAccount.contact} onChange={(e) => {
-                                setContact(e.target.value)
-                                }} required /></li>
-                    <li>Password <input type="password" onChange={(e) => {
-                                setPassword(e.target.value)
-                                }} required /></li>
-                    <li>PasswordVerify <input type="password" onChange={(e) => {
-                                setPasswordVerify(e.target.value)
-                                }} required /></li>
-
-                    <div><br/>
-                        <button className="btn btn-block btn-outline-primary" id="edit_btn" onClick={UpAccount}>Update</button>
-                        <button className="btn btn-block btn-outline-primary" id="delete_btn" onClick={delete_account} >Delete</button>
-                    </div>            
-                </div>
-                </div>
-        </div>
-        </div>
-        </div>
-            )   
-        })
-    }
-
-    return ( 
-        <div  style={{background: "#ffffff",borderRadius: "20px"}} className="updateAcc">
-            <ul>
-                {renderAccount()}
-            </ul>
-        
-        </div>
-     );
-     
-}
- 
-export default UpdateAccount; 

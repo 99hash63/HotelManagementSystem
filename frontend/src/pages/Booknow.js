@@ -96,7 +96,9 @@ export default class Booknow extends Component {
                         <div className="col-md-6 col-12">
                             <div className="form-group">
                                 <label htmlFor="Fromdate" className="font-weight-bolder mr-3">From Date </label>
-                                <DatePicker selected={this.state.startDate} onChange={this.handleChangeStart} className="form-control" />
+                                <DatePicker selected={this.state.startDate} onChange={this.handleChangeStart
+                            
+                                } className="form-control" />
                             </div>
                         </div>
                         <div className="col-md-6 col-12">

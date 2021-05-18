@@ -1,5 +1,5 @@
 .cussidenav {
-    width: 200px;
+    width: 240px;
     font-weight: 300;
     /* height: 530px; */
     /* border-radius: 20px; */
@@ -7,21 +7,21 @@
     /* border: 1px solid rgba(194, 194, 194, 0.383); */
     background-color: rgb(255, 255, 255);
     border-radius: 20px;
-    box-shadow: 21px 21px 42px #b3b3b3, -21px -21px 42px #ffffff;
+    box-shadow: 2px 2px 3px #b3b3b3, -2px -2px 3px #ffffff;
     /* box-shadow: 2px 6px 12px rgba(0, 0, 0, 0.068); */
     /* margin-top: 50px; */
 
     position: absolute;
     /* border-radius: 10px; */
-    margin-top: 150px;
+    top: 14%;
     /* height: 600px; */
     /* left: 50%;
     transform: translate(-50%, -50%); */
     /* background: rgb(248, 248, 248);
     width: 100%; */
     z-index: 20 !important;
-    height: 450px;
-    left: 100px;
+    height: 600px;
+    left: 140px;
 
 }
 

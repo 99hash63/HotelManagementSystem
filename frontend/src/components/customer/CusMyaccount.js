@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 import jspdf from 'jspdf'
 import "jspdf-autotable"
 import './CusMyaccount.css'
+import Hero from './subComponents/Hero'
+import PageBottom from './PageBottom';
 
 
 const MyAccount = () => {
@@ -58,11 +60,16 @@ const MyAccount = () => {
     }
 
     return ( 
+        <div>
+           <Hero hero="behindHero">
+        </Hero>
+           
+        <div className="cusSideComp" >
         <div className="myAccount" >       
-        <div className="container contact">
-        <div className="row">
+        {/* <div className="container contact">
+        <div className="row"> */}
         <div className="col-md-8 col-12 mx-auto">
-            <div className="card shadow-lg border-0 p-4">
+            <div className="card shadow-lg border-0 p-4" >
              <ul>
                 {renderAccount()}
                 <a href="cusUpdateAccount"><button className="btn btn-block btn-outline-primary">EDIT</button></a>
@@ -72,7 +79,9 @@ const MyAccount = () => {
         </div>
         </div>
         </div>
-         </div>
+          </div>
+        //  </div>
+        //  </div>
      );
      
 }
