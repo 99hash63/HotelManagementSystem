@@ -32,10 +32,10 @@ const AddBooking = ({setTestVal}) => {
 
     //temporary null
     const lName = "Perera"
-    const address = "null";
-    const NIC = "null";
-    const nationality = "null";
-    const passportNo = "null";
+    const address = "Mathara";
+    const NIC = "991554438v";
+    const nationality = "Srilankan";
+    const passportNo = "0995322";
 
     const [getRoooms, setgetRooms] = useState([]);
 

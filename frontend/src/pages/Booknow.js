@@ -132,7 +132,7 @@ export default class Booknow extends Component {
                         </div>
                         <div className="col-md-6 col-12 my-auto">
                             <div className="col-md-6 col-12 float-right">
-                                <button className="btn btn-block btn-outline-primary" data-toggle="modal" data-target="#thanks">Confirm Booking</button>
+                                <button className="btn btn-block btn-outline-primary" data-toggle="modal" onClick={event =>  window.location.href='/addbooking'}>Continue Booking</button>
                             </div>
                         </div>
                     </div>
