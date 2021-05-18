@@ -4,6 +4,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import './AddAgent.css'
 import { useHistory } from "react-router-dom";
+import validation from 'validator'
 // import './Suppliers.css'
 
 
@@ -43,6 +44,11 @@ function ViewOne() {
 
 
     function updat(id) {
+
+        if(!validation.isEmail(mail_Address)){
+            document.getElementById('mail_error1').style.display = "block";
+
+        }else{
         const newAgencies = {
             contract_id,
             name,
@@ -63,6 +69,7 @@ function ViewOne() {
                 alert("User Id Duplicated!!!!");
             })
         }
+    }
     }
 
 
@@ -155,7 +162,7 @@ function ViewOne() {
                                 setMail_Address(e.target.value);
                             }} />
                             <span className="placeholder">Mail Address </span>
-                        </label><br />
+                        </label><div id="mail_error1" style={{ display: "none", color:"red", marginLeft:20,marginTop:-12 }}>please enter valid mail</div><br />
 
                         <label label className="custom-field">
                             <input type="text" id="Contact" name="Contact" defaultValue={agentOne.mobile} onChange={(e) => {

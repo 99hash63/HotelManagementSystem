@@ -11,21 +11,12 @@ function AddAgencies() {
     var [mail_Address, setMail_Address] = useState("");
     var [mobile, setMobile] = useState("");
     var [address, setAddress] = useState("");
-    var [passcode, setPasscode] = useState(0);
-    var [rate, setRate] = useState(0);
+    var [passcode, setPasscode] = useState("");
+    var [rate, setRate] = useState("");
 
 
     function sendData(e) {
-        e.preventDefault();
-        var x=0;
-        for(var y=0; y<=mail_Address.length; y++ ){
-            var z = mail_Address.charAt(y);
-            if(z == "@"){
-                x++;
-            }
-        }
-        
-        
+        e.preventDefault();  
 
         if(contract_id.length == 0){
             document.getElementById('mail_error1').style.display = "none";
@@ -91,7 +82,7 @@ function AddAgencies() {
             document.getElementById('id_error').style.display = "none";
             document.getElementById('name_error').style.display = "none";
             document.getElementById('address_error').style.display = "block";
-        }else if(passcode.length==0){
+        }else if(passcode.length == 0){
 
             document.getElementById('mail_error1').style.display = "none";
             document.getElementById('rate_error').style.display = "none";
