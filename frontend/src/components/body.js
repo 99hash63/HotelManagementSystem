@@ -24,6 +24,7 @@ import ReStock from './ReStock';
 import FinalBill from './FinalBill';
 import InventoryCheckout from './InventoryCheckout';
 import PaidBill from './FinalBillPopup';
+import viewBarorders from './viewbarorders'
 
 // import Booking from './booking';
 
@@ -35,6 +36,14 @@ import CusLogin from './customer/CusLogin';
 import CusReg from './customer/CusReg'
 import AuthContext from '../context/AuthContext';
 import cusLogout from './customer/CusLogout';
+
+
+
+
+import ViewBeverages from './viewbeverages';
+import BarReStock from './BarRestock';
+import EditBeverages from './editBeverages';
+import AddBarOrders from './AddBarOrders';
 
 
 
@@ -52,12 +61,13 @@ export default function Body() {
 
             <div className="content">
 
-                {
+                {/* {
                     loggedIn === true && <CusSideNav/>
                 }
-                
+                 */}
 
 
+                <BarInventorySidenav/>
                 {/* <AddBooking/> */}
                 {/* <Main/> */}
                 {/* <Sidenav /> */}
@@ -121,16 +131,24 @@ export default function Body() {
                 {/* </div> */}
 
 
-                <BarInventorySidenav/>
 
                 <div className="block">
 
+                        {/* Bar Manager Routes */}
+
+                        {/*Bar Inventory Management Routes */}
                         
                     <Route path="/AddBarInventory" exact component={AddBarInventory}/>
-                    
-
+                    <Route path="/viewbeverages" exact component={ViewBeverages}/>
+                    <Route path="/barReStock" exact component={BarReStock}/>
+                    <Route path="/editBeverages/:id" exact component={EditBeverages}/>
+                    <Route path="/viewBarorders" exact component={viewBarorders}/>
+                    <Route path="/addBarOrder" exact component={AddBarOrders}/>
+                        {/*Bar Order Management Routes */}
                    
-
+                    
+                 
+                 
                     
                 </div>
 

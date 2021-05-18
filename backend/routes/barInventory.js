@@ -9,8 +9,9 @@ router.route("/add").post((req,res)=>{
     const name = req.body.name;
     const category = req.body.category;
     const supplier = req.body.supplier;
-    const quantity = Number(req.body.quantity);
-    const unitPrice = Number(req.body.unitPrice);
+    const quantity = (req.body.quantity);
+    const restocklevel = req.body.restocklevel;
+    const unitPrice = (req.body.unitPrice);
     const date = Date(req.body.date);
 
     const newBarInventory = new BarInventory({
@@ -19,6 +20,7 @@ router.route("/add").post((req,res)=>{
         category,
         supplier,
         quantity,
+        restocklevel,
         unitPrice,
         date
     })
@@ -44,7 +46,7 @@ router.route("/retrieve").get((req,res)=>{
 //update bar inventory
 router.route("/update/:id").put(async(req,res)=>{
     let Item_id = req.params.id;
-    const {item_id,name,category,supplier,quantity,unitPrice,date} = req.body;
+    const {item_id,name,category,supplier,quantity,restocklevel,unitPrice,date} = req.body;
 
     const updateBarInventory = {
         item_id,
@@ -52,6 +54,7 @@ router.route("/update/:id").put(async(req,res)=>{
         category,
         supplier,
         quantity,
+        restocklevel,
         unitPrice,
         date
     }
@@ -82,7 +85,7 @@ router.route("/delete/:id").delete(async(req,res)=>{
 
 
 //get one item
-router.route("/gett/:id").get(async(req,res)=>{
+router.route("/get/:id").get(async(req,res)=>{
     let itemId = req.params.id;
     BarInventory.findById(itemId).then((barInventory)=>{
         res.json(barInventory)

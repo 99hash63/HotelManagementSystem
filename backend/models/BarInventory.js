@@ -27,10 +27,15 @@ const barInventorySchema  = new Schema({
         type : Number,
         required : true
     },
+    restocklevel :{
+        type : Number,
+        
+       
+    },
 
     unitPrice :{
         type : Number,
-        required : true
+       
     },
 
    date :{

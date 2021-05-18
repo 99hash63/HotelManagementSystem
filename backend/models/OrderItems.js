@@ -23,6 +23,10 @@ const OrderItemsSchema  = new Schema({
         type : Number,
         required : true
     },
+    date:{
+        type : Date,
+        default: Date.now
+    }
 
 })
 const OrderItems = mongoose.model("OrderItems",OrderItemsSchema);

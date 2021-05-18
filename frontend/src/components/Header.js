@@ -10,10 +10,10 @@ export default function Header() {
             <div className="head" id="glass">
                 <div className="up_head">
                     <div className="social">
-                        {/* <a href="/"><i className="fab fa-twitter"></i></a>
+                        <a href="/"><i className="fab fa-twitter"></i></a>
                         <a href="/"><i className="fab fa-youtube"></i></a>
                         <a href="/"><i className="fab fa-instagram"></i></a>
-                        <a href="/"><i className="fab fa-facebook-f"></i></a> */}
+                        <a href="/"><i className="fab fa-facebook-f"></i></a> 
                     </div>
                     <div className="contact"><i className="fas fa-phone-alt"></i>+94 77 456 7169 &nbsp;&nbsp;</div>
                     <div className="contact"><i className="fas fa-envelope"></i>info@sobana.com</div>
@@ -26,7 +26,7 @@ export default function Header() {
                     <div className="navigation">
                         <nav>
                             <ul>
-                                {/* <li><a className="b" href="/">Home</a></li>
+                                <li><a className="b" href="/">Home</a></li>
                                 <li><a className="b" href="/">Room & Rates</a></li>
                                 <li><a className="b" href="/">Wedding</a></li>
                                 <li><a className="b" href="/">Restaurant</a></li>
@@ -35,7 +35,7 @@ export default function Header() {
                                 <li><a className="b" href="/">Ayurvedha</a></li>
                                 <li><a className="b" href="/">Contact</a></li>
                                 <li><a className="b" href="/">About</a></li>
-                                <li><a className="book" href="/">Book Now</a></li> */}
+                                <li><a className="book" href="/">Book Now</a></li> 
 
 
                             </ul>

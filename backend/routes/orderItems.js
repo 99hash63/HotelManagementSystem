@@ -9,13 +9,15 @@ router.route("/add").post((req,res)=>{
     const item_id = Number(req.body.item_id);
     const quantity = Number(req.body.quantity);
     const price = Number(req.body.price);
+    const date = Date(req.body.date);
 
 
     const newOrderItems = new OrderItems({
        order_no,
        item_id,
        quantity,
-       price
+       price,
+       date
     })
 
     newOrderItems.save().then(()=>{
@@ -38,13 +40,14 @@ router.route("/retrieve").get((req,res)=>{
 //update bar order Items
 router.route("/update/:id").put(async(req,res)=>{
     let orderIt = req.params.id;
-    const {order_no,item_id,quantity,price} = req.body;
+    const {order_no,item_id,quantity,price,date} = req.body;
 
     const updateOrderItems = {
         order_no,
         item_id,
         quantity,
-        price
+        price,
+        date
     }
 
     OrderItems.findByIdAndUpdate(orderIt,updateOrderItems).then((UpdateLick)=>{

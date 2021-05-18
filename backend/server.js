@@ -36,12 +36,8 @@ connection.once("open", ()=>{
     console.log("connection success")
 })
 
-<<<<<<< HEAD
-//Dilshan Routes
-=======
 // Dilshan
 
->>>>>>> 2c79896813520cb3e320bc65a69f6abebeddbc64
 const itemsRouter = require("./routes/items");
 app.use("/inventory",itemsRouter);
 const categoryRouter = require("./routes/category");
@@ -81,7 +77,6 @@ app.use("/FinalBill", finalBill);
 
 
 
-<<<<<<< HEAD
 //Thilan Routes
 const barInventoryRouter = require("./routes/barInventory");
 const barOrdersRouter = require("./routes/barOrders");
@@ -92,7 +87,6 @@ const orderItemsRouter = require("./routes/orderItems");
  app.use("/orderItems",orderItemsRouter);
 
 
-=======
 //Anu Routes
 const mealOrderRout = require("./routes/MealOrder.js");
 app.use("/Meal_Order", mealOrderRout);
@@ -100,7 +94,6 @@ app.use("/Meal_Order", mealOrderRout);
 const roomRouter = require("./routes/rooms.js");
 
 app.use("/room",roomRouter);
->>>>>>> 2c79896813520cb3e320bc65a69f6abebeddbc64
 
 
 app.listen(PORT,()=>{
