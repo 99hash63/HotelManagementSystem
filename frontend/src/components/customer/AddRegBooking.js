@@ -190,115 +190,112 @@ const AddRegBooking = ({setTestVal}) => {
 
 
     return ( 
-     
+        <div>
+            <Hero hero="behindHero"></Hero>
 
-<div>
-    <Hero hero="behindHero"></Hero>
+            <div className="regBooking" >
+                <div className="container contact">
+                    <div className="row">
+                        <div className="col-md-8 col-12 mx-auto">
+                            <div className="card shadow-lg border-0 p-4">
 
-    <div className="regBooking" >
-        <div className="container contact">
-            <div className="row">
-                <div className="col-md-8 col-12 mx-auto">
-                    <div className="card shadow-lg border-0 p-4">
+                                <h1 className="text-center bg-dark text-white display-4 d-inline-block">Registered Booking</h1>
 
-                        <h1 className="text-center bg-dark text-white display-4 d-inline-block">New Booking</h1>
+                                <form onSubmit={sendData} >
 
-                        <form onSubmit={sendData} >
+                                <div className="form-group my-5">
+                                    <div className="row">
+                                        <div className="col-md-6 col-12 mx-auto my-2">
+                                            <input type="text" className="form-control-lg" id="promoCode" placeholder="promoCode" onChange={(e) => {
+                                                setPromoCode(e.target.value);    
+                                            }} required />
+                                        </div>
+                        
+                                        <div className="col-md-6 col-12 mx-auto my-2">
+                                            <input type="text" className="form-control-lg" id="travelAgent" placeholder="travelAgent" onChange={(e) => {
+                                                setTravelAgent(e.target.value);
+                                            }} required />
+                                        </div>
 
-                        <div className="form-group my-5">
-                            <div className="row">
-                                <div className="col-md-6 col-12 mx-auto my-2">
-                                    <input type="text" className="form-control-lg" id="promoCode" placeholder="promoCode" onChange={(e) => {
-                                        setPromoCode(e.target.value);    
-                                    }} required />
+                                    </div>
                                 </div>
-                   
-                                <div className="col-md-6 col-12 mx-auto my-2">
-                                    <input type="text" className="form-control-lg" id="travelAgent" placeholder="travelAgent" onChange={(e) => {
-                                        setTravelAgent(e.target.value);
-                                    }} required />
+
+                                <div className="form-group mb-5">
+                                    <div className="row">                                    
+                                        <div className="col-md-6 col-12 mx-auto my-2">
+                                            <input type="date" className="form-control-lg" id="checkInDate" placeholder="checkInDate" onChange={(e) => {
+                                                setCheckInDate(e.target.value);
+                                            }} required />
+                                        </div>
+                        
+                                        <div className="col-md-6 col-12 mx-auto my-2">
+                                            <input type="date" className="form-control-lg" id="checkOutDate" placeholder="checkOutDate" onChange={(e) => {
+                                                setCheckOutDate(e.target.value);
+                                            }} required />
+                                        </div>
+                                    </div>
                                 </div>
 
+
+                                <div className="form-group mb-5">
+                                    <div className="row">                     
+                                        <div className="col-md-6 col-12 mx-auto my-2">
+                                            <input type="number" className="form-control-lg" id="nanoOfAdultsme" placeholder="Adults" onChange={(e) => {
+                                                setNoOfAdults(e.target.value);
+                                                calPrice();
+                                            }} required />
+                                        </div>
+
+                                        <div className="col-md-6 col-12 mx-auto my-2">
+                                            <input type="number" className="form-control-lg" id="noOfChildren" placeholder="Children" onChange={(e) => {
+                                                setNoOfChildren(e.target.value);
+                                                calPrice();
+                                            }} required />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="form-group mb-5">
+                                    <div className="row">                    
+                                        <div className="col-md-6 col-12 mx-auto my-2">
+                                            <select className="form-control-lg" name="cpackage" id="cpackage" onChange={(e) => {
+                                                setPackage(e.target.value)
+                                                calPrice();
+                                            }}>
+                                                <option >Select Package</option>
+                                                <option value="Full Board">Full Board</option>
+                                                <option value="Half Board">Half Board</option>
+                                                <option value="Bed And Breakfast">Bed And Breakfast</option>                                    
+                                            </select>
+                                        </div>
+
+                                        <div className="col-md-6 col-12 mx-auto my-2">
+                                            <select className="form-control-lg" name="roomType" id="roomType" onChange={(e) => {                             
+                                                setRoomAllocation(e.target.value); 
+                                                calPrice();                           
+                                            }}>
+                                                <option >Select Room Type</option>
+                                                {
+                                                    getRoooms.map(function (roomAllocation) {
+                                                    return <option key={roomAllocation} value={roomAllocation}>{roomAllocation}</option>
+                                                    })
+                                                }
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                    <div className="mt-5 col-md-6 col-12 mx-auto">
+                                        <button className="btn btn-outline-dark btn-lg btn-block">Create Booking</button>
+                                    </div>
+                                    
+                                </form>
                             </div>
                         </div>
-
-                        <div className="form-group mb-5">
-                            <div className="row">                                    
-                                <div className="col-md-6 col-12 mx-auto my-2">
-                                    <input type="date" className="form-control-lg" id="checkInDate" placeholder="checkInDate" onChange={(e) => {
-                                        setCheckInDate(e.target.value);
-                                    }} required />
-                                </div>
-                   
-                                <div className="col-md-6 col-12 mx-auto my-2">
-                                    <input type="date" className="form-control-lg" id="checkOutDate" placeholder="checkOutDate" onChange={(e) => {
-                                        setCheckOutDate(e.target.value);
-                                    }} required />
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div className="form-group mb-5">
-                            <div className="row">                     
-                                <div className="col-md-6 col-12 mx-auto my-2">
-                                    <input type="number" className="form-control-lg" id="nanoOfAdultsme" placeholder="Adults" onChange={(e) => {
-                                        setNoOfAdults(e.target.value);
-                                        calPrice();
-                                    }} required />
-                                </div>
-
-                                <div className="col-md-6 col-12 mx-auto my-2">
-                                    <input type="number" className="form-control-lg" id="noOfChildren" placeholder="Children" onChange={(e) => {
-                                        setNoOfChildren(e.target.value);
-                                        calPrice();
-                                    }} required />
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="form-group mb-5">
-                            <div className="row">                    
-                                <div className="col-md-6 col-12 mx-auto my-2">
-                                    <select className="form-control-lg" name="cpackage" id="cpackage" onChange={(e) => {
-                                        setPackage(e.target.value)
-                                        calPrice();
-                                    }}>
-                                        <option >Select Package</option>
-                                        <option value="Full Board">Full Board</option>
-                                        <option value="Half Board">Half Board</option>
-                                        <option value="Bed And Breakfast">Bed And Breakfast</option>                                    
-                                    </select>
-                                </div>
-
-                                <div className="col-md-6 col-12 mx-auto my-2">
-                                    <select className="form-control-lg" name="roomType" id="roomType" onChange={(e) => {                             
-                                        setRoomAllocation(e.target.value); 
-                                        calPrice();                           
-                                    }}>
-                                        <option >Select Room Type</option>
-                                        {
-                                            getRoooms.map(function (roomAllocation) {
-                                            return <option key={roomAllocation} value={roomAllocation}>{roomAllocation}</option>
-                                            })
-                                        }
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-
-                            <div className="mt-5 col-md-6 col-12 mx-auto">
-                                <button className="btn btn-outline-dark btn-lg btn-block">Create Booking</button>
-                            </div>
-                            
-                        </form>
-                    </div>
-                </div>
-            </div>               
-        </div> 
+                    </div>               
+                </div> 
 
                 <BookingConfirm package={promoCode}
-
                 promoCode = {promoCode}
                 travelAgent = {travelAgent}
                 checkInDate = {checkInDate}
@@ -309,18 +306,12 @@ const AddRegBooking = ({setTestVal}) => {
                 otherAccomodations = {otherAccomodations}
                 roomAllocation ={roomAllocation}
                 price = {price}
-                
-
-
                 />
 
-                </div>
-                <PageBottom/>
-                </div>
-
-     )
-
-     ;
+            </div>
+            <PageBottom/>
+        </div>
+    );
 }
 export default AddRegBooking;
 
