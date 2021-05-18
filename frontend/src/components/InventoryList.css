@@ -6,58 +6,171 @@
     margin-left: 45px;
 }
 
-.content-box-list {
-    /* border: 1px solid rgba(194, 194, 194, 0.198);
-    border-radius: 12px; */
-    padding: 20px;
-    max-height: 385px;
-    overflow: auto;
+.total-inventory-display {
+    display: block;
+    line-height:20px;
+    text-align: center;
+    margin-right: 50px;
+    margin-top: 5px;
 }
+#total-inventory-display-total{
+    font-size: 30px;
+}
+#total-inventory-display-text{
+    font-size: 13px;
+    color: #707070;
+}
+
+.header-box #edit_btn {
+    border: 1px solid rgb(124, 124, 124);
+    border-radius: 90px;
+    width: 110px;
+    height: 35px;
+    margin-top: 8px;
+    color: rgb(124, 124, 124);
+    margin-right: 20px;
+    background-color: white;
+    transition: 0.2s ease;
+    outline: none;
+}
+
+.header-box #edit_btn:hover {
+    border: 1px solid rgb(180, 156, 20);
+    color: rgb(180, 156, 20);
+}
+
+.header-box #delete_btn {
+    border: 1px solid rgb(124, 124, 124);
+    border-radius: 90px;
+    width: 110px;
+    height: 35px;
+    margin-top: 8px;
+    color: rgb(124, 124, 124);
+    margin-right: 20px;
+    background-color: white;
+    transition: 0.2s ease;
+    outline: none;
+}
+
+.header-box #delete_btn:hover {
+    border: 1px solid rgb(255, 0, 55);
+    color: rgb(255, 0, 55);
+}
+
+.content-box-list {
+    overflow-y: scroll;
+    margin-top: 10px;
+    max-height: 490px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 12px;
+}
+
 .content-box-list::-webkit-scrollbar {
     display: none;
 }
 
-#items {
-    font-family: Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
+.content-box-list table {
     width: 100%;
-    border-radius: 12px;
-    overflow: hidden;
-}
-
-
-#items td {
-    border-collapse: separate;
-    border-spacing: 0 10px;
-    border: 1px solid #ddd;
-    padding: 8px;
-}
-#items th {
-    border-collapse: separate;
-    border-spacing: 0 10px;
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-transform:capitalize;
-}
-
-tr:hover {
-    background-color: rgb(149, 149, 149);
-}
-#items th {
-    padding-top: 12px;
-    padding-bottom: 12px;
     text-align: left;
-    background-color: #555555;
-    color: white;
+    border-spacing: 1;
+    border-collapse: collapse;
+    background: white;
+    overflow: scroll;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
 }
 
-td {
+.content-box-list table th {
+    position: sticky;
+    top: 0;
+    background-color: #e0e0e0;
+    z-index: 1;
+}
+
+.content-box-list table * {
+    position: relative;
+}
+
+.content-box-list table td, .content-box-list table th {
+    padding-left: 8px;
+}
+
+.content-box-list table thead tr {
+    height: 50px;
+    color: #585858;
+}
+
+.content-box-list table tbody tr {
+    height: 50px;
+}
+
+.content-box-list table tbody tr:last-child {
+    border: 0;
+}
+
+.content-box-list table td, .content-box-list table th {
+    text-align: left;
+}
+
+.content-box-list table td.l, .content-box-list table th.l {
+    text-align: right;
+}
+
+.content-box-list table td.c, .content-box-list table th.c {
+    text-align: center;
+}
+
+.content-box-list table td.r, .content-box-list table th.r {
+    text-align: center;
+}
+
+.content-box-list tbody tr:nth-child(even) {
+    background-color: #f5f5f5;
+}
+
+.content-box-list tbody tr {
+    /* font-family: OpenSans-Regular; */
     font-size: 15px;
     color: #808080;
-    line-height: 1.4;
-    background-color: #ffffff;
+    line-height: 1.2;
+    font-weight: unset;
 }
-#items a{
-    /* text-decoration: none; */
-    color: black;
+
+.content-box-list tbody tr:hover {
+    color: #3a3a3a;
+    background-color: #e6e6e6;
+}
+
+/* white background color when it is disabled */
+
+.content-box input[type="text"]:disabled {
+    background-color: rgb(255, 255, 255);
+}
+
+.content-box input[type="number"]:disabled {
+    background-color: rgb(255, 255, 255);
+}
+
+.content-box input[type="date"]:disabled {
+    background-color: rgb(255, 255, 255);
+}
+
+.content-box select:disabled {
+    background-color: rgb(255, 255, 255);
+    color: #000000;
+}
+
+.content-box textarea:disabled {
+    background-color: rgb(255, 255, 255);
+}
+
+.content-box-list i {
+    color: #3a3a3a;
+    transition: 00.2s ease;
+}
+
+.content-box-list i:hover {
+    color: #000000;
 }

@@ -33,7 +33,7 @@ export default function AddInventory() {
             }
         }).catch((e) => {
             // console.log(e);
-        })
+        },)
 
         axios.get("http://localhost:5000/supplier/").then((res) => {
             if (res.data.length > 0) {
@@ -43,7 +43,7 @@ export default function AddInventory() {
             // console.log(e);
         })
 
-    }, [sendData])
+    }, [getCategory])
     //sending collected data to the database
     function sendData(e) {
         e.preventDefault();
@@ -171,16 +171,16 @@ export default function AddInventory() {
                                     setunit(e.target.value)
                                 }} >
                                     <option >Select</option>
-                                    <option value="piece">piece</option>
+                                    <option value="piece">Piece</option>
                                     <option value="Kg">Kg</option>
-                                    <option value="grams">grams</option>
-                                    <option value="liters">liters</option>
+                                    <option value="grams">Grams</option>
+                                    <option value="liters">Liters</option>
                                 </select>
                                 <span className="placeholder">unit</span>
                             </label>
 
                             <label className="custom-field">
-                                <input type="number" className="form-input" id="quantity" onChange={(e) => {
+                                <input type="number" className="form-input" id="quantity" min="1"  onChange={(e) => {
                                     setquantity(e.target.value)
                                 }} />
                                 <span className="placeholder">quantity</span>
@@ -188,7 +188,7 @@ export default function AddInventory() {
 
 
                             <label className="custom-field">
-                                <input type="number" className="form-input" id="restock" onChange={(e) => {
+                                <input type="number" className="form-input" min="1"  id="restock" onChange={(e) => {
                                     setrestock(e.target.value)
                                 }} />
                                 <span className="placeholder">restock level</span>
@@ -196,7 +196,7 @@ export default function AddInventory() {
                             <br />
                             <div className="price">
                                 <label className="custom-field">
-                                    <input type="number" className="form-input" id="oprice" onChange={(e) => {
+                                    <input type="number" min="1" className="form-input" id="oprice" onChange={(e) => {
                                         setoprice(e.target.value)
                                     }} />
                                     <span className="placeholder">original price</span>

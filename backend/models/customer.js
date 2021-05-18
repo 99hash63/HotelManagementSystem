@@ -10,7 +10,7 @@ const customerSchema = new Schema({
     passportNo:{ type: String, unique: true },
     email:{type: String, required: true, unique: true },
     contact:{type: String, required: true}, 
-    password:{type: String, required: true},
+    passwordHash:{type: String, required: true},
 });
 
 const customer = mongoose.model('customer', customerSchema);

@@ -1,28 +1,55 @@
 .header-box-sup {
     font-size: 35px;
     display: flex;
-
+    justify-content: space-between;
     color: rgb(75, 75, 75);
     font-weight: 700;
+    min-height: 55px;
     margin-bottom: 20px;
     margin-left: 45px;
 }
 
+#add-new-sup-btn {
+    border: 1px solid rgb(124, 124, 124);
+    border-radius: 90px;
+    width: 110px;
+    height: 40px;
+    margin-top: 8px;
+    color: rgb(124, 124, 124);
+    margin-right: 20px;
+    background-color: white;
+    transition: 0.2s ease;
+    outline: none;
+}
+
+#add-new-sup-btn:hover {
+    border: 1px solid rgb(39, 39, 39);
+    color: rgb(39, 39, 39);
+}
+
 /* add supplier */
+
 .blur-s {
-   position: fixed;
-   margin: 0;
-   top: 0px;
-   left: 0px;
-   width: 100%;
-   height: 100%;
-   background: rgba(0, 0, 0, 0.37);
-   z-index: 30;
-   pointer-events: all;
-  
+    position: fixed;
+    backdrop-filter: blur(3px);
+    margin: 0;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.37);
+    z-index: 30;
+    pointer-events: all;
+
+    -webkit-animation: fadein 0.4s;
+    -moz-animation: fadein 0.4s;
+    -ms-animation: fadein 0.4s;
+    -o-animation: fadein 0.4s;
+    animation: fadein 0.4s;
 
 }
-.add-sup-head{
+
+.add-sup-head {
     display: flex;
     justify-content: center;
     text-align: center;
@@ -30,17 +57,21 @@
     font-size: 20px;
     margin-top: 20px;
     margin-bottom: 20px;
-    
 }
-.add-sup-head .btn{
-   position: absolute;
-   background-color: transparent;
-   top: 20px;
-   left: 430px;
-   border: none;
-   font-size: 25px;
-   outline: none;
-    
+
+.add-sup-head .btnn {
+    position: absolute;
+    background-color: transparent;
+    top: 20px;
+    left: 430px;
+    border: none;
+    font-size: 25px;
+    outline: none;
+    transition: 00.2s ease;
+}
+
+.add-sup-head .btnn:hover {
+    color: rgb(255, 0, 55);
 }
 
 .content-box-s {
@@ -50,25 +81,26 @@
     border-radius: 12px;
     overflow: scroll;
     z-index: 40;
-   padding: 0 20px 20px 20px ;
-   height: 560px;
+    padding: 0 20px 20px 20px;
+    height: 560px;
     position: fixed;
     top: 50%;
     left: 50%;
-    transform:translate(-50%,-50%) ;
+    transform: translate(-50%, -50%);
+    
 }
 
 .content-box-s::-webkit-scrollbar {
     display: none;
 }
+
 .supplier-list::-webkit-scrollbar {
     display: none;
 }
 
-
 .content-box-s form {
     padding-top: 10px;
-    display:block;
+    display: block;
     align-content: center;
     /* margin-top: 20px; */
 }
@@ -80,7 +112,6 @@
 .custom-field-s {
     position: relative;
     font-size: 13px;
-    
     /* padding-top: 10px; */
 }
 
@@ -110,9 +141,11 @@
     transform: translateY(44%);
     transition: color 0.3s ease;
 }
-.content-box-s #location-s{
+
+.content-box-s #location-s {
     height: 40px;
 }
+
 .content-box-s #description-s {
     max-width: 400px;
     max-height: 75px;
@@ -120,47 +153,48 @@
     min-width: 400px;
     font-family: 'Poppins', sans-serif;
 }
-.content-box-s .add-sup-btn{
-    border: 1px solid rgba(0, 0, 0, 0.26);
+
+.content-box-s .add-sup-btn {
+    margin-top: 10px;
     width: 425px;
     height: 30px;
+    background-color: rgb(46, 46, 46);
+    border: 1px solid rgb(46, 46, 46);
+    color: #e0e0e0;
     right: 30px;
     position: absolute;
     border-radius: 20px;
     outline: none;
-    
-}
-.content-box-s .add-sup-btn:hover{
-  background-color: rgb(110, 110, 110);
-    
+    transition: 0.2s ease;
 }
 
-
+.content-box-s .add-sup-btn:hover {
+    border: 1px solid rgb(0, 0, 0);
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+}
 
 /* supplier list */
 
-.supplier-list{
-    border: 1px solid rgba(194, 194, 194, 0.198);
-    border-radius: 12px;
-    overflow-y: scroll;
-    min-height: 490px;
-    max-height: 490px;
-
-}
 .supplier-list::-webkit-scrollbar {
     /* display: none; */
 }
-.supplier-list form{
-    border: 1px solid rgb(155, 155, 155);
-    background-color: rgb(214, 214, 214);
+
+.supplier-list form {
     border-radius: 15px;
     padding-top: 5px;
     margin: 12px;
     display: flex;
-    justify-content:center;
+    justify-content: center;
 }
-.supplier-list .btnq{
+
+#supform {
+    margin-top: 30px;
+}
+
+.supplier-list .btnq {
     border: 1px solid rgba(0, 0, 0, 0.26);
+    background-color: white;
     width: 205px;
     padding: 10px;
     /* padding-top: 24px; */
@@ -172,14 +206,175 @@
     transition: 0.3s ease;
     font-weight: 500;
 }
-.supplier-list  #description-s {
+
+.supplier-list .delete-sup:hover {
+    border: 1px solid rgb(255, 0, 55);
+    color: rgb(255, 0, 55);
+}
+
+.supplier-list .edit-sup:hover {
+    border: 1px solid rgb(180, 156, 20);
+    color: rgb(180, 156, 20);
+}
+
+.supplier-list #description-s {
     font-family: 'Poppins', sans-serif;
     max-width: 380px;
     max-height: 140px;
     min-height: 140px;
     min-width: 380px;
 }
-.supplier-list  #name-s {
+
+.supplier-list #name-s {
     max-width: 380px;
     min-width: 380px;
+}
+
+.supplier-list {
+    overflow-y: scroll;
+    margin-top: 10px;
+    border-radius: 12px;
+    max-height: 490px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.supplier-list::-webkit-scrollbar {
+    display: none;
+}
+
+.supplier-list table {
+    width: 100%;
+    text-align: left;
+    border-spacing: 1;
+    border-collapse: collapse;
+    background: white;
+    overflow: scroll;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+
+.supplier-list table th {
+    position: sticky;
+    top: 0;
+    background-color: #e0e0e0;
+    z-index: 1;
+}
+
+.supplier-list table * {
+    position: relative;
+}
+
+.supplier-list table td, .supplier-list table th {
+    padding-left: 8px;
+}
+
+.supplier-list table thead tr {
+    height: 50px;
+    color: #585858;
+}
+
+.supplier-list table tbody tr {
+    height: 50px;
+}
+
+.supplier-list table tbody tr:last-child {
+    border: 0;
+}
+
+.supplier-list table td, .supplier-list table th {
+    text-align: left;
+}
+
+.supplier-list table td.l, .supplier-list table th.l {
+    text-align: right;
+}
+
+.supplier-list table td.c, .supplier-list table th.c {
+    text-align: center;
+}
+
+.supplier-list table td.r, .supplier-list table th.r {
+    text-align: center;
+}
+
+.supplier-list tbody tr:nth-child(even) {
+    background-color: #f5f5f5;
+}
+
+.supplier-list tbody tr {
+    /* font-family: OpenSans-Regular; */
+    font-size: 15px;
+    color: #808080;
+    line-height: 1.2;
+    font-weight: unset;
+}
+
+.supplier-list tbody tr:hover {
+    color: #3a3a3a;
+    background-color: #e6e6e6;
+}
+
+.supplier-list i {
+    color: #3a3a3a;
+    transition: 00.2s ease;
+}
+
+.supplier-list i:hover {
+    color: #000000;
+}
+
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Firefox < 16 */
+
+@-moz-keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+
+@-webkit-keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Internet Explorer */
+
+@-ms-keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Opera < 12.1 */
+
+@-o-keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }

@@ -15,9 +15,12 @@
 }
 
 .category-box input, .category-box select {
-    border: 1px solid rgba(0, 0, 0, 0.329);
+    border-top: 1px solid rgba(0, 0, 0, 0.329);
+    border-right: 0px solid rgba(0, 0, 0, 0.329);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.329);
+    border-left: 1px solid rgba(0, 0, 0, 0.329);
     padding: 7px;
-    border-radius: 12px 0 0 12px;
+    border-radius: 5px 0 0 5px;
     outline: none;
     font-size: 14px;
     transition: 0.3s ease;
@@ -33,17 +36,37 @@
     border-top: 1px solid rgba(0, 0, 0, 0.329);
     border-right: 1px solid rgba(0, 0, 0, 0.329);
     border-bottom: 1px solid rgba(0, 0, 0, 0.329);
-    border-left: 0px solid rgba(0, 0, 0, 0.329);
+    border-left: 1px solid rgba(0, 0, 0, 0.329);
     padding: 7px;
-    border-radius: 0 12px 12px 0;
+    background-color: white;
+    border-radius: 0 5px 5px 0;
     outline: none;
     font-size: 14px;
     transition: 0.3s ease;
     font-weight: 400;
 }
+
 .add-cat:hover {
-    background-color: #36b140;
+    border: 1px solid rgb(0, 190, 48);
+    color:  rgb(0, 190, 48);
 }
+
 .del-cat:hover {
-    background-color: #fb4646;
+    /* background-color: rgb(255, 0, 55); */
+    border: 1px solid rgb(255, 0, 55);
+    color: rgb(255, 0, 55);
 }
+
+
+ .close-category i{
+     font-size: 15px;
+     transition: 0.2s ease;
+     color: rgb(85, 85, 85);
+    
+ }
+ .close-category i:hover{
+    color: black;
+   
+}
+
+ 
