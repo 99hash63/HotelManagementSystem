@@ -65,7 +65,6 @@ const InventoryCheckout = () => {
     e.preventDefault();
     const newarry = selected.filter(function (item) { return item._id !== data._id });
     setselected(newarry);
-
   }
   function addSelectedUnits(e, id, value) {
     //assigning values to the newly created property in SELECTED array

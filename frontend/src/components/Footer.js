@@ -31,7 +31,6 @@ export default function Footer() {
                                 <li><a style={{ color: 'rgb(173, 173, 173)' }} href="/">Contact</a></li>
                                 <li><a style={{ color: 'rgb(173, 173, 173)' }} href="/">About</a></li>
 
-
                             </ul>
                         </nav>
                     </div>

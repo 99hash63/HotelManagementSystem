@@ -52,7 +52,7 @@ const RoomTypeView = () => {
 
         axios.put(`http://localhost:5000/roomType/update/${id}`, newRoomType).then(() => {
 
-            window.location = "/roomType"
+            window.location = "/room-manager/roomType"
 
         }).catch((e) => {
             alert("error");
@@ -68,7 +68,7 @@ const RoomTypeView = () => {
         if (timesClicked > 1) {
 
             axios.delete(`http://localhost:5000/roomType/delete/${id}`).then(() => {
-                window.location = "/roomType"
+                window.location = "/room-manager/roomType"
             }).catch((e) => {
     
                 alert("error");
