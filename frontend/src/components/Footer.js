@@ -11,13 +11,13 @@ export default function Footer() {
             <div className="head footerhead">
                 <div className="up_head" style={{ color: 'rgb(173, 173, 173)' }}>
                     <div className="social">
-                        <a href="/"><i style={{ color: 'rgb(173, 173, 173)' }} className="fab fa-twitter"></i></a>
+                        {/* <a href="/"><i style={{ color: 'rgb(173, 173, 173)' }} className="fab fa-twitter"></i></a>
                         <a href="/"><i style={{ color: 'rgb(173, 173, 173)' }} className="fab fa-youtube"></i></a>
                         <a href="/"><i style={{ color: 'rgb(173, 173, 173)' }} className="fab fa-instagram"></i></a>
-                        <a href="/"><i style={{ color: 'rgb(173, 173, 173)' }} className="fab fa-facebook-square"></i></a>
+                        <a href="/"><i style={{ color: 'rgb(173, 173, 173)' }} className="fab fa-facebook-square"></i></a> */}
                     </div>
-                    <div className="contact"><i className="fas fa-phone-alt"></i>+94 77 456 7169&nbsp;&nbsp;</div>
-                    <div className="contact"><i className="fas fa-envelope"></i>info@sobana.com</div>
+                    {/* <div className="contact"><i className="fas fa-phone-alt"></i>+94 77 456 7169&nbsp;&nbsp;</div>
+                    <div className="contact"><i className="fas fa-envelope"></i>info@sobana.com</div> */}
                 </div>
 
                 <div className="down_head">
