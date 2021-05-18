@@ -43,7 +43,7 @@ import AddRegBooking from './customer/AddRegBooking'
 
 
 
-//import reception hall
+//import reception hall componenets
 
 import BookHall from './BookHall'
 import HallList from './ReceptionHallList';
