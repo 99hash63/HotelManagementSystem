@@ -5,12 +5,13 @@ import AddCategory from './AddCategory';
 
 export default function AddBarInventory() {
 
-    const [itemid, setitemid] = useState("");
+    const [item_id, setitemid] = useState("");
     const [name, setname] = useState("");
     const [category, setcategory] = useState("");
     const [supplier, setsupplier] = useState("");
     const [quantity, setquantity] = useState("");
-    const [original_price, setoprice] = useState("");
+    const [restocklevel, setrestocklevel] = useState("");
+    const [unitPrice, setoprice] = useState(0);
     const [date, setdate] = useState("");
 
     const [getCategory, setgetCategory] = useState([]);
@@ -21,14 +22,6 @@ export default function AddBarInventory() {
     useEffect(() => {
 
 
-        axios.get("http://localhost:5000/category/").then((res) => {
-            if (res.data.length > 0) {
-                setgetCategory(res.data.map(category => category.name))
-            }
-        }).catch((e) => {
-            // console.log(e);
-        })
-
         axios.get("http://localhost:5000/supplier/").then((res) => {
             if (res.data.length > 0) {
                 setgetSupplier(res.data.map(supplier => supplier.name))
@@ -37,18 +30,18 @@ export default function AddBarInventory() {
             // console.log(e);
         })
 
-    }, [sendData])
+    }, [])
     //sending collected data to the database
     function sendData(e) {
         e.preventDefault();
 
         const newItem = {
-            itemid,name,category, supplier, quantity, original_price, date
+            item_id,name,category, supplier, quantity, unitPrice, date
         }
 
-        axios.post(" http://localhost:5000/inventory/add", newItem).then(() => {
+        axios.post(" http://localhost:5000/barInventory/add", newItem).then(() => {
 
-            window.location = "/inventory"
+            window.location = "/viewbeverages"
 
         }).catch((e) => {
             alert("error");
@@ -94,7 +87,11 @@ export default function AddBarInventory() {
 
                         
                     <label className="custom-field">
-                            <input type="text" className="form-input" id="item_id"/>
+                            <input type="text" className="form-input" id="item_id"
+                            onChange={(e) => {
+                                setitemid(e.target.value)
+                            }}
+                            />
                             <span className="placeholder">Item ID</span>
                         </label>
                      
@@ -119,11 +116,9 @@ export default function AddBarInventory() {
                                     setcategory(e.target.value)
                                 }}  >
                                     <option >Select</option>
-                                    {
-                                        getCategory.map(function (category) {
-                                            return <option key={category} value={category}>{category}</option>
-                                        })
-                                    }
+                                    <option >Alcoholic</option>
+                                    <option >Non-Alcoholic</option>
+                                    
                                 </select>
                                 <span className="placeholder">category</span>
                             </label>
@@ -153,6 +148,13 @@ export default function AddBarInventory() {
                                 <span className="placeholder">quantity</span>
                             </label>
 
+                            <label className="custom-field">
+                                <input type="number" className="form-input" id="restocklevel" onChange={(e) => {
+                                    setrestocklevel(e.target.value)
+                                }} />
+                                <span className="placeholder">Re-Stock Level</span>
+                            </label>
+
                             <br />
                             <div className="price">
                                 <label className="custom-field">
@@ -177,8 +179,6 @@ export default function AddBarInventory() {
                         <div className="form2-btn">
                             <button className="addinventory-btn">Add Bar Inventory</button>
                         </div>
-
-
 
                     </div>
 
