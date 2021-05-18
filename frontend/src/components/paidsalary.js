@@ -83,6 +83,8 @@ function ViewAll() {
                         <th>Ot Hours</th>
                         <th>Total Salary</th>
                         <th>Paid Date</th>
+                        <th></th>
+
 
                     </tr>
                 </thead>
@@ -100,9 +102,7 @@ function ViewAll() {
                                 <td>{salary.otHours}</td>
                                 <td>{salary.totalsalary}</td>
                                 <td>{salary.paidDate.substring(0, 10)}</td>
-                                
-
-                                <td><Link to={"/Viewonepayment/"+salary._id}> <i class="far fa-edit"></i> </Link></td>
+                                <td><Link to={"/emp-manager/Viewonepayment/"+salary._id}> <i class="far fa-edit"></i> </Link></td>
                             </tr>
                         
                     

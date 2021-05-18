@@ -29,16 +29,13 @@ export default function Body() {
 
             <div className="content">
 
-                
+            { <Emanagersidenav /> }
 
-                {/* <div className="block"> */}
+                <div className="block">
                 
                
-
-                    {/*Employee Manager Routes*/}
-                    { <Emanagersidenav /> }
                     <Route path="/emp-manager/addemployee" exact component={Addemployee}/>
-                    <Route path="/emp-manager/allemployees" exact component={Allemployees}/>
+                    <Route path="/emp-manager" exact component={Allemployees}/>
                     <Route path="/emp-manager/Viewoneemployee/:id" exact component={viewOneemployee}/>
                     <Route path="/emp-manager/deleteemployee/:id" exact component={Deleteemployee}/>
                     <Route path="/emp-manager/addsalary" exact component={Salarycalculator}/>
@@ -49,7 +46,7 @@ export default function Body() {
                     <Route path="/emp-manager/Viewonepayment/:id" exact component={viewonesalary}/>
                     <Route path="/emp-manager/minical" exact component={minical}/>    
 
-                {/* </div> */}
+    </div>
 
             </div>
         </Router>

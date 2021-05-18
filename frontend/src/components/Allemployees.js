@@ -36,15 +36,14 @@ function ViewAll() {
                         <th>First Name</th>
                         <th>Last Name</th>
                         <th>Employee Type</th>
-                        <th>Date Of Birthr</th>
                         <th>Nic No</th>
-                        <th>Address</th>
                         <th>Mobile No</th>
                         <th>Bank</th>
                         <th>Branch</th>
                         <th>Bank Account No</th>
                         <th>Email</th>
                         <th>Password</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -58,17 +57,14 @@ function ViewAll() {
                                 <td>{employee.fname}</td>
                                 <td>{employee.lname}</td>
                                 <td>{employee.eType}</td>
-                                <td>{employee.dob}</td>
                                 <td>{employee.nic}</td>
-                                <td>{employee.address}</td>
                                 <td>{employee.mobileno}</td>
                                 <td>{employee.bank}</td>
                                 <td>{employee.bankbranch}</td>
                                 <td>{employee.bankaccountno}</td>
                                 <td>{employee.email}</td>
                                 <td>{employee.password}</td>
-
-                                <td><Link to={"/Viewoneemployee/"+employee._id}> <i class="far fa-edit"></i> </Link></td>
+                                <td><Link to={"/emp-manager/Viewoneemployee/"+employee._id}> <i class="far fa-edit"></i> </Link></td>
                             </tr>
                        
                     

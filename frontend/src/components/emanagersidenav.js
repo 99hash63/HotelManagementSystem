@@ -41,7 +41,7 @@ export default function Sidenav() {
 
             
 
-                <Link to="/emp-manager/allemployees">Employees</Link>
+                <Link to="/emp-manager">Employees</Link>
                 <Link to="/emp-manager/addemployee">Add Employee</Link>
                 <Link to="/emp-manager/addsalary">Add paid Salary</Link>
                 <Link to="/emp-manager/paidsalary">Paid Salaries</Link>

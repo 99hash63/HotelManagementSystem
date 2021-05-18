@@ -61,7 +61,7 @@ function ViewOne() {
         const result = window.confirm("Confirm?");
         if (result == true) {
             axios.put(`http://localhost:5000/salary/update/${id}`, newEmployee).then(() => {
-            window.location = "/allemployees"
+            window.location = "/emp-manager"
             }).catch(() => {
                 alert("User Id Duplicated!!!!");
             })

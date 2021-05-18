@@ -74,7 +74,7 @@ function ViewOne() {
         const result = window.confirm("Confirm?");
         if (result == true) {
             axios.put(`http://localhost:5000/employee/update/${id}`, newEmployee).then(() => {
-            window.location = "/allemployees"
+            window.location = "/emp-manager"
             }).catch(() => {
                 alert("User Id Duplicated!!!!");
             })
@@ -172,8 +172,8 @@ function ViewOne() {
 
 
                 <button className="addinventory-btn" onClick={e => updat(employeeOne._id)}>Update</button><br></br>
-                <Link to={"/deleteemployee/" + employeeOne._id}> Delete </Link><br></br>
-                <Link to={"/allemployees"}>Back</Link><br></br>
+                <Link to={"/emp-manager/deleteemployee/" + employeeOne._id}> Delete </Link><br></br>
+                <Link to={"/emp-manager"}>Back</Link><br></br>
 
             </form>
 
