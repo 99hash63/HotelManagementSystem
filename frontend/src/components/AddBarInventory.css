@@ -1,0 +1,75 @@
+
+.addbarorders-btn{
+    margin-top: 70px;
+    /* margin-right: 40px; */
+    float: right;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    color: #000;
+    text-transform: uppercase;
+    font-weight: 600;
+    /* margin-left: 30px;
+    margin-bottom: 30px; */
+    /* cursor: pointer; */
+    display: inline-block;
+    background-color: transparent;
+    border: 1px solid #5d5d5d;
+    border-radius: 50px;
+    -webkit-transition: all .15s ease-in-out;
+    transition: all .15s ease-in-out;
+    color: #575757;
+    outline: none;
+}
+.addoneorder-btn{
+    margin-top: 70px;
+    /* margin-right: 40px; */
+    float: center;
+    width: 50%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    color: #000;
+    text-transform: uppercase;
+    font-weight: 600;
+    /* margin-left: 30px;
+    margin-bottom: 30px; */
+    /* cursor: pointer; */
+    display: inline-block;
+    background-color: transparent;
+    border: 1px solid #5d5d5d;
+    border-radius: 50px;
+    -webkit-transition: all .15s ease-in-out;
+    transition: all .15s ease-in-out;
+    color: #575757;
+    outline: none;
+
+}
+.addoneorder-btn:hover{
+    /* box-shadow: 0 0 3px 0 #eedf0f inset, 0 0 5px 2px #eedf0f; */
+    background-color: #F7CE68;
+    color: rgb(63, 63, 63);
+    border: 1px solid #F7CE68;  
+}
+.addbarorders-btn:hover{
+    /* box-shadow: 0 0 3px 0 #eedf0f inset, 0 0 5px 2px #eedf0f; */
+    background-color: #F7CE68;
+    color: rgb(63, 63, 63);
+    border: 1px solid #F7CE68;
+}
+
+
+
+#usersTable th {
+    cursor: pointer;
+    background-color: coral;
+  }
+  #usersTable  tr {
+    cursor: pointer;
+    background-color:#F0FFF0;
+  }
+.orders-table{
+    background-color: rgb(205, 236, 187);
+   
+}

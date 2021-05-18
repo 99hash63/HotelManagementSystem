@@ -15,13 +15,13 @@ function Delet() {
 
                 axios.delete(`http://localhost:5000/Travel_Agency/delete/${id}`).then((res) => {
                     console.log(res);
-                    window.location = "/viewAllAgencies";
+                    window.location = "/front-office-manager/viewAllAgencies";
                     alert("Delete Success");
                 }).catch(() => {
                     alert("Have Erro!");
                 })
             } else {
-                window.location = "/viewOne/" + id;
+                window.location = "/front-office-manager/viewOne/" + id;
             }
         }
         delet(id);
@@ -30,7 +30,7 @@ function Delet() {
 
 
     return (
-        <div>
+        <div> 
 
         </div>
     )

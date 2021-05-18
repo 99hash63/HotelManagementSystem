@@ -10,6 +10,7 @@ const CheckoutHistory = ({ POP }) => {
     const [history, sethistory] = useState([]);
 
     useEffect(() => {
+        //fetching CHECKOUT HISTORY data from the DB
         axios.get("http://localhost:5000/checkout/").then((res) => {
             if (res.data.length > 0) {
                 sethistory(res.data);
@@ -18,15 +19,16 @@ const CheckoutHistory = ({ POP }) => {
             console.log(e);
         })
 
-
     }, [history])
+
+    //pdf creating funtion
     const generatePDF = tickets => {
 
-        const doc = new jspdf();
+        const doc = new jspdf(); //initializing jspdf dependancy 
         const tableColumn = ["Name", "Model", "SKU", "Category", "Quantity", "To", "Description", "Date"];
         const tableRows = [];
 
-        tickets.slice(0).reverse().map(ticket => {
+        tickets.slice(0).reverse().map(ticket => { //assigning table row data
             const ticketData = [
                 ticket.name,
                 ticket.model,

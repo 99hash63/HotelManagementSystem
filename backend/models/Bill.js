@@ -44,6 +44,6 @@ const Bills = new Schema({
        
     },
 })
-const fbil = mongoose.model("Bill",Bills);
+const fbil = mongoose.model("Final Bill",Bills);
 
 module.exports =fbil;

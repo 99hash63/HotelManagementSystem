@@ -3,6 +3,13 @@ import './CusLogin.css'
 import axios from 'axios'
 import { useHistory } from 'react-router';
 import AuthCentext from '../../context/AuthContext'
+import Hero from './subComponents/Hero'
+import PageBottom from './PageBottom';
+
+
+// import Hero from '../components/customer/subComponents/Hero';
+import Banner from './subComponents/Banner';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
 
@@ -34,13 +41,25 @@ const Login = () => {
 
     return (  
 
-        <div style={{gridArea:"b"}} className="customerREGLOG" >
+<div>
+    <Hero hero="behindHero"></Hero>
+
+        <div  style={{gridArea:"b"}} className="customerREGLOG">
+            
                 <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
 
-                
+            {/* <Hero hero="defaultHero">
+            </Hero> */}
+                 {/* <Banner title="Luxurious Rooms" subtitle="deluxe rooms starting at 300$">
+                <Link to="/rooms" className="btn btn-primary">
+                      Our Rooms
+                </Link>
+         </Banner> */}
+    
 
                 <form onSubmit={login}>
-                <h3><span id="signinCUS">Sign in to Hotel Sobana or <a href="/cusReg">create an account</a></span></h3>
+                    <br/>
+                <h5><span id="signinCUS">Sign in to Hotel Sobana or <a href="/cusReg">create an account</a></span></h5>
 
                 <div className="container">
                     <label for="uname"><b>Email</b></label>
@@ -66,6 +85,8 @@ const Login = () => {
                 </form>
 
             </div>
+            <PageBottom/>
+    </div>        
 
     );
     }

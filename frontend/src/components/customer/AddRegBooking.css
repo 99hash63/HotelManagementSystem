@@ -1,0 +1,15 @@
+
+
+.regBooking{
+    position: absolute;
+    border-radius: 10px;
+    bottom: 40px;
+    /* height: 600px; */
+    top: 435px;
+    left: 730px;
+    transform: translate(-50%, -50%);
+    /* background: rgb(248, 248, 248); */
+    width: 1000px;
+    height: 100%;
+    z-index: 22 !important;
+}

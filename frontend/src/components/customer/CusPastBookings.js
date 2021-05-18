@@ -3,6 +3,11 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 import jspdf from 'jspdf'
 import "jspdf-autotable"
+import './CusSideComponents.css'
+import Hero from './subComponents/Hero'
+import PageBottom from './PageBottom';
+
+
 
 export default function PBookings() {
     const [upBookings, setUpBookings] = useState([]);
@@ -17,7 +22,13 @@ export default function PBookings() {
     }, []);
 
     return (
-        <div className="display-box" style={{background: "#ffffff",borderRadius: "20px"}}>
+        <div>
+        <div>
+           <Hero hero="behindHero">
+        </Hero>
+       
+        <div className="cusSideComp" >
+            {/* className="display-box" style={{background: "#ffffff",borderRadius: "20px"} */}
             <div className="header-box">
                 {/* <div>Inventory<button id="generate-reportt-btn" onClick={() => generatePDF(inventory)}>Create Report</button></div> */}
 
@@ -39,7 +50,7 @@ export default function PBookings() {
                             <th>Adults</th>
                             <th>Children</th>
                             <th>Package</th>
-                            <th>Other</th>
+                            {/* <th>Other</th> */}
                             <th>Rooms</th>
                             <th>Price</th>
                             <th>State</th>
@@ -60,11 +71,11 @@ export default function PBookings() {
                                     <td >{f.noOfAdults} </td>
                                     <td >{f.noOfChildren} </td>
                                     <td >{f.package} </td>
-                                    <td >{f.otherAccomodations} </td>
+                                    {/* <td >{f.otherAccomodations} </td> */}
                                     <td >{f.roomAllocation} </td>
                                     <td >{f.price} </td>
                                     <td >{f.bookingState} </td>
-                                    <td > <Link to={"/displayPast/" + f._id} ><i class="far fa-edit"></i></Link></td>
+                                    <td > <Link to={"/CusSideNav/displayPast/" + f._id} ><i class="far fa-edit"></i></Link></td>
 
                                 </tr>
 
@@ -74,6 +85,10 @@ export default function PBookings() {
                 </table>
             </div>
         </div >
+        </div>
+
+<PageBottom/>
+</div>
     )
 }
  

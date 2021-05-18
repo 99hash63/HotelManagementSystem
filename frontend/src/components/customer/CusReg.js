@@ -2,6 +2,8 @@ import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios'
 import { useHistory } from 'react-router';
 import AuthCentext from '../../context/AuthContext'
+import Hero from './subComponents/Hero'
+import PageBottom from './PageBottom';
 
 
 const Register = () => {
@@ -18,10 +20,10 @@ const Register = () => {
     const [passwordVerify, setPasswordVerify] = useState("");
 
     //temporary null values
-    const address = "null";
-    const NIC = "null";
-    const nationality = "null";
-    const passportNo = "null";
+    const address = "null2";
+    const NIC = "null2";
+    const nationality = "null2";
+    const passportNo = "null2";
     
 
 
@@ -56,6 +58,9 @@ const Register = () => {
     }
 
     return (
+
+        <div>
+    <Hero hero="behindHero"></Hero>
         <div style={{ gridArea: "b" }} className="customerREGLOG">
 
             <form onSubmit={register}>
@@ -128,6 +133,8 @@ const Register = () => {
            
 
         </div>
+        <PageBottom/>
+    </div>        
     );
 }
 

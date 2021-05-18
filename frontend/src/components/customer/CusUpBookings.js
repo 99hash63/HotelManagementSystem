@@ -3,6 +3,10 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 import jspdf from 'jspdf'
 import "jspdf-autotable"
+import './CusSideComponents.css'
+import Hero from './subComponents/Hero'
+import PageBottom from './PageBottom';
+
 
 
 export default function UpBookings() {
@@ -18,7 +22,14 @@ export default function UpBookings() {
     }, []);
 
     return (
-        <div className="display-box" style={{background: "#ffffff",borderRadius: "20px"}}>
+        <div>
+        <div>
+             <Hero hero="behindHero">
+        </Hero>
+
+        
+        <div className="cusSideComp" >
+        {/* <div className="display-box" style={{background: "#ffffff",borderRadius: "20px"}}> */}
             <div className="header-box">
                 {/* <div>Inventory<button id="generate-reportt-btn" onClick={() => generatePDF(inventory)}>Create Report</button></div> */}
 
@@ -40,8 +51,8 @@ export default function UpBookings() {
                             <th>Adults</th>
                             <th>Children</th>
                             <th>Package</th>
-                            <th>Other</th>
                             <th>Rooms</th>
+                            <th>Room Type</th>
                             <th>Price</th>
                             <th>State</th>
                             <th></th>
@@ -65,7 +76,7 @@ export default function UpBookings() {
                                     <td >{f.roomAllocation} </td>
                                     <td >{f.price} </td>
                                     <td >{f.bookingState} </td>
-                                    <td > <Link to={"/displayUpcoming/" + f._id} ><i class="far fa-edit"></i></Link></td>
+                                    <td > <Link to={"/CusSideNav/displayUpcoming/" + f._id} ><i class="far fa-edit"></i></Link></td>
 
                                 </tr>
 
@@ -75,5 +86,9 @@ export default function UpBookings() {
                 </table>
             </div>
         </div >
+        </div>
+
+<PageBottom/>
+</div>
     )
 }

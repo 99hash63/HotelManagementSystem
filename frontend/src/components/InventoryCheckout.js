@@ -13,6 +13,7 @@ const InventoryCheckout = () => {
   const [description, setdescription] = useState("");
 
   useEffect(() => {
+    //fetching all inventory data from the database
     axios.get("http://localhost:5000/inventory/").then((res) => {
       if (res.data.length > 0) {
         setinventory(res.data);
@@ -24,8 +25,9 @@ const InventoryCheckout = () => {
   }, [])
 
 
-  useEffect(() => {
+  useEffect(() => { //search funtion
     setfiltered(
+      //filtering the inventory array to only contain objects that match with the seach term and save in the FILTERED useState 
       inventory.filter(items => {
         return items.name.toLowerCase().includes(search.toLowerCase())
           || items.model.toLowerCase().includes(search.toLowerCase())
@@ -36,7 +38,7 @@ const InventoryCheckout = () => {
     )
   }, [search, inventory])
 
-  useEffect(() => {
+  useEffect(() => {//add a new property to each SELECTED array object (to store the selected quantity)
     selected.forEach(function (element) {
       element.selectedUnits = 1;
     });
@@ -45,38 +47,38 @@ const InventoryCheckout = () => {
   }, [])
 
 
-  const select = (e, data) => {
+  const select = (e, data) => { //add new object to the SELECTED array
     e.preventDefault();
-    if (checkSelect(data._id) != data._id) {
+    if (checkSelect(data._id) != data._id) { //checking the new object id is already existing in the SELECTED array
       setselected(oldArray => [...oldArray, data]);
     }
   }
 
-  function checkSelect(id) {
+  function checkSelect(id) { //checking all the IDs in the SELECTED array if matches the param(id)
     for (let index = 0; index < selected.length; index++) {
       if (selected[index]._id == id) {
         return selected[index]._id;
       }
     }
   }
-  function deleteItem(e, data) {
+  function deleteItem(e, data) {//deleting objects from the SELECTED array
     e.preventDefault();
     const newarry = selected.filter(function (item) { return item._id !== data._id });
     setselected(newarry);
 
   }
   function addSelectedUnits(e, id, value) {
-
-
-    const nextState = selected.map(a => a._id == id ? { ...a, selectedUnits: value } : a);
-    setselected(nextState);
-
-
+    //assigning values to the newly created property in SELECTED array
+    if (value>0) {
+      const nextState = selected.map(a => a._id == id ? { ...a, selectedUnits: value } : a);
+      setselected(nextState);
+    }
+   
 
   }
   let totalvalue = 0;
   useEffect(() => {
-    
+    //displaying the total value of all seleted inventory by taking selected quantity and unit price for calculation
     for (let index = 0; index < selected.length; index++) {
       totalvalue += selected[index].original_price * selected[index].selectedUnits;
 
@@ -91,10 +93,12 @@ const InventoryCheckout = () => {
 
         if (selected[index]._id == inventory[x]._id) {
           const id = inventory[x]._id;
-
+          //checking if selecting quantity is less than stock quantity
           if (inventory[x].quantity >= selected[index].selectedUnits) {
+            //substracting the selecting quantity value from the stock quantity value
             const total = parseInt(inventory[x].quantity) - parseInt(selected[index].selectedUnits);
             const newStockvalue = { total };
+            //updating the new inventory stock quantity in the Database
             axios.put(`http://localhost:5000/inventory/updatestock/${id}`, newStockvalue).then(() => {
 
             }).catch((e) => {
@@ -114,19 +118,19 @@ const InventoryCheckout = () => {
             var yyyy = date.getFullYear();
 
             date = mm + '/' + dd + '/' + yyyy;
-            
-            const newItem = {
-              name,model,sku,category,to,description,quantity,unit_price,total_price,date
-            }
 
+            const newItem = {
+              name, model, sku, category, to, description, quantity, unit_price, total_price, date
+            }
+            //sending all checkout data including items sold and other information to the database
             axios.post(" http://localhost:5000/checkout/add", newItem).then(() => {
               setselected([]);
               setto("")
               setdescription("")
-              totalvalue=0;
-              document.getElementById('fofofo').innerHTML ="" ;
-              document.getElementById('to-text').value ="" ;
-              document.getElementById('to-des').value ="" ;
+              totalvalue = 0;
+              document.getElementById('fofofo').innerHTML = "";
+              document.getElementById('to-text').value = "";
+              document.getElementById('to-des').value = "";
 
 
             }).catch((e) => {
@@ -140,15 +144,15 @@ const InventoryCheckout = () => {
     }
 
   }
-  function checkoutPOP() {
+  function checkoutPOP() { //funtion to display the CHECKOUT HISTORY TABLE
     const x = document.getElementById("checkoutHistory-window").style.display;
     if (x == "none") {
-        document.getElementById('checkoutHistory-window').style.display = "block";
+      document.getElementById('checkoutHistory-window').style.display = "block";
     }
     else {
-        document.getElementById('checkoutHistory-window').style.display = "none ";
+      document.getElementById('checkoutHistory-window').style.display = "none ";
     }
-}
+  }
 
 
 
@@ -157,7 +161,7 @@ const InventoryCheckout = () => {
       <div className="header-box-sup"> Checkout
       <button id="checkoutHistory-window-btn" onClick={checkoutPOP} style={{ display: "block" }}>History</button>
       </div>
-        <div id="checkoutHistory-window" style={{ display: "none" }}>  <History POP={checkoutPOP} /> </div>
+      <div id="checkoutHistory-window" style={{ display: "none" }}>  <History POP={checkoutPOP} /> </div>
 
       <div className="checkout-box" >
         <div className="checkoutlist cb">
@@ -181,7 +185,7 @@ const InventoryCheckout = () => {
         <div className="processcheckout cb">
           <div className="upper-cb" >
             <input id="to-text" type="text" placeholder="to" onChange={e => { setto(e.target.value) }} />
-            <input id="to-des"type="text" placeholder="description" onChange={e => { setdescription(e.target.value) }} />
+            <input id="to-des" type="text" placeholder="description" onChange={e => { setdescription(e.target.value) }} />
           </div>
           <div className="lower-cb" >
             <span id='total-cb'>Total : <span id="fofofo"></span></span>
@@ -200,7 +204,7 @@ const InventoryCheckout = () => {
 
 
             <div className="itembox">
-              {filtered.map(function (s) {
+              {filtered.slice(0).reverse().map(function (s) {
                 return <div className="round-checkout-box">
 
                   <div className="restock-details">

@@ -5,8 +5,6 @@ import AddCategory from './AddCategory';
 
 export default function AddInventory() {
 
-
-
     const [name, setname] = useState("");
     const [model, setmodel] = useState("");
     const [sku, setsku] = useState("");
@@ -25,8 +23,7 @@ export default function AddInventory() {
 
 
     useEffect(() => {
-
-
+ 
         axios.get("http://localhost:5000/category/").then((res) => {
             if (res.data.length > 0) {
                 setgetCategory(res.data.map(category => category.name))
@@ -48,13 +45,16 @@ export default function AddInventory() {
     function sendData(e) {
         e.preventDefault();
 
+        //createing an unique ID
+        let inventoryID = category.toUpperCase() + Date.now();
+        
         const newItem = {
-            name, model, sku, category, supplier, description, mesurement, quantity, restock_level, original_price, date
+            inventoryID, name, model, sku, category, supplier, description, mesurement, quantity, restock_level, original_price, date
         }
 
         axios.post(" http://localhost:5000/inventory/add", newItem).then(() => {
 
-            window.location = "/inventory"
+            window.location = "/inventory-manager"
 
         }).catch((e) => {
             alert("error");
@@ -62,7 +62,7 @@ export default function AddInventory() {
 
     }
 
-    function AddCategoryBar() {
+    function AddCategoryBar() {//for displaying and hiding the ADD CATEGORY component
         const x = document.getElementById("add-new-cat").style.display;
         if (x == "none") {
             document.getElementById('add-new-cat').style.display = "block";
@@ -99,7 +99,7 @@ export default function AddInventory() {
                     <div className="form1">
 
                         <label className="custom-field">
-                            <input type="text" className="form-input" id="name" onChange={(e) => {
+                            <input type="text" className="form-input" id="name" maxLength="50" onChange={(e) => {
                                 setname(e.target.value)
                             }} required />
                             <span className="placeholder">name</span>
@@ -107,7 +107,7 @@ export default function AddInventory() {
                         <br />
 
                         <label className="custom-field">
-                            <input type="text" className="form-input" id="model" onChange={(e) => {
+                            <input type="text" className="form-input" id="model" maxLength="50" onChange={(e) => {
                                 setmodel(e.target.value)
                             }} required />
                             <span className="placeholder">model</span>
@@ -115,7 +115,7 @@ export default function AddInventory() {
                         <br />
 
                         <label className="custom-field">
-                            <input type="text" className="form-input" id="sku" onChange={(e) => {
+                            <input type="text" className="form-input" id="sku" maxLength="10" onChange={(e) => {
                                 setsku(e.target.value)
                             }} />
                             <span className="placeholder">SKU</span>
@@ -124,7 +124,7 @@ export default function AddInventory() {
                         <br />
 
                         <label className="custom-field">
-                            <textarea name="description" id="description" cols="0" rows="10" maxLength="500" onChange={(e) => {
+                            <textarea name="description" id="description" cols="0" rows="10" maxLength="200" onChange={(e) => {
                                 setdescription(e.target.value)
                             }} ></textarea>
                             <span className="placeholder">description</span>
@@ -180,7 +180,7 @@ export default function AddInventory() {
                             </label>
 
                             <label className="custom-field">
-                                <input type="number" className="form-input" id="quantity" min="1"  onChange={(e) => {
+                                <input type="number" className="form-input" id="quantity" min="1" onChange={(e) => {
                                     setquantity(e.target.value)
                                 }} />
                                 <span className="placeholder">quantity</span>
@@ -188,7 +188,7 @@ export default function AddInventory() {
 
 
                             <label className="custom-field">
-                                <input type="number" className="form-input" min="1"  id="restock" onChange={(e) => {
+                                <input type="number" className="form-input" min="1" id="restock" onChange={(e) => {
                                     setrestock(e.target.value)
                                 }} />
                                 <span className="placeholder">restock level</span>
@@ -209,9 +209,6 @@ export default function AddInventory() {
                                 </label>
 
                             </div>
-
-
-
 
                         </div>
                         <div className="form2-btn">

@@ -1,45 +1,58 @@
 import './App.css';
-import Body from './components/body';
-import Footer from './components/Footer';
-import Header from './components/Header';
-import CusHeader from './components/customer/CusHeader'
+import ManagerLogin from './components/ManagerLogin';
 import axios from 'axios'
-import {AuthContextProvider} from "./context/AuthContext"
-import LoginButtonHeader from './components/customer/LoginButtonHeader'
 import CusBody from './components/customer/CusBody';
-import React, {useState} from 'react';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Switch, Link, Redirect } from 'react-router-dom'
+import frontOfficeComp from './components/bodyComponents/frontOfficeComp'
+import inventoryComp from './components/bodyComponents/inventoryComp'
+import barComp from './components/bodyComponents/barComp'
+import roomComp from './components/bodyComponents/roomComp'
+import employeeManager from './components/bodyComponents/employeeManagerComp';
+import Page404 from './components/404';
+import { AuthContextProvider } from './context/AuthContext';
+import loadCus from './loadCustomer'
+
+
+import DisplayInventory from './components/DisplayInventory';
+import Suppliers from './components/Suppliers';
+import SuppliersView from './components/SupplierView';
+import ReStock from './components/ReStock';
+import InventoryCheckout from './components/InventoryCheckout';
+import AddInventory from './components/AddInventory';
+import InventoryList from './components/InventoryList';
+import hallComp from './components/bodyComponents/hallComp';
 
 
 axios.defaults.withCredentials = true;
 
 function App() {
 
-  const [active, setActive] = useState("customer");
 
   return (
     <div>
-     
-      <AuthContextProvider>
-        {active === "customer" && <CusHeader/>}
-        {active === "customer" && <CusBody/>}
-        {/* {active === "customer" &&  <LoginButtonHeader/>} */}
-        {active === "employee" && <Header />}
-        {active === "employee" && <Body />}
-      
-        <Footer />
-        <button onClick={()=>setActive("employee")} style={ 
-            {  position: "absolute", 
-               marginLeft: "1216px", 
-               marginTop: "221px",
-               backgroundColor: 'rgb(15, 15, 15)',
-               color: 'rgb(173, 173, 173)'
-            }
-            }>Click employee</button>
-      </AuthContextProvider>
+        <Router>
+          <Switch>
+         
+            <Route exact path="/managerLogin" component={ManagerLogin} />
+            <Route  path="/emp-manager" component={employeeManager} />
+            <Route  path="/front-office-manager" component={frontOfficeComp} />
+            <Route  path="/inventory-manager" component={inventoryComp} />
+            <Route  path="/bar-manager" component={barComp} />
+            <Route  path="/room-manager" component={roomComp} />
+            <Route  path="/hall-manager" component={hallComp} />
+            <Route exact path="/404" component={Page404} />
+
+            <Route exact path="/" component={loadCus} />
+            <Redirect to="/404" />
+         
+          </Switch>
+        </Router>
+ 
+
+
+
     </div>
-
-
-
   );
 }
 

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios'
 import './Suppliers.css'
 
-const AddSuppliers = ({supPOP}) => {
+const AddSuppliers = ({ supPOP }) => {
 
     const [name, setname] = useState("");
     const [description, setdescription] = useState("");
@@ -13,18 +13,26 @@ const AddSuppliers = ({supPOP}) => {
 
     function sendData(e) {
         e.preventDefault();
-
+        //sending new supplier values to the DB
         const newSupplier = {
             name, description, contact, email, location
         }
 
-        axios.post(" http://localhost:5000/supplier/add", newSupplier).then(() => {
+        var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
+        if (!pattern.test(email)) {
 
-            window.location = "/suppliers"
+            alert("Incorrect Email Address")
+        }
+        else {
 
-        }).catch((e) => {
-            alert("error");
-        })
+            axios.post(" http://localhost:5000/supplier/add", newSupplier).then(() => {
+
+                window.location = "/inventory-manager/suppliers"
+
+            }).catch((e) => {
+                alert("error");
+            })
+        }
 
     }
 
@@ -39,7 +47,7 @@ const AddSuppliers = ({supPOP}) => {
                     <div className="add-sup-head">
                         <div className="title">Add Supplier</div>
                         <button className="btnn" onClick={supPOP}>&times;</button>
-                        </div>
+                    </div>
 
                     <hr />
 
@@ -49,14 +57,14 @@ const AddSuppliers = ({supPOP}) => {
                         <div className="form1">
 
                             <label className="custom-field-s">
-                                <input type="text" className="form-input" id="name-s" onChange={(e) => {
+                                <input type="text" className="form-input" id="name-s" maxLength="50" onChange={(e) => {
                                     setname(e.target.value)
                                 }} required />
                                 <span className="placeholder">name</span>
                             </label>
                             <br />
                             <label className="custom-field-s">
-                                <textarea name="description" className="form-input" id="description-s" cols="0" rows="10" maxLength="500" onChange={(e) => {
+                                <textarea name="description" className="form-input" id="description-s" cols="0" rows="10" maxLength="200" onChange={(e) => {
                                     setdescription(e.target.value)
                                 }} ></textarea>
                                 <span className="placeholder">description</span>
@@ -64,7 +72,7 @@ const AddSuppliers = ({supPOP}) => {
                             <br />
 
                             <label className="custom-field-s">
-                                <input type="text" className="form-input" id="contact-s" onChange={(e) => {
+                                <input type="number" className="form-input" id="contact-s" min="1" onChange={(e) => {
                                     setcontact(e.target.value)
                                 }} />
                                 <span className="placeholder">contact</span>

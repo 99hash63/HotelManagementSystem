@@ -76,14 +76,51 @@ app.use("/FinalBill", finalBill);
 
 
 
+//Ramesh 
+const employeeRouter = require("./routes/Employees.js");
+app.use("/employee",employeeRouter);
+
+const salaryRouter = require("./routes/Salaries.js");
+app.use("/salary",salaryRouter);
+
+const vacationRouter = require("./routes/Vactionrequests.js");
+app.use("/vacation",vacationRouter);
+
+
+//Thilan Routes
+const barInventoryRouter = require("./routes/barInventory");
+const barOrdersRouter = require("./routes/barOrders");
+const orderItemsRouter = require("./routes/orderItems");
+
+ app.use("/barInventory",barInventoryRouter);
+ app.use("/barOrders",barOrdersRouter);
+ app.use("/orderItems",orderItemsRouter);
+
 
 //Anu Routes
 const mealOrderRout = require("./routes/MealOrder.js");
 app.use("/Meal_Order", mealOrderRout);
 
-const roomRouter = require("./routes/rooms.js");
 
+
+//Ishara routes
+const roomRouter = require("./routes/rooms.js");
 app.use("/room",roomRouter);
+
+const roomType = require("./routes/roomType.js");
+app.use("/roomType",roomType);
+
+
+
+//Pamoda Routes
+const bookedHalls = require("./routes/bookedHalls.js");
+app.use("/bookedhalls", bookedHalls);
+
+const halls = require("./routes/halls.js");
+app.use("/halls", halls);
+
+
+
 
 
 app.listen(PORT,()=>{

@@ -28,55 +28,81 @@ function AddAgencies() {
         }
 
         axios.post("http://localhost:5000/Travel_Agency/add", newAgencies).then(() => {
-            window.location = "/view"
+            window.location = "/front-office-manager/viewAllAgencies"
             alert("Agencies Added Successfuly");
-        }).catch(() => {
+        }).catch((err) => {
             alert("Contract Id Was Duplicated!!");
         })
     }
 
 
     return (
-        <div class="container">
-            <div className="header-box">Add Agent</div>
+        <div className="display-box">
+            <div className="header-box">Add agency</div>
+
+            <div className="content-box">
             <form>
-                <label>Contract Id :</label><br />
-                <input type="text" id="contract_id" name="contract_id" onChange={(e) => {
+            <div className="form1">
+            <label className="custom-field">
+                <input type="text" required id="contract_id" name="contract_id" onChange={(e) => {
                     setContract_id(e.target.value);
-                }} /><br></br>
+                }} required/>
+                <span className="placeholder">Contract Id</span>
+                </label><br />
 
-                <label>Name:</label><br />
-                <input type="text" id="name" name="name" onChange={(e) => {
+                <label className="custom-field">
+                <input type="text" required name="name" onChange={(e) => {
                     setName(e.target.value);
-                }} /><br></br>
+                }} />
+                <span className="placeholder">Name</span>
+                </label><br />
 
-                <label>Mail Address :</label><br />
-                <input type="text" id="mail_Address" name="mail_Address" onChange={(e) => {
+                <label label className="custom-field">
+                <input type="text" required id="mail_Address" name="mail_Address" onChange={(e) => {
                     setMail_Address(e.target.value);
-                }} /><br></br>
+                }} />
+                <span className="placeholder">Mail Address </span>
+                </label><br />
 
-                <label>Contact Number :</label><br />
-                <input type="text" id="Contact" name="Contact" onChange={(e) => {
+                <label label className="custom-field">
+                <input type="text" required id="Contact" name="Contact" onChange={(e) => {
                     setMobile(e.target.value);
-                }} /><br></br>
+                }} />
+                <span className="placeholder">Contact Number</span>
+                </label><br />
+                </div>
+                
+                <div className="form2">
+                <div className="form2-content">
 
-                <label>Address :</label><br />
-                <input type="text" id="Address" name="Address" onChange={(e) => {
+                <label label className="custom-field">
+                <input type="text" required id="Address" name="Address" onChange={(e) => {
                     setAddress(e.target.value);
-                }} /><br></br>
+                }} />
+                <span className="placeholder">Address</span>
+                </label><br />
 
-                <label>Passcode :</label><br />
-                <input type="text" id="Passcode" name="Passcode" onChange={(e) => {
+                <label label className="custom-field">
+                <input type="text" required id="Passcode" name="Passcode" onChange={(e) => {
                     setPasscode(e.target.value);
-                }} /><br></br>
+                }} />
+                <span className="placeholder">Passcode</span>
+                </label><br />
 
-                <label>Rate :</label><br />
-                <input type="number" id="Rate" name="Rate" onChange={(e) => {
+                <label label className="custom-field">
+                <input type="number" required id="Rate" name="Rate" onChange={(e) => {
                     setRate(e.target.value);
-                }} /><br></br>
+                }} />
+                <span className="placeholder">Rate</span>
+                </label><br />
 
-                <input type="submit" value="Submit" onClick={sendData} />
+                {/* <div className="form2-btn"> */}
+                <input className="addinventory-btn" type="submit" value="Submit" onClick={sendData} />
+                {/* </div> */}
+                </div>
+                </div>
             </form>
+            </div>
 
         </div>
     )

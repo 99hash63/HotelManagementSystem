@@ -76,6 +76,9 @@ const DisplayInventory = () => {
 
         axios.put(`http://localhost:5000/inventory/update/${id}`, newItem).then(() => {
 
+            document.getElementById('update_successful').style.display = "block ";
+          
+
         }).catch((e) => {
             alert("error");
         })
@@ -90,18 +93,18 @@ const DisplayInventory = () => {
 
     }
     //delete inventory button funtion
-    var timesClicked =0;
+    var timesClicked =0; //for counting delete button click
     const delete_inventory = () => {
         timesClicked++;
         
-        if (timesClicked > 1) {
+        if (timesClicked > 1) {//if button click is more than one - delete inventory
             axios.delete(`http://localhost:5000/inventory/delete/${id}`).then(() => {
-                window.location = "/inventory"
+                window.location = "/inventory-manager"
                 timesClicked=0
             }).catch((e) => {
                 alert("error");
             })
-        } else {
+        } else { //if button click is equal to one - (delete validation) - confirm delete msg
             document.getElementById('delete_btn').innerHTML = "Confirm Delete"
             document.getElementById("delete_btn").style.color = "white";
             document.getElementById("delete_btn").style.backgroundColor ="rgb(255, 0, 55)"
@@ -176,7 +179,7 @@ const DisplayInventory = () => {
                                 <select name="category" id="category" onChange={(e) => {
                                     setcategory(e.target.value)
                                 }}  >
-                                    <option key={category} value={category}>{getInventory.category} </option>
+                                    <option >{category}</option>
                                     {
                                         getCategory.map(function (category) {
                                             if (getInventory.category !== category) {
@@ -258,10 +261,18 @@ const DisplayInventory = () => {
                         <div className="form2-btn">
 
                             <button id="update_inventory" style={{ display: "none" }} className="addinventory-btn">Update Inventory</button>
+                        
 
                         </div>
-
-
+                        <span id="update_successful" style={{ 
+                                display: "none" ,
+                                fontSize:"13px",
+                                fontWeight:"600",
+                                // marginLeft:"215px",
+                                marginTop:"120px",
+                                position:"absolute",
+                                color:"green"
+                                }} >Update successful</span>
 
                     </div>
 

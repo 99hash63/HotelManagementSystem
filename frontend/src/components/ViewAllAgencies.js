@@ -2,11 +2,14 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import './AddAgent.css'
+import { useHistory } from "react-router-dom";
+
 
 
 
 
 function ViewAll() {
+    const history = useHistory();
     var [agent, setAgent] = useState([]);
 
     useEffect(() => {
@@ -23,7 +26,9 @@ function ViewAll() {
 
     return (
         <div className="display-box">
-            <div className="header-box"> All Agencies </div>
+            <div className="header-box"> All Agencies 
+            <button id="edit_btn"  onClick={() => { history.goBack();}}>BACK</button>
+            </div>
             <div className="content-box-list">
             <table>
             <thead>
@@ -51,7 +56,7 @@ function ViewAll() {
                                 <td>{agent.address}</td>
                                 <td>{agent.passcode}</td>
                                 <td>{agent.rate}</td>
-                                <td><Link to={"/viewOne/" + agent._id}> <i class="far fa-edit"></i> </Link></td>
+                                <td><Link to={"/front-office-manager/viewOne/" + agent._id}> <i class="far fa-edit"></i> </Link></td>
                             </tr>
                      
                    

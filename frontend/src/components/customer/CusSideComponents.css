@@ -1,0 +1,15 @@
+
+
+.cusSideComp{
+    position: absolute;
+    border-radius: 10px;
+    top: 425px;
+    /* height: 600px; */
+    left: 980px;
+    transform: translate(-50%, -50%);
+    background: rgb(248, 248, 248);
+    width: 1150px;
+    height: 600px;
+    z-index: 22 !important;
+    padding: 20px 20px 20px 20px;
+}
