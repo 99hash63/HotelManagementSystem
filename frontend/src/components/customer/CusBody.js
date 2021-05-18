@@ -26,7 +26,6 @@ export default function Body() {
 
     return (
 
-
         <Router>
               <head>
                 <title>Hotel Sobana</title>

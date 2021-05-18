@@ -54,7 +54,7 @@ export default function AddInventory() {
 
         axios.post(" http://localhost:5000/inventory/add", newItem).then(() => {
 
-            window.location = "/inventory"
+            window.location = "/inventory-manager"
 
         }).catch((e) => {
             alert("error");

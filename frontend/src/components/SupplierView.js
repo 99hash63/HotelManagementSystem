@@ -54,7 +54,7 @@ const SuppliersView = () => {
 
             axios.put(`http://localhost:5000/supplier/update/${id}`, newSupplier).then(() => {
 
-                window.location = "/suppliers"
+                window.location = "/inventory-manager/suppliers"
     
             }).catch((e) => {
                 alert("error");
@@ -72,7 +72,7 @@ const SuppliersView = () => {
         if (timesClicked > 1) { //if button click is more than one - delete supplier
 
             axios.delete(`http://localhost:5000/supplier/delete/${id}`).then(() => {
-                window.location = "/suppliers"
+                window.location = "/inventory-manager/suppliers"
                 timesClicked=0
             }).catch((e) => {
 

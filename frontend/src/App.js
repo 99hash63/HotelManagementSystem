@@ -35,7 +35,6 @@ function App() {
             <Route  path="/inventory-manager" component={inventoryComp} />
             <Route exact path="/404" component={Page404} />
 
-          
             <AuthContextProvider >
             <Route path="/" component={CusBody} />
             </AuthContextProvider>

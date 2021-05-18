@@ -99,7 +99,7 @@ const DisplayInventory = () => {
         
         if (timesClicked > 1) {//if button click is more than one - delete inventory
             axios.delete(`http://localhost:5000/inventory/delete/${id}`).then(() => {
-                window.location = "/inventory"
+                window.location = "/inventory-manager"
                 timesClicked=0
             }).catch((e) => {
                 alert("error");

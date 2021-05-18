@@ -27,7 +27,7 @@ const AddSuppliers = ({ supPOP }) => {
 
             axios.post(" http://localhost:5000/supplier/add", newSupplier).then(() => {
 
-                window.location = "/suppliers"
+                window.location = "/inventory-manager/suppliers"
 
             }).catch((e) => {
                 alert("error");
