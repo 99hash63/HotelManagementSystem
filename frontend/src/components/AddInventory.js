@@ -210,9 +210,6 @@ export default function AddInventory() {
 
                             </div>
 
-
-
-
                         </div>
                         <div className="form2-btn">
                             <button className="addinventory-btn">Add Inventory</button>
