@@ -11,7 +11,7 @@ router.route('/add').post((req, res) => {
 }) ;
 
 // Get all roomTypes 
-router.route('/get').get((req, res) => {
+router.route('/').get((req, res) => {
     roomType.find()
         .then(roomType => res.json(roomType))
         .catch(err => res.status(400).json('Error: ' +err));

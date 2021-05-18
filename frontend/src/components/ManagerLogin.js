@@ -28,7 +28,7 @@ const ManagerLogin = () => {
                 <i className="fas"><img src="https://img.icons8.com/color/144/000000/new-product--v1.png" /></i><br />
                 <span id="manager-text">Inventory Manager</span>
             </Link>
-            <Link className="ManagerLoginBox-c ManagerLoginBoxBTN">
+            <Link to="/room-manager" className="ManagerLoginBox-c ManagerLoginBoxBTN">
                 <i className="fas"><img src="https://img.icons8.com/color/144/000000/room.png" /></i><br />
                 <span id="manager-text">Room Manager</span>
             </Link>

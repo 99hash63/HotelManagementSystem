@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route, Switch, Link, Redirect } from 'react-ro
 import frontOfficeComp from './components/bodyComponents/frontOfficeComp'
 import inventoryComp from './components/bodyComponents/inventoryComp'
 import barComp from './components/bodyComponents/barComp'
+import roomComp from './components/bodyComponents/roomComp'
 import employeeManager from './components/bodyComponents/employeeManagerComp';
 import Page404 from './components/404';
 import { AuthContextProvider } from './context/AuthContext';
@@ -36,6 +37,7 @@ function App() {
             <Route  path="/front-office-manager" component={frontOfficeComp} />
             <Route  path="/inventory-manager" component={inventoryComp} />
             <Route  path="/bar-manager" component={barComp} />
+            <Route  path="/room-manager" component={roomComp} />
             <Route exact path="/404" component={Page404} />
 
             <AuthContextProvider >

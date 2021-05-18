@@ -5,14 +5,14 @@ let Room = require("../models/rooms");
 
 router.route("/add").post((req,res)=>{
 
-    const roomNo = Number(req.body.roomNo);
-    const type = req.body.type;
-    const buildingNo = Number(req.body.buildingNo);
-    const floorNum = Number(req.body.floorNum);
-    const specialDetails = req.body.specialDetails;
+    // const roomNo = Number(req.body.roomNo);
+    // const type = req.body.type;
+    // const buildingNo = Number(req.body.buildingNo);
+    // const floorNum = Number(req.body.floorNum);
+    // const specialDetails = req.body.specialDetails;
+    const {roomNo, type, buildingNo, floorNum, specialDetails} = req.body;
 
     
-
     const newRoom = new Room({
 
         roomNo,
@@ -24,11 +24,9 @@ router.route("/add").post((req,res)=>{
     })
 
     newRoom.save().then(()=>{
-        res.json("room added")
-
-    }).catch((err)=>{
-        console.log(err);
-
+        res.status(200).json("added");
+    }).catch((e)=>{
+        console.log(e);
     })
 
 
