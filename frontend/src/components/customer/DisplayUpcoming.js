@@ -102,9 +102,9 @@ const DisplayUpcoming = () => {
         <div className="cusSideComp" >
                     <i  onClick={() => { history.goBack();}} class="fas fa-chevron-circle-left"></i>
             <div id="edit-title" className="header-box"> Upcoming Bookings
-            
+           
             <div>
-               
+            
                     <button className="btn btn-block btn-outline-primary" id="edit_btn" onClick={enable_edit}>Edit</button>
                     <button className="btn btn-block btn-outline-primary"id="delete_btn" onClick={delete_booking} >Delete</button>
             </div>
@@ -205,7 +205,7 @@ const DisplayUpcoming = () => {
                         </div>   
                    
                         <div >
-
+                        <button style={{ width: "450px", marginLeft: "310px", marginTop: "20px"}}  className="btn btn-block btn-outline-primary">Create PDF</button>
                             <button id="update_inventory" style={{ display: "none", width: "450px", marginLeft: "310px", marginTop: "20px"}}  className="btn btn-block btn-outline-primary" onClick={UpdateBooking}>Update Booking</button>
 
                         </div>
