@@ -3,11 +3,12 @@ import './CusLogin.css'
 import axios from 'axios'
 import { useHistory } from 'react-router';
 import AuthCentext from '../../context/AuthContext'
+import Hero from './subComponents/Hero'
+import PageBottom from './PageBottom';
 
 
 // import Hero from '../components/customer/subComponents/Hero';
 import Banner from './subComponents/Banner';
-import Hero from './subComponents/Hero';
 import { Link } from 'react-router-dom';
 
 const Login = () => {
@@ -40,7 +41,8 @@ const Login = () => {
 
     return (  
 
-
+<div>
+    <Hero hero="behindHero"></Hero>
 
         <div  style={{gridArea:"b"}} className="customerREGLOG">
             
@@ -83,6 +85,8 @@ const Login = () => {
                 </form>
 
             </div>
+            <PageBottom/>
+    </div>        
 
     );
     }

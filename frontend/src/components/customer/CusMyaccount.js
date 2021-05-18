@@ -44,15 +44,15 @@ const MyAccount = () => {
     function renderAccount(){
         return myAccount.map((myAccount) => {
             return (
-                <div >
-                    <h3>First Name  : {myAccount.fname}</h3>
-                    <h3>Last Name   : {myAccount.lname}</h3>
+                <div style={{paddingLeft: "50px", paddingTop: "50px"}}>
+                    <h3>First Name: {myAccount.fname}</h3><br/>
+                    <h3>Last Name: {myAccount.lname}</h3><br/>
                     {/* <h3>Address     : {myAccount.address}</h3>
                     <h3>NIC         : {myAccount.NIC}</h3>
                     <h3>Nationality : {myAccount.nationality}</h3>
                     <h3>PassportNo  : {myAccount.passportNo}</h3> */}
-                    <h3>Email       : {myAccount.email}</h3>
-                    <h3>Contact     : {myAccount.contact}</h3>
+                    <h3>Email: {myAccount.email}</h3><br/>
+                    <h3>Contact: {myAccount.contact}</h3><br/>
                     
                 </div>
             )   
@@ -61,27 +61,23 @@ const MyAccount = () => {
 
     return ( 
         <div>
-           <Hero hero="behindHero">
-        </Hero>
+           <Hero hero="behindHero"></Hero>
            
-        <div className="cusSideComp" >
-        <div className="myAccount" >       
-        {/* <div className="container contact">
-        <div className="row"> */}
-        <div className="col-md-8 col-12 mx-auto">
-            <div className="card shadow-lg border-0 p-4" >
-             <ul>
-                {renderAccount()}
-                <a href="cusUpdateAccount"><button className="btn btn-block btn-outline-primary">EDIT</button></a>
-                
-            </ul>
+            <div className="cusSideComp" >
+                <div className="myAccount" >       
+                    <div className="card shadow-lg border-0 p-4">
+                        <ul>
+                            {renderAccount()}
+                            <a href="cusUpdateAccount">
+                                <div style={{padding: "0px 0px 150px 50px"}}>
+                                    <button className="btn btn-block btn-outline-primary" >EDIT</button>
+                                </div>
+                            </a>               
+                        </ul>
+                    </div>                    
+                </div>
+            </div>
         </div>
-        </div>
-        </div>
-        </div>
-          </div>
-        //  </div>
-        //  </div>
      );
      
 }

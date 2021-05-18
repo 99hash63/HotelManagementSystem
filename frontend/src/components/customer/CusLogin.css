@@ -59,7 +59,7 @@
   }
 }
 .customerREGLOG{
-    position: relative;
+    position: absolute;
     border-radius: 10px;
     top: 400px;
     /* height: 600px; */
@@ -67,6 +67,7 @@
     transform: translate(-50%, -50%);
     background: rgb(248, 248, 248);
     width: 500px;
+    z-index: 22 !important;
 }
 #signinCUS{
     margin-left: 15px;

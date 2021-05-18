@@ -35,7 +35,7 @@ const UpdateAccount = () => {
         axios.post(`http://localhost:5000/customer/update`, updateAccount).then(() => {
             window.location = "/CusSideNav/cusMyaccount"
         }).catch((e) => {
-            alert("Cannot Update User");
+            alert("Please Verify Your Password");
         })
 
     }
@@ -86,64 +86,74 @@ const UpdateAccount = () => {
         return myAccount.map((myAccount) => {
             return (
                 <div className="myAccountUpdate" >       
-                        <div className="container contact">
+                        {/* <div className="container contact">
                             <div className="row">
-                                <div className="col-md-8 col-12 mx-auto">
-                                    <div className="card shadow-lg border-0 p-4">
-                                        <div className="row">
-                                            <div className="col-md-6 col-12 mx-auto my-2">         
-                                                <li>First Name <input type="text" className="form-control-lg" defaultValue={myAccount.fname} onChange={(e) => {
-                                                    setFname(e.target.value)
-                                                    }} required /></li>
-                                            </div>
-                                            <div className="col-md-6 col-12 mx-auto my-2">
-                                                <li>Last Name <input type="text" className="form-control-lg" defaultValue={myAccount.lname} onChange={(e) => {
-                                                    setLname(e.target.value)
+                                <div className="col-md-8 col-12 mx-auto"> */}
+                                    <div className="card shadow-lg border-0 p-4">                                   
+                                        {/* <div className="form-group my-5"> */}
+                                            <div className="row">
+                                                <div className="col-md-6 col-12 mx-auto my-2">    
+                                                    <label>First Name</label>     
+                                                    <li><input size="2" type="text" className="form-control-lg" defaultValue={myAccount.fname} onChange={(e) => {
+                                                        setFname(e.target.value)
+                                                        }} required /></li>
+                                                </div>
+                                                <div className="col-md-6 col-12 mx-auto my-2">
+                                                    <label>Last Name </label>    
+                                                    <li><input type="text" className="form-control-lg" defaultValue={myAccount.lname} onChange={(e) => {
+                                                        setLname(e.target.value)
 
-                                                    setAddress("null")
-                                                    setNIC("null")
-                                                    setNationality("null")
-                                                    setPassportNo("null")
-                                                    }} required /></li>
-                                            </div>          
-                                        </div>
-                                        
+                                                        setAddress("null")
+                                                        setNIC("null")
+                                                        setNationality("null")
+                                                        setPassportNo("null")
+                                                        }} required /></li>
+                                                </div>          
+                                            </div>
+                                        {/* </div>     */}
                                 
-
-                                        <div className="row">      
-                                            <div className="col-md-6 col-12 mx-auto my-2">
-                                                <li>Email <input type="text" className="form-control-lg" defaultValue={myAccount.email} onChange={(e) => {
-                                                    setEmail(e.target.value)
-                                                    }} required /></li>
-                                            </div>                                
-                                            <div className="col-md-6 col-12 mx-auto my-2">
-                                                <li>Contact <input type="text" className="form-control-lg" defaultValue={myAccount.contact} onChange={(e) => {
-                                                    setContact(e.target.value)
-                                                    }} required /></li>
-                                            </div>                                
-                                        </div>
-
-                                        <div className="row">
-                                            <div className="col-md-6 col-12 mx-auto my-2">                          
-                                                <li>Password <input type="password" className="form-control-lg" onChange={(e) => {
-                                                    setPassword(e.target.value)
-                                                    }} required /></li>
-                                            </div>                                
-                                            <div className="col-md-6 col-12 mx-auto my-2">                              
-                                                <li>PasswordVerify <input type="password" className="form-control-lg" onChange={(e) => {
-                                                    setPasswordVerify(e.target.value)
-                                                    }} required /></li>
+                                        {/* <div className="form-group my-5"> */}
+                                            <div className="row">      
+                                                <div className="col-md-6 col-12 mx-auto my-2">
+                                                    <label>Email</label>    
+                                                    <li> <input type="text" className="form-control-lg" defaultValue={myAccount.email} onChange={(e) => {
+                                                        setEmail(e.target.value)
+                                                        }} required /></li>
+                                                </div>                                
+                                                <div className="col-md-6 col-12 mx-auto my-2">
+                                                    <label>Contact</label>    
+                                                    <li> <input type="text" className="form-control-lg" defaultValue={myAccount.contact} onChange={(e) => {
+                                                        setContact(e.target.value)
+                                                        }} required /></li>
+                                                </div>                                
                                             </div>
-                                        </div>
+                                        {/* </div> */}
 
-                                        <div>
+                                        {/* <div className="form-group my-5"> */}
+                                            <div className="row">
+                                                <div className="col-md-6 col-12 mx-auto my-2">     
+                                                    <label>Password</label>                         
+                                                    <li><input type="password" className="form-control-lg" onChange={(e) => {
+                                                        setPassword(e.target.value)
+                                                        }} required /></li>
+                                                </div>                                
+                                                <div className="col-md-6 col-12 mx-auto my-2">
+                                                    <label>PasswordVerify</label>                                  
+                                                    <li><input type="password" className="form-control-lg" onChange={(e) => {
+                                                        setPasswordVerify(e.target.value)
+                                                        }} required /></li>
+                                                </div>
+                                            </div>
+                                        {/* </div> */}
+
+                                        <div style={{paddingBottom: "120px"}}>
                                             <button className="btn btn-block btn-outline-primary" id="edit_btn" onClick={UpAccount}>Update</button>
                                             <button className="btn btn-block btn-outline-primary" id="delete_btn" onClick={delete_account} >Delete</button>
                                         </div>            
                                     </div>
-                                </div>
+                                {/* </div>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
             )   
         })

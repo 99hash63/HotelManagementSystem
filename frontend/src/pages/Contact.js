@@ -1,7 +1,13 @@
 import React from 'react'
+import Hero from '../components/customer/subComponents/Hero';
+import PageBottom from '../components/customer/PageBottom';
 const Contact = () => {
 return (
-<div className="container contact">
+
+    <div>
+    <Hero hero="behindHero"></Hero>
+
+<div className="container contact" style={{ top: "50px",  zIndex: "25 !important"}}>
     <div className="row">
         <div className="col-md-8 col-12 mx-auto">
             <div className="card shadow-lg border-0 p-4">
@@ -38,6 +44,9 @@ return (
         </div>
     </div>
 </div>
+
+<PageBottom/>
+    </div>        
 )
 }
 export default Contact

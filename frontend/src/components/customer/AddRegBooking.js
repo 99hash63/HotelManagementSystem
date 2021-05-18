@@ -290,17 +290,12 @@ const AddRegBooking = ({setTestVal}) => {
                             <div className="mt-5 col-md-6 col-12 mx-auto">
                                 <button className="btn btn-outline-dark btn-lg btn-block">Create Booking</button>
                             </div>
+                            
                         </form>
-                {/* <div className="mt-5 col-md-6 col-12 mx-auto">
-                    <button onClick={event =>  window.location.href='/CusSideNav/addRegBooking/confirm'} className="btn btn-outline-dark btn-lg btn-block">Create Booking</button>
-                </div> */}
-
                     </div>
                 </div>
-            </div>
-                {/* <button onclick={calculateDaysLeft(checkInDate,checkOutDate)}>Click me</button> */}
+            </div>               
         </div> 
-
 
                 <BookingConfirm package={promoCode}
 
