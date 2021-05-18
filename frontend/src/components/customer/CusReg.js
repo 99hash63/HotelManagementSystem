@@ -19,6 +19,12 @@ const Register = () => {
     const [password, setPassword] = useState("");
     const [passwordVerify, setPasswordVerify] = useState("");
 
+    //error objects
+    const [emailErr, setEmailErr] = useState({});
+    const [contactErr, setContactErr] = useState({});
+    const [pwError, setPwError] = useState({});
+    const [verifyErr, setVerifyErr] = useState({});
+
     //temporary null values
     const address = "Colombo";
     const NIC = "3309563v";
@@ -30,31 +36,74 @@ const Register = () => {
     const { getLoggedIn } = useContext(AuthCentext);
     const history = useHistory();
 
-
+    //Creating user with relevant data
     async function register(e) {
         e.preventDefault();
 
-        try {
-            const registerData = {
-                fname,
-                lname,
-                address,
-                NIC,
-                nationality,
-                passportNo,
-                email,
-                contact,
-                password,
-                passwordVerify,
-            };
+        const isValid = formValidation();
 
-            await axios.post("http://localhost:5000/customer/add", registerData);
-            await getLoggedIn();
-            history.push("/");
+        if(isValid==true){
+            try {
+                const registerData = {
+                    fname,
+                    lname,
+                    address,
+                    NIC,
+                    nationality,
+                    passportNo,
+                    email,
+                    contact,
+                    password,
+                    passwordVerify,
+                };
 
-        } catch (err) {
-            alert("Email Address already exists!");
+                await axios.post("http://localhost:5000/customer/add", registerData);
+                await getLoggedIn();
+                history.push("/");
+
+                
+
+            } catch (err) {
+                alert("Email Address Already Exists!");
+            }
         }
+    }
+
+    // validating form inputs
+    const formValidation = () =>{
+        const emailErr = {}
+        const contactErr = {}
+        const pwError = {}
+        const verifyErr = {}
+        let isValid = true;
+        const emailRe = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+        if(!emailRe.test(String(email).toLowerCase())){
+            emailErr.invalidEmail = "Invalid Email Address"
+            isValid = false;
+        }
+
+        if(password.trim().length<8){
+            pwError.shortPassworfd = "Password Must Be 8 Characters Long"
+            isValid = false;
+        }
+
+        if(password.trim()!=passwordVerify.trim()){
+            verifyErr.missMatch = "Passwords Do Not Match"
+            isValid = false;
+        }
+
+        if(contact.trim().length!=10){
+            contactErr.conLength = "Invalid Contact Number"
+            isValid = false;
+        }
+
+        setEmailErr(emailErr);
+        setPwError(pwError);
+        setVerifyErr(verifyErr);
+        setContactErr(contactErr);
+        return isValid;
+
     }
 
     return (
@@ -101,23 +150,33 @@ const Register = () => {
                     <input type="text" placeholder="Email Adress" name="email" id="email" onChange={(e) => {
                         setEmail(e.target.value);
                     }} required />
+                    {Object.keys(emailErr).map((key)=>{
+                        return <div style={{color: "red"}}>{emailErr[key]}</div>
+                    })}
 
                     {/* <label for="contact"><b>Contact</b></label> */}
                     <input type="text" placeholder="Contact Number" name="contact" id="contact" onChange={(e) => {
                         setContact(e.target.value);
                     }} required />
+                     {Object.keys(contactErr).map((key)=>{
+                        return <div style={{color: "red"}}>{contactErr[key]}</div>
+                    })}
 
                     {/* <label for="password"><b>Password</b></label> */}
                     <input type="password" placeholder="Create Password" name="password" id="password" onChange={(e) => {
                         setPassword(e.target.value);
                     }} required />
+                    {Object.keys(pwError).map((key)=>{
+                        return <div style={{color: "red"}}>{pwError[key]}</div>
+                    })}
 
                     {/* <label for="passwordVerifyt"><b>Verify Password</b></label> */}
                     <input type="password" placeholder="Confirm Password" name="passwordVerify" id="passwordVerify" onChange={(e) => {
                         setPasswordVerify(e.target.value);
-                        
-                        
                     }} required />
+                     {Object.keys(verifyErr).map((key)=>{
+                        return <div style={{color: "red"}}>{verifyErr[key]}</div>
+                    })}
                   
 
                     <hr></hr>
