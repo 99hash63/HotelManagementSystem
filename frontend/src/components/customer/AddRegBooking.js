@@ -165,6 +165,16 @@ const AddRegBooking = ({setTestVal}) => {
                   break;
               }
         }
+
+        if(promoCode=="Admin123"){
+            var newPrice = price - 200;
+            setPrice(newPrice);
+        }
+
+        if(travelAgent=="Lanka"){
+            var newPrice = price - 500;
+            setPrice(newPrice);
+        }
     }
 
     //calculating date gap for checkIn and Checkout dates
@@ -254,12 +264,14 @@ const AddRegBooking = ({setTestVal}) => {
                                         <div className="col-md-6 col-12 mx-auto my-2">
                                             <input type="text" className="form-control-lg" id="promoCode" placeholder="promoCode" onChange={(e) => {
                                                 setPromoCode(e.target.value);    
+                                                calPrice();
                                             }} required />
                                         </div>
                         
                                         <div className="col-md-6 col-12 mx-auto my-2">
                                             <input type="text" className="form-control-lg" id="travelAgent" placeholder="travelAgent" onChange={(e) => {
                                                 setTravelAgent(e.target.value);
+                                                calPrice();
                                             }} required />
                                         </div>
 
@@ -342,10 +354,16 @@ const AddRegBooking = ({setTestVal}) => {
                                     </div>
                                     
                                 </form>
+
+                                
+                                        
+                               
                             </div>
                         </div>
-                    </div>               
+                    </div>            
+                   
                 </div> 
+                {/* <button style={{position: "absolute", zIndex: "35 !important", top: "700px", left: "230px", backgroundColor: "black", color: "white", padding: "4px 4px 4px 4px"}} onClick={{calPrice}}>Cal Price</button>    */}
 
                 <BookingConfirm package={promoCode}
                 promoCode = {promoCode}
