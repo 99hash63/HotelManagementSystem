@@ -8,3 +8,6 @@ management, hall management, and bar management.
 
 Hosted backend using Heroku and frontend using Netlify:
 https://trusting-feynman-fea1ce.netlify.app/
+
+Project Report:
+https://drive.google.com/file/d/1nfEnc4loeVqZK54W2_RPjTRTw7d5lA6o/view?usp=sharing
